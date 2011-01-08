@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2008 OpenIntents.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<!-- 
+ * Original copyright:
+ * Based on the Android SDK sample application NotePad.
+ * Copyright (C) 2007 Google Inc.
+ * Licensed under the Apache License, Version 2.0.
+  -->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  DiegoJ https://launchpad.net/~diegojromerolopez
+  Feder Sáiz https://launchpad.net/~federsaiz-deactivatedaccount
+  Fitoschido https://launchpad.net/~fitoschido
+  Juan Eduardo Riva https://launchpad.net/~juaneduardoriva
+  Monkey https://launchpad.net/~monkey-libre
+  Paco Molinero https://launchpad.net/~franciscomol
+  Peli https://launchpad.net/~peli0101
+  miwie https://launchpad.net/~mw-miwie</string>
+	
+    <!-- Strings for OI About -->
+	<string name="about_comments">Bloc de Notas OI permite crear, editar, y eliminar notas.</string>
+	<string name="about_website_label">Bloc de Notas OI en OpenIntents</string>
+	
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+	<string name="app_name">Bloc de Notas OI</string>
+	
+    <string name="menu_delete">Eliminar</string>
+    <string name="menu_insert">Añadir nota</string>
+    <string name="menu_revert">Revertir</string>
+    <string name="menu_discard">Descartar</string>
+    
+	<string name="no_notes">Utilizar menú para añadir notas nuevas.</string>
+
+    <string name="resolve_edit">Editar nota</string>
+    <string name="resolve_title">Editar título</string>  
+
+    <string name="title_create">Crear nota</string>
+    <string name="title_edit">Editar nota</string>
+	<string name="title_notes_list">Bloc de Notas OI</string>   
+	<string name="title_note">Nota</string>  
+	<string name="title_edit_title">Título de nota:</string>  
+    <string name="title_create_file">%s (nota nueva)</string>
+    <string name="title_edit_file">%s (editar note)</string>
+    
+    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+	
+	<string name="button_ok">De Acuerdo</string>  
+	
+	<string name="error_title">Error</string>
+	<string name="error_message">Error cargando nota</string>
+	<!-- <string name="no_notes">Note list is empty.</string>  -->
+	
+	<string name="menu_send_by_email">Enviar</string>
+	<string name="empty_note">Vaciar nota</string>
+	<string name="email_not_available">Aplicación no disponible para enviar.</string>
+	
+	<string name="encrypting_note">Cifrando nota</string>
+	<string name="encrypted">Cifrado</string>
+	<string name="menu_encrypt">Cifrar</string>
+	<string name="menu_decrypt">Descifrar</string>
+	<string name="menu_undo_encryption">Deshacer cifrado</string>
+	<string name="menu_do_not_encrypt">No cifrar</string>
+	<string name="already_encrypted">Ya cifrado.</string>
+	<string name="not_encrypted">No cifrado.</string>
+	<string name="encryption_failed">Cifrado fallido.</string>
+	<string name="decryption_failed">Descifrado fallido.</string>
+
+	<string name="menu_edit_tags">Editar etiquetas</string>
+    <string name="dropdown_hint">Toque para ver la lista</string>
+    <string name="tags_hint">Introducir etiquetas, separas por coma</string>
+    
+    <string name="menu_save_to_sdcard">Guardar a tarjeta SD</string>
+    <string name="menu_open_from_sdcard">Abrir desde tarjeta SD</string>
+    <string name="filename">Nombre de archivo</string>
+    <string name="save">Guardar</string>
+    <string name="open">Abrir</string>
+    <string name="error_writing_file">Error al grabar el archivo</string>
+    <string name="error_reading_file">Error al leer el archivo</string>
+    <string name="file_not_found">Archivo no encontrado</string>
+    <string name="note_saved">Nota guardada</string>
+    <string name="warning_file_exists_title">El archivo ya existe</string>
+    <string name="warning_file_exists_message">¿Realmente desea sobrescribir el archivo existente?</string>
+    
+    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+    <string name="menu_import">Importar</string>
+    <string name="menu_save">Guardar</string>
+    <string name="menu_save_as">Guardar como</string>
+    <string name="warning_unsaved_changes_title">Texto modificado</string>
+    <string name="warning_unsaved_changes_message">¿Desea usted guardar los cambios?</string>
+    <string name="button_save">Guardar</string>
+    <string name="button_dont_save">Don\'t save</string>
+    
+	<string name="menu_theme">Tema</string>
+	<string name="theme_pick">Elije un tema</string>
+    <string name="theme_default">Por defecto</string>
+    <string name="theme_monospaced">Tipografía monoespaciada</string>
+	<string name="theme_serif">Tipografía Serif</string>
+
+	<!-- Search -->
+	<string name="menu_search">Buscar</string>
+    <string name="search_query_results">Bloc de Notas OI</string>
+    <!-- %s is the search string -->
+	<string name="search_found_no_results">Ningún resultado encontrado para %s.</string>
+    <string name="search_label">OI Notepad busqueda</string>
+    <string name="search_hint">Buscar</string>
+    
+    <!-- The description that will show up in the search settings for this source.  -->
+    <string name="search_settings_description">Títulos de sus notas</string>
+    
+	<!--     Dialog box    -->
+	<string name="ok">De Acuerdo</string>
+	<string name="cancel">Cancelar</string>
+    <string name="use_theme_for_all_lists">Usar este tema para todas las listas</string>
+	<string name="get_more_themes">Obtener más temas</string>
+    
+    <string name="all_notes">Todas las notas</string>
+    
+    <!-- Settings -->
+    <string name="noteslist_preferences">Lista de Notas</string>
+    <string name="preference_sortorder_title">Orden de Clasificación de Lista</string>
+    <string name="preference_sortorder_dialog_title">Orden de Clasificación de Lista</string>
+    <string name="preference_sortorder_summary">El orden en el que las notas son mostradas en la lista de notas</string>
+    
+    <string name="note_editor_preferences">Editor de notas</string>
+    <string name="preference_fontsize">Tamaño de la tipografía</string>
+	<string name="preference_fontsize_summary">Cambiar tamaño de la fuente</string>
+	<string name="preference_fontsize_dialog_title">Seleccionar tamaño de fuente</string>
+	<string name="preference_autolink_title">Creación automática de enlaces</string>
+    <string name="preference_autolink_summary_on">Crear enlaces para números de teléfono y direcciones de e-mail/calle/web</string>
+    <string name="preference_autolink_summary_off">No crear enlaces de estas notas</string>
+
+	<string name="settings">Ajustes</string>
+	<string name="settings_sortorder">Orden de clasificación</string>
+	
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">Acuerdo de Licencia de Usuario Final (EULA) de OI Notepad</string>
+	<string name="eula_accept">Aceptar</string>
+	<string name="eula_refuse">Cancelar</string>
+	
+	<!-- Update -->
+		<string name="update_box_text">Compruebe manualmente las actualizaciones o instale OI Update para notificaciones automáticas. Versión actual: %s</string>
+	<string name="update_check_now">Comprobar ahora.</string>
+	<string name="update_get_updater">Obtenga el Actualizador de OI</string>
+	<string name="update_error">Descarga de aplicación no disponible.</string>
+	<string name="update">Comprobar actualizaciones</string>
+	
+    <!-- About -->
+    <string name="about">Acerca de</string>
+	<string name="aboutapp_not_available">Versión %s\nNo compatible con el complemento disponible para mostrar información completa (contacto, créditos, licencia).</string>
+    <string name="aboutapp_get">Obtenga Acerca de OI</string>
+    
+    <!-- File Manager -->
+    <string name="filemanager_not_available">No hay ningún gestor de archivos compatible.</string>
+    <string name="filemanager_get_oi_filemanager">Obtenga el Administrador de Archivos de OI</string>
+    
+    <!-- Safe -->
+    <string name="safe_not_available">Ninguna aplicación para cifrar está disponible</string>
+    <string name="safe_not_available_decrypt">Ninguna aplicación para descifrar está disponible.\n\nNota: Debe restaurar la contraseña maestra de un archivo de respaldo para acceder a la información cifrada previamente.</string>
+    <string name="safe_get_oi_filemanager">Obtener OI seguro</string>
+    
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Notepad -->
+    <string name="oi_notepad_permission_read">leer notas</string>
+    <string name="oi_notepad_permission_read_descr">Permitir a una aplicación leer notas. Observe que las notas cifradas son proveídas en formato cifrado.</string>
+    <string name="oi_notepad_permission_write">escribir notas</string>
+    <string name="oi_notepad_permission_write_descr">Permitir a una aplicación crear o modificar notas existentes.</string>
+    
+	<!-- OI Shopping list -->
+    <string name="oi_shopping_permission_read">leer listas de compra</string>
+    <string name="oi_shopping_permission_read_descr">Permitir a una aplicación leer las listas de compra. Tenga en cuenta que las listas y los elementos cifrados se presentan en formato cifrado.</string>
+    <string name="oi_shopping_permission_write">escribir listas de compra</string>
+    <string name="oi_shopping_permission_write_descr">Permitir a una aplicación crear una lista nueva y elementos o modificar los existentes.</string>
+    
+	<!-- OI Safe -->
+	<string name="oi_safe_permission_intents">cifrar y descifrar datos</string>
+    <string name="oi_safe_permission_intents_descr">Permitir a la aplicación cifrar y descifrar texto, y acceder a las contraseñas que se han almacenado en cafa fuerte IO.</string>	
+
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+    <string-array name="preference_sortorder_entries">
+        <item>Alfabético</item>
+        <item>Invertir Alfabético</item>
+        <item>De Más Nuevo a Más Viejo</item>  
+        <item>De Más Viejo a Más Nuevo</item>
+    </string-array>
+
+    <string-array name="preference_fontsize_entries">
+    	<!-- Preference fontsize: tiny font size -->
+        <item>Muy pequeña</item>
+    	<!-- Preference fontsize: small font size -->
+        <item>Pequeña</item>
+    	<!-- Preference fontsize: default font size-->
+    	<item>Por defecto</item>
+    	<!-- Preference fontsize: large font size -->
+        <item>Grande</item>
+    </string-array>
+
+    <string name="preference_addons">Componentes adicionales</string>
+    <string name="preference_get_addons">Obtener nuevos complementos</string>
+    <string name="preference_get_addons_summary">Buscar extensiones y temas en linea.</string>
+    <string name="preference_get_market_addons">Obtener complementos de Market</string>
+    <string name="preference_get_developer_addons">Obtener complementos de OpenIntents</string>
+    <string name="preference_extensions">Extensiones</string>
+    <string name="preference_themes">Temas</string>
+    <string name="preference_market_extensions_summary">Búsqueda de extensiones en la Tienda Android</string>
+    <string name="preference_market_themes_summary">Buscar temas en Android Market.</string>
+    <string name="preference_developer_extensions_summary">Obtener extensiones desde la página principal de OpenIntents</string>
+	<string name="preference_developer_themes_summary">Obtener temas de la web de OpenIntents</string>
+</resources>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2008 OpenIntents.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<!-- 
+ * Original copyright:
+ * Based on the Android SDK sample application NotePad.
+ * Copyright (C) 2007 Google Inc.
+ * Licensed under the Apache License, Version 2.0.
+  -->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Tomasz \'Zen\' Napierala https://launchpad.net/~tzn
+  usul https://launchpad.net/~usultis</string>
+	
+    <!-- Strings for OI About -->
+	<string name="about_comments">OI Notatnik pozwala tworzyć, edytować i usuwac notatki</string>
+	<string name="about_website_label">OI Notatnik na OpenIntents</string>
+	
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+	<string name="app_name">OI Notatnik</string>
+	
+    <string name="menu_delete">Usuń</string>
+    <string name="menu_insert">Dodaj notatkę</string>
+    <string name="menu_revert">Przywróć</string>
+    <string name="menu_discard">Porzuć</string>
+    
+	<string name="no_notes">Użyj menu w celu dodania nowych notatek</string>
+
+    <string name="resolve_edit">Edytuj notatkę</string>
+    <string name="resolve_title">Edytuj tytuł</string>  
+
+    <string name="title_create">Stwórz notatkę</string>
+    <string name="title_edit">Edytuj notatkę</string>
+	<string name="title_notes_list">OI Notatnik</string>   
+	<string name="title_note">Notatka</string>  
+	<string name="title_edit_title">Tytuł notatki</string>  
+    <string name="title_create_file">%s (nowa notatka)</string>
+    <string name="title_edit_file">%s (edytuj notatkę)</string>
+    
+    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+	
+	<string name="button_ok">OK</string>  
+	
+	<string name="error_title">Błąd</string>
+	<string name="error_message">Błąd ładowania notatki</string>
+	<!-- <string name="no_notes">Note list is empty.</string>  -->
+	
+	<string name="menu_send_by_email">Wyślij</string>
+	<string name="empty_note">Pusta notatka</string>
+	<string name="email_not_available">Brak aplikacji służącej wysłaniu.</string>
+	
+	<string name="encrypting_note">Szyfrowanie notatki</string>
+	<string name="encrypted">Zaszyfrowana</string>
+	<string name="menu_encrypt">Zaszyfruj</string>
+	<string name="menu_decrypt">Odszyfruj</string>
+	<string name="menu_undo_encryption">Cofnij szyfrowanie</string>
+	<string name="menu_do_not_encrypt">Nie szyfruj</string>
+	<string name="already_encrypted">Już zaszyfrowana</string>
+	<string name="not_encrypted">Niezaszyfrowana.</string>
+	<string name="encryption_failed">Szyfrowanie nie powiodło się.</string>
+	<string name="decryption_failed">Odszyfrowywanie nie powiodło się</string>
+
+	<string name="menu_edit_tags">Edytuj etykiety</string>
+    <string name="dropdown_hint">Dotknij, aby zobaczyc listę</string>
+    <string name="tags_hint">Wpisz etykiety rozdzielone przecinkami</string>
+    
+    <string name="menu_save_to_sdcard">Zapisz na kartę SD</string>
+    <string name="menu_open_from_sdcard">Otwórz z karty SD</string>
+    <string name="filename">Nazwa pliku</string>
+    <string name="save">Zapisz</string>
+    <string name="open">Otwórz</string>
+    <string name="error_writing_file">Błąd podczas zapisu pliku</string>
+    <string name="error_reading_file">Błąd podczas odczytu pliku</string>
+    <string name="file_not_found">Nie znaleziono pliku</string>
+    <string name="note_saved">Notatka zapisana</string>
+    <string name="warning_file_exists_title">Plik już istnieje</string>
+    <string name="warning_file_exists_message">Na pewno nadpisać istniejący plik?</string>
+    
+    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+    <string name="menu_import">Zaimportuj</string>
+    <string name="menu_save">Zapisz</string>
+    <string name="menu_save_as">Zapisz jako</string>
+    <string name="warning_unsaved_changes_title">Treść zmodyfikowana</string>
+    <string name="warning_unsaved_changes_message">Zapisać zmiany?</string>
+    <string name="button_save">Zapisz</string>
+    <string name="button_dont_save">Don\'t save</string>
+    
+	<string name="menu_theme">Motyw</string>
+	<string name="theme_pick">Wybierz motyw</string>
+    <string name="theme_default">Domyślny</string>
+    <string name="theme_monospaced">Czcionka nieproporcjonalna</string>
+	<string name="theme_serif">Czcionka szeryfowa</string>
+
+	<!-- Search -->
+	<string name="menu_search">Wyszukaj</string>
+    <string name="search_query_results">OI Notatnik</string>
+    <!-- %s is the search string -->
+	<string name="search_found_no_results">Nie znaleziono wyników dla %s.</string>
+    <string name="search_label">Przeszukiwanie Notatnika OI</string>
+    <string name="search_hint">Wyszukaj</string>
+    
+    <!-- The description that will show up in the search settings for this source.  -->
+    <string name="search_settings_description">Tytuły twoich notatek</string>
+    
+	<!--     Dialog box    -->
+	<string name="ok">OK</string>
+	<string name="cancel">Anuluj</string>
+    <string name="use_theme_for_all_lists">Użyj tego motywu dla wszystkich list</string>
+	<string name="get_more_themes">Pobierz więcej motywów</string>
+    
+    <string name="all_notes">Wszystkie notatki</string>
+    
+    <!-- Settings -->
+    <string name="noteslist_preferences">Lista notatek</string>
+    <string name="preference_sortorder_title">Porządek sortowania listy</string>
+    <string name="preference_sortorder_dialog_title">Porządek sortowania listy</string>
+    <string name="preference_sortorder_summary">Porządek w jakim pokazywana jest lista notatek</string>
+    
+    <string name="note_editor_preferences">Edytor notatek</string>
+    <string name="preference_fontsize">Rozmiar czcionki</string>
+	<string name="preference_fontsize_summary">Zmień wielkość czcionki</string>
+	<string name="preference_fontsize_dialog_title">Wybierz wielkość czcionki</string>
+	<string name="preference_autolink_title">Automatycznie twórz odnośniki</string>
+    <string name="preference_autolink_summary_on">Twórz odnośniki dla numerów telefonów oraz adresów email/pocztowych/www</string>
+    <string name="preference_autolink_summary_off">Nie twórz odnośników w notatkach</string>
+
+	<string name="settings">Ustawienia</string>
+	<string name="settings_sortorder">Porządek sortowania</string>
+	
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">Licencja OI Notatki</string>
+	<string name="eula_accept">Zaakceptuj</string>
+	<string name="eula_refuse">Anuluj</string>
+	
+	<!-- Update -->
+		<string name="update_box_text">Sprawdź aktualizacje ręcznie lub zainstaluj OI Aktualizacje z funkcją automatycznego powiadamiania. Obecna wersja: %s</string>
+	<string name="update_check_now">Sprawdź teraz.</string>
+	<string name="update_get_updater">Pobierz OI Updater.</string>
+	<string name="update_error">Aplikacja jest niedostępna.</string>
+	<string name="update">Sprawdź aktualizacje</string>
+	
+    <!-- About -->
+    <string name="about">O programie</string>
+	<string name="aboutapp_not_available">Wersja %s\n\nŻadne kompatybilne rozszerzenie nie jest dostępne (kontakt, autorzy, licencja)</string>
+    <string name="aboutapp_get">Pobierz OI About</string>
+    
+    <!-- File Manager -->
+    <string name="filemanager_not_available">Brak zgodnego menedżera plików</string>
+    <string name="filemanager_get_oi_filemanager">Pobierz OI File Manager</string>
+    
+    <!-- Safe -->
+    <string name="safe_not_available">Brak zgodnej aplikacji do szyfrowania</string>
+    <string name="safe_not_available_decrypt">Brak zgodnej aplikacji do odszyfrowywania.\n\nUwaga: aby uzyskać dostęp do wcześniej zaszyfrowanych danych musisz odtworzyć główny klucz z kopii zapasowej</string>
+    <string name="safe_get_oi_filemanager">Pobierz OI Sejf</string>
+    
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Notepad -->
+    <string name="oi_notepad_permission_read">OI Notatki</string>
+    <string name="oi_notepad_permission_read_descr">Pozwala aplikacji czytać notatki. Zwróć uwagę, że zaszyfrowane notatki dostępne będą w formie zaszyfrowanej.</string>
+    <string name="oi_notepad_permission_write">zapisuj notatki</string>
+    <string name="oi_notepad_permission_write_descr">Pozwala aplikacji tworzyć nowe notatki o modyfikować istniejące.</string>
+    
+	<!-- OI Shopping list -->
+    <string name="oi_shopping_permission_read">przeglądaj listy zakupów</string>
+    <string name="oi_shopping_permission_read_descr">Pozwala aplikacji czytać listy zakupów. Zwróć uwagę, że listy i elementy zaszyfrowane będą dostępne w formie zaszyfrowanej.</string>
+    <string name="oi_shopping_permission_write">zapisuj listy zakupów</string>
+    <string name="oi_shopping_permission_write_descr">Pozwaa aplikacji tworzyć nowe listy i modyfikować istniejące</string>
+    
+	<!-- OI Safe -->
+	<string name="oi_safe_permission_intents">szyfruj i odszyfrowuj dane</string>
+    <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf</string>	
+
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+    <string-array name="preference_sortorder_entries">
+        <item>Alfabetycznie</item>
+        <item>Odwrotnie alfabetycznie</item>
+        <item>Najnowsze do najstarszych</item>  
+        <item>Najstarsze do najnowszych</item>
+    </string-array>
+
+    <string-array name="preference_fontsize_entries">
+    	<!-- Preference fontsize: tiny font size -->
+        <item>Najmniejszy</item>
+    	<!-- Preference fontsize: small font size -->
+        <item>Mały</item>
+    	<!-- Preference fontsize: default font size-->
+    	<item>Domyślny</item>
+    	<!-- Preference fontsize: large font size -->
+        <item>Duży</item>
+    </string-array>
+
+    <string name="preference_addons">Dodatki</string>
+    <string name="preference_get_addons">Pobierz nowe dodatki</string>
+    <string name="preference_get_addons_summary">Szukaj rozszerzeń i motywów w sieci.</string>
+    <string name="preference_get_market_addons">Pobierz dodatki z Marketu</string>
+    <string name="preference_get_developer_addons">Pobierz dodatki z OpenIntents</string>
+    <string name="preference_extensions">Rozszerzenia</string>
+    <string name="preference_themes">Motywy</string>
+    <string name="preference_market_extensions_summary">Szukaj rozszerzeń na Android Market</string>
+    <string name="preference_market_themes_summary">Szukaj motywów na Android Market</string>
+    <string name="preference_developer_extensions_summary">Pobierz rozszerzenia ze strony OpenIntents.</string>
+	<string name="preference_developer_themes_summary">Pobierz motywy ze strony OpenIntents</string>
+</resources>

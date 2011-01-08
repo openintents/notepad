@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2008 OpenIntents.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<!-- 
+ * Original copyright:
+ * Based on the Android SDK sample application NotePad.
+ * Copyright (C) 2007 Google Inc.
+ * Licensed under the Apache License, Version 2.0.
+  -->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Peli https://launchpad.net/~peli0101
+  pjv https://launchpad.net/~pjv</string>
+	
+    <!-- Strings for OI About -->
+	<string name="about_comments">OI Notitieblok laat het creëren, bewerken en verwijderen van notities toe</string>
+	<string name="about_website_label">OI Notitieblok op OpenIntents</string>
+	
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+	<string name="app_name">OI Notitieblok</string>
+	
+    <string name="menu_delete">Verwijderen</string>
+    <string name="menu_insert">Notitie toevoegen</string>
+    <string name="menu_revert">Ongedaan maken</string>
+    <string name="menu_discard">Annuleren</string>
+    
+	<string name="no_notes">Gebruik menu om nieuwe notities toe te voegen.</string>
+
+    <string name="resolve_edit">Notitie bewerken</string>
+    <string name="resolve_title">Titel bewerken</string>  
+
+    <string name="title_create">Notitie creëren</string>
+    <string name="title_edit">Notitie bewerken</string>
+	<string name="title_notes_list">OI Notitieblok</string>   
+	<string name="title_note">Notitie</string>  
+	<string name="title_edit_title">Notitietitel:</string>  
+    <string name="title_create_file">%s (nieuwe notitie)</string>
+    <string name="title_edit_file">%s (bewerken van notitie)</string>
+    
+    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+	
+	<string name="button_ok">OK</string>  
+	
+	<string name="error_title">Fout</string>
+	<string name="error_message">Fout bij laden van notitie</string>
+	<!-- <string name="no_notes">Note list is empty.</string>  -->
+	
+	<string name="menu_send_by_email">Verzenden</string>
+	<string name="empty_note">Lege notitie</string>
+	<string name="email_not_available">Geen toepassing beschikbaar om te verzenden.</string>
+	
+	<string name="encrypting_note">Bezig met versleutelen van notitie</string>
+	<string name="encrypted">Versleuteld</string>
+	<string name="menu_encrypt">Versleutelen</string>
+	<string name="menu_decrypt">Ontsleutelen</string>
+	<string name="menu_undo_encryption">Versleuteling ongedaan maken</string>
+	<string name="menu_do_not_encrypt">Niet versleutelen</string>
+	<string name="already_encrypted">Is reeds versleuteld.</string>
+	<string name="not_encrypted">Niet versleuteld.</string>
+	<string name="encryption_failed">Versleutelen is mislukt.</string>
+	<string name="decryption_failed">Ontsleuteling is mislukt.</string>
+
+	<string name="menu_edit_tags">Tags aanpassen</string>
+    <string name="dropdown_hint">Aanraken om lijst te zien</string>
+    <string name="tags_hint">Voer tags in, gescheiden door een komma</string>
+    
+    <string name="menu_save_to_sdcard">Opslaan op SD-kaart</string>
+    <string name="menu_open_from_sdcard">Openen vanop SD-kaart</string>
+    <string name="filename">Bestandsnaam</string>
+    <string name="save">Opslaan</string>
+    <string name="open">Openen</string>
+    <string name="error_writing_file">Fout bij het schrijven van het bestand</string>
+    <string name="error_reading_file">Fout bij het lezen van het bestand</string>
+    <string name="file_not_found">Bestand niet gevonden</string>
+    <string name="note_saved">Notitie opgeslagen</string>
+    <string name="warning_file_exists_title">File exists already</string>
+    <string name="warning_file_exists_message">Do you really want to overwrite the existing file?</string>
+    
+    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+    <string name="menu_import">Import</string>
+    <string name="menu_save">Opslaan</string>
+    <string name="menu_save_as">Save as</string>
+    <string name="warning_unsaved_changes_title">Text modified</string>
+    <string name="warning_unsaved_changes_message">Do you want to save the changes?</string>
+    <string name="button_save">Opslaan</string>
+    <string name="button_dont_save">Don\'t save</string>
+    
+	<string name="menu_theme">Theme</string>
+	<string name="theme_pick">Pick a theme</string>
+    <string name="theme_default">Default </string>
+    <string name="theme_monospaced">Monospaced font</string>
+	<string name="theme_serif">Serif font</string>
+
+	<!-- Search -->
+	<string name="menu_search">Search</string>
+    <string name="search_query_results">OI Notitieblok</string>
+    <!-- %s is the search string -->
+	<string name="search_found_no_results">No results found for %s.</string>
+    <string name="search_label">OI Notepad search</string>
+    <string name="search_hint">Search</string>
+    
+    <!-- The description that will show up in the search settings for this source.  -->
+    <string name="search_settings_description">Titles of your notes</string>
+    
+	<!--     Dialog box    -->
+	<string name="ok">OK</string>
+	<string name="cancel">Annuleren</string>
+    <string name="use_theme_for_all_lists">Use this theme for all lists</string>
+	<string name="get_more_themes">Get more themes</string>
+    
+    <string name="all_notes">All notes</string>
+    
+    <!-- Settings -->
+    <string name="noteslist_preferences">Notitielijst</string>
+    <string name="preference_sortorder_title">Sorteervolgorde van lijst</string>
+    <string name="preference_sortorder_dialog_title">Sorteervolgorde van lijst</string>
+    <string name="preference_sortorder_summary">De volgorde waarin notities in de notitielijst worden getoond</string>
+    
+    <string name="note_editor_preferences">Note Editor</string>
+    <string name="preference_fontsize">Font size</string>
+	<string name="preference_fontsize_summary">Change font size</string>
+	<string name="preference_fontsize_dialog_title">Choose font size</string>
+	<string name="preference_autolink_title">Auto-create Links</string>
+    <string name="preference_autolink_summary_on">Create links for phone numbers and email/street/web addresses</string>
+    <string name="preference_autolink_summary_off">Do not create links on notes</string>
+
+	<string name="settings">Voorkeuren</string>
+	<string name="settings_sortorder">Sorteervolgorde</string>
+	
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notitieblok EULA</string>
+	<string name="eula_accept">Accepteren</string>
+	<string name="eula_refuse">Annuleren</string>
+	
+	<!-- Update -->
+		<string name="update_box_text">Gelieve manueel naar updates te controleren of OI Update te installeren voor automatische meldingen over updates. Huidige versie: %s</string>
+	<string name="update_check_now">Controleer nu.</string>
+	<string name="update_get_updater">Haal OI Updater.</string>
+	<string name="update_error">Applicatiedownload niet beschikbaar.</string>
+	<string name="update">Controleer op updates</string>
+	
+    <!-- About -->
+    <string name="about">Info</string>
+	<string name="aboutapp_not_available">Versie %s\n\nGeen compatibele extensie beschikbaar om volledige info weer te geven (contactinformatie, dankbetuigingen, licentie).</string>
+    <string name="aboutapp_get">Haal OI About</string>
+    
+    <!-- File Manager -->
+    <string name="filemanager_not_available">Er is geen compatibele bestandsbeheerder beschikbaar.</string>
+    <string name="filemanager_get_oi_filemanager">Haal OI Bestandsbeheerder</string>
+    
+    <!-- Safe -->
+    <string name="safe_not_available">Er is geen compatibele toepassing voor versleuteling beschikbaar.</string>
+    <string name="safe_not_available_decrypt">Er is geen compatibele toepassing voor ontsleuteling beschikbaar.\n\nOPmerking: U moet de master key herstellen van een backupbestand als u voorheen versleutelde data wil openen.</string>
+    <string name="safe_get_oi_filemanager">Haal OI Kluis</string>
+    
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Notepad -->
+    <string name="oi_notepad_permission_read">notities lezen</string>
+    <string name="oi_notepad_permission_read_descr">Laat een toepassing toe om notities te lezen. Merk op dat versleutelde notities ter beschikking worden gesteld in het versleutelde formaat.</string>
+    <string name="oi_notepad_permission_write">notities schrijven</string>
+    <string name="oi_notepad_permission_write_descr">Laat een toepassing toe om nieuwe notities te creëren of bestaande notites te wijzigen.</string>
+    
+	<!-- OI Shopping list -->
+    <string name="oi_shopping_permission_read">boodschappenlijstjes lezen</string>
+    <string name="oi_shopping_permission_read_descr">Laat een toepassing toe om boodschappenlijstjes te lezen. Merk op dat versleutelde lijsten en elementen ter beschikking worden gesteld in het versleutelde formaat.</string>
+    <string name="oi_shopping_permission_write">boodschappenlijstjes schrijven</string>
+    <string name="oi_shopping_permission_write_descr">Laat een toepassing toe om nieuwe lijsten en elementen te creëren of bestaande te wijzigen.</string>
+    
+	<!-- OI Safe -->
+	<string name="oi_safe_permission_intents">versleutelen en ontsleutelen van data</string>
+    <string name="oi_safe_permission_intents_descr">Laat een toepassing toe om tekst te versleutelen en ontsleutelen, en om toegang te verkrijgen tot wachtwoorden die werden opgeslagen in OI Kluis.</string>	
+
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+    <string-array name="preference_sortorder_entries">
+        <item>Alfabetisch</item>
+        <item>Omgekeerd alfabetisch</item>
+        <item>Van nieuw naar oud</item>  
+        <item>Van oud naar nieuw</item>
+    </string-array>
+
+    <string-array name="preference_fontsize_entries">
+    	<!-- Preference fontsize: tiny font size -->
+        <item>Tiny</item>
+    	<!-- Preference fontsize: small font size -->
+        <item>Small</item>
+    	<!-- Preference fontsize: default font size-->
+    	<item>Default</item>
+    	<!-- Preference fontsize: large font size -->
+        <item>Large</item>
+    </string-array>
+
+    <string name="preference_addons">Add-ons</string>
+    <string name="preference_get_addons">Get new add-ons</string>
+    <string name="preference_get_addons_summary">Search for extensions and themes online.</string>
+    <string name="preference_get_market_addons">Get add-ons from Market</string>
+    <string name="preference_get_developer_addons">Get add-ons from OpenIntents</string>
+    <string name="preference_extensions">Extensions</string>
+    <string name="preference_themes">Themes</string>
+    <string name="preference_market_extensions_summary">Search for extensions at Android Market.</string>
+    <string name="preference_market_themes_summary">Search for themes at Android Market.</string>
+    <string name="preference_developer_extensions_summary">Get extensions from the OpenIntents homepage.</string>
+	<string name="preference_developer_themes_summary">Get themes from the OpenIntents homepage.</string>
+</resources>

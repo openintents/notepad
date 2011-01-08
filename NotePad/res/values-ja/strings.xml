@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2008 OpenIntents.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<!-- 
+ * Original copyright:
+ * Based on the Android SDK sample application NotePad.
+ * Copyright (C) 2007 Google Inc.
+ * Licensed under the Apache License, Version 2.0.
+  -->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Peli https://launchpad.net/~peli0101
+  bkiw https://launchpad.net/~bkiw</string>
+	
+    <!-- Strings for OI About -->
+	<string name="about_comments">OI Notepadはノートを作成、編集、削除できます。</string>
+	<string name="about_website_label">OpenIntentsのOI Notepad</string>
+	
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+	<string name="app_name">OI Notepad</string>
+	
+    <string name="menu_delete">削除</string>
+    <string name="menu_insert">新規ノート</string>
+    <string name="menu_revert">元に戻す</string>
+    <string name="menu_discard">破棄</string>
+    
+	<string name="no_notes">新しいノートの追加にメニューを使う。</string>
+
+    <string name="resolve_edit">ノートの編集</string>
+    <string name="resolve_title">タイトルの編集</string>  
+
+    <string name="title_create">ノートの新規作成</string>
+    <string name="title_edit">ノートの編集</string>
+	<string name="title_notes_list">OI Notepad</string>   
+	<string name="title_note">ノート</string>  
+	<string name="title_edit_title">ノートのタイトル:</string>  
+    <string name="title_create_file">%s (新規ノート)</string>
+    <string name="title_edit_file">%s (ノートの編集)</string>
+    
+    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+	
+	<string name="button_ok">OK</string>  
+	
+	<string name="error_title">エラー</string>
+	<string name="error_message">エラー(ノートのロード)</string>
+	<!-- <string name="no_notes">Note list is empty.</string>  -->
+	
+	<string name="menu_send_by_email">送信</string>
+	<string name="empty_note">空のノート</string>
+	<string name="email_not_available">利用できる送信用アプリがありません。</string>
+	
+	<string name="encrypting_note">ノートの暗号化</string>
+	<string name="encrypted">暗号化済み</string>
+	<string name="menu_encrypt">暗号化</string>
+	<string name="menu_decrypt">復号化</string>
+	<string name="menu_undo_encryption">暗号化を元に戻す</string>
+	<string name="menu_do_not_encrypt">暗号化しない</string>
+	<string name="already_encrypted">暗号化済み</string>
+	<string name="not_encrypted">暗号化されていない。</string>
+	<string name="encryption_failed">暗号化に失敗しました。</string>
+	<string name="decryption_failed">復号化に失敗しました。</string>
+
+	<string name="menu_edit_tags">タグの編集</string>
+    <string name="dropdown_hint">Touch to see list</string>
+    <string name="tags_hint">タグを入力(カンマ区切り)</string>
+    
+    <string name="menu_save_to_sdcard">SDカードに保存</string>
+    <string name="menu_open_from_sdcard">SDカードから開く</string>
+    <string name="filename">ファイル名</string>
+    <string name="save">保存</string>
+    <string name="open">開く</string>
+    <string name="error_writing_file">ファイルの書き込みエラー</string>
+    <string name="error_reading_file">ファイルの読み込みエラー</string>
+    <string name="file_not_found">ファイルが見つかりません</string>
+    <string name="note_saved">ファイルが保存されました</string>
+    <string name="warning_file_exists_title">ファイルが既に存在します</string>
+    <string name="warning_file_exists_message">ファイルを上書き保存してもいいですか？</string>
+    
+    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+    <string name="menu_import">インポート</string>
+    <string name="menu_save">保存</string>
+    <string name="menu_save_as">名前を付けて保存</string>
+    <string name="warning_unsaved_changes_title">テキスト変更</string>
+    <string name="warning_unsaved_changes_message">変更を保存しますか？</string>
+    <string name="button_save">保存</string>
+    <string name="button_dont_save">Don\'t save</string>
+    
+	<string name="menu_theme">テーマ</string>
+	<string name="theme_pick">テーマを選択</string>
+    <string name="theme_default">デフォルト</string>
+    <string name="theme_monospaced">等幅フォント</string>
+	<string name="theme_serif">Serifフォント</string>
+
+	<!-- Search -->
+	<string name="menu_search">検索</string>
+    <string name="search_query_results">OI Notepad</string>
+    <!-- %s is the search string -->
+	<string name="search_found_no_results">No results found for %s.</string>
+    <string name="search_label">OI Notepad search</string>
+    <string name="search_hint">検索</string>
+    
+    <!-- The description that will show up in the search settings for this source.  -->
+    <string name="search_settings_description">ノートのタイトル</string>
+    
+	<!--     Dialog box    -->
+	<string name="ok">OK</string>
+	<string name="cancel">キャンセル</string>
+    <string name="use_theme_for_all_lists">テーマを全てのリストで使用する</string>
+	<string name="get_more_themes">テーマを入手</string>
+    
+    <string name="all_notes">全てのノート</string>
+    
+    <!-- Settings -->
+    <string name="noteslist_preferences">ノート一覧</string>
+    <string name="preference_sortorder_title">一覧のソート順</string>
+    <string name="preference_sortorder_dialog_title">一覧のソート順</string>
+    <string name="preference_sortorder_summary">The order in which notes are shown in the notes list</string>
+    
+    <string name="note_editor_preferences">Note Editor</string>
+    <string name="preference_fontsize">フォントサイズ</string>
+	<string name="preference_fontsize_summary">フォントサイズを変更</string>
+	<string name="preference_fontsize_dialog_title">フォントサイズを選択</string>
+	<string name="preference_autolink_title">リンクを自動作成</string>
+    <string name="preference_autolink_summary_on">電話番号/Eメールアドレス/住所/Webアドレスからリンクを作成</string>
+    <string name="preference_autolink_summary_off">リンクを作成しない</string>
+
+	<string name="settings">設定</string>
+	<string name="settings_sortorder">ソート順</string>
+	
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepadの利用規約</string>
+	<string name="eula_accept">許可</string>
+	<string name="eula_refuse">キャンセル</string>
+	
+	<!-- Update -->
+		<string name="update_box_text">新バージョンを手動でチェックするか、自動通知のためにOI Updateをインストールしてください。現在のバージョン: %s</string>
+	<string name="update_check_now">確認中。</string>
+	<string name="update_get_updater">OI Updaterを入手する</string>
+	<string name="update_error">ダウンロード用アプリが利用できません。</string>
+	<string name="update">アップデートをチェック</string>
+	
+    <!-- About -->
+    <string name="about">このソフトウェアについて</string>
+	<string name="aboutapp_not_available">バージョン %s\n\n全情報(連絡先・クレジット・ライセンスなど)を表示するための互換性のある拡張機能は利用できません。</string>
+    <string name="aboutapp_get">OI Aboutを入手する</string>
+    
+    <!-- File Manager -->
+    <string name="filemanager_not_available">File Managerが利用できません。</string>
+    <string name="filemanager_get_oi_filemanager">OI File Managerを入手する</string>
+    
+    <!-- Safe -->
+    <string name="safe_not_available">暗号化のためのアプリケーションが利用できません。</string>
+    <string name="safe_not_available_decrypt">No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.</string>
+    <string name="safe_get_oi_filemanager">OI Safeを入手する</string>
+    
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Notepad -->
+    <string name="oi_notepad_permission_read">ノートの閲覧</string>
+    <string name="oi_notepad_permission_read_descr">他のアプリケーションがノートを閲覧する事を許可します。暗号化されたノートは暗号化された状態で提供される事に注意してください。</string>
+    <string name="oi_notepad_permission_write">ノートの作成・編集</string>
+    <string name="oi_notepad_permission_write_descr">他のアプリケーションにノートの新規作成や編集を許可します。</string>
+    
+	<!-- OI Shopping list -->
+    <string name="oi_shopping_permission_read">ショッピングリストの閲覧</string>
+    <string name="oi_shopping_permission_read_descr">他のアプリケーションにショッピングリストを閲覧する事を許可します。暗号化されたリストやアイテムは暗号化された状態で提供される事に注意してください。</string>
+    <string name="oi_shopping_permission_write">ショッピングリストの作成・編集</string>
+    <string name="oi_shopping_permission_write_descr">他のアプリケーションにリストやアイテムの新規追加や編集を許可する。</string>
+    
+	<!-- OI Safe -->
+	<string name="oi_safe_permission_intents">暗号化・複合化データ</string>
+    <string name="oi_safe_permission_intents_descr">他のアプリケーションがテキストを暗号化・複合化し、OI Safeにより保存されたパスワードにアクセスする事を許可する。</string>	
+
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+    <string-array name="preference_sortorder_entries">
+        <item>アルファベット順</item>
+        <item>逆アルファベット順</item>
+        <item>新しいもの順</item>  
+        <item>古いもの順</item>
+    </string-array>
+
+    <string-array name="preference_fontsize_entries">
+    	<!-- Preference fontsize: tiny font size -->
+        <item>極小</item>
+    	<!-- Preference fontsize: small font size -->
+        <item>小</item>
+    	<!-- Preference fontsize: default font size-->
+    	<item>デフォルト</item>
+    	<!-- Preference fontsize: large font size -->
+        <item>大</item>
+    </string-array>
+
+    <string name="preference_addons">アドオン</string>
+    <string name="preference_get_addons">アドオンを取得</string>
+    <string name="preference_get_addons_summary">拡張機能とテーマをインターネットで検索</string>
+    <string name="preference_get_market_addons">アドオンをマーケットから取得</string>
+    <string name="preference_get_developer_addons">アドオンをOpenIntentsから取得</string>
+    <string name="preference_extensions">拡張機能</string>
+    <string name="preference_themes">テーマ</string>
+    <string name="preference_market_extensions_summary">拡張機能をAndroid Marketから検索</string>
+    <string name="preference_market_themes_summary">テーマをAndroid Marketから検索</string>
+    <string name="preference_developer_extensions_summary">拡張機能をOpenIntentsから検索</string>
+	<string name="preference_developer_themes_summary">テーマをOpenIntentsから取得</string>
+</resources>

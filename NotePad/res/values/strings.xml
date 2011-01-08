@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2008 OpenIntents.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+ <!-- 
+ * Original copyright:
+ * Based on the Android SDK sample application NotePad.
+ * Copyright (C) 2007 Google Inc.
+ * Licensed under the Apache License, Version 2.0.
+  -->
+
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">translator-credits</string>
+	
+    <!-- Strings for OI About -->
+	<string name="about_comments">OI Notepad allows to create, edit, and delete notes.</string>
+	<string name="about_website_label">OI Notepad at OpenIntents</string>
+	
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+	<string name="app_name">OI Notepad</string>
+	
+    <string name="menu_delete">Delete</string>
+    <string name="menu_insert">Add note</string>
+    <string name="menu_revert">Revert</string>
+    <string name="menu_discard">Discard</string>
+    
+	<string name="no_notes">Use menu to add new notes.</string>
+
+    <string name="resolve_edit">Edit note</string>
+    <string name="resolve_title">Edit title</string>  
+
+    <string name="title_create">Create note</string>
+    <string name="title_edit">Edit note</string>
+	<string name="title_notes_list">OI Notepad</string>   
+	<string name="title_note">Note</string>  
+	<string name="title_edit_title">Note title:</string>  
+    <string name="title_create_file">%s (new note)</string>
+    <string name="title_edit_file">%s (edit note)</string>
+    
+    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+	
+	<string name="button_ok">OK</string>  
+	
+	<string name="error_title">Error</string>
+	<string name="error_message">Error loading note</string>
+	<!-- <string name="no_notes">Note list is empty.</string>  -->
+	
+	<string name="menu_send_by_email">Send</string>
+	<string name="empty_note">Empty note</string>
+	<string name="email_not_available">No application available for sending.</string>
+	
+	<string name="encrypting_note">Encrypting note</string>
+	<string name="encrypted">Encrypted</string>
+	<string name="menu_encrypt">Encrypt</string>
+	<string name="menu_decrypt">Decrypt</string>
+	<string name="menu_undo_encryption">Undo encryption</string>
+	<string name="menu_do_not_encrypt">Do not encrypt</string>
+	<string name="already_encrypted">Already encrypted.</string>
+	<string name="not_encrypted">Not encrypted.</string>
+	<string name="encryption_failed">Encryption failed.</string>
+	<string name="decryption_failed">Decryption failed.</string>
+
+	<string name="menu_edit_tags">Edit tags</string>
+    <string name="dropdown_hint">Touch to see list</string>
+    <string name="tags_hint">Enter tags, separated by comma</string>
+    
+    <string name="menu_save_to_sdcard">Save to SD card</string>
+    <string name="menu_open_from_sdcard">Open from SD card</string>
+    <string name="filename">File name</string>
+    <string name="save">Save</string>
+    <string name="open">Open</string>
+    <string name="error_writing_file">Error while writing file</string>
+    <string name="error_reading_file">Error while reading file</string>
+    <string name="file_not_found">File not found</string>
+    <string name="note_saved">Note saved</string>
+    <string name="warning_file_exists_title">File exists already</string>
+    <string name="warning_file_exists_message">Do you really want to overwrite the existing file?</string>
+    
+    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+    <string name="menu_import">Import</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_save_as">Save as</string>
+    <string name="warning_unsaved_changes_title">Text modified</string>
+    <string name="warning_unsaved_changes_message">Do you want to save the changes?</string>
+    <string name="button_save">Save</string>
+    <string name="button_dont_save">Don\'t save</string>
+    
+	<string name="menu_theme">Theme</string>
+	<string name="theme_pick">Pick a theme</string>
+    <string name="theme_default">Default </string>
+    <string name="theme_monospaced">Monospaced font</string>
+	<string name="theme_serif">Serif font</string>
+
+	<!-- Search -->
+	<string name="menu_search">Search</string>
+    <string name="search_query_results">OI Notepad</string>
+    <!-- %s is the search string -->
+	<string name="search_found_no_results">No results found for %s.</string>
+    <string name="search_label">OI Notepad search</string>
+    <string name="search_hint">Search</string>
+    
+    <!-- The description that will show up in the search settings for this source.  -->
+    <string name="search_settings_description">Titles of your notes</string>
+    
+	<!--     Dialog box    -->
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>
+    <string name="use_theme_for_all_lists">Use this theme for all lists</string>
+	<string name="get_more_themes">Get more themes</string>
+    
+    <string name="all_notes">All notes</string>
+    
+    <!-- Settings -->
+    <string name="noteslist_preferences">Notes List</string>
+    <string name="preference_sortorder_title">List Sorting Order</string>
+    <string name="preference_sortorder_dialog_title">List Sorting Order</string>
+    <string name="preference_sortorder_summary">The order in which notes are shown in the notes list</string>
+    
+    <string name="note_editor_preferences">Note Editor</string>
+    <string name="preference_fontsize">Font size</string>
+	<string name="preference_fontsize_summary">Change font size</string>
+	<string name="preference_fontsize_dialog_title">Choose font size</string>
+	<string name="preference_autolink_title">Auto-create Links</string>
+    <string name="preference_autolink_summary_on">Create links for phone numbers and email/street/web addresses</string>
+    <string name="preference_autolink_summary_off">Do not create links on notes</string>
+
+	<string name="settings">Settings</string>
+	<string name="settings_sortorder">Sort Order</string>
+	
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepad EULA</string>
+	<string name="eula_accept">Accept</string>
+	<string name="eula_refuse">Cancel</string>
+	
+	<!-- Update -->
+		<string name="update_box_text">Please check manually for updates or install OI Update
+for automatic notifications.
+Current version: %s
+	</string>
+	<string name="update_check_now">Check now.</string>
+	<string name="update_get_updater">Get OI Updater.</string>
+	<string name="update_error">Download application not available.</string>
+	<string name="update">Check updates</string>
+	
+    <!-- About -->
+    <string name="about">About</string>
+	<string name="aboutapp_not_available">Version %s\n\nNo compatible extension available to display full info (contact, credits, license).</string>
+    <string name="aboutapp_get">Get OI About</string>
+    
+    <!-- File Manager -->
+    <string name="filemanager_not_available">No compatible file manager is available.</string>
+    <string name="filemanager_get_oi_filemanager">Get OI File Manager</string>
+    
+    <!-- Safe -->
+    <string name="safe_not_available">No compatible application for encryption is available.</string>
+    <string name="safe_not_available_decrypt">No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.</string>
+    <string name="safe_get_oi_filemanager">Get OI Safe</string>
+    
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Notepad -->
+    <string name="oi_notepad_permission_read">read notes</string>
+    <string name="oi_notepad_permission_read_descr">Allows an application to read notes. Note that encrypted notes are provided in the encrypted format.</string>
+    <string name="oi_notepad_permission_write">write notes</string>
+    <string name="oi_notepad_permission_write_descr">Allows an application to create new notes or modify existing notes.</string>
+    
+	<!-- OI Shopping list -->
+    <string name="oi_shopping_permission_read">read shopping lists</string>
+    <string name="oi_shopping_permission_read_descr">Allows an application to read shopping lists. Note that encrypted lists and items are provided in the encrypted format.</string>
+    <string name="oi_shopping_permission_write">write shopping lists</string>
+    <string name="oi_shopping_permission_write_descr">Allows an application to create new lists and items or modify existing ones.</string>
+    
+	<!-- OI Safe -->
+	<string name="oi_safe_permission_intents">encrypt and decrypt data</string>
+    <string name="oi_safe_permission_intents_descr">Allows the application to encrypt and decrypt text, and access the passwords they have stored in OI Safe.</string>	
+
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+    <string-array name="preference_sortorder_entries">
+        <item>Alphabetical</item>
+        <item>Reverse Alphabetical</item>
+        <item>Newest to Oldest</item>  
+        <item>Oldest to Newest</item>
+    </string-array>
+
+    <string-array name="preference_fontsize_entries">
+    	<!-- Preference fontsize: tiny font size -->
+        <item>Tiny</item>
+    	<!-- Preference fontsize: small font size -->
+        <item>Small</item>
+    	<!-- Preference fontsize: default font size-->
+    	<item>Default</item>
+    	<!-- Preference fontsize: large font size -->
+        <item>Large</item>
+    </string-array>
+
+    <string name="preference_addons">Add-ons</string>
+    <string name="preference_get_addons">Get new add-ons</string>
+    <string name="preference_get_addons_summary">Search for extensions and themes online.</string>
+    <string name="preference_get_market_addons">Get add-ons from Market</string>
+    <string name="preference_get_developer_addons">Get add-ons from OpenIntents</string>
+    <string name="preference_extensions">Extensions</string>
+    <string name="preference_themes">Themes</string>
+    <string name="preference_market_extensions_summary">Search for extensions at Android Market.</string>
+    <string name="preference_market_themes_summary">Search for themes at Android Market.</string>
+    <string name="preference_developer_extensions_summary">Get extensions from the OpenIntents homepage.</string>
+	<string name="preference_developer_themes_summary">Get themes from the OpenIntents homepage.</string>
+</resources>

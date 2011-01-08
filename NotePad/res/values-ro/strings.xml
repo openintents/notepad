@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2008 OpenIntents.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<!-- 
+ * Original copyright:
+ * Based on the Android SDK sample application NotePad.
+ * Copyright (C) 2007 Google Inc.
+ * Licensed under the Apache License, Version 2.0.
+  -->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  George Dumitrescu https://launchpad.net/~geod
+  Peli https://launchpad.net/~peli0101
+  iulargsb https://launchpad.net/~iulargsb</string>
+	
+    <!-- Strings for OI About -->
+	<string name="about_comments">OI Notepad vă permite să creați, modificați și ștergeți note.</string>
+	<string name="about_website_label">OI Notepad pe OpenIntents</string>
+	
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+	<string name="app_name">OI Notepad</string>
+	
+    <string name="menu_delete">Șterge</string>
+    <string name="menu_insert">Adaugă notă</string>
+    <string name="menu_revert">Revenire</string>
+    <string name="menu_discard">Renunță</string>
+    
+	<string name="no_notes">Folosiți meniul pentru a adăuga o notă.</string>
+
+    <string name="resolve_edit">Editează nota</string>
+    <string name="resolve_title">Modifică titlu</string>  
+
+    <string name="title_create">Crează notă</string>
+    <string name="title_edit">Editează nota</string>
+	<string name="title_notes_list">OI Notepad</string>   
+	<string name="title_note">Notă</string>  
+	<string name="title_edit_title">Titlu notă:</string>  
+    <string name="title_create_file">%s (notă nouă)</string>
+    <string name="title_edit_file">%s (modifică notă)</string>
+    
+    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+	
+	<string name="button_ok">OK</string>  
+	
+	<string name="error_title">Eroare</string>
+	<string name="error_message">Eroare încărcare notă</string>
+	<!-- <string name="no_notes">Note list is empty.</string>  -->
+	
+	<string name="menu_send_by_email">Trimite</string>
+	<string name="empty_note">Notă goală</string>
+	<string name="email_not_available">Nu există aplicație pentru trimitere.</string>
+	
+	<string name="encrypting_note">Criptez nota</string>
+	<string name="encrypted">Criptată</string>
+	<string name="menu_encrypt">Criptează</string>
+	<string name="menu_decrypt">Decriptează</string>
+	<string name="menu_undo_encryption">Renunță la criptare</string>
+	<string name="menu_do_not_encrypt">Nu încripta</string>
+	<string name="already_encrypted">Încriptată deja</string>
+	<string name="not_encrypted">Neîncriptată</string>
+	<string name="encryption_failed">Criptarea a eșuat.</string>
+	<string name="decryption_failed">Decriptarea a eșuat.</string>
+
+	<string name="menu_edit_tags">Modifică taguri</string>
+    <string name="dropdown_hint">Atinge pentru a vedea lista</string>
+    <string name="tags_hint">Introduceți taguri separate cu virgulă</string>
+    
+    <string name="menu_save_to_sdcard">Salvează pe cardul SD</string>
+    <string name="menu_open_from_sdcard">Deschide de pe cardul SD</string>
+    <string name="filename">Nume fișier</string>
+    <string name="save">Salvează</string>
+    <string name="open">Deschide</string>
+    <string name="error_writing_file">Eroare la scrierea fișierului</string>
+    <string name="error_reading_file">Eroare la citirea fișierului</string>
+    <string name="file_not_found">Fișier negăsit</string>
+    <string name="note_saved">Notă salvată</string>
+    <string name="warning_file_exists_title">Fișierul deja există</string>
+    <string name="warning_file_exists_message">Doriți întradevăr să suprascrieți fișierul existent?</string>
+    
+    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+    <string name="menu_import">Importă</string>
+    <string name="menu_save">Salvează</string>
+    <string name="menu_save_as">Salvează ca</string>
+    <string name="warning_unsaved_changes_title">Text modificat</string>
+    <string name="warning_unsaved_changes_message">Doriți să salvați modificările?</string>
+    <string name="button_save">Salvează</string>
+    <string name="button_dont_save">Don\'t save</string>
+    
+	<string name="menu_theme">Temă</string>
+	<string name="theme_pick">Alege temă</string>
+    <string name="theme_default">Implicit</string>
+    <string name="theme_monospaced">Font Monospaced</string>
+	<string name="theme_serif">Font Serif</string>
+
+	<!-- Search -->
+	<string name="menu_search">Caută</string>
+    <string name="search_query_results">OI Notepad</string>
+    <!-- %s is the search string -->
+	<string name="search_found_no_results">Nu s-au găsit rezultate pentru %s.</string>
+    <string name="search_label">Caută OI Notepad</string>
+    <string name="search_hint">Caută</string>
+    
+    <!-- The description that will show up in the search settings for this source.  -->
+    <string name="search_settings_description">Titlurile pentru notele tale</string>
+    
+	<!--     Dialog box    -->
+	<string name="ok">OK</string>
+	<string name="cancel">Renunță</string>
+    <string name="use_theme_for_all_lists">Utilizează această temă pentru toate listele</string>
+	<string name="get_more_themes">Obţine mai multe teme</string>
+    
+    <string name="all_notes">Toate notele</string>
+    
+    <!-- Settings -->
+    <string name="noteslist_preferences">Listă note</string>
+    <string name="preference_sortorder_title">Ordonarea listei</string>
+    <string name="preference_sortorder_dialog_title">Ordonarea listei</string>
+    <string name="preference_sortorder_summary">Ordinea în care notele sunt afișate in listă</string>
+    
+    <string name="note_editor_preferences">Editor de Note</string>
+    <string name="preference_fontsize">Dimensiune font</string>
+	<string name="preference_fontsize_summary">Schimbă dimensiunea fontului</string>
+	<string name="preference_fontsize_dialog_title">Alege dimensiunea fontului</string>
+	<string name="preference_autolink_title">Crează automat legături</string>
+    <string name="preference_autolink_summary_on">Crează legături pentru numere de telefon, adrese de email/străzi/internet</string>
+    <string name="preference_autolink_summary_off">Nu crea legături în note</string>
+
+	<string name="settings">Configurări</string>
+	<string name="settings_sortorder">Ordinea sortării</string>
+	
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepad ALUF</string>
+	<string name="eula_accept">Acceptă</string>
+	<string name="eula_refuse">Renunță</string>
+	
+	<!-- Update -->
+		<string name="update_box_text">Verificați manual existența versiunilor noi sau instalați OI Update pentru noitificări automate. Versiunea curentă: %s</string>
+	<string name="update_check_now">Verifică acum</string>
+	<string name="update_get_updater">Instalează OI Updater</string>
+	<string name="update_error">Aplicația pentru descărcare nu este disponibilă.</string>
+	<string name="update">Verifică versiuni noi</string>
+	
+    <!-- About -->
+    <string name="about">Despre</string>
+	<string name="aboutapp_not_available">Versiunea %s\n\nNu există extensie compatibilă pentru afișarea informațiilor complete (contact, mulțumiri, licență).</string>
+    <string name="aboutapp_get">Instalează OI About</string>
+    
+    <!-- File Manager -->
+    <string name="filemanager_not_available">Nu este disponibil un manager de fișiere compatibil.</string>
+    <string name="filemanager_get_oi_filemanager">Instalează OI File Manager</string>
+    
+    <!-- Safe -->
+    <string name="safe_not_available">Nu este disponibilă o aplicație compatibilă pentru criptare.</string>
+    <string name="safe_not_available_decrypt">Nu este disponibilă o aplicație compatibilă pentru decriptare.\n\nNotă: Trebuie să restaurați cheia principală dintr-un fișier de backup pentru a putea accesa datele deja criptate.</string>
+    <string name="safe_get_oi_filemanager">Instalați OI Safe</string>
+    
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Notepad -->
+    <string name="oi_notepad_permission_read">citește note</string>
+    <string name="oi_notepad_permission_read_descr">Permite unei aplicații să citească note. Notele criptate sunt oferite în formatul criptat.</string>
+    <string name="oi_notepad_permission_write">scrie note</string>
+    <string name="oi_notepad_permission_write_descr">Permite unei aplicații sa creeze note noi sau să modifice pe cele existente.</string>
+    
+	<!-- OI Shopping list -->
+    <string name="oi_shopping_permission_read">citește listele de cumpărături</string>
+    <string name="oi_shopping_permission_read_descr">Permite unei aplicații să citească listele de cumpărături. Listele criptate sunt oferite în formatul criptat.</string>
+    <string name="oi_shopping_permission_write">scrie liste de cumpărături</string>
+    <string name="oi_shopping_permission_write_descr">Permite unei aplicații să creeze liste noi sau să modifice pe cele existente.</string>
+    
+	<!-- OI Safe -->
+	<string name="oi_safe_permission_intents">criptează și decriptează date</string>
+    <string name="oi_safe_permission_intents_descr">Permite aplicațiilor să cripteze și să decripteze text, și să acceseze parolele pe care le-au salvat in OI Safe.</string>	
+
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+    <string-array name="preference_sortorder_entries">
+        <item>Alfabetic</item>
+        <item>Invers alfabetic</item>
+        <item>Cea mai nouă spre cea mai veche</item>  
+        <item>Cea mai veche spre cea mai nouă</item>
+    </string-array>
+
+    <string-array name="preference_fontsize_entries">
+    	<!-- Preference fontsize: tiny font size -->
+        <item>Minuscul</item>
+    	<!-- Preference fontsize: small font size -->
+        <item>Mic</item>
+    	<!-- Preference fontsize: default font size-->
+    	<item>Implicit</item>
+    	<!-- Preference fontsize: large font size -->
+        <item>Mare</item>
+    </string-array>
+
+    <string name="preference_addons">Module</string>
+    <string name="preference_get_addons">Obține module noi</string>
+    <string name="preference_get_addons_summary">Caută extensii și teme online.</string>
+    <string name="preference_get_market_addons">Obține module de la Piață</string>
+    <string name="preference_get_developer_addons">Obține module de la OpenIntents</string>
+    <string name="preference_extensions">Extensii</string>
+    <string name="preference_themes">Teme</string>
+    <string name="preference_market_extensions_summary">Caută extensii pe Android Market</string>
+    <string name="preference_market_themes_summary">Caută teme la Piaţa Android.</string>
+    <string name="preference_developer_extensions_summary">Instalează extensii de pe siteul OpenIntents.</string>
+	<string name="preference_developer_themes_summary">Obține teme de la pagina principală OpenIntents.</string>
+</resources>
