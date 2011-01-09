@@ -51,20 +51,6 @@
 	<!-- Update -->
 	<string name="update_app_url">market://search?q=pname:org.openintents.notepad</string>
     <string name="update_app_developer_url">http://www.openintents.org/en/notepad</string><!-- OI Notepad -->
-	<string name="update_checker_url">market://search?q=pname:org.openintents.updatechecker</string>
-    <string name="update_checker_developer_url">http://www.openintents.org/en/node/203</string><!-- 203 = OI Update -->
-	
-	<!-- About -->
-    <string name="aboutapp_market_uri">market://search?q=pname:org.openintents.about</string>
-    <string name="aboutapp_developer_uri">http://www.openintents.org/en/node/202</string><!-- 202 = OI About -->
-    
-    <!-- File Manager -->
-    <string name="filemanager_market_uri">market://search?q=pname:org.openintents.filemanager</string>
-    <string name="filemanager_developer_uri">http://www.openintents.org/en/filemanager</string><!-- OI File Manager -->
-	
-	<!-- Safe -->
-    <string name="safe_market_uri">market://search?q=pname:org.openintents.safe</string>
-    <string name="safe_developer_uri">http://www.openintents.org/en/safe</string><!-- OI Safe -->
 	
 	<!-- ***************************
 	     Preferences

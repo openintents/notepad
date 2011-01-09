@@ -1,5 +1,5 @@
  ****************************************************************************
- * Copyright (C) 2008-2010 OpenIntents.org                                  *
+ * Copyright (C) 2008-2011 OpenIntents.org                                  *
  *                                                                          *
  * Licensed under the Apache License, Version 2.0 (the "License");          *
  * you may not use this file except in compliance with the License.         *
@@ -26,6 +26,7 @@ To obtain the current release, visit
 ---------------------------------------------------------
 release: 1.2.2
 date: 2011-?
+- support Android 2.3.
 - translations into various languages.
 
 ---------------------------------------------------------
