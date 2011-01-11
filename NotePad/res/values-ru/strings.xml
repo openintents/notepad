@@ -36,6 +36,13 @@
 	<string name="about_website_label">OI Notepad на OpenIntents</string>
 	
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">Лицензионное соглашение OI Notepad</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -150,38 +157,6 @@
 
 	<string name="settings">Настройки</string>
 	<string name="settings_sortorder">Порядок сортировки</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">Лицензионное соглашение OI Notepad</string>
-	<string name="eula_accept">Принять</string>
-	<string name="eula_refuse">Отменить</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Проверяйте обновления вручную или установите OI Update для автоматического уведомления. Текущая версия: %s</string>
-	<string name="update_check_now">Проверить сейчас.</string>
-	<string name="update_get_updater">Установить OI Updater.</string>
-	<string name="update_error">Приложение загрузчик отсутствует</string>
-	<string name="update">Проверить обновления</string>
-	
-    <!-- About -->
-    <string name="about">О программе</string>
-	<string name="aboutapp_not_available">Версия %s\n\n Отсутствует совместимое расширение для отображения полной информации (контакты, авторы, лицензия).</string>
-    <string name="aboutapp_get">Установить OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Нет совместимого менеджера файлов.</string>
-    <string name="filemanager_get_oi_filemanager">Установить файл-менеджер OI</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Нет совместимого приложения шифрования</string>
-    <string name="safe_not_available_decrypt">Нет совместимого приложения для дешифрации.\n\nПримечание: Для получения доступа к ранее зашифрованным данным необходимо восстановить мастер-ключ из бэкапа.</string>
-    <string name="safe_get_oi_filemanager">Установить OI Safe</string>
-    
 	
 	<!-- ***************************
 	     Permissions

@@ -35,6 +35,13 @@
 	<string name="about_website_label">OI Notitieblok op OpenIntents</string>
 	
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notitieblok EULA</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -149,38 +156,6 @@
 
 	<string name="settings">Voorkeuren</string>
 	<string name="settings_sortorder">Sorteervolgorde</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notitieblok EULA</string>
-	<string name="eula_accept">Accepteren</string>
-	<string name="eula_refuse">Annuleren</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Gelieve manueel naar updates te controleren of OI Update te installeren voor automatische meldingen over updates. Huidige versie: %s</string>
-	<string name="update_check_now">Controleer nu.</string>
-	<string name="update_get_updater">Haal OI Updater.</string>
-	<string name="update_error">Applicatiedownload niet beschikbaar.</string>
-	<string name="update">Controleer op updates</string>
-	
-    <!-- About -->
-    <string name="about">Info</string>
-	<string name="aboutapp_not_available">Versie %s\n\nGeen compatibele extensie beschikbaar om volledige info weer te geven (contactinformatie, dankbetuigingen, licentie).</string>
-    <string name="aboutapp_get">Haal OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Er is geen compatibele bestandsbeheerder beschikbaar.</string>
-    <string name="filemanager_get_oi_filemanager">Haal OI Bestandsbeheerder</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Er is geen compatibele toepassing voor versleuteling beschikbaar.</string>
-    <string name="safe_not_available_decrypt">Er is geen compatibele toepassing voor ontsleuteling beschikbaar.\n\nOPmerking: U moet de master key herstellen van een backupbestand als u voorheen versleutelde data wil openen.</string>
-    <string name="safe_get_oi_filemanager">Haal OI Kluis</string>
-    
 	
 	<!-- ***************************
 	     Permissions

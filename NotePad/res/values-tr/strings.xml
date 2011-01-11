@@ -29,11 +29,19 @@
 	<string name="about_translators">This is a dummy translation so that the credits are counted as translated.
 
 Launchpad Contributions:
+  Peli https://launchpad.net/~peli0101
   zeugma https://launchpad.net/~sunder67</string>
 	
     <!-- Strings for OI About -->
 	<string name="about_comments">OI Notepad allows to create, edit, and delete notes.</string>
 	<string name="about_website_label">OI Notepad at OpenIntents</string>
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepad kullanıcı lisans anlaşması (EULA)</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -150,41 +158,6 @@ Launchpad Contributions:
 
 	<string name="settings">Ayarlar</string>
 	<string name="settings_sortorder">Sort Order</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad kullanıcı lisans anlaşması (EULA)</string>
-	<string name="eula_accept">Kabul Et</string>
-	<string name="eula_refuse">İptal</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Please check manually for updates or install OI Update
-for automatic notifications.
-Current version: %s
-	</string>
-	<string name="update_check_now">Şimdi kontrol et.</string>
-	<string name="update_get_updater">OI Güncellemelerini al.</string>
-	<string name="update_error">Download application not available.</string>
-	<string name="update">Güncellemeleri kontrol et</string>
-	
-    <!-- About -->
-    <string name="about">Hakkında</string>
-	<string name="aboutapp_not_available">Sürüm %s\n\n Uyumlu uzantısı mevcut tüm bilgileri (iletişim, krediler, lisans) gösterilecek.</string>
-    <string name="aboutapp_get">Get OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Uyumlu dosya yöneticisi kullanılabilir.</string>
-    <string name="filemanager_get_oi_filemanager">OI Dosya Yöneticisi al</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">No compatible application for encryption is available.</string>
-    <string name="safe_not_available_decrypt">No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.</string>
-    <string name="safe_get_oi_filemanager">Get OI Safe</string>
-    
 	
 	<!-- ***************************
 	     Permissions

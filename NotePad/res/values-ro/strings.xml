@@ -36,6 +36,13 @@
 	<string name="about_website_label">OI Notepad pe OpenIntents</string>
 	
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepad ALUF</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -150,38 +157,6 @@
 
 	<string name="settings">Configurări</string>
 	<string name="settings_sortorder">Ordinea sortării</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad ALUF</string>
-	<string name="eula_accept">Acceptă</string>
-	<string name="eula_refuse">Renunță</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Verificați manual existența versiunilor noi sau instalați OI Update pentru noitificări automate. Versiunea curentă: %s</string>
-	<string name="update_check_now">Verifică acum</string>
-	<string name="update_get_updater">Instalează OI Updater</string>
-	<string name="update_error">Aplicația pentru descărcare nu este disponibilă.</string>
-	<string name="update">Verifică versiuni noi</string>
-	
-    <!-- About -->
-    <string name="about">Despre</string>
-	<string name="aboutapp_not_available">Versiunea %s\n\nNu există extensie compatibilă pentru afișarea informațiilor complete (contact, mulțumiri, licență).</string>
-    <string name="aboutapp_get">Instalează OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Nu este disponibil un manager de fișiere compatibil.</string>
-    <string name="filemanager_get_oi_filemanager">Instalează OI File Manager</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Nu este disponibilă o aplicație compatibilă pentru criptare.</string>
-    <string name="safe_not_available_decrypt">Nu este disponibilă o aplicație compatibilă pentru decriptare.\n\nNotă: Trebuie să restaurați cheia principală dintr-un fișier de backup pentru a putea accesa datele deja criptate.</string>
-    <string name="safe_get_oi_filemanager">Instalați OI Safe</string>
-    
 	
 	<!-- ***************************
 	     Permissions

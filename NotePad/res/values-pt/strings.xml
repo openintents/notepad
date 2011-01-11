@@ -29,11 +29,19 @@
 	<string name="about_translators">This is a dummy translation so that the credits are counted as translated.
 
 Launchpad Contributions:
+  Peli https://launchpad.net/~peli0101
   Tiago Silva https://launchpad.net/~tiagosilva</string>
 	
     <!-- Strings for OI About -->
 	<string name="about_comments">OI Notepad allows to create, edit, and delete notes.</string>
 	<string name="about_website_label">OI Notepad at OpenIntents</string>
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepad EULA</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -150,41 +158,6 @@ Launchpad Contributions:
 
 	<string name="settings">Settings</string>
 	<string name="settings_sortorder">Sort Order</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad EULA</string>
-	<string name="eula_accept">Aceitar</string>
-	<string name="eula_refuse">Cancelar</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Please check manually for updates or install OI Update
-for automatic notifications.
-Current version: %s
-	</string>
-	<string name="update_check_now">Check now.</string>
-	<string name="update_get_updater">Get OI Updater.</string>
-	<string name="update_error">Download application not available.</string>
-	<string name="update">Check updates</string>
-	
-    <!-- About -->
-    <string name="about">About</string>
-	<string name="aboutapp_not_available">Version %s\n\nNo compatible extension available to display full info (contact, credits, license).</string>
-    <string name="aboutapp_get">Get OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">No compatible file manager is available.</string>
-    <string name="filemanager_get_oi_filemanager">Get OI File Manager</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">No compatible application for encryption is available.</string>
-    <string name="safe_not_available_decrypt">No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.</string>
-    <string name="safe_get_oi_filemanager">Get OI Safe</string>
-    
 	
 	<!-- ***************************
 	     Permissions

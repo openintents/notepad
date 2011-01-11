@@ -34,6 +34,13 @@
 	<string name="about_website_label">OI Notepad a cò d\'OpenIntents</string>
 	
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepad EULA</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -148,38 +155,6 @@
 
 	<string name="settings">Paramètres</string>
 	<string name="settings_sortorder">Òrdre de triada</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad EULA</string>
-	<string name="eula_accept">Acceptar</string>
-	<string name="eula_refuse">Anullar</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Se vos plai, verificatz manualament las mesas a jorn o installatz OI Update per obténer de notificacions automaticas. Version actuala : %s</string>
-	<string name="update_check_now">Verificar ara.</string>
-	<string name="update_get_updater">Obténer OI Updater.</string>
-	<string name="update_error">Telecargament de l\'aplicacion indisponible.</string>
-	<string name="update">Verificar las mesas a jorn</string>
-	
-    <!-- About -->
-    <string name="about">A prepaus</string>
-	<string name="aboutapp_not_available">Version %s\n\nCap d\'extension pas disponibla per afichar la totalitat de las informacions (contacte, credits, licéncia).</string>
-    <string name="aboutapp_get">Obténer OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Pas de gestionari de fichièrs compatibles disponibles.</string>
-    <string name="filemanager_get_oi_filemanager">Obténer OI File Manager</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Pas d\'aplicacion compatibla pel chiframent disponible.</string>
-    <string name="safe_not_available_decrypt">No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.</string>
-    <string name="safe_get_oi_filemanager">Obténer OI Safe</string>
-    
 	
 	<!-- ***************************
 	     Permissions

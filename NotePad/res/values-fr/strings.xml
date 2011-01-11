@@ -28,12 +28,20 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Abdessamad Derraz https://launchpad.net/~derraz
+  Peli https://launchpad.net/~peli0101
   Thibault Févry https://launchpad.net/~thibaultfevry
   lonelyxstorm https://launchpad.net/~sleepless-l4dy</string>
 	
     <!-- Strings for OI About -->
 	<string name="about_comments">OI Notepad permet de créer, modifier et supprimer des notes.</string>
 	<string name="about_website_label">OI Notepad chez OpenIntents</string>
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">OI Notepad EULA</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -150,38 +158,6 @@
 
 	<string name="settings">Paramètres</string>
 	<string name="settings_sortorder">Ordre de tri</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad EULA</string>
-	<string name="eula_accept">Accepter</string>
-	<string name="eula_refuse">Quitter</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">S\'il vous plaît vérifier manuellement les mises à jour ou d\'installer OI Update pour les notifications automatique. Version actuelle: %s</string>
-	<string name="update_check_now">Vérifier maintenant.</string>
-	<string name="update_get_updater">Obtenir OI Updater.</string>
-	<string name="update_error">Télécharger l\'application indisponible.</string>
-	<string name="update">Vérifier les mises à jour</string>
-	
-    <!-- About -->
-    <string name="about">À propos de</string>
-	<string name="aboutapp_not_available">La version %s\n\nest incompatible pour afficher plein d\'infos (contact, crédits, licence).</string>
-    <string name="aboutapp_get">Obtenir OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Pas de gestionnaire de fichiers compatibles disponibles.</string>
-    <string name="filemanager_get_oi_filemanager">Obtenir OI File Manager</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Pas d\'application compatible pour le chiffrement disponible.</string>
-    <string name="safe_not_available_decrypt">Pas d\'application compatible pour le décryptage disponible.\n\nNote: Vous devez restaurer la clé principale à partir d\'un fichier de sauvegarde afin d\'accéder à des données chiffrées auparavant.</string>
-    <string name="safe_get_oi_filemanager">Obtenir OI Safe</string>
-    
 	
 	<!-- ***************************
 	     Permissions

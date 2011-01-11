@@ -36,6 +36,13 @@
 	<string name="about_website_label">OI Notizblock</string>
 	
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">EULA (Endbenutzerlizenzvertrag) für OI Notizblock</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -150,39 +157,6 @@
 
 	<string name="settings">Einstellungen</string>
 	<string name="settings_sortorder">Sortierung</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">EULA (Endbenutzerlizenzvertrag) für OI Notizblock</string>
-	<string name="eula_accept">Zustimmen</string>
-	<string name="eula_refuse">Ablehnen</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Bitte manuell nach Updates suchen, oder OI Info installieren um automatisch benachrichtigt zu werden.
-Aktuelle Version: %s</string>
-	<string name="update_check_now">Jetzt prüfen.</string>
-	<string name="update_get_updater">OI Update herunterladen</string>
-	<string name="update_error">Keine Anwendung zum Herunterladen verfügbar.</string>
-	<string name="update">Nach Updates suchen</string>
-	
-    <!-- About -->
-    <string name="about">Info</string>
-	<string name="aboutapp_not_available">Version %s\n\nKeine kompatible Erweiterung verfügbar um vollständige Information anzuzeigen (Kontakt, Beitragende, Lizenz).</string>
-    <string name="aboutapp_get">OI Info herunterladen</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Kein kompatibler Dateimanager verfügbar.</string>
-    <string name="filemanager_get_oi_filemanager">OI Dateimanager herunterladen</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Keine kompatible Anwendung für Verschlüsselung verfügbar.</string>
-    <string name="safe_not_available_decrypt">Keine kompatible Anwendung für Entschlüsselung verfügbar.\n\nAnmerkung: Der Hauptschlüssel muss von einem Backup wiederhergestellt werden, um auf früher verschlüsselte Daten zugreifen zu können.</string>
-    <string name="safe_get_oi_filemanager">OI Safe herunterladen</string>
-    
 	
 	<!-- ***************************
 	     Permissions

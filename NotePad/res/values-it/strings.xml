@@ -36,6 +36,13 @@
 	<string name="about_website_label">OI Blocco Note di OpenIntents</string>
 	
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">EULA OI Blocco Note</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -150,38 +157,6 @@
 
 	<string name="settings">Impostazioni</string>
 	<string name="settings_sortorder">Ordinamento</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">EULA OI Blocco Note</string>
-	<string name="eula_accept">Accetta</string>
-	<string name="eula_refuse">Annulla</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Controlla manualmente gli aggiornamenti o installa OI Aggiornamenti per le notifiche automatiche. Versione attuale: %s</string>
-	<string name="update_check_now">Controlla adesso.</string>
-	<string name="update_get_updater">Scarica OI Aggiornamenti.</string>
-	<string name="update_error">Scaricamento dell\'applicazione non disponibile.</string>
-	<string name="update">Controlla aggiornamenti</string>
-	
-    <!-- About -->
-    <string name="about">Info</string>
-	<string name="aboutapp_not_available">Versione %s\n\nNessuna estensione compatibile disponibile per mostrare tutte le info (contatti, crediti, licenza).</string>
-    <string name="aboutapp_get">Scarica OI Info</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Nessun gestore file compatibile è disponibile.</string>
-    <string name="filemanager_get_oi_filemanager">Scarica OI Gestore File</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Nessuna applicazione compatibile per la codifica è disponibile.</string>
-    <string name="safe_not_available_decrypt">Nessuna applicazione compatibile per la codifica è disponibile.\n\nNota: devi ripristinare la chiave principale da un file di backup per accedere ai dati precedentemente codificati.</string>
-    <string name="safe_get_oi_filemanager">Scarica OI Sicurezza</string>
-    
 	
 	<!-- ***************************
 	     Permissions

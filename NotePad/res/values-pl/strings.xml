@@ -35,6 +35,13 @@
 	<string name="about_website_label">OI Notatnik na OpenIntents</string>
 	
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	     
+	<!-- EULA -->
+	<string name="eula_title">Licencja OI Notatki</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -149,38 +156,6 @@
 
 	<string name="settings">Ustawienia</string>
 	<string name="settings_sortorder">Porządek sortowania</string>
-	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">Licencja OI Notatki</string>
-	<string name="eula_accept">Zaakceptuj</string>
-	<string name="eula_refuse">Anuluj</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Sprawdź aktualizacje ręcznie lub zainstaluj OI Aktualizacje z funkcją automatycznego powiadamiania. Obecna wersja: %s</string>
-	<string name="update_check_now">Sprawdź teraz.</string>
-	<string name="update_get_updater">Pobierz OI Updater.</string>
-	<string name="update_error">Aplikacja jest niedostępna.</string>
-	<string name="update">Sprawdź aktualizacje</string>
-	
-    <!-- About -->
-    <string name="about">O programie</string>
-	<string name="aboutapp_not_available">Wersja %s\n\nŻadne kompatybilne rozszerzenie nie jest dostępne (kontakt, autorzy, licencja)</string>
-    <string name="aboutapp_get">Pobierz OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Brak zgodnego menedżera plików</string>
-    <string name="filemanager_get_oi_filemanager">Pobierz OI File Manager</string>
-    
-    <!-- Safe -->
-    <string name="safe_not_available">Brak zgodnej aplikacji do szyfrowania</string>
-    <string name="safe_not_available_decrypt">Brak zgodnej aplikacji do odszyfrowywania.\n\nUwaga: aby uzyskać dostęp do wcześniej zaszyfrowanych danych musisz odtworzyć główny klucz z kopii zapasowej</string>
-    <string name="safe_get_oi_filemanager">Pobierz OI Sejf</string>
-    
 	
 	<!-- ***************************
 	     Permissions
