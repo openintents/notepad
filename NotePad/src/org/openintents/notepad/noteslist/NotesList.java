@@ -1044,7 +1044,7 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 			Intent shortcut = new Intent(Intent.ACTION_CREATE_SHORTCUT);
 			shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, title);
 			shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, data);
-			Intent.ShortcutIconResource sir = Intent.ShortcutIconResource.fromContext(this, R.drawable.app_notes);
+			Intent.ShortcutIconResource sir = Intent.ShortcutIconResource.fromContext(this, R.drawable.ic_launcher_notepad);
 			shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, sir);
 			
 			
