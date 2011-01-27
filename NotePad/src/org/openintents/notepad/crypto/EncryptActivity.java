@@ -1,12 +1,11 @@
 package org.openintents.notepad.crypto;
 
-import org.openintents.distribution.GetFromMarketDialog;
-import org.openintents.distribution.RD;
+import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.CryptoIntents;
 import org.openintents.notepad.NoteEditor;
+import org.openintents.notepad.NotePad.Notes;
 import org.openintents.notepad.PrivateNotePadIntents;
 import org.openintents.notepad.R;
-import org.openintents.notepad.NotePad.Notes;
 import org.openintents.notepad.filename.FilenameDialog;
 import org.openintents.util.IntentUtils;
 
@@ -15,8 +14,8 @@ import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -228,12 +227,8 @@ public class EncryptActivity extends Activity {
 
 		switch (id) {
 		case DIALOG_ID_GET_FROM_MARKET:
-			return new GetFromMarketDialog(this, 
-					RD.string.safe_not_available,
-					RD.string.safe_get_oi_filemanager,
-					RD.string.safe_market_uri,
-					RD.string.safe_developer_uri);
-
+			return new DownloadOIAppDialog(this,
+					DownloadOIAppDialog.OI_SAFE);
 		}
 		return null;
 	}
@@ -246,6 +241,7 @@ public class EncryptActivity extends Activity {
 		
 		switch (id) {
 		case DIALOG_ID_GET_FROM_MARKET:
+			DownloadOIAppDialog.onPrepareDialog(this, dialog);
 			break;
 		}
 	}

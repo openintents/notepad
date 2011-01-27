@@ -2,8 +2,7 @@ package org.openintents.notepad.filename;
 
 import java.io.File;
 
-import org.openintents.distribution.GetFromMarketDialog;
-import org.openintents.distribution.RD;
+import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.FileManagerIntents;
 import org.openintents.notepad.PrivateNotePadIntents;
 import org.openintents.notepad.R;
@@ -14,8 +13,8 @@ import org.openintents.util.IntentUtils;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +23,7 @@ import android.widget.EditText;
 public class DialogHostingActivity extends Activity {
 
 	private static final String TAG = "FilenameActivity";
-	private static final boolean debug = !false;
+	private static final boolean debug = false;
 
 	public static final int DIALOG_ID_SAVE = 1;
 	public static final int DIALOG_ID_OPEN = 2;
@@ -130,12 +129,8 @@ public class DialogHostingActivity extends Activity {
 			dialog = fd;
 			break;
 		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-			Log.i(TAG, "fmd - create");
-			dialog = new GetFromMarketDialog(this, 
-					RD.string.filemanager_not_available,
-					RD.string.filemanager_get_oi_filemanager,
-					RD.string.filemanager_market_uri,
-					RD.string.filemanager_developer_uri);
+			dialog = new DownloadOIAppDialog(this,
+					DownloadOIAppDialog.OI_FILEMANAGER);
 			break;
 		}
 		if (dialog == null) {
@@ -149,6 +144,7 @@ public class DialogHostingActivity extends Activity {
 
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
+		super.onPrepareDialog(id, dialog);
 		
 		switch (id) {
 		case DIALOG_ID_SAVE:
@@ -156,6 +152,7 @@ public class DialogHostingActivity extends Activity {
 		case DIALOG_ID_OPEN:
 			break;
 		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+			DownloadOIAppDialog.onPrepareDialog(this, dialog);
 			break;
 		}
 	}

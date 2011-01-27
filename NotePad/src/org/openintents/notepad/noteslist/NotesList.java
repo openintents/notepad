@@ -32,19 +32,16 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import org.openintents.distribution.AboutDialog;
-import org.openintents.distribution.EulaActivity;
-import org.openintents.distribution.GetFromMarketDialog;
-import org.openintents.distribution.RD;
-import org.openintents.distribution.UpdateMenu;
+import org.openintents.distribution.DistributionLibraryListActivity;
+import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.CryptoIntents;
 import org.openintents.notepad.NoteEditor;
 import org.openintents.notepad.NotePad;
+import org.openintents.notepad.NotePad.Notes;
 import org.openintents.notepad.NotePadProvider;
 import org.openintents.notepad.PreferenceActivity;
 import org.openintents.notepad.PrivateNotePadIntents;
 import org.openintents.notepad.R;
-import org.openintents.notepad.NotePad.Notes;
 import org.openintents.notepad.crypto.EncryptActivity;
 import org.openintents.notepad.filename.DialogHostingActivity;
 import org.openintents.notepad.intents.NotepadInternalIntents;
@@ -52,7 +49,6 @@ import org.openintents.notepad.util.FileUriUtils;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 
 import android.app.Dialog;
-import android.app.ListActivity;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -60,7 +56,6 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.net.Uri;
@@ -69,25 +64,25 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.widget.AbsListView.OnScrollListener;
 
 /**
  * Displays a list of notes. Will display notes from the {@link Uri} provided in
  * the intent if there is one, otherwise defaults to displaying the contents of
  * the {@link NotePadProvider}
  */
-public class NotesList extends ListActivity implements ListView.OnScrollListener {
+public class NotesList extends DistributionLibraryListActivity implements ListView.OnScrollListener {
 	private static final String TAG = "NotesList";
 	private static final boolean debug = false;
 
@@ -95,8 +90,6 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 	private static final int MENU_ITEM_DELETE = Menu.FIRST;
 	private static final int MENU_ITEM_INSERT = Menu.FIRST + 1;
 	private static final int MENU_ITEM_SEND_BY_EMAIL = Menu.FIRST + 2;
-	private static final int MENU_ABOUT = Menu.FIRST + 3;
-	private static final int MENU_UPDATE = Menu.FIRST + 4;
 	private static final int MENU_ITEM_ENCRYPT = Menu.FIRST + 5;
 	private static final int MENU_ITEM_UNENCRYPT = Menu.FIRST + 6;
 	private static final int MENU_ITEM_EDIT_TAGS = Menu.FIRST + 7;
@@ -104,6 +97,7 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 	private static final int MENU_OPEN = Menu.FIRST + 9;
  	private static final int MENU_SETTINGS = Menu.FIRST + 10;
  	private static final int MENU_SEARCH = Menu.FIRST + 11;
+	private static final int MENU_DISTRIBUTION_START = Menu.FIRST + 100; // MUST BE LAST
 	
 	private static final String BUNDLE_LAST_FILTER = "last_filter";
 
@@ -120,8 +114,8 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 	private static final int REQUEST_CODE_OPEN = 5;
 	
 	private static final int DIALOG_TAGS = 1;
-	private static final int DIALOG_ABOUT = 2;
 	private static final int DIALOG_GET_FROM_MARKET = 3;
+	private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
 	
 	private final int DECRYPT_DELAY = 100;
 	
@@ -147,9 +141,13 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
             Log.d(TAG, "onCreate() " + (savedInstanceState == null ? "(no bundle)" : "(with bundle)"));
         }
 
-		if (!EulaActivity.checkEula(this)) {
-			return;
-		}
+        mDistribution.setFirst(MENU_DISTRIBUTION_START, DIALOG_DISTRIBUTION_START);
+        
+        // Check whether EULA has been accepted
+        // or information about new version can be presented.
+        if (mDistribution.showEulaOrNewVersion()) {
+            return;
+        }
 
 		setDefaultKeyMode(DEFAULT_KEYS_SHORTCUT);
 
@@ -476,14 +474,12 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 		menu.add(0, MENU_OPEN, 0, R.string.menu_open_from_sdcard).setShortcut('3',
 				'o').setIcon(R.drawable.ic_menu_folder);
 
-		UpdateMenu.addUpdateMenu(this, menu, 0, MENU_UPDATE, 0, R.string.menu_update);
-
 		menu.add(0, MENU_SETTINGS, 0, R.string.settings).setIcon(
 				android.R.drawable.ic_menu_preferences).setShortcut('9', 's');
-		
-		menu.add(0, MENU_ABOUT, 0, R.string.about).setIcon(
-				android.R.drawable.ic_menu_info_details).setShortcut('0', 'a');
 
+ 		// Add distribution menu items last.
+ 		mDistribution.onCreateOptionsMenu(menu);
+ 		
 		// Generate any additional actions that can be performed on the
 		// overall list. In a normal install, there are no additional
 		// actions found here, but this allows other applications to extend
@@ -557,12 +553,6 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 			return true;
 		case MENU_OPEN:
 			openFromSdCard();
-			return true;
-		case MENU_ABOUT:
-			showAboutBox();
-			return true;
-		case MENU_UPDATE:
-			UpdateMenu.showUpdateBox(this);
 			return true;
 		case MENU_SETTINGS:
 			showNotesListSettings();
@@ -784,11 +774,6 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
     	return android.os.Environment
 			.getExternalStorageDirectory();
     }
-    
-	private void showAboutBox() {
-		//startActivity(new Intent(this, AboutActivity.class));
-		AboutDialog.showDialogOrStartActivity(this, DIALOG_ABOUT);
-	}
 
 	private void showNotesListSettings() {
 		startActivity(new Intent(this, PreferenceActivity.class));
@@ -901,16 +886,11 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 		switch (id) {
 		case DIALOG_TAGS:
 			return new TagsDialog(this);
-		case DIALOG_ABOUT:
-			return new AboutDialog(this);
 		case DIALOG_GET_FROM_MARKET:
-			return new GetFromMarketDialog(this, 
-					RD.string.safe_not_available_decrypt,
-					RD.string.safe_get_oi_filemanager,
-					RD.string.safe_market_uri,
-					RD.string.safe_developer_uri);
+			return new DownloadOIAppDialog(this,
+					DownloadOIAppDialog.OI_SAFE);
 		}
-		return null;
+		return super.onCreateDialog(id);
 	}
 	
 
@@ -937,7 +917,8 @@ public class NotesList extends ListActivity implements ListView.OnScrollListener
 			d.setTagList(taglist);
 			
 			break;
-		case DIALOG_ABOUT:
+		case DIALOG_GET_FROM_MARKET:
+			DownloadOIAppDialog.onPrepareDialog(this, dialog);
 			break;
 		}
 	}
