@@ -37,13 +37,6 @@ Launchpad Contributions:
 	<string name="about_website_label">OI Notepad at OpenIntents</string>
 	
 	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad EULA</string>
-	
-	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 

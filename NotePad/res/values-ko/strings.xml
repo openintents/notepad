@@ -34,13 +34,6 @@
 	<string name="about_website_label">OpenIntents의 OI 메모장</string>
 	
 	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad EULA</string>
-	
-	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 

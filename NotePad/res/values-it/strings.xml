@@ -29,18 +29,12 @@
 	<string name="about_translators">Launchpad Contributions:
   CAppa https://launchpad.net/~cappa-temp-1
   Diego Pierotto https://launchpad.net/~gringo
+  Martino Barbon https://launchpad.net/~martins999
   Peli https://launchpad.net/~peli0101</string>
 	
     <!-- Strings for OI About -->
 	<string name="about_comments">OI Blocco Note permette di creare, modificare ed eliminare i tuoi appunti</string>
 	<string name="about_website_label">OI Blocco Note di OpenIntents</string>
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">EULA OI Blocco Note</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -68,7 +62,7 @@
     <string name="title_edit_file">%s (modifica nota)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+    <string name="title_pick_note_for_shortcut">Seleziona una nota per la scorciatoia</string>
 	
 	<string name="button_ok">OK</string>  
 	

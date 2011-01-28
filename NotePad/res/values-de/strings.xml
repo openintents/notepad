@@ -36,13 +36,6 @@
 	<string name="about_website_label">OI Notizblock</string>
 	
 	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">EULA (Endbenutzerlizenzvertrag) für OI Notizblock</string>
-	
-	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 

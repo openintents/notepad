@@ -41,13 +41,6 @@
 	<string name="about_website_label">Bloc de Notas OI en OpenIntents</string>
 	
 	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">Acuerdo de Licencia de Usuario Final (EULA) de OI Notepad</string>
-	
-	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
@@ -73,7 +66,7 @@
     <string name="title_edit_file">%s (editar note)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+    <string name="title_pick_note_for_shortcut">Coja una nota para atajo</string>
 	
 	<string name="button_ok">De Acuerdo</string>  
 	

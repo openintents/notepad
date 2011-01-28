@@ -28,6 +28,7 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Abdessamad Derraz https://launchpad.net/~derraz
+  Anges https://launchpad.net/~az24
   Peli https://launchpad.net/~peli0101
   Thibault Févry https://launchpad.net/~thibaultfevry
   lonelyxstorm https://launchpad.net/~sleepless-l4dy</string>
@@ -35,13 +36,6 @@
     <!-- Strings for OI About -->
 	<string name="about_comments">OI Notepad permet de créer, modifier et supprimer des notes.</string>
 	<string name="about_website_label">OI Notepad chez OpenIntents</string>
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	     
-	<!-- EULA -->
-	<string name="eula_title">OI Notepad EULA</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -69,7 +63,7 @@
     <string name="title_edit_file">%s (modifier la note)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+    <string name="title_pick_note_for_shortcut">Mettre la note en raccourci</string>
 	
 	<string name="button_ok">OK</string>  
 	
@@ -99,22 +93,22 @@
     <string name="menu_save_to_sdcard">Enregistrer sur carte SD</string>
     <string name="menu_open_from_sdcard">Ouvrir à partir de la carte SD</string>
     <string name="filename">Nom du fichier</string>
-    <string name="save">Sauver</string>
+    <string name="save">Enregistrer</string>
     <string name="open">Ouvrir</string>
     <string name="error_writing_file">Erreur lors de l\'écriture du fichier</string>
     <string name="error_reading_file">Erreur lors de la lecture du fichier</string>
     <string name="file_not_found">Fichier non trouvé</string>
-    <string name="note_saved">Note sauvé</string>
+    <string name="note_saved">Note enregistrée</string>
     <string name="warning_file_exists_title">Le fichier existe déjà</string>
     <string name="warning_file_exists_message">Voulez-vous vraiment écraser le fichier existant?</string>
     
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importer</string>
-    <string name="menu_save">Sauver</string>
+    <string name="menu_save">Enregistrer</string>
     <string name="menu_save_as">Enregistrer sous</string>
     <string name="warning_unsaved_changes_title">Texte modifié</string>
-    <string name="warning_unsaved_changes_message">Voulez-vous enregistrer les modifications?</string>
-    <string name="button_save">Sauver</string>
+    <string name="warning_unsaved_changes_message">Voulez-vous enregistrer les modifications ?</string>
+    <string name="button_save">Enregistrer</string>
     <string name="button_dont_save">Don\'t save</string>
     
 	<string name="menu_theme">Thème</string>
