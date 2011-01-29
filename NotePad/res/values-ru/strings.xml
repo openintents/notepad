@@ -29,7 +29,8 @@
 	<string name="about_translators">Launchpad Contributions:
   Artur https://launchpad.net/~arturyak
   Peli https://launchpad.net/~peli0101
-  Vasily Bogantsev https://launchpad.net/~bas-eurogym</string>
+  Vasily Bogantsev https://launchpad.net/~bas-eurogym
+  Горобец Виктор (VikTHOR) https://launchpad.net/~victhor</string>
 	
     <!-- Strings for OI About -->
 	<string name="about_comments">OI Notepad позволяет создавать, редактировать и удлять заметки.</string>
@@ -107,7 +108,7 @@
     <string name="warning_unsaved_changes_title">Текст изменен</string>
     <string name="warning_unsaved_changes_message">Вы хотите сохранить изменения?</string>
     <string name="button_save">Сохранить</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">Не сохранять</string>
     
 	<string name="menu_theme">Тема</string>
 	<string name="theme_pick">Выбрать тему</string>

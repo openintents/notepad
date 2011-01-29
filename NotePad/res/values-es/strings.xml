@@ -112,7 +112,7 @@
     <string name="warning_unsaved_changes_title">Texto modificado</string>
     <string name="warning_unsaved_changes_message">¿Desea usted guardar los cambios?</string>
     <string name="button_save">Guardar</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">No guardar</string>
     
 	<string name="menu_theme">Tema</string>
 	<string name="theme_pick">Elije un tema</string>

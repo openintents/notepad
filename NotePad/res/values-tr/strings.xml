@@ -108,7 +108,7 @@ Launchpad Contributions:
     <string name="warning_unsaved_changes_title">Text modified</string>
     <string name="warning_unsaved_changes_message">Değişiklikleri kaydetmek istiyor musunuz?</string>
     <string name="button_save">Kaydet</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">Kaydetme</string>
     
 	<string name="menu_theme">Tema</string>
 	<string name="theme_pick">Pick a theme</string>

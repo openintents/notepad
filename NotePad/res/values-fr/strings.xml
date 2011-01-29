@@ -109,7 +109,7 @@
     <string name="warning_unsaved_changes_title">Texte modifié</string>
     <string name="warning_unsaved_changes_message">Voulez-vous enregistrer les modifications ?</string>
     <string name="button_save">Enregistrer</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">Ne pas enregistrer</string>
     
 	<string name="menu_theme">Thème</string>
 	<string name="theme_pick">Choisissez un thème</string>
