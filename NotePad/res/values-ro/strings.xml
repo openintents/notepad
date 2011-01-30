@@ -31,9 +31,8 @@
   Peli https://launchpad.net/~peli0101
   iulargsb https://launchpad.net/~iulargsb</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notepad vă permite să creați, modificați și ștergeți note.</string>
-	<string name="about_website_label">OI Notepad pe OpenIntents</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -135,6 +134,7 @@
     <string name="all_notes">Toate notele</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Listă note</string>
     <string name="preference_sortorder_title">Ordonarea listei</string>
     <string name="preference_sortorder_dialog_title">Ordonarea listei</string>
@@ -156,18 +156,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">citește note</string>
     <string name="oi_notepad_permission_read_descr">Permite unei aplicații să citească note. Notele criptate sunt oferite în formatul criptat.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">scrie note</string>
     <string name="oi_notepad_permission_write_descr">Permite unei aplicații sa creeze note noi sau să modifice pe cele existente.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">citește listele de cumpărături</string>
     <string name="oi_shopping_permission_read_descr">Permite unei aplicații să citească listele de cumpărături. Listele criptate sunt oferite în formatul criptat.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">scrie liste de cumpărături</string>
     <string name="oi_shopping_permission_write_descr">Permite unei aplicații să creeze liste noi sau să modifice pe cele existente.</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">criptează și decriptează date</string>
     <string name="oi_safe_permission_intents_descr">Permite aplicațiilor să cripteze și să decripteze text, și să acceseze parolele pe care le-au salvat in OI Safe.</string>	
 
@@ -176,6 +181,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Alfabetic</item>
         <item>Invers alfabetic</item>

@@ -36,9 +36,8 @@
   Peli https://launchpad.net/~peli0101
   miwie https://launchpad.net/~mw-miwie</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">Bloc de Notas OI permite crear, editar, y eliminar notas.</string>
-	<string name="about_website_label">Bloc de Notas OI en OpenIntents</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -140,6 +139,7 @@
     <string name="all_notes">Todas las notas</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Lista de Notas</string>
     <string name="preference_sortorder_title">Orden de Clasificación de Lista</string>
     <string name="preference_sortorder_dialog_title">Orden de Clasificación de Lista</string>
@@ -161,18 +161,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">leer notas</string>
     <string name="oi_notepad_permission_read_descr">Permitir a una aplicación leer notas. Observe que las notas cifradas son proveídas en formato cifrado.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">escribir notas</string>
     <string name="oi_notepad_permission_write_descr">Permitir a una aplicación crear o modificar notas existentes.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">leer listas de compra</string>
     <string name="oi_shopping_permission_read_descr">Permitir a una aplicación leer las listas de compra. Tenga en cuenta que las listas y los elementos cifrados se presentan en formato cifrado.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">escribir listas de compra</string>
     <string name="oi_shopping_permission_write_descr">Permitir a una aplicación crear una lista nueva y elementos o modificar los existentes.</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">cifrar y descifrar datos</string>
     <string name="oi_safe_permission_intents_descr">Permitir a la aplicación cifrar y descifrar texto, y acceder a las contraseñas que se han almacenado en cafa fuerte IO.</string>	
 
@@ -181,6 +186,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Alfabético</item>
         <item>Invertir Alfabético</item>

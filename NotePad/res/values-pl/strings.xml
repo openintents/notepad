@@ -30,9 +30,8 @@
   Tomasz \'Zen\' Napierala https://launchpad.net/~tzn
   usul https://launchpad.net/~usultis</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notatnik pozwala tworzyć, edytować i usuwac notatki</string>
-	<string name="about_website_label">OI Notatnik na OpenIntents</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -134,6 +133,7 @@
     <string name="all_notes">Wszystkie notatki</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Lista notatek</string>
     <string name="preference_sortorder_title">Porządek sortowania listy</string>
     <string name="preference_sortorder_dialog_title">Porządek sortowania listy</string>
@@ -155,18 +155,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">OI Notatki</string>
     <string name="oi_notepad_permission_read_descr">Pozwala aplikacji czytać notatki. Zwróć uwagę, że zaszyfrowane notatki dostępne będą w formie zaszyfrowanej.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">zapisuj notatki</string>
     <string name="oi_notepad_permission_write_descr">Pozwala aplikacji tworzyć nowe notatki o modyfikować istniejące.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">przeglądaj listy zakupów</string>
     <string name="oi_shopping_permission_read_descr">Pozwala aplikacji czytać listy zakupów. Zwróć uwagę, że listy i elementy zaszyfrowane będą dostępne w formie zaszyfrowanej.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">zapisuj listy zakupów</string>
     <string name="oi_shopping_permission_write_descr">Pozwaa aplikacji tworzyć nowe listy i modyfikować istniejące</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">szyfruj i odszyfrowuj dane</string>
     <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf</string>	
 
@@ -175,6 +180,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Alfabetycznie</item>
         <item>Odwrotnie alfabetycznie</item>

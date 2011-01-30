@@ -32,9 +32,8 @@
   Martino Barbon https://launchpad.net/~martins999
   Peli https://launchpad.net/~peli0101</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Blocco Note permette di creare, modificare ed eliminare i tuoi appunti</string>
-	<string name="about_website_label">OI Blocco Note di OpenIntents</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -136,6 +135,7 @@
     <string name="all_notes">Tutte le note</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Elenco note</string>
     <string name="preference_sortorder_title">Ordinamento elenco</string>
     <string name="preference_sortorder_dialog_title">Ordinamento elenco</string>
@@ -157,18 +157,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">leggi note</string>
     <string name="oi_notepad_permission_read_descr">Permette all\'applicazione di leggere le note. Da notare che le note codificate vengono fornite nel formato di codifica.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">Scrivi note</string>
     <string name="oi_notepad_permission_write_descr">Permette all\'applicazione di creare nuove note o modificare quelle esistenti.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">leggi lista della spesa</string>
     <string name="oi_shopping_permission_read_descr">Permette all\'applicazione di leggere la lista della spesa. Da notare che le liste e i valori codificati vengono forniti nel formato di codifica.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">scrivi lista della spesa</string>
     <string name="oi_shopping_permission_write_descr">Permette all\'applicazione di creare nuove liste e valori o modificare quelli esistenti.</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">codifica e decodifica dati</string>
     <string name="oi_safe_permission_intents_descr">Permette all\'applicazione di codificare e decodificare il testo ed accedere alle password salvate in OI Sicurezza.</string>	
 
@@ -177,6 +182,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Alfabetico</item>
         <item>Alfabetico inverso</item>

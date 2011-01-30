@@ -31,9 +31,8 @@
   Peli https://launchpad.net/~peli0101
   Peter Huewe https://launchpad.net/~peterhuewe</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notizblock erlaubt das Erstellen und Bearbeiten von Notizen.</string>
-	<string name="about_website_label">OI Notizblock</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -135,6 +134,7 @@
     <string name="all_notes">Alle Notizen</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Liste von Notizen</string>
     <string name="preference_sortorder_title">Sortierung</string>
     <string name="preference_sortorder_dialog_title">Sortierung</string>
@@ -156,18 +156,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">Notizen lesen</string>
     <string name="oi_notepad_permission_read_descr">Ermöglicht einer Anwendung, Notizen zu lesen. Beachten Sie, dass verschlüsselte Notizen nur in verschlüsselter Form weitergegeben werden.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">Notizen schreiben</string>
     <string name="oi_notepad_permission_write_descr">Ermöglicht einer Anwendung, neue Notizen zu erstellen oder vorhandene Notizen zu ändern.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">Einkaufslisten lesen</string>
     <string name="oi_shopping_permission_read_descr">Ermöglicht einer Anwendung, Einkaufslisten zu lesen. Beachten Sie, dass verschlüsselte Listen oder Posten nur in verschlüsselter Form weitergegeben werden.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">Einkaufslisten schreiben</string>
     <string name="oi_shopping_permission_write_descr">Ermöglicht einer Anwendung, neue Listen und Posten zu erstellen, oder bestehende Listen und Posten zu ändern.</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">Daten verschlüsseln und entschlüsseln</string>
     <string name="oi_safe_permission_intents_descr">Ermöglicht einer Anwendung, Texte zu verschlüsseln und entschlüsseln, und auf Passwörter zuzugreifen, die in OI Safe gespeichert sind.</string>	
 
@@ -176,6 +181,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Alphabetisch</item>
         <item>Umgekehrt alphabetisch</item>

@@ -33,9 +33,8 @@
   Thibault Févry https://launchpad.net/~thibaultfevry
   lonelyxstorm https://launchpad.net/~sleepless-l4dy</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notepad permet de créer, modifier et supprimer des notes.</string>
-	<string name="about_website_label">OI Notepad chez OpenIntents</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -137,6 +136,7 @@
     <string name="all_notes">Toutes les notes</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Liste des Notes</string>
     <string name="preference_sortorder_title">Liste de l\'ordre de tri</string>
     <string name="preference_sortorder_dialog_title">Liste de l\'ordre de tri</string>
@@ -158,18 +158,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">lire les notes</string>
     <string name="oi_notepad_permission_read_descr">Permet à une application de lire les notes. Notez que les notes chiffrées sont fournies dans un format crypté.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">écrire des notes</string>
     <string name="oi_notepad_permission_write_descr">Permet à une application de créer de nouvelles notes ou de modifier les notes.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">lire des listes d\'achats</string>
     <string name="oi_shopping_permission_read_descr">Permet à une application de lire des listes d\'achats. Notez que la liste chiffrée et les éléments sont fournis dans un format crypté.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">rédiger des listes d\'achats</string>
     <string name="oi_shopping_permission_write_descr">Permet à une application de créer de nouvelles listes et des articles ou modifier ceux existants.</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">chiffrer et déchiffrer des données</string>
     <string name="oi_safe_permission_intents_descr">Permet à l\'application de chiffrer et déchiffrer le texte, les mots de passe et les accès qui sont stockées dans OI Safe.</string>	
 
@@ -178,6 +183,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Ordre alphabétique</item>
         <item>Inverser l\'ordre alphabétique</item>

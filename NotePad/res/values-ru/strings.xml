@@ -32,9 +32,8 @@
   Vasily Bogantsev https://launchpad.net/~bas-eurogym
   Горобец Виктор (VikTHOR) https://launchpad.net/~victhor</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notepad позволяет создавать, редактировать и удлять заметки.</string>
-	<string name="about_website_label">OI Notepad на OpenIntents</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -136,6 +135,7 @@
     <string name="all_notes">Все заметки</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Список Заметок</string>
     <string name="preference_sortorder_title">Порядок сортировки списка</string>
     <string name="preference_sortorder_dialog_title">Порядок сортировки списка</string>
@@ -157,18 +157,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">Читать заметки</string>
     <string name="oi_notepad_permission_read_descr">Разрешить приложению читать заметки. Примечание: зашифрованные заметки предоставляются в зашифрованном формате.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">Запись заметок</string>
     <string name="oi_notepad_permission_write_descr">Разрешить приложению создавать новые заметки или изменять существующие.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">чтение списка покупок</string>
     <string name="oi_shopping_permission_read_descr">Разрешить приложениям получать списки. Примечание: зашифрованные списки и элементы предоставляются в зашифрованном формате.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">Запись списков покупок</string>
     <string name="oi_shopping_permission_write_descr">Разрешить приложению создавать новые списки и элементы или изменять существующие.</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">шифровать и дешифровать данные</string>
     <string name="oi_safe_permission_intents_descr">Разрешить приложению шифровать и дешифровать текст и получать доступ к паролям, сохраненным в OI Safe.</string>	
 
@@ -177,6 +182,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>От А до Я</item>
         <item>От Я до А</item>
