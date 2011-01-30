@@ -29,9 +29,8 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">translator-credits</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notepad allows to create, edit, and delete notes.</string>
-	<string name="about_website_label">OI Notepad at OpenIntents</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -133,6 +132,7 @@
     <string name="all_notes">All notes</string>
     
     <!-- Settings -->
+    <!-- Title for settings regarding the list of notes -->
     <string name="noteslist_preferences">Notes List</string>
     <string name="preference_sortorder_title">List Sorting Order</string>
     <string name="preference_sortorder_dialog_title">List Sorting Order</string>
@@ -154,18 +154,23 @@
 	     *************************** -->
 
 	<!-- OI Notepad -->
+	<!-- Permission to read notes. -->
     <string name="oi_notepad_permission_read">read notes</string>
     <string name="oi_notepad_permission_read_descr">Allows an application to read notes. Note that encrypted notes are provided in the encrypted format.</string>
+	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">write notes</string>
     <string name="oi_notepad_permission_write_descr">Allows an application to create new notes or modify existing notes.</string>
     
 	<!-- OI Shopping list -->
+	<!-- Permission to read shopping lists. -->
     <string name="oi_shopping_permission_read">read shopping lists</string>
     <string name="oi_shopping_permission_read_descr">Allows an application to read shopping lists. Note that encrypted lists and items are provided in the encrypted format.</string>
+	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">write shopping lists</string>
     <string name="oi_shopping_permission_write_descr">Allows an application to create new lists and items or modify existing ones.</string>
     
 	<!-- OI Safe -->
+	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">encrypt and decrypt data</string>
     <string name="oi_safe_permission_intents_descr">Allows the application to encrypt and decrypt text, and access the passwords they have stored in OI Safe.</string>	
 
@@ -174,6 +179,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Alphabetical</item>
         <item>Reverse Alphabetical</item>
