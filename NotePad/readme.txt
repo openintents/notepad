@@ -25,8 +25,9 @@ To obtain the current release, visit
 
 ---------------------------------------------------------
 release: 1.2.2
-date: 2011-?
-- new icon design by VisualPharm.
+date: ?
+- new application icon for Android 2.0 or higher,
+  with original design by VisualPharm.
 - support Android 2.3.
 - translations into various languages.
 
