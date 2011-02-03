@@ -28,6 +28,8 @@ release: 1.2.2
 date: ?
 - new application icon for Android 2.0 or higher,
   with original design by VisualPharm.
+- allow app installation on external storage
+  (requires Android 2.2 or higher)
 - support Android 2.3.
 - translations into various languages.
 
