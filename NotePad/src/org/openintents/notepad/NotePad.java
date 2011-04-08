@@ -110,6 +110,6 @@ public final class NotePad {
          * Support sort orders. The "sort order" in the preferences
          * is an index into this array.
          */
-        public static final String[] SORT_ORDERS = {"title ASC", "title DESC", "modified DESC", "modified ASC"};
+        public static final String[] SORT_ORDERS = {"title ASC", "title DESC", "modified DESC", "modified ASC", "created DESC", "created ASC"};
     }
 }
