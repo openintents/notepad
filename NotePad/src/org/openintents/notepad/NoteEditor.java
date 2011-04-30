@@ -146,6 +146,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private static final int STATE_EDIT = 0;
     private static final int STATE_INSERT = 1;
     private static final int STATE_EDIT_NOTE_FROM_SDCARD = 2;
+    private static final int STATE_EDIT_EXTERNAL_NOTE = 3;
     
     private static final int DIALOG_UNSAVED_CHANGES = 1;
     private static final int DIALOG_THEME = 2;
@@ -322,6 +323,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	            	// Load the file into a new note.
 	            	
 	            	mFileContent = readFile(FileUriUtils.getFile(mUri));
+	            } else if ( ! mUri.getAuthority().equals(NotePad.AUTHORITY)) {
+	            	// Note a notepad note. Treat slightly differently.
+	            	// (E.g. a note from OI Shopping List)
+	            	mState = STATE_EDIT_EXTERNAL_NOTE;
 	            }
 	            /*
 	            if (mUri.getScheme().equals("file")) {
@@ -538,7 +543,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         
         mEncrypted = 0;
 
-        if (mState == STATE_EDIT || mState == STATE_INSERT) {
+        if (mState == STATE_EDIT || mState == STATE_INSERT
+        		|| mState == STATE_EDIT_EXTERNAL_NOTE) {
         	getNoteFromContentProvider();
         } else if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
         	getNoteFromFile();
@@ -597,7 +603,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         		&& mCursor.moveToFirst()) {
 
             // Modify our overall title depending on the mode we are running in.
-             if (mState == STATE_EDIT) {
+             if (mState == STATE_EDIT || mState == STATE_EDIT_EXTERNAL_NOTE) {
                 setTitle(getText(R.string.title_edit));
             } else if (mState == STATE_INSERT) {
                 setTitle(getText(R.string.title_create));
@@ -1011,6 +1017,15 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     		menu.setGroupVisible(1, false);
     		menu.setGroupVisible(2, true);
     		menu.findItem(MENU_SAVE).setEnabled(contentChanged);
+    	} else if (mState == STATE_EDIT_EXTERNAL_NOTE) {
+    		// Menus for external notes, e.g. from OI Shopping List.
+    		// In this case, don't show encryption/decryption.
+    		menu.setGroupVisible(0, contentChanged || mUndoRevert != null);
+    		menu.setGroupVisible(1, true);
+    		menu.setGroupVisible(2, false);
+    		
+        	menu.findItem(MENU_ENCRYPT).setVisible(false);
+        	menu.findItem(MENU_UNENCRYPT).setVisible(false);
     	} else {
     		// Menus for internal notes
         	menu.setGroupVisible(0, contentChanged || mUndoRevert != null);
