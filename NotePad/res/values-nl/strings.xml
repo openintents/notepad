@@ -184,6 +184,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alfabetisch</item>
         <item>Omgekeerd alfabetisch</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>Van nieuw naar oud</item>  
         <item>Van oud naar nieuw</item>
     </string-array>

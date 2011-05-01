@@ -106,7 +106,7 @@
     <string name="warning_unsaved_changes_title">Text modificat</string>
     <string name="warning_unsaved_changes_message">Doriți să salvați modificările?</string>
     <string name="button_save">Salvează</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">Nu salvați</string>
     
 	<string name="menu_theme">Temă</string>
 	<string name="theme_pick">Alege temă</string>
@@ -185,6 +185,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alfabetic</item>
         <item>Invers alfabetic</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>Cea mai nouă spre cea mai veche</item>  
         <item>Cea mai veche spre cea mai nouă</item>
     </string-array>

@@ -186,6 +186,8 @@ Launchpad Contributions:
     <string-array name="preference_sortorder_entries">
         <item>Alphabetical</item>
         <item>Reverse Alphabetical</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>Newest to Oldest</item>  
         <item>Oldest to Newest</item>
     </string-array>

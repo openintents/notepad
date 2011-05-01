@@ -58,7 +58,7 @@
     <string name="title_edit_file">%s (modificar la nòta)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+    <string name="title_pick_note_for_shortcut">Metre la nòte en acorchi</string>
 	
 	<string name="button_ok">D\'acòrdi</string>  
 	
@@ -104,24 +104,24 @@
     <string name="warning_unsaved_changes_title">Tèxte modificat</string>
     <string name="warning_unsaved_changes_message">Volètz enregistrar las modificacions ?</string>
     <string name="button_save">Salvar</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">Enregistrar pas</string>
     
 	<string name="menu_theme">Tèma</string>
 	<string name="theme_pick">Causissètz un tèma</string>
     <string name="theme_default">Per defaut</string>
-    <string name="theme_monospaced">Monospaced font</string>
-	<string name="theme_serif">Serif font</string>
+    <string name="theme_monospaced">Poliça monospace</string>
+	<string name="theme_serif">Poliça serif</string>
 
 	<!-- Search -->
 	<string name="menu_search">Recercar</string>
     <string name="search_query_results">OI Notepad</string>
     <!-- %s is the search string -->
-	<string name="search_found_no_results">No results found for %s.</string>
-    <string name="search_label">OI Notepad search</string>
+	<string name="search_found_no_results">Cap de resultat pas trobat per %s.</string>
+    <string name="search_label">Recèrca OI Notepad</string>
     <string name="search_hint">Recercar</string>
     
     <!-- The description that will show up in the search settings for this source.  -->
-    <string name="search_settings_description">Titles of your notes</string>
+    <string name="search_settings_description">Títol de vòstras nòtas</string>
     
 	<!--     Dialog box    -->
 	<string name="ok">D\'acòrdi</string>
@@ -136,7 +136,7 @@
     <string name="noteslist_preferences">Lista de las Nòtas</string>
     <string name="preference_sortorder_title">Lista de l\'òrdre de triada</string>
     <string name="preference_sortorder_dialog_title">Lista de l\'òrdre de triada</string>
-    <string name="preference_sortorder_summary">The order in which notes are shown in the notes list</string>
+    <string name="preference_sortorder_summary">L\'òrdre dins lo qual las nòtas son afichadas dins la lista de nòtas</string>
     
     <string name="note_editor_preferences">Editor de nòta</string>
     <string name="preference_fontsize">Talha de la poliça</string>
@@ -183,6 +183,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alfabetic</item>
         <item>Inversar l\'òrdre alfabetic</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>Del mai recent al mai ancian</item>  
         <item>Del mai ancian al mai recent</item>
     </string-array>
@@ -198,8 +200,8 @@
         <item>Grand</item>
     </string-array>
 
-    <string name="preference_addons">Ensèrts</string>
-    <string name="preference_get_addons">Obténer d\'ensèrts novèls</string>
+    <string name="preference_addons">Empeutons</string>
+    <string name="preference_get_addons">Obténer d\'empeutons novèls</string>
     <string name="preference_get_addons_summary">Recercar d\'extensions e de tèmas en linha.</string>
     <string name="preference_get_market_addons">Obténer d\'ensèrts dempuèi lo Market.</string>
     <string name="preference_get_developer_addons">Obténer d\'ensèrts dempuèi OpenIntents</string>

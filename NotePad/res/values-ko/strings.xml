@@ -183,6 +183,8 @@
     <string-array name="preference_sortorder_entries">
         <item>알파벳 순</item>
         <item>Reverse Alphabetical</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>새로운것 부터</item>  
         <item>Oldest to Newest</item>
     </string-array>

@@ -27,6 +27,7 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Damian Skrodzki https://launchpad.net/~damienix
   Tomasz \'Zen\' Napierala https://launchpad.net/~tzn
   usul https://launchpad.net/~usultis</string>
 	
@@ -105,7 +106,7 @@
     <string name="warning_unsaved_changes_title">Treść zmodyfikowana</string>
     <string name="warning_unsaved_changes_message">Zapisać zmiany?</string>
     <string name="button_save">Zapisz</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">Nie zapisuj</string>
     
 	<string name="menu_theme">Motyw</string>
 	<string name="theme_pick">Wybierz motyw</string>
@@ -184,6 +185,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alfabetycznie</item>
         <item>Odwrotnie alfabetycznie</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>Najnowsze do najstarszych</item>  
         <item>Najstarsze do najnowszych</item>
     </string-array>

@@ -190,6 +190,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alfabético</item>
         <item>Invertir Alfabético</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>De Más Nuevo a Más Viejo</item>  
         <item>De Más Viejo a Más Nuevo</item>
     </string-array>

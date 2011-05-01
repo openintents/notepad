@@ -186,6 +186,8 @@
     <string-array name="preference_sortorder_entries">
         <item>От А до Я</item>
         <item>От Я до А</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>От новой к давней</item>  
         <item>От давней к новой</item>
     </string-array>

@@ -184,6 +184,8 @@
     <string-array name="preference_sortorder_entries">
         <item>アルファベット順</item>
         <item>逆アルファベット順</item>
+        <item>Last Modified</item>
+        <item>First Modified</item>
         <item>新しいもの順</item>  
         <item>古いもの順</item>
     </string-array>
