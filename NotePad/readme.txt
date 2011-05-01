@@ -24,7 +24,7 @@ To obtain the current release, visit
 
 ---------------------------------------------------------
 release: 1.2.3-rc1
-date: ?
+date: 2011-05-01
 - sort by creation date or modification date (patch by Maciek)
 - support external notes (from OI Shopping List)
 

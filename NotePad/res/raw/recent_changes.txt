@@ -1,4 +1,10 @@
 ---------------------------------------------------------
+release: 1.2.3-rc1
+date: 2011-05-01
+- sort by creation date or modification date (patch by Maciek)
+- support external notes (from OI Shopping List)
+
+---------------------------------------------------------
 release: 1.2.2
 date: 2011-02-05
 - new application icon for Android 2.0 or higher, with original design by VisualPharm.
@@ -10,24 +16,6 @@ date: 2011-02-05
 release: 1.2.1
 date: 2010-02-22
 - new font size "tiny" (for Droid users).
-
----------------------------------------------------------
-release: 1.2.0
-date: 2010-02-21
-- add search system-wide search (has to be activated
-  in home > settings > search > searchable items >
-  OI Notepad).
-- add full-text search within notepad.
-- add filter for tags in list of notes.
-- don't change modification time when only viewing note.
-- new preference for font size.
-- support external themes.
-- set theme optionally for all lists.
-- fix bugs with encrypted notes:
-  revert menu and extensions like OI Insert date
-- fix revert menu button logic
-- translations: Finnish, Italian, Korean, Lao, Romanian, 
-  Russian
 
 ---------------------------------------------------------
 For the complete list of changes and a list of frequently asked questions, please visit:
