@@ -185,8 +185,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alfabetycznie</item>
         <item>Odwrotnie alfabetycznie</item>
-        <item>Last Modified</item>
-        <item>First Modified</item>
+        <item>Ostatnia modyfikacja</item>
+        <item>Pierwsza modyfikacja</item>
         <item>Najnowsze do najstarszych</item>  
         <item>Najstarsze do najnowszych</item>
     </string-array>
