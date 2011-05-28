@@ -23,8 +23,8 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ---------------------------------------------------------
-release: 1.2.3-rc1
-date: 2011-05-01
+release: 1.2.3
+date: 2011-05-28
 - sort by creation date or modification date (patch by Maciek)
 - support external notes (from OI Shopping List)
 
