@@ -193,24 +193,24 @@ Launchpad Contributions:
 
     <string-array name="preference_fontsize_entries">
     	<!-- Preference fontsize: tiny font size -->
-        <item>Tiny</item>
+        <item>Meget lille</item>
     	<!-- Preference fontsize: small font size -->
-        <item>Small</item>
+        <item>Lille</item>
     	<!-- Preference fontsize: default font size-->
     	<item>Standard</item>
     	<!-- Preference fontsize: large font size -->
-        <item>Large</item>
+        <item>Stor</item>
     </string-array>
 
-    <string name="preference_addons">Add-ons</string>
-    <string name="preference_get_addons">Get new add-ons</string>
-    <string name="preference_get_addons_summary">Search for extensions and themes online.</string>
-    <string name="preference_get_market_addons">Get add-ons from Market</string>
-    <string name="preference_get_developer_addons">Get add-ons from OpenIntents</string>
+    <string name="preference_addons">Tilføjelser</string>
+    <string name="preference_get_addons">Hent nye tilføjelser</string>
+    <string name="preference_get_addons_summary">Søg efter tilføjelser og temaer online.</string>
+    <string name="preference_get_market_addons">Hent tilføjelser fra Market</string>
+    <string name="preference_get_developer_addons">Hent tilføjelser fra OpenIntents</string>
     <string name="preference_extensions">Extensions</string>
     <string name="preference_themes">Themes</string>
-    <string name="preference_market_extensions_summary">Search for extensions at Android Market.</string>
-    <string name="preference_market_themes_summary">Search for themes at Android Market.</string>
-    <string name="preference_developer_extensions_summary">Get extensions from the OpenIntents homepage.</string>
-	<string name="preference_developer_themes_summary">Get themes from the OpenIntents homepage.</string>
+    <string name="preference_market_extensions_summary">Søg efter udvidelser på Android Market.</string>
+    <string name="preference_market_themes_summary">Søg efter temaer på Android Market.</string>
+    <string name="preference_developer_extensions_summary">Hent udvidelser fra OpenIntents\' hjemmeside.</string>
+	<string name="preference_developer_themes_summary">Hent temaer fra OpenIntents\' hjemmeside.</string>
 </resources>
