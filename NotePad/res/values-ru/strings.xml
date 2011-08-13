@@ -27,9 +27,8 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Artur https://launchpad.net/~arturyak
+  Alexander Sapronov https://launchpad.net/~warmonger
   Peli https://launchpad.net/~peli0101
-  Vasily Bogantsev https://launchpad.net/~bas-eurogym
   Горобец Виктор (VikTHOR) https://launchpad.net/~victhor</string>
 	
     <!-- Short explanation of the application -->
@@ -186,8 +185,8 @@
     <string-array name="preference_sortorder_entries">
         <item>От А до Я</item>
         <item>От Я до А</item>
-        <item>Last Modified</item>
-        <item>First Modified</item>
+        <item>Последние изменение</item>
+        <item>Первое изменение</item>
         <item>От новой к давней</item>  
         <item>От давней к новой</item>
     </string-array>

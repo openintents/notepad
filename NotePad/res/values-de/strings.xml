@@ -27,9 +27,7 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Fabian Riechsteiner https://launchpad.net/~ruffy91-gmail
-  Peli https://launchpad.net/~peli0101
-  Peter Huewe https://launchpad.net/~peterhuewe</string>
+  Fabian Riechsteiner https://launchpad.net/~ruffy91-gmail</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notizblock erlaubt das Erstellen und Bearbeiten von Notizen.</string>
