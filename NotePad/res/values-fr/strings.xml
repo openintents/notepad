@@ -29,6 +29,7 @@
 	<string name="about_translators">Launchpad Contributions:
   Abdessamad Derraz https://launchpad.net/~derraz
   Anges https://launchpad.net/~az24
+  Delarocque Julien https://launchpad.net/~jdelarocque
   Peli https://launchpad.net/~peli0101
   Thibault Févry https://launchpad.net/~thibaultfevry
   lonelyxstorm https://launchpad.net/~sleepless-l4dy</string>
@@ -187,8 +188,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Ordre alphabétique</item>
         <item>Inverser l\'ordre alphabétique</item>
-        <item>Last Modified</item>
-        <item>First Modified</item>
+        <item>Dernier modifié</item>
+        <item>Premier modifié</item>
         <item>Plus récent au plus ancien</item>  
         <item>Les plus anciens au plus récent</item>
     </string-array>
