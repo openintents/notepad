@@ -28,7 +28,8 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Fabian Riechsteiner https://launchpad.net/~ruffy91-gmail
-  Peli https://launchpad.net/~peli0101</string>
+  Peli https://launchpad.net/~peli0101
+  appricoo https://launchpad.net/~development-0</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notizblock erlaubt das Erstellen und Bearbeiten von Notizen.</string>
@@ -105,7 +106,7 @@
     <string name="warning_unsaved_changes_title">Text wurde verändert</string>
     <string name="warning_unsaved_changes_message">Möchten Sie die Änderungen speichern?</string>
     <string name="button_save">Speichern</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="button_dont_save">Nicht speichern</string>
     
 	<string name="menu_theme">Design</string>
 	<string name="theme_pick">Design wählen</string>
@@ -184,8 +185,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alphabetisch</item>
         <item>Umgekehrt alphabetisch</item>
-        <item>Last Modified</item>
-        <item>First Modified</item>
+        <item>Letzte Änderung</item>
+        <item>Erste Änderung</item>
         <item>Neueste zuerst</item>  
         <item>Älteste zuerst</item>
     </string-array>

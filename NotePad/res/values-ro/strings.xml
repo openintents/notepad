@@ -27,6 +27,7 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Ciprian Panaite https://launchpad.net/~2477426-5
   Peli https://launchpad.net/~peli0101
   iulargsb https://launchpad.net/~iulargsb</string>
 	
@@ -59,7 +60,7 @@
     <string name="title_edit_file">%s (modifică notă)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+    <string name="title_pick_note_for_shortcut">Alegeți notița pentru scurtătură</string>
 	
 	<string name="button_ok">OK</string>  
 	
@@ -184,8 +185,8 @@
     <string-array name="preference_sortorder_entries">
         <item>Alfabetic</item>
         <item>Invers alfabetic</item>
-        <item>Last Modified</item>
-        <item>First Modified</item>
+        <item>Modificat ultima dată pe</item>
+        <item>Modificat prima dată pe</item>
         <item>Cea mai nouă spre cea mai veche</item>  
         <item>Cea mai veche spre cea mai nouă</item>
     </string-array>
