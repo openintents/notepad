@@ -56,6 +56,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
@@ -771,7 +772,12 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	                            values.put(Notes.MODIFIED_DATE, System.currentTimeMillis());
                             }
 	                    
-	                    String title = ExtractTitle.extractTitle(text);
+	                    String title;
+	                    if(PreferenceActivity.getMarqueeFromPrefs(this) == false) {
+	                    	title = ExtractTitle.extractTitle(text);
+	                    } else {
+	                    	title = text;
+	                    }
 		                values.put(Notes.TITLE, title);
 	                }
 	
@@ -813,7 +819,12 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	 */
 	private void encryptNote(boolean encryptTags) {
         String text = mText.getText().toString();
-        String title = ExtractTitle.extractTitle(text);
+        String title;
+        if(PreferenceActivity.getMarqueeFromPrefs(this) == false) {
+        	title = ExtractTitle.extractTitle(text);
+        } else {
+        	title = text;
+        }
         String tags = getTags();
 		//Log.i(TAG, "encrypt tags: " + tags);
 
@@ -1236,7 +1247,12 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	        if (!mNoteOnly) { 
 	            // Bump the modification time to now. 
 	            values.put(Notes.MODIFIED_DATE, System.currentTimeMillis()); 
-	            String title = ExtractTitle.extractTitle(newNote); 
+	            String title;
+	            if(PreferenceActivity.getMarqueeFromPrefs(this) == false) {
+	            	title = ExtractTitle.extractTitle(newNote);
+	            } else {
+	            	title = newNote;
+	            }
 	            values.put(Notes.TITLE, title); 
 	        } 
 	        // Write our text back into the provider.

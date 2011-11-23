@@ -30,6 +30,12 @@
                 android:entries="@array/preference_sortorder_entries"
                 android:entryValues="@array/preference_sortorder_entryvalues"
                 android:dialogTitle="@string/preference_sortorder_dialog_title" />
+                
+        <CheckBoxPreference
+        		android:key="marquee"
+        		android:defaultValue="false"
+        		android:title="@string/preference_marquee_title"
+        		android:summary="@string/preference_marquee_summary" />
 
     </PreferenceCategory>
 

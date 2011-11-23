@@ -137,6 +137,8 @@
     <string name="preference_sortorder_title">List Sorting Order</string>
     <string name="preference_sortorder_dialog_title">List Sorting Order</string>
     <string name="preference_sortorder_summary">The order in which notes are shown in the notes list</string>
+    <string name="preference_marquee_title">Marquee note titles.</string>
+    <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
     
     <string name="note_editor_preferences">Note Editor</string>
     <string name="preference_fontsize">Font size</string>

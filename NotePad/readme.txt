@@ -23,6 +23,11 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ---------------------------------------------------------
+release 1.3
+date: ?
+- setting for marquee for long titles (issue 266, Google Code-in patch by Aviral Dasgupta)
+
+---------------------------------------------------------
 release: 1.2.3
 date: 2011-05-28
 - sort by creation date or modification date (patch by Maciek)

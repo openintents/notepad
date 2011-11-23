@@ -31,6 +31,8 @@ import android.text.util.Linkify;
 
 public class PreferenceActivity extends android.preference.PreferenceActivity {
 
+	public static final String PREFS_MARQUEE = "marquee";
+	public static final boolean PREFS_MARQUEE_DEFAULT = false;
 	public static final String PREFS_SORTORDER = "sortorder";
 	public static final String PREFS_SORTORDER_DEFAULT = "2";
 	public static final String PREFS_FONTSIZE = "fontsize";
@@ -99,6 +101,11 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 						PREFS_FONTSIZE,
 						PREFS_FONTSIZE_DEFAULT));
 		return size;
+	}
+	
+	public static boolean getMarqueeFromPrefs(Context context) {
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(PREFS_MARQUEE, PREFS_MARQUEE_DEFAULT);
 	}
 	
 	/**
