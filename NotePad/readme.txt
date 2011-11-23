@@ -26,6 +26,7 @@ To obtain the current release, visit
 release 1.3
 date: ?
 - setting for marquee for long titles (issue 266, Google Code-in patch by Aviral Dasgupta)
+- added delete confirmation (issue 363, Google Code-in patch by Shuhao)
 
 ---------------------------------------------------------
 release: 1.2.3

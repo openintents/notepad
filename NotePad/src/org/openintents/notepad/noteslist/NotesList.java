@@ -43,6 +43,7 @@ import org.openintents.notepad.PreferenceActivity;
 import org.openintents.notepad.PrivateNotePadIntents;
 import org.openintents.notepad.R;
 import org.openintents.notepad.crypto.EncryptActivity;
+import org.openintents.notepad.dialog.DeleteConfirmationDialog;
 import org.openintents.notepad.filename.DialogHostingActivity;
 import org.openintents.notepad.intents.NotepadInternalIntents;
 import org.openintents.notepad.util.FileUriUtils;
@@ -54,6 +55,7 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
@@ -115,6 +117,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 	
 	private static final int DIALOG_TAGS = 1;
 	private static final int DIALOG_GET_FROM_MARKET = 3;
+	private static final int DIALOG_DELETE = 4;
 	private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
 	
 	private final int DECRYPT_DELAY = 100;
@@ -123,7 +126,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 	NotesListCursorAdapter mAdapter;
 	
 	String mLastFilter;
-        String mSelectedTag;
+	String mSelectedTag;
 	
 	private Handler mHandler = new Handler();
 	
@@ -655,10 +658,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		
 		switch (item.getItemId()) {
 		case MENU_ITEM_DELETE: {
-			// Delete the note that the context menu is for
-			Uri noteUri = ContentUris.withAppendedId(getIntent().getData(),
-					mContextMenuInfo.id);
-			getContentResolver().delete(noteUri, null, null);
+			showDialog(DIALOG_DELETE);
 			
 			//mAdapter.getCursor().requery();
 			return true;
@@ -889,6 +889,16 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		case DIALOG_GET_FROM_MARKET:
 			return new DownloadOIAppDialog(this,
 					DownloadOIAppDialog.OI_SAFE);
+		case DIALOG_DELETE:
+			return new DeleteConfirmationDialog(this, new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					Uri noteUri = ContentUris.withAppendedId(getIntent().getData(),
+							mContextMenuInfo.id);
+					getContentResolver().delete(noteUri, null, null);
+				}
+			}).create();
 		}
 		return super.onCreateDialog(id);
 	}

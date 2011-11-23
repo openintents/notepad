@@ -35,6 +35,7 @@ import org.openintents.intents.NotepadIntents;
 import org.openintents.notepad.NotePad.Notes;
 import org.openintents.notepad.activity.SaveFileActivity;
 import org.openintents.notepad.crypto.EncryptActivity;
+import org.openintents.notepad.dialog.DeleteConfirmationDialog;
 import org.openintents.notepad.dialog.ThemeDialog;
 import org.openintents.notepad.dialog.ThemeDialog.ThemeDialogListener;
 import org.openintents.notepad.intents.NotepadInternalIntents;
@@ -151,6 +152,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     
     private static final int DIALOG_UNSAVED_CHANGES = 1;
     private static final int DIALOG_THEME = 2;
+    private static final int DIALOG_DELETE = 3;
     
     private static final int GROUP_ID_TEXT_SELECTION_ALTERNATIVE = 1234; // some number that must not collide with others
 
@@ -1064,8 +1066,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         // Handle all of the possible menu actions.
         switch (item.getItemId()) {
         case MENU_DELETE:
-            deleteNote();
-            finish();
+            deleteNoteWithConfirm();
             break;
         case MENU_DISCARD:
             revertNote();
@@ -1105,6 +1106,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         }
         return super.onOptionsItemSelected(item);
     }
+
+	private void deleteNoteWithConfirm() {
+		showDialog(DIALOG_DELETE);
+	}
 
 	/**
 	 * Modifies an activity to pass along the currently selected text.
@@ -1361,6 +1366,16 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			
 		case DIALOG_THEME:
 			return new ThemeDialog(this, this);
+		
+		case DIALOG_DELETE:
+			return new DeleteConfirmationDialog(this, new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					deleteNote();
+					finish();
+				}
+			}).create();
 		}
 		return null;
 	}
