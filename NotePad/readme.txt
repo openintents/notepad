@@ -27,6 +27,7 @@ release 1.3
 date: ?
 - setting for marquee for long titles (issue 266, Google Code-in patch by Aviral Dasgupta)
 - added delete confirmation (issue 363, Google Code-in patch by Shuhao)
+- sort tags (issue 265, Google Code-in patch by Shuhao)
 
 ---------------------------------------------------------
 release: 1.2.3

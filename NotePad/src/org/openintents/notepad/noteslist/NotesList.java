@@ -27,10 +27,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 
 import org.openintents.distribution.DistributionLibraryListActivity;
 import org.openintents.distribution.DownloadOIAppDialog;
@@ -254,8 +256,6 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 
         List<String> taglist = new ArrayList<String>();
 
-        taglist.add(getString(R.string.all_notes));
-
         Uri notesUri = getIntent().getData();
 
         Cursor managedCursor = getContentResolver().query(notesUri,
@@ -285,7 +285,8 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
             	}
             } while (managedCursor.moveToNext());
         }
-
+        Collections.sort(taglist, Collator.getInstance(Locale.getDefault()));
+        taglist.add(0, getString(R.string.all_notes));
         Spinner s = (Spinner) findViewById(R.id.tagselection);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, taglist);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
