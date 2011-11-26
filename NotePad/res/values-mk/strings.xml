@@ -26,11 +26,7 @@
 	     *************************** -->
 
 	<!-- Automatically filled in by Launchpad: -->
-	<string name="about_translators">This is a dummy translation so that the credits are counted as translated.
-
-Launchpad Contributions:
-  Peli https://launchpad.net/~peli0101
-  Tiago Silva https://launchpad.net/~tiagosilva</string>
+	<string name="about_translators">translator-credits</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Notepad allows to create, edit, and delete notes.</string>
@@ -43,19 +39,19 @@ Launchpad Contributions:
 	<string name="app_name">OI Notepad</string>
 	
     <string name="menu_delete">Delete</string>
-    <string name="menu_insert">Adicionar nota</string>
+    <string name="menu_insert">Add note</string>
     <string name="menu_revert">Revert</string>
     <string name="menu_discard">Discard</string>
     
 	<string name="no_notes">Use menu to add new notes.</string>
 
-    <string name="resolve_edit">Editar nota</string>
-    <string name="resolve_title">Editar título</string>  
+    <string name="resolve_edit">Edit note</string>
+    <string name="resolve_title">Edit title</string>  
 
-    <string name="title_create">Criar nota</string>
-    <string name="title_edit">Editar nota</string>
+    <string name="title_create">Create note</string>
+    <string name="title_edit">Edit note</string>
 	<string name="title_notes_list">OI Notepad</string>   
-	<string name="title_note">Nota</string>  
+	<string name="title_note">Note</string>  
 	<string name="title_edit_title">Note title:</string>  
     <string name="title_create_file">%s (new note)</string>
     <string name="title_edit_file">%s (edit note)</string>
@@ -65,12 +61,12 @@ Launchpad Contributions:
 	
 	<string name="button_ok">OK</string>  
 	
-	<string name="error_title">Erro</string>
-	<string name="error_message">Erro ao carregar nota</string>
+	<string name="error_title">Error</string>
+	<string name="error_message">Error loading note</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
 	<string name="menu_send_by_email">Send</string>
-	<string name="empty_note">Nota vazia</string>
+	<string name="empty_note">Empty note</string>
 	<string name="email_not_available">No application available for sending.</string>
 	
 	<string name="encrypting_note">Encrypting note</string>
@@ -91,8 +87,8 @@ Launchpad Contributions:
     <string name="menu_save_to_sdcard">Save to SD card</string>
     <string name="menu_open_from_sdcard">Open from SD card</string>
     <string name="filename">File name</string>
-    <string name="save">Guardar</string>
-    <string name="open">Abrir</string>
+    <string name="save">Save</string>
+    <string name="open">Open</string>
     <string name="error_writing_file">Error while writing file</string>
     <string name="error_reading_file">Error while reading file</string>
     <string name="file_not_found">File not found</string>
@@ -102,14 +98,14 @@ Launchpad Contributions:
     
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Import</string>
-    <string name="menu_save">Guardar</string>
+    <string name="menu_save">Save</string>
     <string name="menu_save_as">Save as</string>
     <string name="warning_unsaved_changes_title">Text modified</string>
     <string name="warning_unsaved_changes_message">Do you want to save the changes?</string>
-    <string name="button_save">Guardar</string>
+    <string name="button_save">Save</string>
     <string name="button_dont_save">Don\'t save</string>
     
-	<string name="menu_theme">Tema</string>
+	<string name="menu_theme">Theme</string>
 	<string name="theme_pick">Pick a theme</string>
     <string name="theme_default">Default </string>
     <string name="theme_monospaced">Monospaced font</string>
@@ -128,7 +124,7 @@ Launchpad Contributions:
     
 	<!--     Dialog box    -->
 	<string name="ok">OK</string>
-	<string name="cancel">Cancelar</string>
+	<string name="cancel">Cancel</string>
     <string name="use_theme_for_all_lists">Use this theme for all lists</string>
 	<string name="get_more_themes">Get more themes</string>
     
@@ -211,7 +207,7 @@ Launchpad Contributions:
     <string name="preference_get_market_addons">Get add-ons from Market</string>
     <string name="preference_get_developer_addons">Get add-ons from OpenIntents</string>
     <string name="preference_extensions">Extensions</string>
-    <string name="preference_themes">Temas</string>
+    <string name="preference_themes">Themes</string>
     <string name="preference_market_extensions_summary">Search for extensions at Android Market.</string>
     <string name="preference_market_themes_summary">Search for themes at Android Market.</string>
     <string name="preference_developer_extensions_summary">Get extensions from the OpenIntents homepage.</string>

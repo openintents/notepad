@@ -138,6 +138,8 @@
     <string name="preference_sortorder_title">List Sorting Order</string>
     <string name="preference_sortorder_dialog_title">List Sorting Order</string>
     <string name="preference_sortorder_summary">The order in which notes are shown in the notes list</string>
+    <string name="preference_marquee_title">Marquee note titles.</string>
+    <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
     
     <string name="note_editor_preferences">Note Editor</string>
     <string name="preference_fontsize">Font size</string>
@@ -212,4 +214,6 @@
     <string name="preference_market_themes_summary">Search for themes at Android Market.</string>
     <string name="preference_developer_extensions_summary">Get extensions from the OpenIntents homepage.</string>
 	<string name="preference_developer_themes_summary">Get themes from the OpenIntents homepage.</string>
+	<string name="confirm_delete_title">Deletion Confirmation</string>
+	<string name="confirm_delete">Are you sure you want to delete this note?</string>
 </resources>
