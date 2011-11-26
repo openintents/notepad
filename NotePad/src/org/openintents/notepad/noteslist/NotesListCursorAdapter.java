@@ -11,18 +11,18 @@ public class NotesListCursorAdapter extends CursorAdapter {
 
 	Context mContext;
 	NotesListCursor mCursorUtils;
-	
-	
+
+
 	/**
 	 * Flag for slow list adapter.
 	 */
-    public boolean mBusy;
-    
+	public boolean mBusy;
+
 	public NotesListCursorAdapter(Context context, Cursor c, NotesListCursor cursorUtils) {
 		super(context, c);
 		mContext = context;
 		mCursorUtils = cursorUtils;
-		
+
 		mBusy = false;
 	}
 
@@ -35,14 +35,14 @@ public class NotesListCursorAdapter extends CursorAdapter {
 		long encrypted = cursor.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
 		String titleEncrypted = cursor.getString(NotesListCursor.COLUMN_INDEX_TITLE_ENCRYPTED);
 		String tagsEncrypted = cursor.getString(NotesListCursor.COLUMN_INDEX_TAGS_ENCRYPTED);
-		
+
 		nliv.setEncrypted(encrypted);
-		
+
 		nliv.setTitle(title);
 		nliv.setTags(tags);
 		nliv.mTitleEncrypted = titleEncrypted;
 		nliv.mTagsEncrypted = tagsEncrypted;
-				
+
 
 		/*
 		if (encrypted == 0) {
@@ -78,9 +78,9 @@ public class NotesListCursorAdapter extends CursorAdapter {
 				// Non-null tag means the view still needs to load it's data
 	            nliv.setTag(this);
 			}
-			* /
+		 * /
 		}
-	    */
+		 */
 	}
 
 	@Override
@@ -89,41 +89,41 @@ public class NotesListCursorAdapter extends CursorAdapter {
 	}	
 
 
-    /*
+	/*
 	@Override
 	public Filter getFilter() {
 		Log.i(TAG, "Request filter");
-		
+
 		return super.getFilter();
 	}
-*/
-    
+	 */
+
 	/*
 	@Override
 	public CharSequence convertToString(Cursor cursor) {
 		//return super.convertToString(cursor);
 
 		Log.i(TAG, "convertToString" + cursor.getPosition() + " / " + cursor.getCount());
-		
+
 		return cursor.getString(NotesList.COLUMN_INDEX_TITLE);
 	}
-*/
-	
+	 */
+
 	public Cursor runQueryOnBackgroundThread(CharSequence constraint, String tag) {
 		//Log.i(TAG, "runQueryOnBackgroundThread " + constraint + ", " + mIntent.getData());
 
-		
+
 		/*
 		Cursor cursor = mContext.getContentResolver().query(mIntent.getData(), NotesList.PROJECTION, 
 				"(" + Notes.TITLE + " like '" + constraint.toString() + "%' ) or ("
 				 + Notes.TITLE + " like '% " + constraint.toString() + "%' )",
 				new String[] { }, Notes.DEFAULT_SORT_ORDER);
-		*/
-		
+		 */
+
 		Cursor cursor = mCursorUtils.query(constraint, tag);
-		
+
 		return cursor;
 	}
-    
-    
+
+
 }

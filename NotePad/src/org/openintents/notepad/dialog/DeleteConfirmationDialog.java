@@ -11,12 +11,12 @@ import android.content.DialogInterface.OnClickListener;
  */
 public class DeleteConfirmationDialog extends AlertDialog.Builder{
 
-    public DeleteConfirmationDialog(Context context, OnClickListener onClickListener) {
-        super(context);
-        setIcon(android.R.drawable.ic_dialog_alert);
-        setTitle(R.string.confirm_delete_title);
-        setMessage(R.string.confirm_delete);
-        setPositiveButton(R.string.ok, onClickListener);
-        setNegativeButton(R.string.cancel, null);
-    }
+	public DeleteConfirmationDialog(Context context, OnClickListener onClickListener) {
+		super(context);
+		setIcon(android.R.drawable.ic_dialog_alert);
+		setTitle(R.string.confirm_delete_title);
+		setMessage(R.string.confirm_delete);
+		setPositiveButton(R.string.ok, onClickListener);
+		setNegativeButton(R.string.cancel, null);
+	}
 }

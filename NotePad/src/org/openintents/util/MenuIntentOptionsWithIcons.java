@@ -46,7 +46,7 @@ public class MenuIntentOptionsWithIcons {
 					ri.activityInfo.name));
 			final MenuItem item = mMenu.add(group, id, categoryOrder,
 					ri.loadLabel(pm)).setIcon(ri.loadIcon(pm)).setIntent(
-					rintent);
+							rintent);
 			if (outSpecificItems != null && ri.specificIndex >= 0) {
 				outSpecificItems[ri.specificIndex] = item;
 			}

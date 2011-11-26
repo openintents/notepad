@@ -21,7 +21,7 @@ public class ProviderUtils {
 		if (TextUtils.isEmpty(whereClause)) {
 			return null;
 		}
-		
+
 		Cursor c = db.query(table, new String[] {BaseColumns._ID}, 
 				whereClause, whereArgs, null, null, null);
 		long[] affectedRows = null;

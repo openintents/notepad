@@ -15,21 +15,21 @@ public final class ProviderIntents {
 	 * <p>Constant Value: "org.openintents.action.INSERTED"</p>
 	 */
 	public static final String ACTION_INSERTED = "org.openintents.action.INSERTED";
-	
+
 	/**
 	 * Broadcast Action: Sent after an entry has been modified.
 	 * 
 	 * <p>Constant Value: "org.openintents.action.MODIFIED"</p>
 	 */
 	public static final String ACTION_MODIFIED = "org.openintents.action.MODIFIED";
-	
+
 	/**
 	 * Broadcast Action: Sent after an entry has been deleted.
 	 * 
 	 * <p>Constant Value: "org.openintents.action.DELETED"</p>
 	 */
 	public static final String ACTION_DELETED = "org.openintents.action.DELETED";
-	
+
 	/**
 	 * Added by the ACTION_DELETED broadcast if it contains a where clause.
 	 * 

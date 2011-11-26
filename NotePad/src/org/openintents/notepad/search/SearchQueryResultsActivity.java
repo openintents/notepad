@@ -42,65 +42,65 @@ public class SearchQueryResultsActivity extends ListActivity
 {
 	NotesListCursor mCursorUtils;
 	NotesListCursorAdapter mAdapter;
-	
-    /** Called with the activity is first created.
-    * 
-    *  After the typical activity setup code, we check to see if we were launched
-    *  with the ACTION_SEARCH intent, and if so, we handle it.
-    */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        // get and process search query here
-        final Intent queryIntent = getIntent();
-        final String queryAction = queryIntent.getAction();
-        if (Intent.ACTION_SEARCH.equals(queryAction)) {
-            doSearchQuery(queryIntent, "onCreate()");
-        } else if (Intent.ACTION_VIEW.equals(queryAction)) {
-        	showItem(queryIntent);
-        } else {
-        	finish();
-        }
-    }
-    
-    /** 
-     * Called when new intent is delivered.
-     *
-     * This is where we check the incoming intent for a query string.
-     * 
-     * @param newIntent The intent used to restart this activity
-     */
-    @Override
-    public void onNewIntent(final Intent newIntent) {
-        super.onNewIntent(newIntent);
-        
-        // get and process search query here
-        final Intent queryIntent = getIntent();
-        final String queryAction = queryIntent.getAction();
-        if (Intent.ACTION_SEARCH.equals(queryAction)) {
-            doSearchQuery(queryIntent, "onNewIntent()");
-        } else if (Intent.ACTION_VIEW.equals(queryAction)) {
-        	showItem(queryIntent);
-        } else {
-        	finish();
-        }
-    }
-    
-    /**
-     * Generic search handler.
-     * 
-     * In a "real" application, you would use the query string to select results from
-     * your data source, and present a list of those results to the user.
-     */
-    private void doSearchQuery(final Intent queryIntent, final String entryPoint) {
-        
-        // The search query is provided as an "extra" string in the query intent
-        final String queryString = queryIntent.getStringExtra(SearchManager.QUERY);
-        
-        Intent i = new Intent();
-        i.setData(Notes.CONTENT_URI);
-        
+
+	/** Called with the activity is first created.
+	 * 
+	 *  After the typical activity setup code, we check to see if we were launched
+	 *  with the ACTION_SEARCH intent, and if so, we handle it.
+	 */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// get and process search query here
+		final Intent queryIntent = getIntent();
+		final String queryAction = queryIntent.getAction();
+		if (Intent.ACTION_SEARCH.equals(queryAction)) {
+			doSearchQuery(queryIntent, "onCreate()");
+		} else if (Intent.ACTION_VIEW.equals(queryAction)) {
+			showItem(queryIntent);
+		} else {
+			finish();
+		}
+	}
+
+	/** 
+	 * Called when new intent is delivered.
+	 *
+	 * This is where we check the incoming intent for a query string.
+	 * 
+	 * @param newIntent The intent used to restart this activity
+	 */
+	@Override
+	public void onNewIntent(final Intent newIntent) {
+		super.onNewIntent(newIntent);
+
+		// get and process search query here
+		final Intent queryIntent = getIntent();
+		final String queryAction = queryIntent.getAction();
+		if (Intent.ACTION_SEARCH.equals(queryAction)) {
+			doSearchQuery(queryIntent, "onNewIntent()");
+		} else if (Intent.ACTION_VIEW.equals(queryAction)) {
+			showItem(queryIntent);
+		} else {
+			finish();
+		}
+	}
+
+	/**
+	 * Generic search handler.
+	 * 
+	 * In a "real" application, you would use the query string to select results from
+	 * your data source, and present a list of those results to the user.
+	 */
+	private void doSearchQuery(final Intent queryIntent, final String entryPoint) {
+
+		// The search query is provided as an "extra" string in the query intent
+		final String queryString = queryIntent.getStringExtra(SearchManager.QUERY);
+
+		Intent i = new Intent();
+		i.setData(Notes.CONTENT_URI);
+
 		mCursorUtils = new NotesListCursor(this, i);
 		Cursor cursor = mCursorUtils.query(null, null);
 
@@ -110,44 +110,44 @@ public class SearchQueryResultsActivity extends ListActivity
 				cursor,
 				new String[] {SearchManager.SUGGEST_COLUMN_TEXT_1, SearchManager.SUGGEST_COLUMN_TEXT_2},
 				new int[] {android.R.id.text1, android.R.id.text2});
-        
-        if (cursor.getCount() <= 0) {
-        	// Nothing found.
-	    	TextView t = new TextView(this);
-	    	t.setText(getString(R.string.search_found_no_results, queryString));
-	    	t.setPadding(5, 5, 5, 5);
-	    	t.setTextSize(20);
-	    	getListView().addHeaderView(t);
 
-	        setListAdapter(new ArrayAdapter<String>(this,
-		           android.R.layout.simple_list_item_1, new String[] {}));
-        } else {
-	        
-    		//setListAdapter(mAdapter);
-        	setListAdapter(adapter);
-        }
-        
-    }
-    
-    private void showItem(Intent queryIntent) {
-    	Intent i = new Intent(Intent.ACTION_VIEW);
-    	i.setData(queryIntent.getData());
-    	
-    	startActivity(i);
-    	finish();
-    }
+		if (cursor.getCount() <= 0) {
+			// Nothing found.
+			TextView t = new TextView(this);
+			t.setText(getString(R.string.search_found_no_results, queryString));
+			t.setPadding(5, 5, 5, 5);
+			t.setTextSize(20);
+			getListView().addHeaderView(t);
+
+			setListAdapter(new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, new String[] {}));
+		} else {
+
+			//setListAdapter(mAdapter);
+			setListAdapter(adapter);
+		}
+
+	}
+
+	private void showItem(Intent queryIntent) {
+		Intent i = new Intent(Intent.ACTION_VIEW);
+		i.setData(queryIntent.getData());
+
+		startActivity(i);
+		finish();
+	}
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		
+
 		if (id >= 0) {
 			Uri uri = ContentUris.withAppendedId(Notes.CONTENT_URI, id);
-	
+
 			// Launch activity to view/edit the currently selected item
 			startActivity(new Intent(Intent.ACTION_EDIT, uri));
 		}
 	}
 
-    
+
 }

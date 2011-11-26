@@ -28,7 +28,7 @@ public class DialogHostingActivity extends Activity {
 	public static final int DIALOG_ID_SAVE = 1;
 	public static final int DIALOG_ID_OPEN = 2;
 	public static final int DIALOG_ID_NO_FILE_MANAGER_AVAILABLE = 3;
-	
+
 	public static final String EXTRA_DIALOG_ID = "org.openintents.notepad.extra.dialog_id";
 
 	/**
@@ -38,32 +38,32 @@ public class DialogHostingActivity extends Activity {
 	 * gets dismissed.
 	 */
 	private boolean mIsPausing = false;
-	
-    EditText mEditText;
-    
-    String mFilename;
-    
+
+	EditText mEditText;
+
+	String mFilename;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		Intent i = getIntent();
 		if (i != null && savedInstanceState == null) {
 			if (debug) Log.d(TAG, "new dialog");
 			int dialogId = i.getIntExtra(EXTRA_DIALOG_ID, 0);
 			switch (dialogId) {
-			case DIALOG_ID_SAVE:
-				if (debug) Log.i(TAG, "Show Save dialog");
-				saveFile();
-				break;
-			case DIALOG_ID_OPEN:
-				if (debug) Log.i(TAG, "Show Save dialog");
-				openFile();
-				break;
-			case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-				if (debug) Log.i(TAG, "Show no file manager dialog");
-				showDialog(DIALOG_ID_NO_FILE_MANAGER_AVAILABLE);
-				break;
+				case DIALOG_ID_SAVE:
+					if (debug) Log.i(TAG, "Show Save dialog");
+					saveFile();
+					break;
+				case DIALOG_ID_OPEN:
+					if (debug) Log.i(TAG, "Show Save dialog");
+					openFile();
+					break;
+				case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+					if (debug) Log.i(TAG, "Show no file manager dialog");
+					showDialog(DIALOG_ID_NO_FILE_MANAGER_AVAILABLE);
+					break;
 			}
 		}
 	}
@@ -73,7 +73,7 @@ public class DialogHostingActivity extends Activity {
 	 * 
 	 */
 	private void saveFile() {
-		
+
 		// Check whether intent exists
 		Intent intent = new Intent(FileManagerIntents.ACTION_PICK_FILE);
 		intent.setData(getIntent().getData());
@@ -89,10 +89,10 @@ public class DialogHostingActivity extends Activity {
 			showDialog(DIALOG_ID_SAVE);
 		}
 	}
-	
+
 
 	private void openFile() {
-		
+
 		// Check whether intent exists
 		Intent intent = new Intent(FileManagerIntents.ACTION_PICK_FILE);
 		intent.setData(getIntent().getData());
@@ -112,26 +112,26 @@ public class DialogHostingActivity extends Activity {
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		Dialog dialog = null;
-		
+
 		switch (id) {
-		case DIALOG_ID_SAVE:
-			FilenameDialog fd = new FilenameDialog(this);
-			fd.setTitle(R.string.menu_save_to_sdcard);
-			fd.setFilename(mFilename);
-			fd.setOnFilenamePickedListener(mFilenamePickedListener);
-			dialog = fd;
-			break;
-		case DIALOG_ID_OPEN:
-			fd = new FilenameDialog(this);
-			fd.setTitle(R.string.menu_open_from_sdcard);
-			fd.setFilename(mFilename);
-			fd.setOnFilenamePickedListener(mFilenamePickedListener);
-			dialog = fd;
-			break;
-		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-			dialog = new DownloadOIAppDialog(this,
-					DownloadOIAppDialog.OI_FILEMANAGER);
-			break;
+			case DIALOG_ID_SAVE:
+				FilenameDialog fd = new FilenameDialog(this);
+				fd.setTitle(R.string.menu_save_to_sdcard);
+				fd.setFilename(mFilename);
+				fd.setOnFilenamePickedListener(mFilenamePickedListener);
+				dialog = fd;
+				break;
+			case DIALOG_ID_OPEN:
+				fd = new FilenameDialog(this);
+				fd.setTitle(R.string.menu_open_from_sdcard);
+				fd.setFilename(mFilename);
+				fd.setOnFilenamePickedListener(mFilenamePickedListener);
+				dialog = fd;
+				break;
+			case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+				dialog = new DownloadOIAppDialog(this,
+						DownloadOIAppDialog.OI_FILEMANAGER);
+				break;
 		}
 		if (dialog == null) {
 			dialog = super.onCreateDialog(id);
@@ -145,20 +145,20 @@ public class DialogHostingActivity extends Activity {
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
 		super.onPrepareDialog(id, dialog);
-		
+
 		switch (id) {
-		case DIALOG_ID_SAVE:
-			break;
-		case DIALOG_ID_OPEN:
-			break;
-		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-			DownloadOIAppDialog.onPrepareDialog(this, dialog);
-			break;
+			case DIALOG_ID_SAVE:
+				break;
+			case DIALOG_ID_OPEN:
+				break;
+			case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+				DownloadOIAppDialog.onPrepareDialog(this, dialog);
+				break;
 		}
 	}
-	
+
 	OnDismissListener mDismissListener = new OnDismissListener() {
-		
+
 		public void onDismiss(DialogInterface dialoginterface) {
 			if (debug) Log.d(TAG, "Dialog dismissed. Pausing: " + mIsPausing);
 			if (!mIsPausing) {
@@ -170,21 +170,21 @@ public class DialogHostingActivity extends Activity {
 				// Dialog has been dismissed by system.
 			}
 		}
-		
+
 	};
 
 	OnFilenamePickedListener mFilenamePickedListener = new OnFilenamePickedListener() {
-		
+
 		public void onFilenamePicked(String filename) {
 			if (debug) Log.d(TAG, "Filename picked: " + filename);
-			
+
 			Intent intent = getIntent();
 			Uri uri = FileUriUtils.getUri(new File(filename));
 			intent.setData(uri);
-			
+
 			setResult(RESULT_OK, intent);
 		}
-		
+
 	};
 
 	@Override
@@ -205,5 +205,5 @@ public class DialogHostingActivity extends Activity {
 		// mIsPausing should be reset to its original state.
 		mIsPausing = false;
 	}
-	
+
 }

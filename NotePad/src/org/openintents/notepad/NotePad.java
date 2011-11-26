@@ -32,84 +32,84 @@ import android.provider.BaseColumns;
  * @version 2009-01-12, 23:09 UTC
  */
 public final class NotePad {
-    public static final String AUTHORITY = "org.openintents.notepad";
+	public static final String AUTHORITY = "org.openintents.notepad";
 
-    // This class cannot be instantiated
-    private NotePad() {}
-    
-    /**
-     * Notes table
-     */
-    public static final class Notes implements BaseColumns {
-        // This class cannot be instantiated
-        private Notes() {}
+	// This class cannot be instantiated
+	private NotePad() {}
 
-        /**
-         * The content:// style URL for this table
-         */
-        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/notes");
+	/**
+	 * Notes table
+	 */
+	public static final class Notes implements BaseColumns {
+		// This class cannot be instantiated
+		private Notes() {}
 
-        /**
-         * The MIME type of {@link #CONTENT_URI} providing a directory of notes.
-         */
-        public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.openintents.notepad.note";
+		/**
+		 * The content:// style URL for this table
+		 */
+		public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/notes");
 
-        /**
-         * The MIME type of a {@link #CONTENT_URI} sub-directory of a single note.
-         */
-        public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.openintents.notepad.note";
+		/**
+		 * The MIME type of {@link #CONTENT_URI} providing a directory of notes.
+		 */
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.openintents.notepad.note";
 
-        /**
-         * The title of the note
-         * <P>Type: TEXT</P>
-         */
-        public static final String TITLE = "title";
+		/**
+		 * The MIME type of a {@link #CONTENT_URI} sub-directory of a single note.
+		 */
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.openintents.notepad.note";
 
-        /**
-         * The note itself
-         * <P>Type: TEXT</P>
-         */
-        public static final String NOTE = "note";
+		/**
+		 * The title of the note
+		 * <P>Type: TEXT</P>
+		 */
+		public static final String TITLE = "title";
 
-        /**
-         * The timestamp for when the note was created
-         * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
-         */
-        public static final String CREATED_DATE = "created";
+		/**
+		 * The note itself
+		 * <P>Type: TEXT</P>
+		 */
+		public static final String NOTE = "note";
 
-        /**
-         * The timestamp for when the note was last modified
-         * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
-         */
-        public static final String MODIFIED_DATE = "modified";
-        
-        /**
-         * Tags associated with a note.
-         * Multiple tags are separated by commas.
-         * <P>Type: TEXT</P>
-         * @since 1.1.0
-         */
-        public static final String TAGS = "tags";
+		/**
+		 * The timestamp for when the note was created
+		 * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
+		 */
+		public static final String CREATED_DATE = "created";
 
-        /**
-         * Whether the note is encrypted.
-         * 0 = not encrypted. 1 = encrypted.
-         * <P>Type: INTEGER</P>
-         * @since 1.1.0
-         */
-        public static final String ENCRYPTED = "encrypted";
+		/**
+		 * The timestamp for when the note was last modified
+		 * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
+		 */
+		public static final String MODIFIED_DATE = "modified";
 
-        /**
-         * A theme URI.
-         * <P>Type: TEXT</P>
-         * @since 1.1.0
-         */
-        public static final String THEME = "theme";
-        
-        /**
-         * Support sort orders. The "sort order" in the preferences
-         * is an index into this array.
-         */
-        public static final String[] SORT_ORDERS = {"title ASC", "title DESC", "modified DESC", "modified ASC", "created DESC", "created ASC"};
-    }
+		/**
+		 * Tags associated with a note.
+		 * Multiple tags are separated by commas.
+		 * <P>Type: TEXT</P>
+		 * @since 1.1.0
+		 */
+		public static final String TAGS = "tags";
+
+		/**
+		 * Whether the note is encrypted.
+		 * 0 = not encrypted. 1 = encrypted.
+		 * <P>Type: INTEGER</P>
+		 * @since 1.1.0
+		 */
+		public static final String ENCRYPTED = "encrypted";
+
+		/**
+		 * A theme URI.
+		 * <P>Type: TEXT</P>
+		 * @since 1.1.0
+		 */
+		public static final String THEME = "theme";
+
+		/**
+		 * Support sort orders. The "sort order" in the preferences
+		 * is an index into this array.
+		 */
+		public static final String[] SORT_ORDERS = {"title ASC", "title DESC", "modified DESC", "modified ASC", "created DESC", "created ASC"};
+	}
 }

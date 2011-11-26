@@ -5,9 +5,9 @@ public class ThemeNotepad {
 
 	// For Notepad theme
 	// (move to separate class eventually)
-	
+
 	public static final String THEME_NOTEPAD = "org.openintents.notepad";
-	
+
 	public static final String background = "background";
 	public static final String backgroundPadding = "backgroundPadding";
 	public static final String backgroundPaddingLeft = "backgroundPaddingLeft";

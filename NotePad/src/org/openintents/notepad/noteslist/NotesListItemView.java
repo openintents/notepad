@@ -12,19 +12,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class NotesListItemView extends LinearLayout {
-	
+
 	private static final String TAG = "NotesListItemView";
 
 	Context mContext;
-	
+
 	private MarqueeTextView mTitle;
 	private TextView mTags;
 	private ImageView mStatus;
-	
+
 	protected String mTitleEncrypted;
 	protected String mTagsEncrypted;
-	
-	
+
+
 	public NotesListItemView(Context context) {
 		super(context);
 		mContext = context;
@@ -35,11 +35,11 @@ public class NotesListItemView extends LinearLayout {
 
 		inflater.inflate(
 				R.layout.noteslist_item, this, true);
-		
+
 		mTitle = (MarqueeTextView) findViewById(R.id.title);
 		mTags = (TextView) findViewById(R.id.info);
 		mStatus = (ImageView) findViewById(R.id.status);
-		
+
 		if(PreferenceActivity.getMarqueeFromPrefs(mContext)) {
 			mTitle.setEllipsize(TextUtils.TruncateAt.MARQUEE);
 			mTitle.setMarquee(true);
@@ -52,7 +52,7 @@ public class NotesListItemView extends LinearLayout {
 	public void setTitle(String title) {
 		mTitle.setText(title);
 	}
-	
+
 	public void setTags(String tags) {
 		if (!TextUtils.isEmpty(tags)) {
 			mTags.setVisibility(View.VISIBLE);
@@ -61,7 +61,7 @@ public class NotesListItemView extends LinearLayout {
 			mTags.setVisibility(View.GONE);
 		}
 	}
-	
+
 	public void setEncrypted(long encrypted) {
 		if (encrypted > 0) {
 			mStatus.setImageResource(android.R.drawable.ic_lock_lock);

@@ -32,7 +32,7 @@ public class NotepadIntents {
 	 * <p>Constant Value: "org.openintents.extra.TEXT_AFTER_SELECTION"</p>
 	 */
 	public static final String EXTRA_TEXT_AFTER_SELECTION = "org.openintents.extra.TEXT_AFTER_SELECTION";
-	
+
 	/**
 	 * Set if the activity works on selected text.
 	 * 

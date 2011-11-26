@@ -41,7 +41,7 @@ public class CryptoIntents {
 	 * <p>Constant Value: "org.openintents.action.DECRYPT"</p>
 	 */
 	public static final String ACTION_DECRYPT = "org.openintents.action.DECRYPT";
-	
+
 	/**
 	 * Activity Action: Get the password corresponding to the category of the
 	 * calling application, and the EXTRA_DESCRIPTION, as provided.
@@ -51,7 +51,7 @@ public class CryptoIntents {
 	 * <p>Constant Value: "org.openintents.action.GET_PASSWORD"</p>
 	 */
 	public static final String ACTION_GET_PASSWORD = "org.openintents.action.GET_PASSWORD";
-	
+
 	/**
 	 * Activity Action: Set the password corresponding to the category of the
 	 * calling application, and the EXTRA_DESCRIPTION, EXTRA_USERNAME and
@@ -75,14 +75,14 @@ public class CryptoIntents {
 	 * <p>Constant Value: "org.openintents.action.CRYPTO_LOGGED_OUT"</p>
 	 */
 	public static final String ACTION_CRYPTO_LOGGED_OUT = "org.openintents.action.CRYPTO_LOGGED_OUT";
-	
+
 	/**
 	 * The text to encrypt or decrypt, or the location for the return result.
 	 * 
 	 * <p>Constant Value: "org.openintents.extra.TEXT"</p>
 	 */
 	public static final String EXTRA_TEXT = "org.openintents.extra.TEXT";
-	
+
 	/**
 	 * An array of text to encrypt or decrypt, or the location for the return result.
 	 * Use this to encrypt several strings at once.
@@ -93,7 +93,7 @@ public class CryptoIntents {
 	 * <p>Constant Value: "org.openintents.extra.TEXT_ARRAY"</p>
 	 */
 	public static final String EXTRA_TEXT_ARRAY = "org.openintents.extra.TEXT_ARRAY";
-	
+
 	/**
 	 * Required input parameter to GET_PASSWORD and SET_PASSWORD. Corresponds to the "description"
 	 * field in passwordsafe. Should be a unique name for the password you're using,
@@ -110,7 +110,7 @@ public class CryptoIntents {
 	 * <p>Constant Value: "org.openintents.extra.USERNAME"</p>
 	 */
 	public static final String EXTRA_USERNAME = "org.openintents.extra.USERNAME";
-	
+
 	/**
 	 * Output parameter from GET_PASSWORD and _required_ input parameter to SET_PASSWORD.
 	 * Corresponds to the decrypted "password" field in passwordsafe.

@@ -44,17 +44,17 @@ import android.util.Xml;
 public class ThemeUtils {
 	private static final String TAG = "ThemeUtils";
 	private static final boolean debug = false;
-	
+
 	public static final String METADATA_THEMES = "org.openintents.themes";
-	
+
 	// For XML:
-	
+
 	public static String SCHEMA = "http://schemas.openintents.org/android/themes";
 
 	public static final String ELEM_THEMES = "themes";
 	public static final String ELEM_ATTRIBUTESET = "attributeset";
 	public static final String ELEM_THEME = "theme";
-	
+
 	public static final String ATTR_NAME = "name";
 	public static final String ATTR_TITLE = "title";
 	public static final String ATTR_STYLE = "style";
@@ -62,7 +62,7 @@ public class ThemeUtils {
 	public static int[] getAttributeIds(Context context, String[] attrNames, String packageName) {
 		int len = attrNames.length;
 		Resources res = context.getResources();
-		
+
 		int[] attrIds = new int[len];
 		for (int i = 0; i < len; i++) {
 			attrIds[i] = res.getIdentifier(attrNames[i], "attr", packageName);
@@ -70,7 +70,7 @@ public class ThemeUtils {
 		}
 		return attrIds;
 	}
-	
+
 	/**
 	 * Return list of all applications that contain the 
 	 * theme meta-tag.
@@ -81,7 +81,7 @@ public class ThemeUtils {
 	 */
 	private static List<ApplicationInfo> getThemePackages(PackageManager pm, String firstPackage) {
 		List<ApplicationInfo> appinfolist = new LinkedList<ApplicationInfo>();
-		
+
 		List<ApplicationInfo> allapps = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 		for (ApplicationInfo ai : allapps) {
 			if (ai.metaData != null) {
@@ -94,73 +94,73 @@ public class ThemeUtils {
 					}
 				}
 			}
- 		}
-		
+		}
+
 		return appinfolist;
 	}
-	
+
 	private static void addThemeInfos(PackageManager pm, String attributeset, ApplicationInfo appinfo, List<ThemeInfo> themeinfolist) {
 		XmlResourceParser xml = appinfo.loadXmlMetaData(pm, 
 				METADATA_THEMES);
-		
+
 		boolean useThisAttributeSet = false;
-		
+
 		try {
-		      int tagType = xml.next();
-		      while (XmlPullParser.END_DOCUMENT != tagType) {
+			int tagType = xml.next();
+			while (XmlPullParser.END_DOCUMENT != tagType) {
 
-		        if (XmlPullParser.START_TAG == tagType) {
+				if (XmlPullParser.START_TAG == tagType) {
 
-		          AttributeSet attr = Xml.asAttributeSet(xml);
+					AttributeSet attr = Xml.asAttributeSet(xml);
 
-		          if (xml.getName().equals(ELEM_THEMES)) {
-		        	  
-		          }
+					if (xml.getName().equals(ELEM_THEMES)) {
 
-		          else if (xml.getName().equals(ELEM_ATTRIBUTESET)) {
-		        	  String name = attr.getAttributeValue(SCHEMA,
-				                ATTR_NAME);
-		        	  useThisAttributeSet = name.equals(attributeset);
-		          }
+					}
 
-		          else if (xml.getName().equals(ELEM_THEME)) {
-		        	  if (useThisAttributeSet) {
-		        		  ThemeInfo ti = new ThemeInfo();
-		        		  
-		        		  ti.packageName = appinfo.packageName;
-		        		  int titleResId = attr.getAttributeResourceValue(SCHEMA, ATTR_TITLE, 0);
-		        		  int styleResId = attr.getAttributeResourceValue(SCHEMA, ATTR_STYLE, 0);
-		        		  
-		        		  try {
-			        		  Resources res = pm.getResourcesForApplication(appinfo);
-			        		  ti.title = res.getString(titleResId);
-			        		  ti.styleName = res.getResourceName(styleResId);
-		        		  } catch (NameNotFoundException e) {
-		        			  ti.title = "";
-		        		  }
-		        		  themeinfolist.add(ti);
-		        	  }
-		          }
-		        }
-		        
-		        else if (XmlPullParser.END_TAG == tagType) {
+					else if (xml.getName().equals(ELEM_ATTRIBUTESET)) {
+						String name = attr.getAttributeValue(SCHEMA,
+								ATTR_NAME);
+						useThisAttributeSet = name.equals(attributeset);
+					}
 
-		        }
+					else if (xml.getName().equals(ELEM_THEME)) {
+						if (useThisAttributeSet) {
+							ThemeInfo ti = new ThemeInfo();
 
-		        tagType = xml.next();
-		      }
+							ti.packageName = appinfo.packageName;
+							int titleResId = attr.getAttributeResourceValue(SCHEMA, ATTR_TITLE, 0);
+							int styleResId = attr.getAttributeResourceValue(SCHEMA, ATTR_STYLE, 0);
 
-		    } catch (XmlPullParserException ex) {
-		      Log.e(TAG, String.format("XML parse exception when parsing metadata for '%s': %s",
-		            appinfo.packageName, ex.getMessage()));
-		    } catch (IOException ex) {
-		      Log.e(TAG, String.format("I/O exception when parsing metadata for '%s': %s",
-		            appinfo.packageName, ex.getMessage()));
-		    }
+							try {
+								Resources res = pm.getResourcesForApplication(appinfo);
+								ti.title = res.getString(titleResId);
+								ti.styleName = res.getResourceName(styleResId);
+							} catch (NameNotFoundException e) {
+								ti.title = "";
+							}
+							themeinfolist.add(ti);
+						}
+					}
+				}
 
-		    xml.close();
+				else if (XmlPullParser.END_TAG == tagType) {
+
+				}
+
+				tagType = xml.next();
+			}
+
+		} catch (XmlPullParserException ex) {
+			Log.e(TAG, String.format("XML parse exception when parsing metadata for '%s': %s",
+					appinfo.packageName, ex.getMessage()));
+		} catch (IOException ex) {
+			Log.e(TAG, String.format("I/O exception when parsing metadata for '%s': %s",
+					appinfo.packageName, ex.getMessage()));
+		}
+
+		xml.close();
 	}
-	
+
 	/**
 	 * Create a list of all possible themes installed on the device
 	 * for a specific attributeset.
@@ -172,23 +172,23 @@ public class ThemeUtils {
 	public static List<ThemeInfo> getThemeInfos(Context context, String attributeset) {
 		PackageManager pm = context.getPackageManager();
 		String thisPackageName = context.getPackageName();
-		
+
 		List<ApplicationInfo> appinfolist = getThemePackages(pm, thisPackageName);
 		List<ThemeInfo> themeinfolist = new LinkedList<ThemeInfo>();
-		
+
 		for (ApplicationInfo ai : appinfolist) {
 			addThemeInfos(pm, attributeset, ai, themeinfolist);
 		}
-		
+
 		return themeinfolist;
 	}
-	
+
 	public static class ThemeInfo {
 		public String packageName;
 		public String title;
 		public String styleName;
 	}
-	
+
 	public static String getPackageNameFromStyle(String style) {
 		int pos = style.indexOf(':');
 		if (pos >= 0) {
@@ -197,5 +197,5 @@ public class ThemeUtils {
 			return null;
 		}
 	}
-	
+
 }

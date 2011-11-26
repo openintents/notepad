@@ -15,14 +15,14 @@ public class NotepadInternalIntents {
 	 * <p>Constant Value: "org.openintents.notepad.action.SAVE_TO_SD_CARD"</p>
 	 */
 	public static final String ACTION_SAVE_TO_SD_CARD = "org.openintents.notepad.action.SAVE_TO_SD_CARD";
-	
+
 	/**
 	 * The text currently selected, if used with CATEGORY_TEXT_SELECTION_ALTERNATIVE.
 	 * 
 	 * <p>Constant Value: "org.openintents.extra.TEXT"</p>
 	 */
 	public static final String EXTRA_TEXT = "org.openintents.extra.TEXT";
-	
+
 	/**
 	 * The tags to be used for a newly created note.
 	 * 

@@ -31,7 +31,7 @@ public class ThemeAttributes {
 	Context mContext;
 	String mPackageName;
 	int mThemeId;
-	
+
 	public ThemeAttributes(Context context, String packageName, int themeId) {
 		mContext = context;
 		mPackageName = packageName;
@@ -45,7 +45,7 @@ public class ThemeAttributes {
 		a.recycle();
 		return b;
 	}
-	
+
 	public int getColor(String attrName, int defaultValue) {
 		int[] attr = ThemeUtils.getAttributeIds(mContext, new String[] {attrName}, mPackageName);
 		TypedArray a = mContext.obtainStyledAttributes(mThemeId, attr);
@@ -69,7 +69,7 @@ public class ThemeAttributes {
 		a.recycle();
 		return i;
 	}
-	
+
 	public int getResourceId(String attrName, int defaultValue) {
 		int[] attr = ThemeUtils.getAttributeIds(mContext, new String[] {attrName}, mPackageName);
 		TypedArray a = mContext.obtainStyledAttributes(mThemeId, attr);
@@ -77,7 +77,7 @@ public class ThemeAttributes {
 		a.recycle();
 		return i;
 	}
-	
+
 	public String getString(String attrName) {
 		int[] attr = ThemeUtils.getAttributeIds(mContext, new String[] {attrName}, mPackageName);
 		TypedArray a = mContext.obtainStyledAttributes(mThemeId, attr);
@@ -85,5 +85,5 @@ public class ThemeAttributes {
 		a.recycle();
 		return s;
 	}
-	
+
 }

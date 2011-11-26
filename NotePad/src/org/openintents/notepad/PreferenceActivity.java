@@ -44,10 +44,10 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 	public static final String PREFS_SCREEN_ADDONS = "preference_screen_addons";
 
 	public static final String EXTRA_SHOW_GET_ADD_ONS = "show_get_add_ons";
-	
+
 	@Override
 	protected void onCreate(Bundle icicle) {
-		
+
 		super.onCreate(icicle);
 
 		addPreferencesFromResource(R.xml.preferences);
@@ -80,17 +80,17 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 		int sortOrder = 0;
 		try {
 			sortOrder = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context)
-			.getString(PREFS_SORTORDER, PREFS_SORTORDER_DEFAULT));
+					.getString(PREFS_SORTORDER, PREFS_SORTORDER_DEFAULT));
 		} catch (NumberFormatException e) {
 			// Guess somebody messed with the preferences and put a string into this
 			// field. We'll use the default value then.
 		}
-		
+
 		if (sortOrder >= 0 && sortOrder < Notes.SORT_ORDERS.length)
 		{
 			return Notes.SORT_ORDERS[sortOrder];
 		}
-		
+
 		// Value out of range - somebody messed with the preferences.
 		return Notes.SORT_ORDERS[0];
 	}
@@ -102,12 +102,12 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 						PREFS_FONTSIZE_DEFAULT));
 		return size;
 	}
-	
+
 	public static boolean getMarqueeFromPrefs(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context)
 				.getBoolean(PREFS_MARQUEE, PREFS_MARQUEE_DEFAULT);
 	}
-	
+
 	/**
 	 * Check whether Market is available.
 	 * @return true if Market is available
@@ -120,7 +120,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 
 	static int getAutoLinkFromPreference(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context)
-					.getBoolean(PREFS_AUTOLINK, true) ? Linkify.ALL : 0;
+				.getBoolean(PREFS_AUTOLINK, true) ? Linkify.ALL : 0;
 	}
 
 	public static boolean getThemeSetForAll(Context context) {
@@ -128,7 +128,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 				.getDefaultSharedPreferences(context);
 		return prefs.getBoolean(PREFS_THEME_SET_FOR_ALL, false);
 	}
-	
+
 	public static void setThemeSetForAll(Context context, boolean setForAll) {
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(context);

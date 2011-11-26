@@ -86,14 +86,14 @@ public class FileUriUtils {
 	 */
 	public static File getFile(String curdir, String file) {
 		String separator = "/";
-		  if (curdir.endsWith("/")) {
-			  separator = "";
-		  }
-		   File clickedFile = new File(curdir + separator
-		                       + file);
+		if (curdir.endsWith("/")) {
+			separator = "";
+		}
+		File clickedFile = new File(curdir + separator
+				+ file);
 		return clickedFile;
 	}
-	
+
 	public static File getFile(File curdir, String file) {
 		return getFile(curdir.getAbsolutePath(), file);
 	}

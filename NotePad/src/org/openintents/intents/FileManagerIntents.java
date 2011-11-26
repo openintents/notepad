@@ -44,7 +44,7 @@ public final class FileManagerIntents {
 	 * <p>Constant Value: "org.openintents.action.PICK_DIRECTORY"</p>
 	 */
 	public static final String ACTION_PICK_DIRECTORY = "org.openintents.action.PICK_DIRECTORY";
-	
+
 	/**
 	 * The title to display.
 	 * 
