@@ -58,6 +58,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.Intent.ShortcutIconResource;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
@@ -272,6 +273,11 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
 		if (debug) Log.d(TAG, "onCreate()");
 
+		if(getIntent().getAction().equals(Intent.ACTION_CREATE_SHORTCUT)) {
+			createShortcut();
+			return;
+		}
+
 		if (savedInstanceState == null) {
 			// sDecryptedText has no use for brand new activities
 			sDecryptedText = null;
@@ -446,6 +452,26 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		} else {
 			mCursor = null;
 		}
+	}
+	
+	/**
+	 * Return intent data when invoked with action=android.intent.action.CREATE_SHORTCUT
+	 */
+	private void createShortcut() {
+		Intent intent = new Intent(Intent.ACTION_INSERT,
+				Notes.CONTENT_URI, getApplicationContext(), NoteEditor.class);
+		
+		Intent result = new Intent();
+		result.putExtra(Intent.EXTRA_SHORTCUT_INTENT, intent);
+		result.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
+				ShortcutIconResource.fromContext(
+						getApplicationContext(),
+						R.drawable.ic_launcher_notepad));
+		result.putExtra(Intent.EXTRA_SHORTCUT_NAME, getString(R.string.new_note));
+		
+		setResult(RESULT_OK, result);
+		
+		finish();
 	}
 
 	/**

@@ -152,6 +152,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="vnd.android.cursor.dir/vnd.openintents.notepad.note" />
             </intent-filter>
+            
+            <!-- Filter for creating 'New Note' shortcut -->
+            <intent-filter android:label="@string/new_note">
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+            </intent-filter>
+                
 
         </activity>
         

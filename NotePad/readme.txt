@@ -1,4 +1,4 @@
- ****************************************************************************
+﻿ ****************************************************************************
  * Copyright (C) 2008-2011 OpenIntents.org                                  *
  *                                                                          *
  * Licensed under the Apache License, Version 2.0 (the "License");          *
@@ -25,9 +25,10 @@ To obtain the current release, visit
 ---------------------------------------------------------
 release 1.3
 date: ?
-- setting for marquee for long titles (issue 266, Google Code-in patch by Aviral Dasgupta)
-- added delete confirmation (issue 363, Google Code-in patch by Shuhao)
-- sort tags (issue 265, Google Code-in patch by Shuhao)
+- setting for marquee for long titles (issue 266, Google Code-in task by Aviral Dasgupta)
+- added delete confirmation (issue 363, Google Code-in task by Shuhao)
+- sort tags (issue 265, Google Code-in task by Shuhao)
+- shortcut for adding notes (Google Code-in task by Żyła)
 
 ---------------------------------------------------------
 release: 1.2.3

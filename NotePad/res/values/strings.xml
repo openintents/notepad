@@ -215,4 +215,6 @@
 	<string name="preference_developer_themes_summary">Get themes from the OpenIntents homepage.</string>
 	<string name="confirm_delete_title">Deletion Confirmation</string>
 	<string name="confirm_delete">Are you sure you want to delete this note?</string>
+	
+	<string name="new_note">New note</string>
 </resources>
