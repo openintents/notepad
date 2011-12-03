@@ -44,6 +44,7 @@ import org.openintents.notepad.theme.ThemeNotepad;
 import org.openintents.notepad.theme.ThemeUtils;
 import org.openintents.notepad.util.ExtractTitle;
 import org.openintents.notepad.util.FileUriUtils;
+import org.openintents.notepad.util.SendNote;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 import org.openintents.util.UpperCaseTransformationMethod;
 
@@ -139,6 +140,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final int MENU_SAVE_AS = Menu.FIRST + 7;
 	private static final int MENU_THEME = Menu.FIRST + 8;
 	private static final int MENU_SETTINGS = Menu.FIRST + 9;
+	private static final int MENU_SEND = Menu.FIRST + 10;
 
 	//private static final int REQUEST_CODE_ENCRYPT = 1;
 	private static final int REQUEST_CODE_DECRYPT = 2;
@@ -262,7 +264,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 						canvas.drawLine(left, baseline + 1, right, baseline + 1, paint);
 					}
 				}
-			}            
+			}
 			super.onDraw(canvas);
 		}
 	}
@@ -985,6 +987,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		menu.add(3, MENU_SETTINGS, 0, R.string.settings).setIcon(
 				android.R.drawable.ic_menu_preferences).setShortcut('9', 's');
 
+		menu.add(4, MENU_SEND, 0, R.string.menu_share).setIcon(
+				android.R.drawable.ic_menu_share);
+		
 		/*
         if (mState == STATE_EDIT) {
 
@@ -1121,6 +1126,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			case MENU_SETTINGS:
 				showNotesListSettings();
 				return true;
+			case MENU_SEND:
+				shareNote();
+				return true;
 		}
 		if (item.getGroupId() == GROUP_ID_TEXT_SELECTION_ALTERNATIVE) {
 			// Process manually:
@@ -1131,6 +1139,12 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void shareNote() {
+		String content = mText.getText().toString();
+		String title = ExtractTitle.extractTitle(content);
+		SendNote.sendNote(this, title, content);
 	}
 
 	private void deleteNoteWithConfirm() {

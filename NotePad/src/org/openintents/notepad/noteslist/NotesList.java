@@ -49,6 +49,7 @@ import org.openintents.notepad.dialog.DeleteConfirmationDialog;
 import org.openintents.notepad.filename.DialogHostingActivity;
 import org.openintents.notepad.intents.NotepadInternalIntents;
 import org.openintents.notepad.util.FileUriUtils;
+import org.openintents.notepad.util.SendNote;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 
 import android.app.Dialog;
@@ -93,7 +94,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 	// Menu item ids
 	private static final int MENU_ITEM_DELETE = Menu.FIRST;
 	private static final int MENU_ITEM_INSERT = Menu.FIRST + 1;
-	private static final int MENU_ITEM_SEND_BY_EMAIL = Menu.FIRST + 2;
+	private static final int MENU_ITEM_SHARE = Menu.FIRST + 2;
 	private static final int MENU_ITEM_ENCRYPT = Menu.FIRST + 5;
 	private static final int MENU_ITEM_UNENCRYPT = Menu.FIRST + 6;
 	private static final int MENU_ITEM_EDIT_TAGS = Menu.FIRST + 7;
@@ -624,7 +625,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		if (encrypted == 0) {
 
 			// Add a menu item to send the note
-			menu.add(0, MENU_ITEM_SEND_BY_EMAIL, 0, R.string.menu_send_by_email);
+			menu.add(0, MENU_ITEM_SHARE, 0, R.string.menu_share);
 
 			// Added automatically through manifest:
 			//menu.add(0, MENU_ITEM_SAVE, 0, R.string.menu_save_to_sdcard);
@@ -664,7 +665,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 				//mAdapter.getCursor().requery();
 				return true;
 			}
-			case MENU_ITEM_SEND_BY_EMAIL:
+			case MENU_ITEM_SHARE:
 				sendNoteByEmail(mContextMenuInfo.id);
 				return true;
 			case MENU_ITEM_ENCRYPT:
@@ -702,20 +703,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 
 		if (debug) Log.i(TAG, "Title to send: " + title);
 		if (debug) Log.i(TAG, "Content to send: " + content);
-
-		Intent i = new Intent();
-		i.setAction(Intent.ACTION_SEND);
-		i.setType("text/plain");
-		i.putExtra(Intent.EXTRA_SUBJECT, title);
-		i.putExtra(Intent.EXTRA_TEXT, content);
-
-		try {
-			startActivity(i);
-		} catch (ActivityNotFoundException e) {
-			Toast.makeText(this, R.string.email_not_available,
-					Toast.LENGTH_SHORT).show();
-			Log.e(TAG, "Email client not installed");
-		}
+		SendNote.sendNote(this, title, content);
 	}
 
 	/**
