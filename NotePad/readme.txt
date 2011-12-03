@@ -29,6 +29,7 @@ date: ?
 - added delete confirmation (issue 363, Google Code-in task by Shuhao)
 - sort tags (issue 265, Google Code-in task by Shuhao)
 - shortcut for adding notes (Google Code-in task by Żyła)
+- share note directly from note editor (issue 417, Google Code-in task by Shuhao)
 
 ---------------------------------------------------------
 release: 1.2.3
