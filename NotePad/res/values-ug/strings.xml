@@ -27,6 +27,7 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Sahran https://launchpad.net/~sahran</string>
 	
     <!-- Short explanation of the application -->
@@ -66,9 +67,9 @@
 	<string name="error_message">ئىزاھات يۈكلەش خاتالىقى</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_send_by_email">يوللا</string>
+	<string name="menu_share">Share</string>
 	<string name="empty_note">بوش ئىزاھات</string>
-	<string name="email_not_available">يوللاشقا ئىشلىتىدىغان قوللىنىشچان پىروگرامما يوق.</string>
+	<string name="share_not_available">No application available for sharing.</string>
 	
 	<string name="encrypting_note">ئىزاھاتنى شىفىرلاۋاتىدۇ</string>
 	<string name="encrypted">شىفىرلانغان</string>
@@ -215,4 +216,6 @@
 	<string name="preference_developer_themes_summary">OpenIntents تورتۇرادىن ئۆرنەككە ئېرىشىدۇ.</string>
 	<string name="confirm_delete_title">Deletion Confirmation</string>
 	<string name="confirm_delete">Are you sure you want to delete this note?</string>
+	
+	<string name="new_note">New note</string>
 </resources>

@@ -1,0 +1,7 @@
+# Application:
+OI Notepad
+
+# Promo text:
+OI Notepadはノートを作成、編集、削除できます。
+
+# Description:

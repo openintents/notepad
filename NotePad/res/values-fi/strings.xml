@@ -67,9 +67,9 @@
 	<string name="error_message">Virhe ladattaessa muistiinpanoa</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_send_by_email">Lähetä</string>
+	<string name="menu_share">Share</string>
 	<string name="empty_note">Tyhjä muistiinpano</string>
-	<string name="email_not_available">No application available for sending.</string>
+	<string name="share_not_available">No application available for sharing.</string>
 	
 	<string name="encrypting_note">Salataan muistiin panoa...</string>
 	<string name="encrypted">Salattu</string>
@@ -216,4 +216,6 @@
 	<string name="preference_developer_themes_summary">Get themes from the OpenIntents homepage.</string>
 	<string name="confirm_delete_title">Deletion Confirmation</string>
 	<string name="confirm_delete">Are you sure you want to delete this note?</string>
+	
+	<string name="new_note">New note</string>
 </resources>

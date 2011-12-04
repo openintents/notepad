@@ -1,0 +1,7 @@
+# Application:
+OI记事本
+
+# Promo text:
+OI记事本可以新建，编辑，删除注释。
+
+# Description:

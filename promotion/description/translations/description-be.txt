@@ -1,0 +1,7 @@
+# Application:
+OI Notepad
+
+# Promo text:
+OI Notepad дазваляе ствараць, рэдагаваць і выдаляць нататкі.
+
+# Description:

@@ -1,0 +1,7 @@
+# Application:
+OI Notepad
+
+# Promo text:
+OI Notepad позволяет создавать, редактировать и удлять заметки.
+
+# Description:

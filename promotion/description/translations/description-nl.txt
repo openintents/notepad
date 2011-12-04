@@ -1,0 +1,7 @@
+# Application:
+OI Notitieblok
+
+# Promo text:
+OI Notitieblok laat het creëren, bewerken en verwijderen van notities toe
+
+# Description:

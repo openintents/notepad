@@ -28,6 +28,7 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Menno Vogel https://launchpad.net/~mennovogel90
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   pjv https://launchpad.net/~pjv</string>
 	
@@ -68,9 +69,9 @@
 	<string name="error_message">Fout bij laden van notitie</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_send_by_email">Verzenden</string>
+	<string name="menu_share">Share</string>
 	<string name="empty_note">Lege notitie</string>
-	<string name="email_not_available">Geen toepassing beschikbaar om te verzenden.</string>
+	<string name="share_not_available">No application available for sharing.</string>
 	
 	<string name="encrypting_note">Bezig met versleutelen van notitie</string>
 	<string name="encrypted">Versleuteld</string>
@@ -217,4 +218,6 @@
 	<string name="preference_developer_themes_summary">Verkrijg thema\'s vanaf de OpenIntents website.</string>
 	<string name="confirm_delete_title">Deletion Confirmation</string>
 	<string name="confirm_delete">Are you sure you want to delete this note?</string>
+	
+	<string name="new_note">New note</string>
 </resources>

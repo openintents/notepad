@@ -1,0 +1,7 @@
+# Application:
+OI Notepad
+
+# Promo text:
+OI Notepad vă permite să creați, modificați și ștergeți note.
+
+# Description:

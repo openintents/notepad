@@ -1,0 +1,7 @@
+# Application:
+OI Notizblock
+
+# Promo text:
+OI Notizblock erlaubt das Erstellen und Bearbeiten von Notizen.
+
+# Description:

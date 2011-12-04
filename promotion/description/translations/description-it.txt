@@ -1,0 +1,7 @@
+# Application:
+OI Blocco Note
+
+# Promo text:
+OI Blocco Note permette di creare, modificare ed eliminare i tuoi appunti
+
+# Description:

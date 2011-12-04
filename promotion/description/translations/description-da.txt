@@ -1,0 +1,7 @@
+# Application:
+OI Notesblok
+
+# Promo text:
+OI Notesblok tillader at man kan oprettet, ændre og slette notater
+
+# Description:

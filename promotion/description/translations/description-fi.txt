@@ -1,0 +1,7 @@
+# Application:
+OI Notepad
+
+# Promo text:
+OI Notepad antaa sinun luoda, muokata, ja poistaa muistilappuja.
+
+# Description:

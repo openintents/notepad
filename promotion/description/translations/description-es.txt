@@ -1,0 +1,7 @@
+# Application:
+Bloc de Notas OI
+
+# Promo text:
+Bloc de Notas OI permite crear, editar, y eliminar notas.
+
+# Description:
