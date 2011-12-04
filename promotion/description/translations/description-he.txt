@@ -1,24 +1,17 @@
-# Application:
-OI Not defteri
-
-# Promo text:
-OI Not defteri notlarınızı oluşturma ,düzenleme ve silmenizi sağlar.
-
-# Description:
 OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
 
-Bu uygulama ücretsiz reklamdır ve internet izni gerektirmez. 
+באפליקציה זאת אין פרסומות והיא לא דורשת אישור אינטרנט. 
 
-Bunun kaynak kodu ücretsizdir ve açık kaynak uygulamalarına şuradan ulaşabilirsiniz: 
+קוד המקור של אפליקציה חינמית ובלע תקוד פתוח זמין אצל: 
 http://code.google.com/p/openintents
 
-Değişiklikler ve sık sorulan sorular listesini tamamlamak için lütfen şurayı ziyaret edin: 
+לרשימה המלאה של שינויים ולרשימה של שאלות נפוצות אנא לכו אל: 
 http://www.openintents.org
 
-Launchpad'te dilinize çevirileri geliştirmek için yardım edebilirsiniz: 
+אתם יכולים לעזור לשפר את התרגום בשפתכם ב-Launchpad: 
 https://translations.launchpad.net/openintents/trunk
 
-Özellikler: 
+מאפיינים: 
 * Add, edit and delete notes.
 * Long-press on notes to add tags.
 * Change font size and sort order.
@@ -40,11 +33,11 @@ Applications that work with "OI Notepad":
 * Update with "OI Update".
 * Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
 
-Anahtar kelimeler: 
+מילות מפתח: 
 * Note, Notepad, Note book, Notes
 * OI, OpenIntents, Open Intents
 
-Uluslararası versiyonlar: 
+גרסאות בין-לאומיות: 
 Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI خاتىرە دەپتەر, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
 
 

@@ -5,3 +5,53 @@ OI خاتىرە دەپتەر
 OI خاتىرە دەپتەر خاتىرە قۇرۇش، تەھرىرلەش ۋە ئۆچۈرۈشكە يول قويىدۇ.
 
 # Description:
+OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+
+This application is ad free and does not require the internet permission. 
+
+The source code of this free and open source application is available at: 
+http://code.google.com/p/openintents
+
+For the complete list of changes and a list of frequently asked questions, please visit: 
+http://www.openintents.org
+
+You can help to improve the translation into your language at Launchpad: 
+https://translations.launchpad.net/openintents/trunk
+
+Features: 
+* Add, edit and delete notes.
+* Long-press on notes to add tags.
+* Change font size and sort order.
+* A clearly arranged layout with a variety of themes.
+* Quickly search through notes.
+* Send notes as MMS or SMS.
+
+Available extensions for "OI Notepad": 
+* Record and attach voice memos to notes with "OI Voice Notes".
+* With "OI Convert CSV" import/export notes from the SD card.
+* Show the license information with "OI About".
+* Insert the date and time into notes with "OI Insert Date".
+* Turn text upside down with "Upside Down".
+
+Applications that work with "OI Notepad": 
+* Back up notes with "My Backup Pro".
+* Encrypt notes using "OI Safe".
+* Manage notes on your SD Card with "OI File Manager".
+* Update with "OI Update".
+* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+
+Keywords: 
+* Note, Notepad, Note book, Notes
+* OI, OpenIntents, Open Intents
+
+International versions: 
+Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI خاتىرە دەپتەر, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
+
+
+Search strings for Market: 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro
+

@@ -1,24 +1,24 @@
 # Application:
-OI Not defteri
+OI Notepad
 
 # Promo text:
-OI Not defteri notlarınızı oluşturma ,düzenleme ve silmenizi sağlar.
+OI Notepad allows to create, edit, and delete notes.
 
 # Description:
 OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
 
-Bu uygulama ücretsiz reklamdır ve internet izni gerektirmez. 
+यह अनुप्रयोग विज्ञापन मुक्त है और  इसे  इंटरनेट की अनुमति की आवश्यकता नहीं है| 
 
-Bunun kaynak kodu ücretsizdir ve açık kaynak uygulamalarına şuradan ulaşabilirsiniz: 
+इस स्वतंत्र और खुला स्रोत अनुप्रयोग का स्रोत कोड यहाँ पर उपलब्ध है: 
 http://code.google.com/p/openintents
 
-Değişiklikler ve sık sorulan sorular listesini tamamlamak için lütfen şurayı ziyaret edin: 
+परिवर्तन और अक्सर पूछे जाने वाले प्रश्नों की पूरी सूची के लिए, कृपया यहाँ पर जाएँ: 
 http://www.openintents.org
 
-Launchpad'te dilinize çevirileri geliştirmek için yardım edebilirsiniz: 
+आप Launchpad पर अपनी भाषा के अनुवाद को बेहतर बनाने में मदद कर सकते हैं: 
 https://translations.launchpad.net/openintents/trunk
 
-Özellikler: 
+सुविधाएँ: 
 * Add, edit and delete notes.
 * Long-press on notes to add tags.
 * Change font size and sort order.
@@ -40,11 +40,11 @@ Applications that work with "OI Notepad":
 * Update with "OI Update".
 * Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
 
-Anahtar kelimeler: 
+कीवर्ड: 
 * Note, Notepad, Note book, Notes
 * OI, OpenIntents, Open Intents
 
-Uluslararası versiyonlar: 
+अंतर्राष्ट्रीय संस्करण: 
 Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI خاتىرە دەپتەر, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
 
 
