@@ -44,6 +44,7 @@ Applications that work with "OI Notepad":
 * Encrypt notes using "OI Safe".
 * Manage notes on your SD Card with "OI File Manager".
 * Update with "OI Update".
+* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
 
 Keywords:
 * Note, Notepad, Note book, Notes
