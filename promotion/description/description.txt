@@ -22,7 +22,6 @@ You can help to improve the translation into your language at Launchpad:
 https://translations.launchpad.net/openintents/trunk
 
 Features:
-
 * Add, edit and delete notes.
 * Long-press on notes to add tags.
 * Change font size and sort order.
@@ -31,7 +30,6 @@ Features:
 * Send notes as MMS or SMS.
 
 Available extensions for "OI Notepad":
-
 * Record and attach voice memos to notes with "OI Voice Notes".
 * With "OI Convert CSV" import/export notes from the SD card.
 * Show the license information with "OI About".
@@ -39,7 +37,6 @@ Available extensions for "OI Notepad":
 * Turn text upside down with "Upside Down".
 
 Applications that work with "OI Notepad":
-
 * Back up notes with "My Backup Pro".
 * Encrypt notes using "OI Safe".
 * Manage notes on your SD Card with "OI File Manager".
@@ -54,4 +51,5 @@ International versions:
 #$ international
 
 Search strings for Market:
+# (these are not translated into other languages)
 #$ include description_extensions.txt
