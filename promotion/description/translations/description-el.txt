@@ -1,0 +1,7 @@
+# Application:
+OI Notepad
+
+# Promo text:
+Το OI Notepad σας επιτρέπει να δημιουργήσετε, να επεξεργαστείτε και να διαγράψετε σημειώσεις.
+
+# Description:

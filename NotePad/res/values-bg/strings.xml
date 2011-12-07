@@ -69,9 +69,9 @@
 	<string name="error_message">Грешка при зареждането на бележката</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_share">Share</string>
+	<string name="menu_share">Сподели</string>
 	<string name="empty_note">Празна бележка</string>
-	<string name="share_not_available">No application available for sharing.</string>
+	<string name="share_not_available">Няма достъпно приложение за споделяне.</string>
 	
 	<string name="encrypting_note">Бележката се шифрова</string>
 	<string name="encrypted">Шифровано</string>
@@ -219,5 +219,5 @@
 	<string name="confirm_delete_title">Потвърждаване на изтриването</string>
 	<string name="confirm_delete">Сигурни ли сте, че искате да изтриете тази бележка?</string>
 	
-	<string name="new_note">New note</string>
+	<string name="new_note">Нова бележка</string>
 </resources>

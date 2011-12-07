@@ -5,7 +5,7 @@ OI Notepad
 OI Notepad vă permite să creați, modificați și ștergeți note.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad este o aplicaţie cu toate caracteristicile pentru luat notiţe. Cu această aplicaţie puteţi etichet, căuta, şi trimite notele, în plus faţă de funcţionalitatea de bază, cum ar fi crearea, ştergerea si editarea notelor. Caracteristici avansate cum ar fi criptarea, importarea/exportarea, şi notele vocale sunt toate disponibile prin extensii. Toate din aceaste funcţionalităţi sunt adus împreună într-un aspect simplist şi eficient, personalizabil printr-o varietate de teme. 
 
 Această aplicație nu conține anunțuri publicitare și nu necesită permisiune la internet. 
 
@@ -19,39 +19,38 @@ Puteți îmbunătăți traducerea în limba dumneavoastră la Launchpad:
 https://translations.launchpad.net/openintents/trunk
 
 Caracteristici: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* Adăugaţi, editaţi şi ştergeţi note.
+* Apăsaţi lung pe note pentru a adăuga etichete.
+* Schimbă dimensiunea fontului şi ordinea de sortare.
+* Un aspect aranjat în mod clar cu o varietate de teme.
+* Căutare rapidă prin note.
+* Trimiteţi notele prin MMS sau SMS.
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+Extensii disponibile pentru "OI Notepad": 
+* Înregistraţi şi ataşaţi note vocale cu "OI Voice Notes".
+* Cu "OI Convert CSV" puteţi importa/exporta note de pe cardul SD.
+* Arată informaţiile de licenţă cu "OI About".
+* Inseraţi data şi ora în note cu "OI Insert Date".
+* Întoarceţi textul cu susul în jos cu "Upside Down".
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+Aplicaţii care funcţioneaza cu "OI Notepad": 
+* Faceţi o copie de rezervă a notelor cu "My Backup Pro".
+* Criptaţi notele cu "OI Safe".
+* Administraţi notele de pe cardul SD cu "File Manager OI".
+* Actualizaţi cu "OI Update".
+* Cautaţi note prin intermediul "Facebook", "Gmail", "Google+", "Twitter", si multe alte aplicaţii.
 
 Cuvinte cheie: 
-* Note, Notepad, Note book, Notes
+* Notă, Notepad, Carnet de note, Note
 * OI, OpenIntents, Open Intents
 
 Versiuni internaționale: 
 Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI خاتىرە دەپتەر, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Şiruri de căutare pentru Market: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe
 * uses OI Update
 * uses My Backup Pro
-

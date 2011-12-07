@@ -5,7 +5,7 @@ OI Notizblock
 OI Notizblock erlaubt das Erstellen und Bearbeiten von Notizen.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad ist ein Open Source Notizblock mit vielen Funktionen. Mit ihm ist es möglich, ihre Notizen zu taggen, zu durchsuchen und ihre Notizen zu versenden, zusätzlich zu den Standardfunktionen, wie das Erstellen, das Löschen oder das Bearbeiten von Notizen. Erweiterte Features wie Verschlüsselung, Import/Export, und Sprachnotizen sind durch Erweiterungen verfügbar. Alle diese Funktionen werden in einem einfachen und effizienten Layout, das durch eine Vielzahl von Themen angepasst werden kann, zusammengefügt. 
 
 Diese Applikation ist werbefrei und benötigt keine Internetverbindung. 
 
@@ -19,39 +19,38 @@ Sie können uns mit der Verbesserung der Übersetzung in ihre Sprache auf Launch
 https://translations.launchpad.net/openintents/trunk
 
 Eigentschaften: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* Notizen hinzufügen, bearbeiten oder löschen.
+* Lange auf Notizen drücken um Tags hinzuzufügen.
+* Schriftgrösse und Sortierreihenfolge verändern.
+* Ein klar angeordnetes Layout mit einer Vielzahl von Themen.
+* Eine schnelle Suche durch alle Notizen.
+* Notizen als MMS oder SMS senden.
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+Verfügbare Erweiterungen für "OI Notepad": 
+* Sprachnotizen aufnehmen und an Notizen anfügen mit "OI Voice Notes"
+* Mit "OI Convert CSV" Notizen von der/auf die SD Karte importieren/exportieren
+* Zeige die Lizenzinformationen mit OI About
+* Das Datum und die Zeit zu Notizen hinzufügen mit "OI Insert Date"
+* Den Text auf den Kopf stellen mit "Upside Down"
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+Anwendungen, die zusammen mit "OI Notepad" funktionieren: 
+* Notizen mit "My Backup Pro" sichern.
+* Notizen verschlüsseln mit "OI Safe"
+* Notizen auf der SD Karte verwalten mit "OI File Manager"
+* Updaten mit "OI Update"
+* Notizen über "Facebook", "Gmail", Google+", "Twitter" und viele andere Anwendungen teilen.
 
 Schlüsselwörter: 
-* Note, Notepad, Note book, Notes
+* Notiz, Notepad, Notizblock, Notizen
 * OI, OpenIntents, Open Intents
 
-International versions: 
+Internationale Versionen: 
 Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI خاتىرە دەپتەر, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Im Market suchen nach: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe
 * uses OI Update
 * uses My Backup Pro
-

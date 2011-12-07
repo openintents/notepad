@@ -47,4 +47,3 @@ Search strings for Market:
 * uses OI Safe
 * uses OI Update
 * uses My Backup Pro
-

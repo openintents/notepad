@@ -28,6 +28,7 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Damian Skrodzki https://launchpad.net/~damienix
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Tomasz \'Zen\' Napierala https://launchpad.net/~tzn
   Tomasz Zieliński https://launchpad.net/~tomek0517</string>
 	
@@ -68,9 +69,9 @@
 	<string name="error_message">Błąd ładowania notatki</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_share">Share</string>
+	<string name="menu_share">Udostępnij</string>
 	<string name="empty_note">Pusta notatka</string>
-	<string name="share_not_available">No application available for sharing.</string>
+	<string name="share_not_available">Brak aplikacji dostępnych do udostępnienia</string>
 	
 	<string name="encrypting_note">Szyfrowanie notatki</string>
 	<string name="encrypted">Zaszyfrowana</string>
@@ -218,5 +219,5 @@
 	<string name="confirm_delete_title">Potwierdzenie usunięcia</string>
 	<string name="confirm_delete">Czy jesteś pewny że chcesz skasować tą notatkę?</string>
 	
-	<string name="new_note">New note</string>
+	<string name="new_note">Nowa notatka</string>
 </resources>

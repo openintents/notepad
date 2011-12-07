@@ -5,53 +5,52 @@ OI Notepad
 OI Notepad дазваляе ствараць, рэдагаваць і выдаляць нататкі.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad - гэта поўнафункцыянальнае прыкладанне для запісу нататак з адкрытым зыходным кодам. Вы можаце пазначаць, шукаць і адпраўляць, а таксама ствараць, выдаляць і рэдагаваць нататкі. Дадатковыя магчымасці, такія яз кадаванне, імпарт/экспарт і галасавыя нататкі даступны праз пашырэнні. Усе гэтыя функцыі аб'яднаны ў спрошчанай і эфектыўнай кампаноўцы, якая можа наладжвацца з дапамогай розных тэм. 
 
-This application is ad free and does not require the internet permission. 
+У прыкладанні няма рэкламы і яно не патрабуе доступу ў інтэрнэт. 
 
-The source code of this free and open source application is available at: 
+Зыходны код гэтага бясплатнага прыкладання даступны на: 
 http://code.google.com/p/openintents
 
-For the complete list of changes and a list of frequently asked questions, please visit: 
+З поўным спісам змен і спісам пытянняў, якія часта задаюцца, можна азнаёміцца ​​на: 
 http://www.openintents.org
 
-You can help to improve the translation into your language at Launchpad: 
+Вы можаце палепшыць пераклад на вашу мову пры дапамозе Launchpad: 
 https://translations.launchpad.net/openintents/trunk
 
-Features: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+Магчымасці: 
+* Дабаўляць, рэдагаваць і выдаляць нататкі.
+* Доўга ўтрымлівайце націск на нататку каб дадаць пазнакі.
+* Змяніць памер шрыфта і парадак сартавання.
+* Наглядная схема з рознымі тэмамі.
+* Хуткі пошук у нататках.
+* Адправіць нататкі як MMS ці SMS.
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+Даступныя пашырэнні для "OI Notepad": 
+* Запісаць і прымацаваць галасавыя нататкі з "OI Voice Notes".
+* Пры дапамозе "OI Convert CSV" вы можаце імпартаваць/экспартаваць нататкі з SD карткі.
+* Паказваць інфармацыю аб ліцэнзіі пры дапамозе "OI About".
+* Уставіць дату і час у нататкі з "OI Insert Date".
+* Перавярнуць тэкст уверх нагамі з "Upside Down".
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+Прыкладанні, якія працуюць з "OI Notepad": 
+* Зарэзерваваць нататкі з "My Backup Pro".
+* Закадаваць нататкі пры дапамозе "OI Safe".
+* Кіраваць нататкамі на вашай SD картцы з дапамогай "OI File Manager".
+* Абнавіць з "OI Update".
+* Падзяліцца нататкамі праз "Facebook", "Gmail", "Google+", "Twitter", і іншыя прыкладанні.
 
-Keywords: 
-* Note, Notepad, Note book, Notes
+Ключавыя словы: 
+* Нататка, Блакнот, Нататкі
 * OI, OpenIntents, Open Intents
 
-International versions: 
+Перекладзеныя версіі: 
 Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI خاتىرە دەپتەر, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Пошук у Market: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe
 * uses OI Update
 * uses My Backup Pro
-
