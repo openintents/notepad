@@ -1,0 +1,7 @@
+# Application:
+OI Poznámkový blok
+
+# Promo text:
+OI Poznámkový blok umožňuje vytvářet, upravovat a mazat poznámky.
+
+# Description:

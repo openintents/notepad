@@ -1,0 +1,7 @@
+# Application:
+OI ਨੋਟਪੈਡ
+
+# Promo text:
+OI ਨੋਟਪੈਡ ਤਵਾਨੁ ਨੋਟ ਬਣਾਣ , ਬਦਲਨੇ ਹੋਰ ਹਟਾਨ ਦੇੰਦਾ ਹੈ |
+
+# Description:

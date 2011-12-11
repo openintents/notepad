@@ -27,7 +27,8 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Giannis Konstantinidis https://launchpad.net/~giankonstantinidis</string>
+  Giannis Konstantinidis https://launchpad.net/~giankonstantinidis
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">Το OI Notepad σας επιτρέπει να δημιουργήσετε, να επεξεργαστείτε και να διαγράψετε σημειώσεις.</string>

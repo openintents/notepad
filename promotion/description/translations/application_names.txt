@@ -6,7 +6,11 @@ OI Notepad
 OI Notesblok
 OI Notitieblok
 OI Notizblock
+OI Poznámkový blok
+OI Talaan
 OI خاتىرە دەپتەر
+OI नोटपैड
+OI ਨੋਟਪੈਡ
 OI 메모장
 OI记事本
 ແພ່ນຂຽນ OI

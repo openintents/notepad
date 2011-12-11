@@ -1,0 +1,7 @@
+# Application:
+OI Talaan
+
+# Promo text:
+OI Talaan ay pwedeng lumikha, magbago at mag-alis ng mga tala.
+
+# Description:
