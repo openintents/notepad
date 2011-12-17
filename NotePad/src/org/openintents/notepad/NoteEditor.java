@@ -106,7 +106,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		Notes.NOTE, // 1
 		Notes.TAGS, // 2
 		Notes.ENCRYPTED, // 3
-		Notes.THEME // 4
+		Notes.THEME, // 4
+		Notes.SELECTION_START, // 5
+		Notes.SELECTION_END, // 6
+		Notes.SCROLL_POSITION, // 7
 	};
 	/** The index of the note column */
 	private static final int COLUMN_INDEX_ID = 0;
@@ -114,6 +117,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final int COLUMN_INDEX_TAGS = 2;
 	private static final int COLUMN_INDEX_ENCRYPTED = 3;
 	private static final int COLUMN_INDEX_THEME = 4;
+	private static final int COLUMN_INDEX_SELECTION_START = 5;
+	private static final int COLUMN_INDEX_SELECTION_END = 6;
+	private static final int COLUMN_INDEX_SCROLL_POSITION = 7;
 
 	// This is our state data that is stored when freezing.
 	private static final String BUNDLE_ORIGINAL_CONTENT = "original_content";
@@ -401,6 +407,11 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
 				String tags = intent.getStringExtra(NotepadInternalIntents.EXTRA_TAGS);
 				values.put(Notes.TAGS, tags);
+				
+				if(mText != null) {
+					values.put(Notes.SELECTION_START, mText.getSelectionStart());
+					values.put(Notes.SELECTION_END, mText.getSelectionEnd());
+				}
 
 				// Requested to insert: set that state, and create a new entry
 				// in the container.
@@ -454,6 +465,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		} else {
 			mCursor = null;
 		}
+		
 	}
 	
 	/**
@@ -644,6 +656,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			String note = mCursor.getString(COLUMN_INDEX_NOTE);
 			mEncrypted = mCursor.getLong(COLUMN_INDEX_ENCRYPTED);
 			mTheme = mCursor.getString(COLUMN_INDEX_THEME);
+			mSelectionStart = mCursor.getInt(COLUMN_INDEX_SELECTION_START);
+			mSelectionStop = mCursor.getInt(COLUMN_INDEX_SELECTION_END);
 
 			if (mEncrypted == 0) {
 				// Not encrypted
@@ -815,6 +829,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					values.put(Notes.NOTE, text);
 
 					values.put(Notes.THEME, mTheme);
+					
+					values.put(Notes.SELECTION_START, mText.getSelectionStart());
+					values.put(Notes.SELECTION_END, mText.getSelectionEnd());
 
 					// Commit all of our changes to persistent storage. When the update completes
 					// the content provider will notify the cursor of the change, which will

@@ -105,6 +105,28 @@ public final class NotePad {
 		 * @since 1.1.0
 		 */
 		public static final String THEME = "theme";
+		
+		/**
+		 * The starting position of the selection in the note.
+		 * <p>TYPE: INTEGER</p>
+		 * @since 1.2.3
+		 */
+		public static final String SELECTION_START = "selection_start";
+		
+		/**
+		 * The ending position of the selection in the note.
+		 * <p>TYPE: INTEGER</p>
+		 * @since 1.2.3
+		 */
+		public static final String SELECTION_END = "selection_end";
+		
+		/**
+		 * The scroll position in the list expressed as scrollY/height
+		 * TODO Implement.
+		 * <p>TYPE: REAL</p>
+		 * @since 1.2.3
+		 */
+		public static final String SCROLL_POSITION = "scroll_position";
 
 		/**
 		 * Support sort orders. The "sort order" in the preferences

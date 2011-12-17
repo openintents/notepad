@@ -30,6 +30,7 @@ date: ?
 - sort tags (issue 265, Google Code-in task by Shuhao)
 - shortcut for adding notes (Google Code-in task by Żyła)
 - share note directly from note editor (issue 417, Google Code-in task by Shuhao)
+- save cursor and selection position when note is closed (Google Code-in task by Aviral Dasgupta)
 
 ---------------------------------------------------------
 release: 1.2.3

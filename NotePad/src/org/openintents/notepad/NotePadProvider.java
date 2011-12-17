@@ -53,10 +53,11 @@ public class NotePadProvider extends ContentProvider {
 	 * Database version.
 	 * <ul>
 	 * <li>Version 2 (1.0.0 - 1.0.2): title, note, created_date, modified_date</li>
-	 * <li>Version 3 (1.1.0 - ): tags, encrypted, theme</li>
+	 * <li>Version 3 (1.1.0 - 1.2.3): tags, encrypted, theme</li>
+	 * <li>Version 4 (1.2.3 - ): selection_start, selection_end</li>
 	 * </ul>
 	 */
-	private static final int DATABASE_VERSION = 3;
+	private static final int DATABASE_VERSION = 4;
 	private static final String NOTES_TABLE_NAME = "notes";
 
 	private static HashMap<String, String> sNotesProjectionMap;
@@ -87,7 +88,11 @@ public class NotePadProvider extends ContentProvider {
 					// Version 3:
 					+ Notes.TAGS + " TEXT,"
 					+ Notes.ENCRYPTED + " INTEGER,"
-					+ Notes.THEME + " TEXT"
+					+ Notes.THEME + " TEXT,"
+					// Version 4:
+					+ Notes.SELECTION_START + " INTEGER,"
+					+ Notes.SELECTION_END + " INTEGER,"
+					+ Notes.SCROLL_POSITION + " REAL"
 					+ ");");
 		}
 
@@ -116,11 +121,24 @@ public class NotePadProvider extends ContentProvider {
 							// and then upgrading again 2->3.
 						}
 						// fall through for further upgrades.
-						/*
-	            case 3:
-	            	// add more columns
-						 */
+						
+					case 3:
+						// Upgrade from version 3 to 4
+						try {
+							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
+									+ Notes.SELECTION_START + " INTEGER;");
+							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
+									+ Notes.SELECTION_END + " INTEGER;");
+							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
+									+ Notes.SCROLL_POSITION + " REAL;");
+						} catch (SQLException e) {
+							Log.e(TAG, "Error executing SQL: ", e);
+						}
+						
+					case 4:
+						// add more columns here
 						break;
+						
 					default:
 						Log.w(TAG, "Unknown version " + oldVersion + ". Creating new database.");
 						db.execSQL("DROP TABLE IF EXISTS notes");
@@ -227,6 +245,18 @@ public class NotePadProvider extends ContentProvider {
 		if (values.containsKey(NotePad.Notes.NOTE) == false) {
 			values.put(NotePad.Notes.NOTE, "");
 		}
+		
+		if(values.containsKey(Notes.SELECTION_START) == false) {
+			values.put(Notes.SELECTION_START, 0);
+		}
+		
+		if(values.containsKey(Notes.SELECTION_END) == false) {
+			values.put(Notes.SELECTION_END, 0);
+		}
+		
+		if(values.containsKey(Notes.SCROLL_POSITION) == false) {
+			values.put(Notes.SCROLL_POSITION, 0.0);
+		}
 
 		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		long rowId = db.insert(NOTES_TABLE_NAME, Notes.NOTE, values);
@@ -320,5 +350,8 @@ public class NotePadProvider extends ContentProvider {
 		sNotesProjectionMap.put(Notes.TAGS, Notes.TAGS);
 		sNotesProjectionMap.put(Notes.ENCRYPTED, Notes.ENCRYPTED);
 		sNotesProjectionMap.put(Notes.THEME, Notes.THEME);
+		sNotesProjectionMap.put(Notes.SELECTION_START, Notes.SELECTION_START);
+		sNotesProjectionMap.put(Notes.SELECTION_END, Notes.SELECTION_END);
+		sNotesProjectionMap.put(Notes.SCROLL_POSITION, Notes.SCROLL_POSITION);
 	}
 }
