@@ -5,7 +5,7 @@ OI Not defteri
 OI Not defteri notlarınızı oluşturma ,düzenleme ve silmenizi sağlar.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad çok özellikli açık kaynak kodlu not almanızı sağlayan bir uygulamadır. Onun ile etiket ekleyebilir, arama yapabilir, ve notlarınızı gönderebilirsiniz, ek olarak olışturma, silme, ve düzenleme gibi basi fonksiyonları kullanabilirsiniz. Şifreleme, içe/dışa aktarım ve sesli mesaj gibi gelişmiş özellikler eklentiler aracılığıyla mevcuttur. Tüm bu işlevsellik çeşitli temalarla kişileştirilebilir, basit ve etkileyici bir düzende bir araya getirildi. 
 
 Bu uygulama ücretsiz reklamdır ve internet izni gerektirmez. 
 
@@ -19,36 +19,36 @@ Launchpad'te dilinize çevirileri geliştirmek için yardım edebilirsiniz:
 https://translations.launchpad.net/openintents/trunk
 
 Özellikler: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* Notlar eklemei düzenleme ve silme.
+* Etiketler eklemek için notların üzerine basılı tutun.
+* Yazı tipi boyutunu ve sıralama seçeneklerini değiştirin.
+* Çeşitli temalar ile açıkça düzenlenmiş katman.
+* Notlar arasında hızlı arama.
+* Notlarınızı SMS veya MMS olarak gönderin.
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+"OI Notepad" için uygun eklentiler: 
+* "OI Voice Notes" ile notlar için sesli mesaj kaydetme ve notlara ekleme.
+* "OI Convert CSV"  ile notlarınızı SD kartta atabilirsiniz/alabilirsiniz.
+* "OI About" ile lisans bilgilerini görüntüle.
+* "OI Insert Date" ile notlarınıza tarih ve saat ekleyebilirsiniz.
+* "Upside Down" ile metini ters çevirebilirsiniz.
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+"OI Notepad" ile birlikta çalışan uygulamalar: 
+* "My Backup Pro" ile notlarınızı yedekleyin.
+* "OI Safe" kullanarak notlarınızı şifreleyin.
+* "OI File Manager" ile notlarınızı SD Karttan yönetin.
+* "OI Update" ile güncelleştirin.
+* Notlarınızı "Facebook", "Gmail", "Google+", "Twitter", ve diğer uygulamalar aracılığıyla paylaşabilirsiniz.
 
 Anahtar kelimeler: 
-* Note, Notepad, Note book, Notes
+* Not, Not defteri, Not kitabı, Notlar
 * OI, OpenIntents, Open Intents
 
 Uluslararası versiyonlar: 
-Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Market için arama metinleri: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

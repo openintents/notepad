@@ -27,7 +27,8 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Lacko545 https://launchpad.net/~lackorauch</string>
+  Lacko545 https://launchpad.net/~lackorauch
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Poznámkový Blok umožňuje vytvárať, upravovať a mazať poznámky.</string>
@@ -165,7 +166,7 @@
     
 	<!-- OI Shopping list -->
 	<!-- Permission to read shopping lists. -->
-    <string name="oi_shopping_permission_read">read shopping lists</string>
+    <string name="oi_shopping_permission_read">čítať nákupné zoznamy</string>
     <string name="oi_shopping_permission_read_descr">Povolí aplikácii čítať nákupne zoznamy. Pamätajte že zašifrované zoznamy a položky sú uvedené v zašifrovanej podobe.</string>
 	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">písať nákupné zoznamy</string>

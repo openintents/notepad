@@ -5,3 +5,52 @@ OI Poznámkový blok
 OI Poznámkový Blok umožňuje vytvárať, upravovať a mazať poznámky.
 
 # Description:
+OI Poznámkový blok je plne funkčná a voľne šíriteľná aplikácia pre zaznamenávanie poznámok. S ňou môžete označovať, vyhľadávať a posielať Vaše poznámky ako dodatok ku základným funkciám ako vytváranie, mazanie a upravovanie poznámok. PoPokročilé vlastnosti ako šifrovanie, importovanie/exportovanie a hlasové poznámky sú dostupné cez rozšírenia. Všetka táto funkcionalita je spojená v jednoduchom a prehľadnom rozložení,  ktoré je meniteľné cez rôzne témy. 
+
+Táto aplikácia neobsahuje reklamy a nepotrebuje povolenie na používanie internetu. 
+
+Zdrojový kód tejto neplatenej a voľne prístupnej aplikácie je dostupný na: 
+http://code.google.com/p/openintents
+
+Pre úplný zoznam zmien a zoznam často kladených otázok, navštívte prosím: 
+http://www.openintents.org
+
+Môžete pomôcť zlepšit preklad do vášho jazyka na Launchpad-e: 
+https://translations.launchpad.net/openintents/trunk
+
+Vlastnosti: 
+* Pridať, upraviť a vymazať poznámky.
+* Podržte poznámku pre pridanie značiek.
+* Zmeniť veľkosť písma a usporiadanie.
+* Prehľadne usporiadané rozloženie s rôznymi témami.
+* Rýchle prehľadávanie poznámok.
+* Poslať poznámky ako MMS alebo SMS
+
+Dostupné rozšírenia pre "OI Poznámkový blok": 
+* Nahrajte a pridajte hlasové poznámky do poznámok cez "OI Hlasové Poznámky".
+* Importovať/exportovať poznámky z SD karty cez "OI Konvertovať CSV"
+* Zobraziť informácie o licencií s "OI About".
+* Vložte dátum a čas do poznámky cez "OI Vložiť Dátum".
+* Otočte text hore nohami s "Hore Nohami".
+
+Aplikácie ktoré pracujú s "OI Poznámkový blok". 
+* Zálohovať poznámky s "Moja Záloha Pro".
+* Šifrovať poznámky pomocou "OI Trezor".
+* Spravujte poznámky na Vašej SD karte s "OI Správca Súborov".
+* Aktualizovať s "OI Aktualizácia".
+* Zdieľajte poznámky cez "Facebook", "GMail", "Google+", "Twitter" a mnoho ďalších aplikácií.
+
+Kľúčové slová 
+* Pozámka, Poznámkový blok, poznámková kniha, Poznámky
+* OI, OpenIntents, Open Intents
+
+Medzinárodné verzie: 
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+
+
+Vyhľadávanie reťazcov pre Obchod: 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro

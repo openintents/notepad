@@ -1,8 +1,15 @@
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+# Application:
+פנקס OI
+
+# Promo text:
+פנקס OI מאפשר ליצור, לערוך ולמחוק פתקים.
+
+# Description:
+פנקס פתקים OI הוא יישום בעל קוד פתוח בעל תוספים רבים שמנהל פתקים. איתו אתה יכול לתייג,לחפש, ולשלוח את פתקיך, בנוסף לפעולות בסיסיות כמו יצירה, מחיקה ועריכה של פתקים. תכונות מתקדמות כמו הצפנה, ייבוא/ייצוא, ותזכירי קול זמינים דרך הרחבות. כל הפונקציונאליות הזו היא מחוברת ביחד בדרך פשוטה ויעילה, שניתנת לעיצוב דרך מגוון של ערכות נושא. 
 
 באפליקציה זאת אין פרסומות והיא לא דורשת אישור אינטרנט. 
 
-קוד המקור של אפליקציה חינמית ובלע תקוד פתוח זמין אצל: 
+קוד המקור של אפליקציה חינמית ובעלת קוד פתוח זמין אצל: 
 http://code.google.com/p/openintents
 
 לרשימה המלאה של שינויים ולרשימה של שאלות נפוצות אנא לכו אל: 
@@ -12,36 +19,36 @@ http://www.openintents.org
 https://translations.launchpad.net/openintents/trunk
 
 מאפיינים: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* הוסף, ערוך ומחק פתקים
+* לחץ לחיצה ארוכה על פתקים כדי להוסיף תגיות.
+* שנה את גודל הכתב ודרך המיון
+* מערך מסודר עם מגוון של ערכות נושא.
+* חפש במהירות דרך פתקים.
+* שלח פתקים בתור MMS או SMS
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+הרחבות קיימות עבור "פנקס פתקים OI": 
+* הקלט וצרף תזכירי קול לפתקים עם "פתקי קול OI".
+* בעזרת "ממיר CSV OI" ניתן לייבא/לייצא פתקים מכרטיס SD.
+* הראה מידע על הרישיון עם "אודות OI".
+* הכנס את המידע והזמן לפתקים עם "הכנס תאריך OI".
+* הפוך טקסט מלמעלה למטה עם "למעלה למטה".
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+יישומים שעובדים עם "פנקס פתקים OI": 
+* גבה פתקים עם "המגבה המקצועי שלי".
+* הצפן פתקים בעזרת "כספת OI".
+* נהל פתקים על כרטיס ה-SD שלך בעזרת "מנהל קבצי OI".
+* עדכן עם "מעדכן OI".
+* חלוק קבצים דרך "פייסבוק", "ג'י-מייל", "גוגל פלוס", "טוויטר", ויישומים רבים אחרים.
 
-מילות מפתח: 
-* Note, Notepad, Note book, Notes
+‏מילות מפתח: 
+* פתק, פנקס פתקים, מחברת, פתקים
 * OI, OpenIntents, Open Intents
 
 גרסאות בין-לאומיות: 
-Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+חפש מחרוזות לשוק: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

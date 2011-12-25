@@ -1,7 +1,7 @@
 # Application:
-OI Notepad
+OI Бележник
 
 # Promo text:
-OI Notepad allows to create, edit, and delete notes.
+OI Бележникот ви дозволува да креирате, уредувате и бришете белешки.
 
 # Description:

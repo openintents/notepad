@@ -5,3 +5,52 @@ OI Talaan
 OI Talaan ay pwedeng lumikha, magbago at mag-alis ng mga tala.
 
 # Description:
+Ang OI Talaan ay  buong tampok na bukas na pinagmulang kodigo na applikasyon sa pagkuha ng tala. Gamit ito, maaari mong i-tag, hanapan, at ipadala ang iyong mga tala, bilang karagdagan sa pangunahing function tulad ng paglikha, pag-alis, at pagpalit ng mga tala. Ang paunang mga tampok tulad ng encryption, import / export, at mga boses na memo ay magagamit sa pamamagitan ng extensyon. Ang lahat ng ito function ay pinagsama sa isang simplistic at mahusay na layout, napapasadya sa pamamagitan ng iba't ibang mga tema. 
+
+Ang applikasyon na ito ay walang patalastas at hindi nangangailangan ng pahintulot ng internet. 
+
+Ang pinagmulang kodigo ng mga ito ay libre at bukas na pinagkukunang kodigo ng applikasyon ay magagamit sa: 
+http://code.google.com/p/openintents
+
+Para sa kumpletong listahan ng mga pagbabago at ang listahan ng mga madalas itanong, mangyaring bisitahin ang: 
+http://www.openintents.org
+
+Maaari kang makatulong upang mapabuti ang mga pagsasalin sa iyong wika sa Launchpad: 
+https://translations.launchpad.net/openintents/trunk
+
+Tampok: 
+* Magdagdag, magpalit at mag-alis ng mga tala.
+* Matagal-pindutin ang tala para magdagdag ng mga tag.
+* Baguhin ang laki ng font at pagsasaayos ng pagkakasunod-sunod
+* Malinaw na pagkasa-ayos na may iba't ibang mga tema.
+* Mabilis na paghahanap sa mga tala.
+* Magpadala ng mga tala bilang MMS o SMS.
+
+Magagamit na mga ekstensyon para sa "OI Talaan": 
+* Isulat at ilakip ang tala na boses sa mga tala sa "OI Talang mga Boses".
+* Sa "OI palitan CSV" import / eksport ang mga tala mula sa SD card.
+* Ipakita ang mga impormasyon ng lisensiya sa "OI Tungkol".
+* Ipasok ang petsa at oras sa mga tala sa pamamagitan ng "OI Ipasok Petsa".
+* Baliktarin ang teksto sa pamamagitan ng "Baliktarin".
+
+Mga applikasyon  na gumagana sa "OI Talaan": 
+* Back up ng mga tala sa "Aking Backup Pro".
+* I-Encrypt ang tala sa pamamagitan ng "OI Kaha".
+* Pamahalaan ang mga tala sa iyong SD Card sa pamamagitan ng "OI File Manedyer".
+* Magbago sa pamamagitan ng "OI Magbago".
+* Ibahagi ang mga tala sa pamamagitan ng "Facebook", "Gmail", "Google +", "Twitter", at maraming iba pang mga applikasyon.
+
+Keywords: 
+* Tala, Talaan, Libreta, Mga Tala
+* OI, OpenIntents, Bukas na Layunin
+
+Internasyonal na mga bersyon: 
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+
+
+Search strings para sa Merkado: 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro

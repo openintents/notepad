@@ -1,0 +1,56 @@
+# Application:
+OI Blokčić
+
+# Promo text:
+OI Blokčić dozvoljava da napravite, izmenite i izbrišete bjeleške.
+
+# Description:
+OI Blokčić je puna aplikacija otvorenog izvora za hvatanje bilješki. Sa njom možete tagovati, pretražiti, ili poslati vaše beleške, uz osnovne funckije za pravljenje, brisanje, i izmena bilješki. Napredni dodatci kao šifriranje, uvoz/izvoz,i pamcenje glasa su dostupni kroz dodatke. Sve ove funkcionalnosti su sklopljenje u jedan prosti ali efektivni raspored, izmenjivoe kroz razne teme. 
+
+Ova aplikacija nema reklame i zahtijeva internet konkciju. 
+
+Izvorni kod ovog programa je besplatan i otvoreni izvor aplikacije je dostupan na: 
+http://code.google.com/p/openintents
+
+Za punu listu promena i listu ubičaeno pitanih pitanja, molimo posetite: 
+http://www.openintents.org
+
+Možete pomoći u poboljšanju prevoda u vaš jezik na Launchpad-u: 
+https://translations.launchpad.net/openintents/trunk
+
+Značajke: 
+* Dodaj, izmeni i obriši bilješke.
+* Drži dodir na bilješkama da bi dodao tagove.
+* Izmeni veličinu fonta i raspored sortiranja.
+* Čisto sklopljen raspored sa raznim temama.
+* Brzo pretraži bilješke.
+* Pošalji bilješke kao MMS ili SMS.
+
+Dostupni dodatci za "OI Blkoče": 
+* Snimi i zakaši glasovne podsjetnika u bilješke sa "OI Glasovne Bilješke".
+* Sa "OI CSV Konverter" uvedi/izvedi bilješke iz SD karte.
+* Prikaži informacije licence sa "OI About":
+* Unesi datum i vreme u belješke sa "OI Ubacivač Datuma".
+* Obrni tekst naopako sa "Upside Down".
+
+Aplikacije koje rade sa "OI Blokče": 
+* Povrati biljepke sa "My Backup Pro".
+* Šifriraj bilješke koristeći "OI Siguran".
+* Upravljaj bilješkama na svojoj SD Karti sa "OI Menadžerom Datoteka".
+* Ažuriraj sa "OI Ažurator".
+* Podeli bilješke kroz "Facebook", "Gmail", "Google+", "Twitter", i mnogih drugih aplikacija.
+
+Ključne riječi: 
+* Bilješka, Blokče, Note, Notepad, Note book, Notes
+* OI, OpenIntents, Open Intents
+
+Internacionalna verzija: 
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+
+
+Pretraži tekst na Marketu: 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro

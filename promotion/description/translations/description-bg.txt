@@ -7,7 +7,7 @@ OI Notepad Ви позволява да създавате, редактират
 # Description:
 OI Notepad е пълнофункционално приложение с отворен код за писане на бележки. С него Вие можете да отбелязвате, да търсите и изпращате вашите бележки, в допълнение към основните функции като създаването, изтриването и редактирането на бележките. Допълнителни функции като шифроване, импортиране/експортиране, и гласови записки могат да се добавят с разширения. Цялата тази функционалност е събрана заедно в опростен и ефективен изглед, който може да се персонализира с разнообразие от палитри. 
 
-Тази апликация е безплатна и не изисква интернет за ползването и. 
+Това приложение е безплатно и не изисква интернет за ползването ѝ. 
 
 Изходният код на това безплатно приложение с  отворен код е достъпен на адрес: 
 http://code.google.com/p/openintents
@@ -45,7 +45,7 @@ https://translations.launchpad.net/openintents/trunk
 * OI, OpenIntents, Open Intents
 
 Международни версии: 
-Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
 Стрингове за търсенето в Market 

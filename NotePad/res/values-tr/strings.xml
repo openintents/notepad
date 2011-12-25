@@ -72,9 +72,9 @@ Launchpad Contributions:
 	<string name="error_message">Not yüklenirken hata</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_share">Share</string>
+	<string name="menu_share">Paylaş</string>
 	<string name="empty_note">Boş not</string>
-	<string name="share_not_available">No application available for sharing.</string>
+	<string name="share_not_available">Paylaşım için hiç bir uygulama mevcut değil.</string>
 	
 	<string name="encrypting_note">Şifreleme notu</string>
 	<string name="encrypted">Şifreli</string>
@@ -222,5 +222,5 @@ Launchpad Contributions:
 	<string name="confirm_delete_title">Onay silinmesi.</string>
 	<string name="confirm_delete">Bu notu silmek istediğinizden emin misiniz?</string>
 	
-	<string name="new_note">New note</string>
+	<string name="new_note">Yeni not</string>
 </resources>

@@ -5,50 +5,50 @@ OI Notepad
 OI Notepad permet de créer, modifier et supprimer des notes.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad est une note complet open source application de prise. Avec elle, vous pouvez marquer, rechercher et envoyer vos notes, en plus de fonctionnalités de base telles que la création, suppression et modification de notes. Les fonctionnalités avancées comme le cryptage, l'import / export, et des mémos vocaux sont tous disponibles via des extensions. Toutes ces fonctionnalités sont réunies dans une mise en page simpliste et efficace, personnalisable grâce à une variété de thèmes. 
 
-This application is ad free and does not require the internet permission. 
+Cette application est petite annonce gratuite et ne nécessite pas l'autorisation d'Internet. 
 
-The source code of this free and open source application is available at: 
+Le code source de cette application libre et open source est disponible à l'adresse: 
 http://code.google.com/p/openintents
 
-For the complete list of changes and a list of frequently asked questions, please visit: 
+Pour la liste complète des changements et une liste de questions fréquemment posées, s'il vous plaît visitez: 
 http://www.openintents.org
 
-You can help to improve the translation into your language at Launchpad: 
+Vous pouvez contribuer à améliorer la traduction dans votre langue au Launchpad: 
 https://translations.launchpad.net/openintents/trunk
 
-Features: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+caractéristiques: 
+* Ajouter, modifier et supprimer des notes.
+* Longue-presse sur des notes pour ajouter des tags.
+* Changer la taille de police et de l'ordre de tri.
+* Une mise en page clairement disposées avec une variété de thèmes.
+* Recherchez rapidement grâce à des notes.
+* Envoyer note sous forme de MMS ou SMS.
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+Extensions disponibles pour "OI Notepad ": 
+* Enregistrement et joindre des mémos vocaux à des notes avec "OI Voice Notes ".
+* Avec "OI Convert CSV " Import / Export des notes de la carte SD.
+* Voir les informations de licence avec "OI propos ".
+* Insérer la date et l'heure dans les notes avec "Insérer la date d'OI ".
+* Tourner le texte à l'envers avec "Upside Down ".
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+Applications qui fonctionnent avec "OI Notepad ": 
+* Sauvegardez note avec "Mon Backup Pro ".
+* Crypter des notes en utilisant "OI Safe".
+* Gérer des notes sur votre carte SD avec "OI File Manager ".
+* Mise à jour avec " OI Update".
+* Partager des notes à "Facebook", "Gmail", "Google +", "Twitter", et de nombreuses autres applications.
 
-Keywords: 
-* Note, Notepad, Note book, Notes
+Mots-clés: 
+* Remarque, le Bloc-notes, carnet de notes, les notes
 * OI, OpenIntents, Open Intents
 
-International versions: 
-Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
+Les versions internationales: 
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Les chaînes de recherche pour le marché: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

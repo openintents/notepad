@@ -5,3 +5,52 @@ OI 메모장
 OI 메모장에서 메모를 생성, 편집, 그리고 삭제를 할 수 있습니다.
 
 # Description:
+OI 메모장은 완전한 오픈 소스 메모장 앱입니다. 이것을 사용해 메모를 작성하거나, 편집하거나, 삭제하는 것 외에도 태그 달기, 찾기 보내기 등을 할 수 있습니다. 확장을 통해 암호화, 내보내기, 가져오기, 음성 메모 등 고급 기능을 사용할 수 있습니다. 이 모든 기능은 간결하고 효율적으로 배치되어 있고, 여러 종류의 테마로 사용자화 할 수 있습니다. 
+
+이 앱은 광고가 없으며 인터넷에 접속하지 않습니다. 
+
+이 무료 오픈 소스 앱의 소스 코드는 다음 주소에서 받을 수 있습니다: 
+http://code.google.com/p/openintents
+
+모든 변경 내역과 FAQ는 다음 주소에서 볼 수 있습니다: 
+http://www.openintents.org
+
+당신의 언어로의 번역을 Launchpad에서 도울 수 있습니다: 
+https://translations.launchpad.net/openintents/trunk
+
+기능: 
+* 메모 쓰기, 편집하기, 삭제하기.
+* 메모를 길게 눌러 태그를 달 수 있습니다.
+* 글꼴 크기와 정렬 순서 바꾸기.
+* 깔끔한 배열과 다양한 테마.
+* 메모를 빠르게 찾으세요.
+* 메모를 MMS나 SMS로 보내세요.
+
+사용 가능한 "OI 메모장" 확장들: 
+* "OI 음성 메모"로 음성을 녹음하고 메모에 첨부하세요.
+* "OI CSV 변환기"로 SD 카드에서 메모를 불러오거나 내보내세요.
+* "OI에 대해서" 로 라이선스 정보를 봅니다.
+* "OI 날짜 입력기"로 메모에 날짜와 시간을 입력하세요.
+* "뒤집기"로 글을 뒤집으세요.
+
+"OI 메모장"과 호환되는 앱들: 
+* "My Backup Pro"로 메모 백업하기.
+* "OI 금고"로 메모 암호화 하기.
+* "OI 파일 관리자"로 SD 카드에 있는 메모를 관리하세요.
+* "OI 업데이트"로 업데이트 하기.
+* "페이스북", "지메일", "구글 플러스", "트위터", 그리고 다른 앱을 통해 메모를 공유하세요.
+
+키워드: 
+* Note, Notepad, Note book, Notes, 메모, 노트, 노트패드
+* OI, OpenIntents, Open Intents
+
+국제 버전들: 
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+
+
+마켓에서 검색하기: 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro

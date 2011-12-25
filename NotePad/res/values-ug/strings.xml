@@ -67,9 +67,9 @@
 	<string name="error_message">ئىزاھات يۈكلەش خاتالىقى</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_share">Share</string>
+	<string name="menu_share">ھەمبەھىر</string>
 	<string name="empty_note">بوش ئىزاھات</string>
-	<string name="share_not_available">No application available for sharing.</string>
+	<string name="share_not_available">ھەمبەھىرلەيدىغان ئەپ يوق.</string>
 	
 	<string name="encrypting_note">ئىزاھاتنى شىفىرلاۋاتىدۇ</string>
 	<string name="encrypted">شىفىرلانغان</string>
@@ -214,8 +214,8 @@
     <string name="preference_market_themes_summary">ئاندرويىد بازاردىن ئۆرنەك ئىزدەيدۇ.</string>
     <string name="preference_developer_extensions_summary">كېڭەيتىلمىلەرگە OpenIntents باش بەتتىن ئېرىشىدۇ.</string>
 	<string name="preference_developer_themes_summary">OpenIntents تورتۇرادىن ئۆرنەككە ئېرىشىدۇ.</string>
-	<string name="confirm_delete_title">Deletion Confirmation</string>
-	<string name="confirm_delete">Are you sure you want to delete this note?</string>
+	<string name="confirm_delete_title">ئۆچۈرۈش جەزملەش</string>
+	<string name="confirm_delete">بۇ خاتىرەنى راستىنلا ئۆچۈرەمسىز؟</string>
 	
-	<string name="new_note">New note</string>
+	<string name="new_note">يېڭى خاتىرە</string>
 </resources>

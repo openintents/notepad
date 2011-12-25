@@ -2,7 +2,7 @@
 OI Notepad
 
 # Promo text:
-OI Notepad vă permite să creați, modificați și ștergeți note.
+OI Notepad vă permite să creați, modificați și să ștergeți note.
 
 # Description:
 OI Notepad este o aplicaţie cu sursa publică, cu toate caracteristicile pentru a lua notiţe. Cu ea puteți eticheta, căuta, şi trimite notele, pe lângă funcţionalitatea de bază, cum ar fi crearea, ştergerea si editarea notelor. Caracteristici avansate cum ar fi criptarea, importarea/exportarea, şi memourile vocale sunt toate disponibile prin extensii. Toate aceaste funcţionalităţi sunt aduse împreună într-un aspect simplist şi eficient, personalizabil printr-o varietate de teme. 
@@ -45,7 +45,7 @@ Cuvinte cheie:
 * OI, OpenIntents, Open Intents
 
 Versiuni internaționale: 
-Bloc de Notas OI, OI Blocco Note, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, ແພ່ນຂຽນ OI
+Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
 Caută șiruri pentru Market: 
