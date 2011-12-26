@@ -41,7 +41,7 @@
 	[10052] 1.1.0: 2009-02-02 -->
     
     <uses-sdk android:minSdkVersion="2"
-    	android:targetSdkVersion="14" />
+    	android:targetSdkVersion="15" />
 	
     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
     
