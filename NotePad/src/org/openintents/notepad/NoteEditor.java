@@ -29,6 +29,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.openintents.intents.CryptoIntents;
 import org.openintents.intents.NotepadIntents;
@@ -206,6 +209,17 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	public boolean mTextUpperCaseFont;
 	public int mTextColor;
 	public int mBackgroundPadding;
+	
+	/**
+	 * Which features are supported (which columns are available in the database)? 
+	 * Everything is supported by default.
+	 */
+	private boolean hasNoteColumn = true;
+	private boolean hasTagsColumn = true;
+	private boolean hasEncryptionColumn = true;
+	private boolean hasThemeColumn = true;
+	private boolean hasSelection_startColumn = true;
+	private boolean hasSelection_endColumn = true;
 
 	/**
 	 * Lines mode:
@@ -460,12 +474,42 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		}
 
 		if (mState != STATE_EDIT_NOTE_FROM_SDCARD) {
-			// Get the note!
-			mCursor = managedQuery(mUri, PROJECTION, null, null, null);
+			// Check if we load a note from notepad or from some external module
+			if(mState == STATE_EDIT_EXTERNAL_NOTE){
+				// Get all the columns as we don't know which columns are supported.
+				mCursor = managedQuery(mUri, null, null, null, null);
+				
+				//Now check which columns are available
+				List<String> columnNames = Arrays.asList(mCursor.getColumnNames());
+				
+				if(!columnNames.contains(Notes.NOTE)){
+					hasNoteColumn = false;
+				}
+				if(!columnNames.contains(Notes.TAGS)){
+					hasTagsColumn = false;
+				}
+				if(!columnNames.contains(Notes.ENCRYPTED)){
+					hasEncryptionColumn = false;
+				}
+				if(!columnNames.contains(Notes.THEME)){
+					hasThemeColumn = false;
+				}
+				if(!columnNames.contains(Notes.SELECTION_START)){
+					hasSelection_startColumn = false;
+				}
+				if(!columnNames.contains(Notes.SELECTION_END)){
+					hasSelection_endColumn = false;
+				}
+			}
+			else{
+				// Get the note!
+				mCursor = managedQuery(mUri, PROJECTION, null, null, null);
+			
+				//It's not an external note, so all the columns are available in the database
+			}		
 		} else {
 			mCursor = null;
-		}
-		
+		}		
 	}
 	
 	/**
@@ -651,13 +695,57 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			} else if (mState == STATE_INSERT) {
 				setTitle(getText(R.string.title_create));
 			}
-
-			long id = mCursor.getLong(COLUMN_INDEX_ID);
-			String note = mCursor.getString(COLUMN_INDEX_NOTE);
-			mEncrypted = mCursor.getLong(COLUMN_INDEX_ENCRYPTED);
-			mTheme = mCursor.getString(COLUMN_INDEX_THEME);
-			mSelectionStart = mCursor.getInt(COLUMN_INDEX_SELECTION_START);
-			mSelectionStop = mCursor.getInt(COLUMN_INDEX_SELECTION_END);
+			
+			// This always has to be available
+			long id = mCursor.getLong(mCursor.getColumnIndex(Notes._ID));
+			String note = "";			
+			
+			if(mState == STATE_EDIT_EXTERNAL_NOTE){
+				//Check if the other columns are available
+				
+				// Note
+				if(hasNoteColumn){
+					note = mCursor.getString(mCursor.getColumnIndex(Notes.NOTE));
+				}
+				else{
+					note = "";
+				}
+				
+				// Encrypted
+				mEncrypted = isNoteUnencrypted() ? 0 : 1;
+				
+				// Theme
+				if(hasThemeColumn){
+					mTheme = mCursor.getString(mCursor.getColumnIndex(Notes.THEME));
+				}
+				else{
+					note = "";
+				}
+				
+				// Selection start
+				if(hasSelection_startColumn){
+					mSelectionStart = mCursor.getInt(mCursor.getColumnIndex(Notes.SELECTION_START));
+				}
+				else{
+					mSelectionStart = 0;
+				}
+				
+				//Selection end
+				if(hasSelection_endColumn){
+					mSelectionStop = mCursor.getInt(mCursor.getColumnIndex(Notes.SELECTION_END));
+				}
+				else{
+					mSelectionStop = 0;
+				}
+			}
+			else{
+				// We know for sure all the columns are available
+				note = mCursor.getString(COLUMN_INDEX_NOTE);
+				mEncrypted = mCursor.getLong(COLUMN_INDEX_ENCRYPTED);
+				mTheme = mCursor.getString(COLUMN_INDEX_THEME);
+				mSelectionStart = mCursor.getInt(COLUMN_INDEX_SELECTION_START);
+				mSelectionStop = mCursor.getInt(COLUMN_INDEX_SELECTION_END);
+			}
 
 			if (mEncrypted == 0) {
 				// Not encrypted
@@ -785,10 +873,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		if (mCursor != null) {
 
 			mCursor.moveToFirst();
-
-			long encrypted = mCursor.getLong(COLUMN_INDEX_ENCRYPTED);
-
-			if (encrypted == 0) {
+			
+			if (isNoteUnencrypted()) {
 				String text = mText.getText().toString();
 				int length = text.length();
 
@@ -826,25 +912,34 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					}
 
 					// Write our text back into the provider.
-					values.put(Notes.NOTE, text);
-
-					values.put(Notes.THEME, mTheme);
-					
-					values.put(Notes.SELECTION_START, mText.getSelectionStart());
-					values.put(Notes.SELECTION_END, mText.getSelectionEnd());
+					if(hasNoteColumn){
+						values.put(Notes.NOTE, text);
+					}
+					if(hasThemeColumn){
+						values.put(Notes.THEME, mTheme);
+					}
+					if(hasSelection_startColumn){
+						values.put(Notes.SELECTION_START, mText.getSelectionStart());
+					}
+					if(hasSelection_endColumn){
+						values.put(Notes.SELECTION_END, mText.getSelectionEnd());
+					}				
 
 					// Commit all of our changes to persistent storage. When the update completes
 					// the content provider will notify the cursor of the change, which will
-					// cause the UI to be updated.
+					// cause the UI to be updated.					
 					getContentResolver().update(mUri, values, null, null);
-
 				}
 			} else {
 				// encrypted note: First encrypt and store encrypted note:
 
 				// Save current theme:
 				ContentValues values = new ContentValues();
-				values.put(Notes.THEME, mTheme);
+				
+				if(hasThemeColumn){
+					values.put(Notes.THEME, mTheme);
+				}
+				
 				getContentResolver().update(mUri, values, null, null);
 
 				if (mDecryptedText != null) {
@@ -952,7 +1047,15 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	}
 
 	private String getTags() {
-		String tags = mCursor.getString(COLUMN_INDEX_TAGS);
+		String tags;
+		
+		//Check if there is a tags column in the database
+		int index;
+		if((index = mCursor.getColumnIndex(Notes.TAGS)) != -1){
+			tags = mCursor.getString(index);				}
+		else{
+			tags = "";
+		}
 
 		if (!TextUtils.isEmpty(tags)) {
 			return tags;
@@ -1103,7 +1206,13 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private boolean isNoteUnencrypted() {
 		long encrypted = 0;
 		if (mCursor != null && mCursor.moveToFirst()) {
-			encrypted = mCursor.getLong(COLUMN_INDEX_ENCRYPTED);
+			//Check if the column Notes.ENCRYPTED exists
+			if(hasEncryptionColumn){
+				encrypted = mCursor.getInt(mCursor.getColumnIndex(Notes.ENCRYPTED));
+			}
+			else{
+				encrypted = 0;
+			}
 		}
 		boolean isNoteUnencrypted = (encrypted == 0);
 		return isNoteUnencrypted;

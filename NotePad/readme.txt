@@ -31,6 +31,7 @@ date: ?
 - shortcut for adding notes (Google Code-in task by Żyła)
 - share note directly from note editor (issue 417, Google Code-in task by Shuhao)
 - save cursor and selection position when note is closed (Google Code-in task by Aviral Dasgupta)
+- fixed pressing note icon in OI Shopping List crashes OI Notepad (issue 434, Google Code-in task by Neis)
 
 ---------------------------------------------------------
 release: 1.2.3
