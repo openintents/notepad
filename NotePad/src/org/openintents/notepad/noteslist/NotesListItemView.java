@@ -5,6 +5,7 @@ import org.openintents.notepad.R;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -39,12 +40,26 @@ public class NotesListItemView extends LinearLayout {
 		mTitle = (MarqueeTextView) findViewById(R.id.title);
 		mTags = (TextView) findViewById(R.id.info);
 		mStatus = (ImageView) findViewById(R.id.status);
+	}
+	
 
-		if(PreferenceActivity.getMarqueeFromPrefs(mContext)) {
+
+	@Override
+	public boolean hasFocus() {
+		// TODO Auto-generated method stub
+		if(PreferenceActivity.getMarqueeFromPrefs(mContext)==true) {
 			mTitle.setEllipsize(TextUtils.TruncateAt.MARQUEE);
 			mTitle.setMarquee(true);
 		}
+		else
+		{
+			mTitle.setEllipsize(TextUtils.TruncateAt.END);
+			mTitle.setMarquee(false);
+		}
+		return super.hasFocus();
 	}
+
+
 
 	/**
 	 * Convenience method to set the title of a NewsView
