@@ -32,6 +32,7 @@ date: ?
 - share note directly from note editor (issue 417, Google Code-in task by Shuhao)
 - save cursor and selection position when note is closed (Google Code-in task by Aviral Dasgupta)
 - fixed pressing note icon in OI Shopping List crashes OI Notepad (issue 434, Google Code-in task by Neis)
+- apply marquee setting immediately (issue 405, Google Code-in task by Daniel Huang)
 
 ---------------------------------------------------------
 release: 1.2.3
