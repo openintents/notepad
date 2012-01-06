@@ -42,12 +42,14 @@ import org.openintents.notepad.dialog.DeleteConfirmationDialog;
 import org.openintents.notepad.dialog.ThemeDialog;
 import org.openintents.notepad.dialog.ThemeDialog.ThemeDialogListener;
 import org.openintents.notepad.intents.NotepadInternalIntents;
+import org.openintents.notepad.noteslist.NotesList;
 import org.openintents.notepad.theme.ThemeAttributes;
 import org.openintents.notepad.theme.ThemeNotepad;
 import org.openintents.notepad.theme.ThemeUtils;
 import org.openintents.notepad.util.ExtractTitle;
 import org.openintents.notepad.util.FileUriUtils;
 import org.openintents.notepad.util.SendNote;
+import org.openintents.notepad.wrappers.WrapActionBar;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 import org.openintents.util.UpperCaseTransformationMethod;
 
@@ -231,7 +233,18 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	 */
 	public static int mLinesMode;
 	public static int mLinesColor;
-
+	
+	private static boolean mActionBarAvailable;
+	
+	static {
+		try {
+			WrapActionBar.checkAvailable();
+			mActionBarAvailable = true;
+		} catch(Throwable t){
+			mActionBarAvailable = false;
+		}
+	}
+	
 	/**
 	 * A custom EditText that draws lines between each line of text that is displayed.
 	 */
@@ -458,9 +471,20 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				return;
 			}
 		}
-
-		requestWindowFeature(Window.FEATURE_RIGHT_ICON);
-
+		
+		//setup actionbar
+		if(mActionBarAvailable){
+			requestWindowFeature(Window.FEATURE_ACTION_BAR);
+			WrapActionBar bar = new WrapActionBar(this);
+			bar.setDisplayHomeAsUpEnabled(true);
+			//force to show the actionbar on version 14+
+			if(Integer.valueOf(android.os.Build.VERSION.SDK) >= 14){
+				bar.setHomeButtonEnabled(true);
+			}
+		}else{
+			requestWindowFeature(Window.FEATURE_RIGHT_ICON);
+		}
+		
 		// Set the layout for this activity.  You can find it in res/layout/note_editor.xml
 		setContentView(R.layout.note_editor);
 
@@ -1085,10 +1109,14 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		.setShortcut('1', 'e')
 		.setIcon(android.R.drawable.ic_lock_lock); // TODO: better icon
 
-		menu.add(1, MENU_DELETE, 0, R.string.menu_delete)
-		.setShortcut('9', 'd')
-		.setIcon(android.R.drawable.ic_menu_delete);
-
+		MenuItem deleteItem = menu.add(1, MENU_DELETE, 0, R.string.menu_delete);
+		deleteItem.setShortcut('9', 'd');
+		deleteItem.setIcon(android.R.drawable.ic_menu_delete);
+		//Show the delete icon when there is an actionbar
+		if(mActionBarAvailable){
+			WrapActionBar.showIfRoom(deleteItem);
+		}
+			
 		menu.add(2, MENU_IMPORT, 0, R.string.menu_import)
 		.setShortcut('1', 'i')
 		.setIcon(android.R.drawable.ic_menu_add);
@@ -1222,6 +1250,11 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle all of the possible menu actions.
 		switch (item.getItemId()) {
+			case android.R.id.home:
+				Intent intent = new Intent(this, NotesList.class);
+	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	            startActivity(intent);
+				break;
 			case MENU_DELETE:
 				deleteNoteWithConfirm();
 				break;

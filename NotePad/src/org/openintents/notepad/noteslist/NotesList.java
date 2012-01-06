@@ -50,6 +50,7 @@ import org.openintents.notepad.filename.DialogHostingActivity;
 import org.openintents.notepad.intents.NotepadInternalIntents;
 import org.openintents.notepad.util.FileUriUtils;
 import org.openintents.notepad.util.SendNote;
+import org.openintents.notepad.wrappers.WrapActionBar;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 
 import android.app.Dialog;
@@ -135,6 +136,17 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 
 	private boolean mDecryptionFailed;
 	private boolean mDecryptionSucceeded;
+	
+	private static boolean mActionBarAvailable;
+	
+	static {
+		try {
+			WrapActionBar.checkAvailable();
+			mActionBarAvailable = true;
+		} catch(Throwable t){
+			mActionBarAvailable = false;
+		}
+	}
 
 	AdapterView.AdapterContextMenuInfo mContextMenuInfo;
 
@@ -163,8 +175,10 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		if (intent.getData() == null) {
 			intent.setData(Notes.CONTENT_URI);
 		}
-
+		
+		//show loading
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		requestWindowFeature(Window.FEATURE_PROGRESS);
 
 		// Inform the list we provide context menus for items
 		setContentView(R.layout.noteslist);
@@ -251,6 +265,10 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 
 		mDecryptionFailed = false;
 		mDecryptionSucceeded = false;
+
+		//disable the progressbar when done.
+		setProgressBarIndeterminateVisibility(false);
+		setProgressBarVisibility(false);
 	}
 
 	protected void updateTagList() {
@@ -467,11 +485,14 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-
-		// This is our one standard application action -- inserting a
-		// new note into the list.
-		menu.add(0, MENU_ITEM_INSERT, 0, R.string.menu_insert).setShortcut('1',
-				'i').setIcon(android.R.drawable.ic_menu_add);
+		
+		MenuItem insertItem = menu.add(0, MENU_ITEM_INSERT, 0, R.string.menu_insert);
+		insertItem.setShortcut('1', 'i');
+		insertItem.setIcon(android.R.drawable.ic_menu_add);
+		//Show the delete icon when there is an actionbar
+		if(mActionBarAvailable){
+			WrapActionBar.showIfRoom(insertItem);
+		}
 
 		menu.add(0, MENU_SEARCH, 0, R.string.menu_search).setShortcut('2',
 				's').setIcon(android.R.drawable.ic_menu_search);
