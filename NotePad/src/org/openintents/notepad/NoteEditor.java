@@ -1110,7 +1110,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		.setIcon(android.R.drawable.ic_lock_lock); // TODO: better icon
 
 		MenuItem deleteItem = menu.add(1, MENU_DELETE, 0, R.string.menu_delete);
-		deleteItem.setShortcut('9', 'd');
 		deleteItem.setIcon(android.R.drawable.ic_menu_delete);
 		//Show the delete icon when there is an actionbar
 		if(mActionBarAvailable){
@@ -1122,18 +1121,18 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		.setIcon(android.R.drawable.ic_menu_add);
 
 		menu.add(2, MENU_SAVE, 0, R.string.menu_save)
-		.setShortcut('2', 'x')
+		.setShortcut('2', 's')
 		.setIcon(android.R.drawable.ic_menu_save);
 
 		menu.add(2, MENU_SAVE_AS, 0, R.string.menu_save_as)
-		.setShortcut('3', 'a')
+		.setShortcut('3', 'w')
 		.setIcon(android.R.drawable.ic_menu_save);
 
 		menu.add(3, MENU_THEME, 0, R.string.menu_theme).setIcon(
 				android.R.drawable.ic_menu_manage).setShortcut('4', 't');
 
 		menu.add(3, MENU_SETTINGS, 0, R.string.settings).setIcon(
-				android.R.drawable.ic_menu_preferences).setShortcut('9', 's');
+				android.R.drawable.ic_menu_preferences).setShortcut('9', 'p');
 
 		menu.add(4, MENU_SEND, 0, R.string.menu_share).setIcon(
 				android.R.drawable.ic_menu_share);
