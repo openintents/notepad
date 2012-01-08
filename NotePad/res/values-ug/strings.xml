@@ -138,8 +138,8 @@
     <string name="preference_sortorder_title">تىزىم تەرتىپلەش تەرتىپى</string>
     <string name="preference_sortorder_dialog_title">تىزىم تەرتىپلەش تەرتىپى</string>
     <string name="preference_sortorder_summary">قايسى ئىزاھاتنىڭ ئىزاھات تىزىملىكىدە كۆرۈنۈش تەرتىپى</string>
-    <string name="preference_marquee_title">Marquee note titles.</string>
-    <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
+    <string name="preference_marquee_title">ھەرىكەتچان ئىزاھات ماۋزۇسى.</string>
+    <string name="preference_marquee_summary">ئۆزلۈكسىز دومىلايدىغان ئىزاھات ماۋزۇسى بەك ئۇزۇن.</string>
     
     <string name="note_editor_preferences">ئىزاھات تەھرىرلىگۈچ</string>
     <string name="preference_fontsize">خەت چوڭلۇقى</string>

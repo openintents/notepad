@@ -27,7 +27,8 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Kras4ooo https://launchpad.net/~kkrassi1984</string>
+  Kras4ooo https://launchpad.net/~kkrassi1984
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI المفكرة"ويسمح برنامج إنشاء وتحرير وحذف الملاحظات</string>

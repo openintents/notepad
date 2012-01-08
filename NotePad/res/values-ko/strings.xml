@@ -27,7 +27,9 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Jihyeok Seo https://launchpad.net/~limeburst</string>
+  CSro https://launchpad.net/~choongsan
+  Jihyeok Seo https://launchpad.net/~limeburst
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI 메모장에서 메모를 생성, 편집, 그리고 삭제를 할 수 있습니다.</string>

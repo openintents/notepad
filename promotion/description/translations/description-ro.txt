@@ -45,7 +45,7 @@ Cuvinte cheie:
 * OI, OpenIntents, Open Intents
 
 Versiuni internaționale: 
-Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
 Caută șiruri pentru Market: 

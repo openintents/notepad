@@ -7,18 +7,18 @@ OI Notepad antaa sinun luoda, muokata, ja poistaa muistilappuja.
 # Description:
 OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
 
-This application is ad free and does not require the internet permission. 
+Tämä sovellus on mainos ilmainen eikä vaadi internet lupaa. 
 
-The source code of this free and open source application is available at: 
+Lähdekoodi tämän ilmaisen ja avoimen lähdekoodin sovellus on saatavilla osoitteessa: 
 http://code.google.com/p/openintents
 
-For the complete list of changes and a list of frequently asked questions, please visit: 
+Täydellinen luettelo muutoksista ja luettelo usein kysyttyihin kysymyksiin osoitteessa: 
 http://www.openintents.org
 
-You can help to improve the translation into your language at Launchpad: 
+Voit auttaa parantamaan käännös omalla kielelläsi Launchpad: 
 https://translations.launchpad.net/openintents/trunk
 
-Features: 
+Ominaisuudet: 
 * Add, edit and delete notes.
 * Long-press on notes to add tags.
 * Change font size and sort order.
@@ -40,15 +40,15 @@ Applications that work with "OI Notepad":
 * Update with "OI Update".
 * Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
 
-Keywords: 
+Avainsanat: 
 * Note, Notepad, Note book, Notes
 * OI, OpenIntents, Open Intents
 
-International versions: 
-Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Kansainvälinen versiot: 
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Etsintä jousille Markkinoiden: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

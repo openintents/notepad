@@ -1,8 +1,8 @@
 # Application:
-Bloc de Notas OI
+Bloc de notas OI
 
 # Promo text:
-Bloc de Notas OI permite crear, editar, y eliminar notas.
+El Bloc de notas OI permite crear, editar y eliminar notas.
 
 # Description:
 OI Notepad es una aplicación de código abierto para escribir notas. Usted puede etiquetar, buscar y enviar sus notas, además de otras funciones básicas, como crear, eliminar y editar notas. Características avanzadas como la encriptación, importación/exportación, y las notas de voz están disponibles a través de extensiones. Todas estas funciones se organizan en un diseño simple y eficiente, personalizable a través de una gran variedad de temas. 
@@ -45,7 +45,7 @@ Palabras clave:
 * OI, OpenIntents, Open Intents
 
 Versiones internacionales: 
-Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
 Buscar en el Market: 

@@ -48,16 +48,16 @@ Launchpad Contributions:
     
 	<string name="no_notes">Brug menuen til at tilføje nye notater</string>
 
-    <string name="resolve_edit">Redigér note</string>
-    <string name="resolve_title">Edit title</string>  
+    <string name="resolve_edit">Redigér notat</string>
+    <string name="resolve_title">Rediger titel</string>  
 
     <string name="title_create">Opret notat</string>
-    <string name="title_edit">Redigér note</string>
+    <string name="title_edit">Redigér notat</string>
 	<string name="title_notes_list">OI Notesblok</string>   
 	<string name="title_note">Notat</string>  
-	<string name="title_edit_title">Note title:</string>  
-    <string name="title_create_file">%s (new note)</string>
-    <string name="title_edit_file">%s (edit note)</string>
+	<string name="title_edit_title">Notat titel</string>  
+    <string name="title_create_file">%s (ny notat)</string>
+    <string name="title_edit_file">%s (Rediger notat)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
     <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
@@ -65,61 +65,61 @@ Launchpad Contributions:
 	<string name="button_ok">Ok</string>  
 	
 	<string name="error_title">fejl</string>
-	<string name="error_message">Error loading note</string>
+	<string name="error_message">Fejl ved henting af notat</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
 	<string name="menu_share">Share</string>
-	<string name="empty_note">Empty note</string>
+	<string name="empty_note">Tom notat</string>
 	<string name="share_not_available">No application available for sharing.</string>
 	
 	<string name="encrypting_note">Encrypting note</string>
 	<string name="encrypted">Krypteret</string>
 	<string name="menu_encrypt">Kryptér</string>
 	<string name="menu_decrypt">Dekryptér</string>
-	<string name="menu_undo_encryption">Undo encryption</string>
+	<string name="menu_undo_encryption">Fortryd kryptering</string>
 	<string name="menu_do_not_encrypt">Kryptér ikke</string>
-	<string name="already_encrypted">Already encrypted.</string>
-	<string name="not_encrypted">Not encrypted.</string>
+	<string name="already_encrypted">Allerede krypteret</string>
+	<string name="not_encrypted">Ikke krypteret.</string>
 	<string name="encryption_failed">Kryptering mislykkedes.</string>
 	<string name="decryption_failed">Dekryptering mislykkedes.</string>
 
 	<string name="menu_edit_tags">Rediger mærker</string>
-    <string name="dropdown_hint">Touch to see list</string>
-    <string name="tags_hint">Enter tags, separated by comma</string>
+    <string name="dropdown_hint">Tryk for at se listen</string>
+    <string name="tags_hint">Indtast mærker, adskilt af komma</string>
     
-    <string name="menu_save_to_sdcard">Save to SD card</string>
-    <string name="menu_open_from_sdcard">Open from SD card</string>
+    <string name="menu_save_to_sdcard">Gem til SD kort</string>
+    <string name="menu_open_from_sdcard">Åbn fra SD kort</string>
     <string name="filename">Filnavn</string>
     <string name="save">Gem</string>
-    <string name="open">Open</string>
-    <string name="error_writing_file">Error while writing file</string>
+    <string name="open">Åbent</string>
+    <string name="error_writing_file">Fejl under skrivning af fil</string>
     <string name="error_reading_file">Fejl under læsning af fil</string>
     <string name="file_not_found">Filen blev ikke fundet</string>
-    <string name="note_saved">Note saved</string>
+    <string name="note_saved">Notat gemt</string>
     <string name="warning_file_exists_title">Fil eksisterer allerede</string>
-    <string name="warning_file_exists_message">Do you really want to overwrite the existing file?</string>
+    <string name="warning_file_exists_message">Vil du virklig overskrive den eksisterende fil?</string>
     
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importér</string>
     <string name="menu_save">Gem</string>
     <string name="menu_save_as">Gem som</string>
     <string name="warning_unsaved_changes_title">Tekst ændret</string>
-    <string name="warning_unsaved_changes_message">Do you want to save the changes?</string>
+    <string name="warning_unsaved_changes_message">Vil du gemme ændringerne?</string>
     <string name="button_save">Gem</string>
     <string name="button_dont_save">Don\'t save</string>
     
 	<string name="menu_theme">Tema</string>
-	<string name="theme_pick">Pick a theme</string>
+	<string name="theme_pick">Vælg et tema</string>
     <string name="theme_default">Standard</string>
     <string name="theme_monospaced">Monospaced font</string>
-	<string name="theme_serif">Serif font</string>
+	<string name="theme_serif">Serif skrifttype</string>
 
 	<!-- Search -->
 	<string name="menu_search">Søg</string>
     <string name="search_query_results">OI Notesblok</string>
     <!-- %s is the search string -->
-	<string name="search_found_no_results">No results found for %s.</string>
-    <string name="search_label">OI Notepad search</string>
+	<string name="search_found_no_results">Ingen resultater fundet for %s.</string>
+    <string name="search_label">OI Notesblok søg</string>
     <string name="search_hint">Søg</string>
     
     <!-- The description that will show up in the search settings for this source.  -->
@@ -128,26 +128,26 @@ Launchpad Contributions:
 	<!--     Dialog box    -->
 	<string name="ok">Ok</string>
 	<string name="cancel">Annullér</string>
-    <string name="use_theme_for_all_lists">Use this theme for all lists</string>
-	<string name="get_more_themes">Get more themes</string>
+    <string name="use_theme_for_all_lists">Brug dette tema for alle lister</string>
+	<string name="get_more_themes">Hente flere temaer</string>
     
-    <string name="all_notes">All notes</string>
+    <string name="all_notes">Alle notater</string>
     
     <!-- Settings -->
     <!-- Title for settings regarding the list of notes -->
-    <string name="noteslist_preferences">Notes List</string>
+    <string name="noteslist_preferences">Notat liste</string>
     <string name="preference_sortorder_title">List Sorting Order</string>
     <string name="preference_sortorder_dialog_title">List Sorting Order</string>
     <string name="preference_sortorder_summary">The order in which notes are shown in the notes list</string>
     <string name="preference_marquee_title">Marquee note titles.</string>
     <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
     
-    <string name="note_editor_preferences">Note Editor</string>
+    <string name="note_editor_preferences">Notat editor</string>
     <string name="preference_fontsize">Skriftstørrelse</string>
-	<string name="preference_fontsize_summary">Change font size</string>
-	<string name="preference_fontsize_dialog_title">Choose font size</string>
+	<string name="preference_fontsize_summary">Ændre skriftstørrelse</string>
+	<string name="preference_fontsize_dialog_title">Vælg skriftstørrelse</string>
 	<string name="preference_autolink_title">Auto-create Links</string>
-    <string name="preference_autolink_summary_on">Create links for phone numbers and email/street/web addresses</string>
+    <string name="preference_autolink_summary_on">Opret links til telefonnumre og e-mail / gade / web-adresser</string>
     <string name="preference_autolink_summary_off">Do not create links on notes</string>
 
 	<string name="settings">Indstillinger</string>

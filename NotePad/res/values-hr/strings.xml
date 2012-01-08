@@ -27,7 +27,8 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Nikola Miljkovic https://launchpad.net/~milja1337</string>
+  Nikola Miljkovic https://launchpad.net/~milja1337
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Blokčić dozvoljava da napravite, izmenite i izbrišete bjeleške.</string>

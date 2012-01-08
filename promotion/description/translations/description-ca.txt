@@ -1,0 +1,56 @@
+# Application:
+Bloc de notes d'OI
+
+# Promo text:
+El bloc de notes d'OI et permet crear, editar i esborrar nodes.
+
+# Description:
+El bloc de notes d'OI és una aplicació de codi obert amb moltes característiques que et permet prendre notes. Amb ella, pots etiquetar, cercar i enviar les teves notes, a part de funcions bàsiques com crear-ne, esborrar-ne o editar-ne. També hi ha característiques avançades com encriptació, importació/exportació i memos de veu disponibles per mitjà d'extensions. Totes aquestes funcions són disponibles en un format simple i eficient, personalitzable per mitjà d'un grapat de temes. 
+
+Aquesta aplicació no té anuncis i no necessita permisos a Internet. 
+
+El codi font d'això és lliure i l'aplicació de codi obert està disponible a: 
+http://code.google.com/p/openintents
+
+Per a una llista sencera de canvis i una llista de preguntes més freqüents, vegeu: 
+http://www.openintents.org
+
+Podeu ajudar a millorar la traducció al vostre idioma a Launchpad 
+https://translations.launchpad.net/openintents/trunk
+
+Característiques 
+* Afegeix, edita i esborra notes.
+* Prem una estona a les notes per afegir-hi etiquetes.
+* Canvia la mida de lletra i l'ordenació.
+* Un disseny arranjat clarament amb una diversitat de temes.
+* Cerca ràpidament per mitjà de notes.
+* Envia notes com a MMS o SMS.
+
+Extensions disponibles per al "bloc de notes d'OI": 
+* Registra i adjunta memos de veu a notes amb "Notes de veu d'OI".
+* Amb "Converteix a CSV d'OI", importa i exporta notes d'una targeta SD.
+* Mostra informació de llicència amb "OI Quant a"
+* Insereix la data i el temps en notes amb "Inserció de data d'OI".
+* Gira el text cap per avall amb "Cap per avall".
+
+Aplicacions que funcionen amb el "bloc de notes d'OI". 
+* Fes còpies de seguretat de notes amb "My Backup Pro".
+* Encripta notes amb "OI Safe".
+* Controla notes a la teva targeta SD amb el "gestor de fitxers d'OI".
+* Actualitza amb "OI Update".
+* Comparteix notes per mitjà del "Facebook", "Gmail", "Google+", "Twitter", i moltes altres aplicacions.
+
+Paraules clau: 
+* Nota, bloc de notes, llibre de notes, notes, bloc
+* OI, OpenIntents, Open Intents
+
+Versions internacionals: 
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+
+
+Cerca cadenes al Mercat: 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro

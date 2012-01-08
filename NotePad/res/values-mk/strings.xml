@@ -27,7 +27,8 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Gjoko https://launchpad.net/~j-gjorgji</string>
+  Gjoko https://launchpad.net/~j-gjorgji
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Бележникот ви дозволува да креирате, уредувате и бришете белешки.</string>

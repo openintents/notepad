@@ -27,7 +27,8 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Neta Oren https://launchpad.net/~netao212</string>
+  Neta Oren https://launchpad.net/~netao212
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">פנקס OI מאפשר ליצור, לערוך ולמחוק פתקים.</string>

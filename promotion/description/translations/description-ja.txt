@@ -1,7 +1,56 @@
 # Application:
-OI Notepad
+OI メモ帳
 
 # Promo text:
-OI Notepadはノートを作成、編集、削除できます。
+OI メモ帳 を使ってノートを作成、編集、削除できます。
 
 # Description:
+OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+
+このアプリケーションは広告を含まず、インターネット許可を必要としません。 
+
+この無料でオープンソースのアプリケーションのソースコードは以下の場所から取得できます： 
+http://code.google.com/p/openintents
+
+すべての変更リストや質問リストを見るには： 
+http://www.openintents.org
+
+あなたもこの言語の翻訳を Launchpad で改善することができます： 
+https://translations.launchpad.net/openintents/trunk
+
+機能： 
+* ノートの追加・編集・削除。
+* Long-press on notes to add tags.
+* フォントサイズと並べ替え順序を変更。
+* A clearly arranged layout with a variety of themes.
+* Quickly search through notes.
+* Send notes as MMS or SMS.
+
+"OI メモ帳" で利用可能な拡張子： 
+* Record and attach voice memos to notes with "OI Voice Notes".
+* With "OI Convert CSV" import/export notes from the SD card.
+* "OI 情報" のライセンス情報を表示する。
+* Insert the date and time into notes with "OI Insert Date".
+* Turn text upside down with "Upside Down".
+
+"OI メモ帳"  と動作するアプリケーション： 
+* Back up notes with "My Backup Pro".
+* "OI 金庫" を使ってノートを暗号化。
+* Manage notes on your SD Card with "OI File Manager".
+* "OI アップデート" でアップデート。
+* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+
+キーワード: 
+* ノート、メモ帳、ノートブック、ノート
+* OI, OpenIntents, Open Intents
+
+国際バージョン： 
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+
+
+マーケット用に文字列を検索： 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro

@@ -5,3 +5,52 @@ OI Poznámkový blok
 OI Poznámkový blok umožňuje vytvářet, upravovat a mazat poznámky.
 
 # Description:
+OI Poznámkový blok je open source aplikace pro správu poznámek. S OI Poznámkovým blokem můžete tagovat (štítkovat), hledat a odesílat své poznámky, které s ním předtím vytvoříte, smažete nebo upravíte. Pokročilé vlastnosti jako šifrování, import/export a hlasové poznámky jsou všechny dostupné pomocí rozšíření. Toto všechno Vám přinášíme zabalené v jednoduchém a efektivním rozhraní přizpůsobitelné množstvím motivů. 
+
+Tato aplikace je bez reklam a nevyžaduje přístup k internetu. 
+
+Zdrojové kód této open source aplikace je dostupný na stránkách: 
+http://code.google.com/p/openintents
+
+Pro úplný seznam změn a seznam často kladených dotazů navštivte prosím: 
+http://www.openintents.org
+
+Můžete také pomoci zlepšit překlad do Vašeho jazyka na Launchpadu: 
+https://translations.launchpad.net/openintents/trunk
+
+Vlastnosti: 
+* Přidávat, upravovat a mazat poznámky.
+* Dlouze stiskněte na poznámky pro přidání tagů.
+* Změnit velikost písma a pořadí řazení.
+* Intuitivní rozhraní s množstvím motivů.
+* Rychle prohledávat poznámky.
+* Zasílat poznámky jako MMS nebo SMS.
+
+Dostupná rozšíření pro OI Poznámkový blok: 
+* Nahrávat a připojovat hlasové poznámky s OI Hlasovými poznámkami.
+* S OI Převést na CSV můžete importovat/exportovat poznámky z SD karty.
+* Zobrazit licenční infomace s OI Infem.
+* Vložit datum a čas do poznámek s OI Vložit datum.
+* Otočit text Seshora dolů se "Seshora dolů".
+
+Aplikace, které pracují s OI Poznámkovým blokem: 
+* Zálohujte poznámky s "My Backup Pro".
+* Šifrujte poznámky pomocí OI Sejfu.
+* Spravujte poznámky na SD kartě s OI Správcem souborů.
+* Aktualizovat s OI Update.
+* Sdílejte poznámky na Facebook, Gmail, Google+, Twitter a mnoho jiných aplikací.
+
+Klíčová slova: 
+* Poznámka, poznámky, poznámkový blok
+* OI, OpenIntents, Open Intents
+
+Mezinárodní verze: 
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+
+
+Prohledat řetězce pro Market: 
+* uses OI About
+* uses OI File Manager
+* uses OI Safe
+* uses OI Update
+* uses My Backup Pro

@@ -175,7 +175,7 @@
 	<!-- OI Safe -->
 	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">encrypt at decrypt ng datos</string>
-    <string name="oi_safe_permission_intents_descr">Payagan ang application na mag-encrypt at mag-decrypt ng teksto, at makita ang mga password na tinago sa OI Safe</string>	
+    <string name="oi_safe_permission_intents_descr">Payagan ang application na mag-encrypt at mag-decrypt ng teksto, at makita ang mga password na tinago sa OI Kaha.</string>	
 
 
 	<!-- ***************************

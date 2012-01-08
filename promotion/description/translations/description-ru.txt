@@ -5,7 +5,7 @@ OI Notepad
 OI Notepad позволяет создавать, редактировать и удлять заметки.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad это полнофункциональный  менеджер заметок с открытым исходным кодом. С его помощью можно помечать, искать, а также отправлять заметки, в дополнение к базовым функциям, таким как создание, удаление и редактирование заметок. Дополнительные функции, такие как шифрование, импорт / экспорт, а также голосовые заметки все это доступно с помощью расширений. Все эти функции объединены в упрощенный и эффективный интерфейс, настраиваемый с помощью различных тем. 
 
 Это приложение является бесплатным и не требует постоянного подключения к Интернет. 
 
@@ -19,33 +19,33 @@ http://www.openintents.org
 https://translations.launchpad.net/openintents/trunk
 
 Возможности: 
-* Add, edit and delete notes.
+* Добавление, изменение и удаление заметок.
 * Долгое нажатия на записи чтобы добавить метку.
-* Change font size and sort order.
+* Изменить размер шрифта и порядок сортировки.
 * A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* Быстрый поиск записок.
+* Отправка заметок как MMS или SMS.
 
-Available extensions for "OI Notepad": 
+Доступные расширения для "OI Notepad": 
 * Запись и прикрепление голосовых сообщений к заметке с помощью "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
+* Импорт/экспорт заметок из SD-карты с помощью "OI Convert CSV".
+* Показать информацию о лицензии с помощью "OI About".
 * Добавить дату и время в заметки с помощью "OI Insert Date".
-* Turn text upside down with "Upside Down".
+* Перевернуть текст с помощью "Upside Down".
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
+Приложения, которые работают с "OI Notepad": 
+* Резервное копирование заметок с помощью "My Backup Pro".
+* Шифрование заметки с помощью "OI Safe".
+* Управление заметками на вашей SD-карте с помощью "OI File Manager".
 * Обновить с помощью "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+* Поделиться заметками через "Facebook", "Gmail", "Google +", "Twitter", и многие другие приложения.
 
 Ключевые слова: 
 * Note, Notepad, Note book, Notes
 * OI, OpenIntents, Open Intents
 
 Переведенные версии: 
-Bloc de Notas OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
 Search strings for Market: 

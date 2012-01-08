@@ -29,48 +29,52 @@
 	<string name="about_translators">Launchpad Contributions:
   DiegoJ https://launchpad.net/~diegojromerolopez
   Feder Sáiz https://launchpad.net/~federsaiz-deactivatedaccount
+  Fitoschido https://launchpad.net/~fitoschido
   Juan Eduardo Riva https://launchpad.net/~juaneduardoriva
   Laura Merino https://launchpad.net/~lauracmperez
+  Monkey https://launchpad.net/~monkey-libre
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Paco Molinero https://launchpad.net/~franciscomol
   Peli https://launchpad.net/~peli0101
   Walter Reindeer Martinez H https://launchpad.net/~waltereindeerm
-  miwie https://launchpad.net/~mw-miwie</string>
+  miwie https://launchpad.net/~mw-miwie
+  txelu https://launchpad.net/~txelu70</string>
 	
     <!-- Short explanation of the application -->
-	<string name="about_comments">Bloc de Notas OI permite crear, editar, y eliminar notas.</string>
+	<string name="about_comments">El Bloc de notas OI permite crear, editar y eliminar notas.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-	<string name="app_name">Bloc de Notas OI</string>
+	<string name="app_name">Bloc de notas OI</string>
 	
     <string name="menu_delete">Eliminar</string>
-    <string name="menu_insert">Añadir nota</string>
+    <string name="menu_insert">Añadir una nota</string>
     <string name="menu_revert">Revertir</string>
     <string name="menu_discard">Descartar</string>
     
-	<string name="no_notes">Utilizar menú para añadir notas nuevas.</string>
+	<string name="no_notes">Use el menú para añadir notas nuevas.</string>
 
     <string name="resolve_edit">Editar nota</string>
     <string name="resolve_title">Editar título</string>  
 
     <string name="title_create">Crear nota</string>
     <string name="title_edit">Editar nota</string>
-	<string name="title_notes_list">Bloc de Notas OI</string>   
+	<string name="title_notes_list">Bloc de notas OI</string>   
 	<string name="title_note">Nota</string>  
-	<string name="title_edit_title">Título de nota:</string>  
+	<string name="title_edit_title">Título de la nota:</string>  
     <string name="title_create_file">%s (nota nueva)</string>
     <string name="title_edit_file">%s (editar note)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Coja una nota para atajo</string>
+    <string name="title_pick_note_for_shortcut">Elija una nota para el atajo</string>
 	
-	<string name="button_ok">De Acuerdo</string>  
+	<string name="button_ok">Aceptar</string>  
 	
 	<string name="error_title">Error</string>
-	<string name="error_message">Error cargando nota</string>
+	<string name="error_message">Error al cargar la nota</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
 	<string name="menu_share">Compartir</string>
@@ -85,12 +89,12 @@
 	<string name="menu_do_not_encrypt">No cifrar</string>
 	<string name="already_encrypted">Ya cifrado.</string>
 	<string name="not_encrypted">No cifrado.</string>
-	<string name="encryption_failed">Cifrado fallido.</string>
-	<string name="decryption_failed">Descifrado fallido.</string>
+	<string name="encryption_failed">El cifrado falló.</string>
+	<string name="decryption_failed">Falló el descifrado.</string>
 
 	<string name="menu_edit_tags">Editar etiquetas</string>
     <string name="dropdown_hint">Toque para ver la lista</string>
-    <string name="tags_hint">Introducir etiquetas, separas por coma</string>
+    <string name="tags_hint">Introduzca etiquetas, separadas por comas</string>
     
     <string name="menu_save_to_sdcard">Guardar a tarjeta SD</string>
     <string name="menu_open_from_sdcard">Abrir desde tarjeta SD</string>
@@ -102,36 +106,36 @@
     <string name="file_not_found">Archivo no encontrado</string>
     <string name="note_saved">Nota guardada</string>
     <string name="warning_file_exists_title">El archivo ya existe</string>
-    <string name="warning_file_exists_message">¿Realmente desea sobrescribir el archivo existente?</string>
+    <string name="warning_file_exists_message">¿Realmente quiere sobreescribir el archivo existente?</string>
     
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importar</string>
     <string name="menu_save">Guardar</string>
     <string name="menu_save_as">Guardar como</string>
     <string name="warning_unsaved_changes_title">Texto modificado</string>
-    <string name="warning_unsaved_changes_message">¿Desea usted guardar los cambios?</string>
+    <string name="warning_unsaved_changes_message">¿Quiere guardar los cambios?</string>
     <string name="button_save">Guardar</string>
     <string name="button_dont_save">No guardar</string>
     
 	<string name="menu_theme">Tema</string>
-	<string name="theme_pick">Elije un tema</string>
-    <string name="theme_default">Por defecto</string>
+	<string name="theme_pick">Elija un tema</string>
+    <string name="theme_default">Predeterminado</string>
     <string name="theme_monospaced">Tipografía monoespaciada</string>
 	<string name="theme_serif">Tipografía Serif</string>
 
 	<!-- Search -->
 	<string name="menu_search">Buscar</string>
-    <string name="search_query_results">Bloc de Notas OI</string>
+    <string name="search_query_results">Bloc de notas OI</string>
     <!-- %s is the search string -->
 	<string name="search_found_no_results">Ningún resultado encontrado para %s.</string>
-    <string name="search_label">OI Notepad busqueda</string>
+    <string name="search_label">Búsqueda de Bloc de notas OI</string>
     <string name="search_hint">Buscar</string>
     
     <!-- The description that will show up in the search settings for this source.  -->
     <string name="search_settings_description">Títulos de sus notas</string>
     
 	<!--     Dialog box    -->
-	<string name="ok">De Acuerdo</string>
+	<string name="ok">Aceptar</string>
 	<string name="cancel">Cancelar</string>
     <string name="use_theme_for_all_lists">Usar este tema para todas las listas</string>
 	<string name="get_more_themes">Obtener más temas</string>
@@ -140,22 +144,22 @@
     
     <!-- Settings -->
     <!-- Title for settings regarding the list of notes -->
-    <string name="noteslist_preferences">Lista de Notas</string>
-    <string name="preference_sortorder_title">Orden de Clasificación de Lista</string>
-    <string name="preference_sortorder_dialog_title">Orden de Clasificación de Lista</string>
+    <string name="noteslist_preferences">Lista de notas</string>
+    <string name="preference_sortorder_title">Orden de clasificación de lista</string>
+    <string name="preference_sortorder_dialog_title">Orden de clasificación de lista</string>
     <string name="preference_sortorder_summary">El orden en el que las notas son mostradas en la lista de notas</string>
-    <string name="preference_marquee_title">Marquee note titles.</string>
-    <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
+    <string name="preference_marquee_title">Marca los títulos de la nota</string>
+    <string name="preference_marquee_summary">desplácese por los títulos que sean demasiado largos</string>
     
     <string name="note_editor_preferences">Editor de notas</string>
     <string name="preference_fontsize">Tamaño de la tipografía</string>
-	<string name="preference_fontsize_summary">Cambiar tamaño de la fuente</string>
-	<string name="preference_fontsize_dialog_title">Seleccionar tamaño de fuente</string>
-	<string name="preference_autolink_title">Creación automática de enlaces</string>
+	<string name="preference_fontsize_summary">Cambiar tamaño de la tipografía</string>
+	<string name="preference_fontsize_dialog_title">Elegir tamaño de tipografía</string>
+	<string name="preference_autolink_title">Crear enlaces automáticamente</string>
     <string name="preference_autolink_summary_on">Crear enlaces para números de teléfono y direcciones de e-mail/calle/web</string>
     <string name="preference_autolink_summary_off">No crear enlaces de estas notas</string>
 
-	<string name="settings">Ajustes</string>
+	<string name="settings">Configuración</string>
 	<string name="settings_sortorder">Orden de clasificación</string>
 	
 	<!-- ***************************
@@ -191,37 +195,37 @@
 	<!-- sort order -->
     <string-array name="preference_sortorder_entries">
         <item>Alfabético</item>
-        <item>Invertir Alfabético</item>
+        <item>Alfabético invertido</item>
         <item>Última actualización</item>
         <item>Primera actualización</item>
-        <item>De Más Nuevo a Más Viejo</item>  
-        <item>De Más Viejo a Más Nuevo</item>
+        <item>Recientes a antiguos</item>  
+        <item>Antiguos a recientes</item>
     </string-array>
 
     <string-array name="preference_fontsize_entries">
     	<!-- Preference fontsize: tiny font size -->
-        <item>Muy pequeña</item>
+        <item>Minúscula</item>
     	<!-- Preference fontsize: small font size -->
         <item>Pequeña</item>
     	<!-- Preference fontsize: default font size-->
-    	<item>Por defecto</item>
+    	<item>Predeterminado</item>
     	<!-- Preference fontsize: large font size -->
         <item>Grande</item>
     </string-array>
 
-    <string name="preference_addons">Componentes adicionales</string>
+    <string name="preference_addons">Complementos</string>
     <string name="preference_get_addons">Obtener nuevos complementos</string>
     <string name="preference_get_addons_summary">Buscar extensiones y temas en linea.</string>
-    <string name="preference_get_market_addons">Obtener complementos de Market</string>
+    <string name="preference_get_market_addons">Obtener complementos del Market</string>
     <string name="preference_get_developer_addons">Obtener complementos de OpenIntents</string>
     <string name="preference_extensions">Extensiones</string>
     <string name="preference_themes">Temas</string>
-    <string name="preference_market_extensions_summary">Búsqueda de extensiones en la Tienda Android</string>
+    <string name="preference_market_extensions_summary">Buscar extensiones en Android Market.</string>
     <string name="preference_market_themes_summary">Buscar temas en Android Market.</string>
     <string name="preference_developer_extensions_summary">Obtener extensiones desde la página principal de OpenIntents</string>
 	<string name="preference_developer_themes_summary">Obtener temas de la web de OpenIntents</string>
-	<string name="confirm_delete_title">Deletion Confirmation</string>
-	<string name="confirm_delete">Are you sure you want to delete this note?</string>
+	<string name="confirm_delete_title">Confirmar eliminación</string>
+	<string name="confirm_delete">¿Está seguro de que quiere eliminar esta nota?</string>
 	
-	<string name="new_note">New note</string>
+	<string name="new_note">Nota nueva</string>
 </resources>
