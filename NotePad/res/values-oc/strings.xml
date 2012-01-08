@@ -29,8 +29,8 @@
 	<string name="about_translators">Launchpad Contributions:
   Cédric VALMARY (Tot en òc) https://launchpad.net/~cvalmary</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notepad permet de crear, modificar e suprimir de nòtas.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

@@ -35,8 +35,8 @@ Launchpad Contributions:
   ehturan https://launchpad.net/~ehturan1968
   zeugma https://launchpad.net/~sunder67</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Not defteri notlarınızı oluşturma ,düzenleme ve silmenizi sağlar.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

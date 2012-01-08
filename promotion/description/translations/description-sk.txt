@@ -2,7 +2,7 @@
 OI Poznámkový blok
 
 # Promo text:
-OI Poznámkový Blok umožňuje vytvárať, upravovať a mazať poznámky.
+Create and share your notes with OI Notepad.
 
 # Description:
 OI Poznámkový blok je plne funkčná a voľne šíriteľná aplikácia pre zaznamenávanie poznámok. S ňou môžete označovať, vyhľadávať a posielať Vaše poznámky ako dodatok ku základným funkciám ako vytváranie, mazanie a upravovanie poznámok. PoPokročilé vlastnosti ako šifrovanie, importovanie/exportovanie a hlasové poznámky sú dostupné cez rozšírenia. Všetka táto funkcionalita je spojená v jednoduchom a prehľadnom rozložení,  ktoré je meniteľné cez rôzne témy. 

@@ -27,10 +27,11 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Joan Creus https://launchpad.net/~joan-creus-c</string>
+  Joan Creus https://launchpad.net/~joan-creus-c
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">El bloc de notes d\'OI et permet crear, editar i esborrar nodes.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

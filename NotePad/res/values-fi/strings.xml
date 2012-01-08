@@ -30,8 +30,8 @@
   Peli https://launchpad.net/~peli0101
   Tommi Saira https://launchpad.net/~tommisaira</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notepad antaa sinun luoda, muokata, ja poistaa muistilappuja.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -198,7 +198,7 @@
     	<!-- Preference fontsize: small font size -->
         <item>Small</item>
     	<!-- Preference fontsize: default font size-->
-    	<item>Default</item>
+    	<item>Default </item>
     	<!-- Preference fontsize: large font size -->
         <item>Large</item>
     </string-array>

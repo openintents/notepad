@@ -2,7 +2,7 @@
 Bloc de notes d'OI
 
 # Promo text:
-El bloc de notes d'OI et permet crear, editar i esborrar nodes.
+Create and share your notes with OI Notepad.
 
 # Description:
 El bloc de notes d'OI és una aplicació de codi obert amb moltes característiques que et permet prendre notes. Amb ella, pots etiquetar, cercar i enviar les teves notes, a part de funcions bàsiques com crear-ne, esborrar-ne o editar-ne. També hi ha característiques avançades com encriptació, importació/exportació i memos de veu disponibles per mitjà d'extensions. Totes aquestes funcions són disponibles en un format simple i eficient, personalitzable per mitjà d'un grapat de temes. 

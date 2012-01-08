@@ -40,8 +40,8 @@
   miwie https://launchpad.net/~mw-miwie
   txelu https://launchpad.net/~txelu70</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">El Bloc de notas OI permite crear, editar y eliminar notas.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

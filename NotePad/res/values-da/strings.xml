@@ -31,8 +31,8 @@
 Launchpad Contributions:
   Mad_Viking https://launchpad.net/~black-assamite</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notesblok tillader at man kan oprettet, ændre og slette notater</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

@@ -35,8 +35,8 @@
   Thibault Févry https://launchpad.net/~thibaultfevry
   lonelyxstorm https://launchpad.net/~sleepless-l4dy</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notepad permet de créer, modifier et supprimer des notes.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

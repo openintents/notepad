@@ -30,8 +30,8 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   zhangchun https://launchpad.net/~zhangchun</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI记事本可以新建，编辑，删除注释。</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

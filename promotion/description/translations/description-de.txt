@@ -2,7 +2,7 @@
 OI Notizblock
 
 # Promo text:
-OI Notizblock erlaubt das Erstellen und Bearbeiten von Notizen.
+Create and share your notes with OI Notepad.
 
 # Description:
 OI Notepad ist ein Open Source Notizblock mit vielen Funktionen. Mit ihm ist es möglich, ihre Notizen zu taggen, zu durchsuchen und ihre Notizen zu versenden, zusätzlich zu den Standardfunktionen, wie das Erstellen, das Löschen oder das Bearbeiten von Notizen. Erweiterte Features wie Verschlüsselung, Import/Export, und Sprachnotizen sind durch Erweiterungen verfügbar. Alle diese Funktionen werden in einem einfachen und effizienten Layout, das durch eine Vielzahl von Themen angepasst werden kann, zusammengefügt. 

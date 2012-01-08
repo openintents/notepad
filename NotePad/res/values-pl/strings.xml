@@ -32,8 +32,8 @@
   Tomasz \'Zen\' Napierala https://launchpad.net/~tzn
   Tomasz Zieliński https://launchpad.net/~tomek0517</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notatnik pozwala tworzyć, edytować i usuwac notatki</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

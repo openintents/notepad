@@ -2,10 +2,10 @@
 OI メモ帳
 
 # Promo text:
-OI メモ帳 を使ってノートを作成、編集、削除できます。
+Create and share your notes with OI Notepad.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI メモ帳は完全なオープンソースメモ取りアプリケーションです。 これを使ってノートの作成・削除・編集などの基本機能のほかにも、ノートをタグ・検索・送信することができます。 暗号化、インポート・エクスポートやボイスメモなどは拡張機能を通じて利用することができます。 すべての機能はシンプルで効率的なレイアウトで表示され、様々なテーマでカスタマイズ可能です。 
 
 このアプリケーションは広告を含まず、インターネット許可を必要としません。 
 
@@ -20,25 +20,25 @@ https://translations.launchpad.net/openintents/trunk
 
 機能： 
 * ノートの追加・編集・削除。
-* Long-press on notes to add tags.
+* ノートに長押ししてタグを追加。
 * フォントサイズと並べ替え順序を変更。
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* 様々なテーマを持つきれいにアレンジされたレイアウト。
+* ノートを素早く検索。
+* ノートを MMS か SMS として送信する。
 
 "OI メモ帳" で利用可能な拡張子： 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
+* "OI ボイスノート" でノートに録音したボイスメモを添付。
+* "OI CSV 変換" で SD カードからノートをインポート・エクスポート。
 * "OI 情報" のライセンス情報を表示する。
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+* "OI 日付挿入" でノートに日付と時間を挿入。
+* "逆さま" でテキストを逆さまにする。
 
 "OI メモ帳"  と動作するアプリケーション： 
-* Back up notes with "My Backup Pro".
+* "マイバックアップ プロ" でノートをバックアップ。
 * "OI 金庫" を使ってノートを暗号化。
-* Manage notes on your SD Card with "OI File Manager".
+* "OI ファイルマネージャー" でSDカードのノートを管理。
 * "OI アップデート" でアップデート。
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+* "Facebook", "Gmail", "Google+", "Twitter" などのアプリケーションを通してノートを共有。
 
 キーワード: 
 * ノート、メモ帳、ノートブック、ノート

@@ -2,7 +2,7 @@
 OI Blokčić
 
 # Promo text:
-OI Blokčić dozvoljava da napravite, izmenite i izbrišete bjeleške.
+Create and share your notes with OI Notepad.
 
 # Description:
 OI Blokčić je puna aplikacija otvorenog izvora za hvatanje bilješki. Sa njom možete tagovati, pretražiti, ili poslati vaše beleške, uz osnovne funckije za pravljenje, brisanje, i izmena bilješki. Napredni dodatci kao šifriranje, uvoz/izvoz,i pamcenje glasa su dostupni kroz dodatke. Sve ove funkcionalnosti su sklopljenje u jedan prosti ali efektivni raspored, izmenjivoe kroz razne teme. 

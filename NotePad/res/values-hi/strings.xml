@@ -31,8 +31,8 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   Shitiz Garg https://launchpad.net/~l95s</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI नोत्पाड व्याख्या को उत्पादित, सम्पादित और हटाने का कार्य करता है</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

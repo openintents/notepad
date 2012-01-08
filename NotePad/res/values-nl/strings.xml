@@ -32,8 +32,8 @@
   Peli https://launchpad.net/~peli0101
   pjv https://launchpad.net/~pjv</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notitieblok laat het creëren, bewerken en verwijderen van notities toe</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

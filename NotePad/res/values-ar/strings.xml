@@ -30,8 +30,8 @@
   Kras4ooo https://launchpad.net/~kkrassi1984
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI المفكرة"ويسمح برنامج إنشاء وتحرير وحذف الملاحظات</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

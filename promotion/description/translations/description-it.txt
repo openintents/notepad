@@ -2,6 +2,6 @@
 OI Blocco Note
 
 # Promo text:
-OI Blocco Note permette di creare, modificare ed eliminare i tuoi appunti
+Create and share your notes with OI Notepad.
 
 # Description:

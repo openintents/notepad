@@ -30,8 +30,8 @@
   Angad Singh  https://launchpad.net/~angad21-02-1996
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI ਨੋਟਪੈਡ ਤਵਾਨੁ ਨੋਟ ਬਣਾਣ , ਬਦਲਨੇ ਹੋਰ ਹਟਾਨ ਦੇੰਦਾ ਹੈ |</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

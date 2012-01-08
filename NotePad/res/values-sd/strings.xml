@@ -27,10 +27,11 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
   happynawani https://launchpad.net/~happynawani</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI नोत्पाड व्याख्या खे उत्पादित, सम्पादित और हतायण जो कम कंदों आ</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

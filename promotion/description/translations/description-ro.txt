@@ -2,7 +2,7 @@
 OI Notepad
 
 # Promo text:
-OI Notepad vă permite să creați, modificați și să ștergeți note.
+Create and share your notes with OI Notepad.
 
 # Description:
 OI Notepad este o aplicaţie cu sursa publică, cu toate caracteristicile pentru a lua notiţe. Cu ea puteți eticheta, căuta, şi trimite notele, pe lângă funcţionalitatea de bază, cum ar fi crearea, ştergerea si editarea notelor. Caracteristici avansate cum ar fi criptarea, importarea/exportarea, şi memourile vocale sunt toate disponibile prin extensii. Toate aceaste funcţionalităţi sunt aduse împreună într-un aspect simplist şi eficient, personalizabil printr-o varietate de teme. 

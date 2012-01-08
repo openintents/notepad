@@ -2,7 +2,7 @@
 OI Not defteri
 
 # Promo text:
-OI Not defteri notlarınızı oluşturma ,düzenleme ve silmenizi sağlar.
+Create and share your notes with OI Notepad.
 
 # Description:
 OI Notepad çok özellikli açık kaynak kodlu not almanızı sağlayan bir uygulamadır. Onun ile etiket ekleyebilir, arama yapabilir, ve notlarınızı gönderebilirsiniz, ek olarak olışturma, silme, ve düzenleme gibi basi fonksiyonları kullanabilirsiniz. Şifreleme, içe/dışa aktarım ve sesli mesaj gibi gelişmiş özellikler eklentiler aracılığıyla mevcuttur. Tüm bu işlevsellik çeşitli temalarla kişileştirilebilir, basit ve etkileyici bir düzende bir araya getirildi. 

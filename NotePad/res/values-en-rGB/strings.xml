@@ -30,8 +30,8 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   hawksters https://launchpad.net/~hawksters-ay</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notepad allows to create, edit, and delete notes.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -198,7 +198,7 @@
     	<!-- Preference fontsize: small font size -->
         <item>Small</item>
     	<!-- Preference fontsize: default font size-->
-    	<item>Default</item>
+    	<item>Default </item>
     	<!-- Preference fontsize: large font size -->
         <item>Large</item>
     </string-array>

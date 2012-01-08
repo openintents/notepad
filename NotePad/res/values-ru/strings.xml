@@ -34,8 +34,8 @@
   Peli https://launchpad.net/~peli0101
   Горобец Виктор (VikTHOR) https://launchpad.net/~victhor</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notepad позволяет создавать, редактировать и удлять заметки.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

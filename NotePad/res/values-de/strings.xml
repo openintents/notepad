@@ -33,8 +33,8 @@
   Peli https://launchpad.net/~peli0101
   appricoo https://launchpad.net/~appricoo</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Notizblock erlaubt das Erstellen und Bearbeiten von Notizen.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

@@ -30,8 +30,8 @@
   Gjoko https://launchpad.net/~j-gjorgji
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Бележникот ви дозволува да креирате, уредувате и бришете белешки.</string>
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

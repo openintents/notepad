@@ -2,7 +2,7 @@
 OI Notitieblok
 
 # Promo text:
-OI Notitieblok laat het creëren, bewerken en verwijderen van notities toe
+Create and share your notes with OI Notepad.
 
 # Description:
 OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 

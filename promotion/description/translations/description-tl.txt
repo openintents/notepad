@@ -2,7 +2,7 @@
 OI Talaan
 
 # Promo text:
-OI Talaan ay pwedeng lumikha, magbago at mag-alis ng mga tala.
+Create and share your notes with OI Notepad.
 
 # Description:
 Ang OI Talaan ay  buong tampok na bukas na pinagmulang kodigo na applikasyon sa pagkuha ng tala. Gamit ito, maaari mong i-tag, hanapan, at ipadala ang iyong mga tala, bilang karagdagan sa pangunahing function tulad ng paglikha, pag-alis, at pagpalit ng mga tala. Ang paunang mga tampok tulad ng encryption, import / export, at mga boses na memo ay magagamit sa pamamagitan ng extensyon. Ang lahat ng ito function ay pinagsama sa isang simplistic at mahusay na layout, napapasadya sa pamamagitan ng iba't ibang mga tema. 
