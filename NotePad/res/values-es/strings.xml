@@ -32,6 +32,7 @@
   Fitoschido https://launchpad.net/~fitoschido
   Juan Eduardo Riva https://launchpad.net/~juaneduardoriva
   Laura Merino https://launchpad.net/~lauracmperez
+  Martín González https://launchpad.net/~mgonzlezgmz
   Monkey https://launchpad.net/~monkey-libre
   OpenIntents devs https://launchpad.net/~openintents-devs
   Paco Molinero https://launchpad.net/~franciscomol
@@ -41,7 +42,7 @@
   txelu https://launchpad.net/~txelu70</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Create and share your notes with OI Notepad.</string>
+	<string name="about_comments">Cree y comparta sus notas con OI Bloc de Notas.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

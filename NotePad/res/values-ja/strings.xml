@@ -33,7 +33,7 @@
   thebowseat https://launchpad.net/~takeshimochida</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Create and share your notes with OI Notepad.</string>
+	<string name="about_comments">OI メモ帳 でノートを作成したり共有したりすることができます。</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

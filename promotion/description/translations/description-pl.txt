@@ -2,7 +2,7 @@
 OI Notatnik
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Twórz i dziel się notatkami używając OI Notatnika.
 
 # Description:
 Ol Notepad jest w pełni funkcjonalną open-source-ową aplikacją do tworzenia notatek. Oprócz podstawowych funkcjonalności, takich jak tworzenie, usuwanie, i edytowanie notatek, dzięki niemu możesz znaczyć, wyszukiwać, i wysyłać swoje notatki. Zaawansowane funkcje, takie jak szyfrowanie, import / eksport, i notatki głosowe są dostępne za pośrednictwem rozszerzeń. Wszystkie te funkcje są uproszczone i efektywne, konfigurowalne za pomocą różnych motywów. 

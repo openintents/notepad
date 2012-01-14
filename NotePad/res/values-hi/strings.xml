@@ -28,11 +28,12 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Angad Singh  https://launchpad.net/~angad21-02-1996
+  Atharva Lath https://launchpad.net/~atharvalath96
   OpenIntents devs https://launchpad.net/~openintents-devs
   Shitiz Garg https://launchpad.net/~l95s</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Create and share your notes with OI Notepad.</string>
+	<string name="about_comments">अपने नोट्स OI नोटपेड के साथ बनाए और बाटें.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

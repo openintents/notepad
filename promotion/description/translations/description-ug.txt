@@ -2,7 +2,7 @@
 OI خاتىرە دەپتەر
 
 # Promo text:
-Create and share your notes with OI Notepad.
+خاتىرىڭىزنى OI خاتىرە بىلەن قۇرۇپ ۋە ھەمبەھىرلەيدۇ.
 
 # Description:
 OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
@@ -20,25 +20,25 @@ https://translations.launchpad.net/openintents/trunk
 
 ئىقتىدارلار: 
 * ئىزاھات قوشۇش، تەھرىرلەش، ئۆچۈرۈش.
-* Long-press on notes to add tags.
-* Change font size and sort order.
+* خاتىرە ئۇزۇن بېسىلسا بەلگە قوشىدۇ.
+* خەت چوڭلۇقى ۋە تەرتىپلەش تەرتىپىنى ئۆزگەرتىدۇ.
 * A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* خاتىرە دەپتەر ئارقىلىق تېز سۈرئەتتە ئىزدەيدۇ.
+* خاتىرىنى قىسقا ئۇچۇر ياكى كۆپ ۋاستە ئۇچۇردا يوللايدۇ.
 
-Available extensions for "OI Notepad": 
+«OI خاتىرە دەپتەر»نىڭ ئىشلىتىلىشچان كېڭەيتىلمىسى: 
 * Record and attach voice memos to notes with "OI Voice Notes".
 * With "OI Convert CSV" import/export notes from the SD card.
 * «OI ھەققىدە» ئىجازەت ئۇچۇرىنى كۆرسىتىدۇ.
-* Insert the date and time into notes with "OI Insert Date".
+* خاتىرە دەپتەرگە «OI چېسلا قىستۇر» ئارقىلىق چېسلا ۋە ۋاقىت قىستۇرىدۇ.
 * Turn text upside down with "Upside Down".
 
-Applications that work with "OI Notepad": 
+«OI خاتىرە دەپتەر» دە ئىشلەيدىغان ئەپلەر: 
 * Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
+* خاتىرىنى «OIبىخەتەرلىك» تە شىفىرلايدۇ.
+* SD كارتىڭىزدىكى خاتىرىلەرنى «OI ھۆججەت باشقۇرغۇچ» بىلەن باشقۇرىدۇ.
 * «OI يېڭىلاش»تا يېڭىلايدۇ.
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+* خاتىرىلەرنى «Facebook»، «Gmail»، «Google+»، «Twitter» ۋە باشقا نۇرغۇن ئەپلەردە ھەمبەھىرلەيدۇ.
 
 ھالقىلىق سۆزلەر: 
 * Note, Notepad, Note book, Notes

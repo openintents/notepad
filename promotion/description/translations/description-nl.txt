@@ -27,15 +27,15 @@ Eigenschappen:
 * Send notes as MMS or SMS.
 
 Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
+* Neem stem memos op en voeg ze toe met "OI Voice Notes"
 * With "OI Convert CSV" import/export notes from the SD card.
 * Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+* Stel de datum en tijd in uw notities met "OI Insert Date"
+* Zet teksten ondersteboven met "Upside Down"
 
-Applications that work with "OI Notepad": 
+Applicaties die werken met "OI Notepad" 
 * Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
+* Beveilig notities met "OI Safe"
 * Manage notes on your SD Card with "OI File Manager".
 * Update with "OI Update".
 * Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.

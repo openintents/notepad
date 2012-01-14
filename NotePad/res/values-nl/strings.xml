@@ -27,6 +27,7 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Mark van Kuijk https://launchpad.net/~markvankuyk
   Menno Vogel https://launchpad.net/~mennovogel90
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
@@ -71,7 +72,7 @@
 	
 	<string name="menu_share">Share</string>
 	<string name="empty_note">Lege notitie</string>
-	<string name="share_not_available">No application available for sharing.</string>
+	<string name="share_not_available">Geen applicatie aanwezig om te delen.</string>
 	
 	<string name="encrypting_note">Bezig met versleutelen van notitie</string>
 	<string name="encrypted">Versleuteld</string>

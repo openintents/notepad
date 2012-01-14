@@ -5,7 +5,7 @@ OI Notepad
 Create and share your notes with OI Notepad.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad ir pilnīgi iespējota atvērtā pirmkoda piezīmju veikšanas aplikācija. Ar to var veidot iezīmes, meklēt un sūtīt piezīmes, papildus pamata funkcionalitātei kā piezīmju izveidošanai, izdzēšanai un labošanai. Papildus iespējas kā šifrēšana, importēšana/eksportēšana un balss piezīmes ir pieejamas izmantojot paplašinājumus. Visa ši funkcionalitāte ir apkopota vienkāršā un efektīvā izkārtojumā, pielāgojamā ar dažādām tēmām. 
 
 Šī aplikācija ir bezmaksas un tai nevajag interneta atļauju. 
 
@@ -15,40 +15,40 @@ http://code.google.com/p/openintents
 Lai skatītu pilnīgu izmaiņu sarakstu un sarakstu ar biežāk uzdotajiem jautājumiem, lūdzu apmeklējiet: 
 http://www.openintents.org
 
-Jūs varat palīdzēt uzlabot tulkojumu savā valodā izmantojot Lounchpad: 
+Jūs varat palīdzēt uzlabot tulkojumu savā valodā izmantojot Launchpad: 
 https://translations.launchpad.net/openintents/trunk
 
-Features: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+Funkcijas: 
+* Pievienojiet, labojiet un izdzēsiet piezīmes.
+* Turiet nospiestu ilgi, lai pievienotu iezīmes.
+* Izmainiet fonta lielumu un šķirošanas kārtību.
+* Skaidri sakārtots izkārtojums ar tēmu dažādību.
+* Ātra meklēšana caur piezīmēm.
+* Sūtiet piezīmes kā MMS vai SMS.
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+Pieejamie paplašinājumi "OI Notepad": 
+* Ierakstiet un pievienojiet balss piezīmes savām piezīmēm ar "OI Voice Notes".
+* Ar "OI Convert CSV" importējiet/eksportējiet piezīmes no SD kartes.
+* Parādīt licenzes informāciju ar "OI About".
+* Ievietojiet datumu un laiku piezīmēs ar "OI Insert Date".
+* Pagrieziet tekstu kājām gaisā ar "Upside Down".
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+Aplikācijas, kuras strādā ar "OI Notepad": 
+* Dublējiet piezīmes ar "My Backup Pro".
+* Šifrējiet piezīmes izmantojot "OI Safe".
+* Pārvaldiet piezīmes SD kartē ar "OI File Manager".
+* Atjauniniet ar "OI Update".
+* Dalieties ar piezīmēm caur "Facebook", "Gmail", "Google+", "Twitter" un daudzām citām aplikācijām.
 
-Keywords: 
-* Note, Notepad, Note book, Notes
+Atslēgvārdi: 
+* Piezīme, piezīmju grāmata, piezīmes
 * OI, OpenIntents, Open Intents
 
-International versions: 
+Starptautiskās versijas: 
 Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Meklēt rindiņas tirgum: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

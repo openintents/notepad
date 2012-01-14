@@ -2,53 +2,53 @@
 OI Notatblokk
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Opprett og del dine notater med OI Notatblokk.
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notatblokk er en fullt funksjonell applikasjon for å ta notater og har åpen kildekode. Med den kan du merke, søke og sende dine notater, i tillegg til grunnleggende funksjonalitet som å opprette, slette og redigere notater. Avanserte funksjoner som kryptering, import/eksport og talebeskjeder er alle tilgjengelige gjennom utvidelser. All denne funksjonaliteten er ført sammen gjennom en enkel og effektiv utforming, egendefinerbar gjennom en variasjon av temaer. 
 
-This application is ad free and does not require the internet permission. 
+Denne applikasjonen er reklamefri og trenger ikke inter 
 
-The source code of this free and open source application is available at: 
+Kildekoden til denne gratis applikasjonen med åpen kildekode er tilgjengelig hos: 
 http://code.google.com/p/openintents
 
-For the complete list of changes and a list of frequently asked questions, please visit: 
+For den komplette listen med endringer og en liste over vanlige spørsmål, vennligst besøk: 
 http://www.openintents.org
 
-You can help to improve the translation into your language at Launchpad: 
+Du kan hjelpe til med å forbedre oversettelsen 
 https://translations.launchpad.net/openintents/trunk
 
-Features: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+Funksjoner: 
+* Legg til, rediger og slett notater.
+* Hold inne på notater for å legge til merker.
+* Endre skriftstørrelse og sorteringsrekkefølge.
+* En tydelig arrangert utforming med en variasjon i temaer.
+* Søk raskt gjennom notater.
+* Send notater som MMS eller SMS.
 
-Available extensions for "OI Notepad": 
-* Record and attach voice memos to notes with "OI Voice Notes".
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
-* Insert the date and time into notes with "OI Insert Date".
-* Turn text upside down with "Upside Down".
+Tilgjengelige utvidelser for "OI Notatblokk": 
+* Ta opp og legg ved stemmebeskjed til notater med "OI Voice Notes".
+* Importer/eksporter notater fra SD-kortet med "OI Konverter CSV".
+* Vis lisensinformasjonen med "OI Info".
+* Sett inn dato og tid i notater med "OI Insert Date".
+* Snu tekst opp-ned med "Upside Down".
 
-Applications that work with "OI Notepad": 
-* Back up notes with "My Backup Pro".
-* Encrypt notes using "OI Safe".
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+Applikasjoner som fungerer med "OI Notatblokk": 
+* Sikkerhetskopier notater med "My Backup Pro".
+* Enkrypt notater ved bruk av "OI Safe".
+* Administrer notater på ditt SD-kort med "OI Filbehandler".
+* Oppdater med "OI Oppdater".
+* Del notater gjennom "Facebook", "Gmail", "Google+", "Twitter", og mange andre applikasjoner.
 
-Keywords: 
-* Note, Notepad, Note book, Notes
+Nøkkelord: 
+* Notat, Notatblokk, Notatbok, Notater
 * OI, OpenIntents, Open Intents
 
-International versions: 
+Internasjonal versjoner: 
 Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
-Search strings for Market: 
+Søkestrenger for Marked: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

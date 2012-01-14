@@ -2,7 +2,7 @@
 Bloc de notas OI
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Cree y comparta sus notas con OI Bloc de Notas.
 
 # Description:
 OI Notepad es una aplicación de código abierto para escribir notas. Usted puede etiquetar, buscar y enviar sus notas, además de otras funciones básicas, como crear, eliminar y editar notas. Características avanzadas como la encriptación, importación/exportación, y las notas de voz están disponibles a través de extensiones. Todas estas funciones se organizan en un diseño simple y eficiente, personalizable a través de una gran variedad de temas. 

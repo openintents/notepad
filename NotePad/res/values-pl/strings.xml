@@ -30,10 +30,11 @@
   Damian Skrodzki https://launchpad.net/~damienix
   OpenIntents devs https://launchpad.net/~openintents-devs
   Tomasz \'Zen\' Napierala https://launchpad.net/~tzn
-  Tomasz Zieliński https://launchpad.net/~tomek0517</string>
+  Tomasz Zieliński https://launchpad.net/~tomek0517
+  zielmicha https://launchpad.net/~michal-zielinscy</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Create and share your notes with OI Notepad.</string>
+	<string name="about_comments">Twórz i dziel się notatkami używając OI Notatnika.</string>
 	
 	<!-- ***************************
 	     Applicatio-specific strings

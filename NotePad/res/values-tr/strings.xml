@@ -32,8 +32,7 @@ Launchpad Contributions:
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   ariza95 https://launchpad.net/~alirizanazli95
-  ehturan https://launchpad.net/~ehturan1968
-  zeugma https://launchpad.net/~sunder67</string>
+  ehturan https://launchpad.net/~ehturan1968</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
