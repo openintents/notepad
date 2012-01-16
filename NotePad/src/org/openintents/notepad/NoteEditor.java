@@ -1920,10 +1920,16 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	}
 
 	private void showWordCount(){
-		String number_of_words = Integer.toString(mText.getText().toString()
-				.split("\\s+").length);
+		String text = mText.getText().toString();
+		int number_of_words = text.split("\\s+").length;
+		if (TextUtils.isEmpty(text)) {
+			// if text is empty, number_of_words is set to 1,
+			// so in this case we set it manually
+			number_of_words = 0;
+		}
 		AlertDialog.Builder wordCountAlert  = new AlertDialog.Builder(this);
-		wordCountAlert.setMessage(number_of_words + " " + getResources().getString(R.string.word_count));
+		wordCountAlert.setMessage(getResources().getQuantityString(R.plurals.word_count,
+				number_of_words, number_of_words));
 		wordCountAlert.setTitle(R.string.menu_word_count);
 		wordCountAlert.setPositiveButton(R.string.ok, null);
 		wordCountAlert.setCancelable(false);
