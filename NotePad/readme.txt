@@ -34,6 +34,7 @@ date: ?
 - fixed pressing note icon in OI Shopping List crashes OI Notepad (issue 434, Google Code-in task by Neis)
 - apply marquee setting immediately (issue 405, Google Code-in task by Daniel Huang)
 - support for ActionBar (patch by Menno Vogel)
+- Character / word counter (issue 456, Google Code-in task by Chickenbellyfinn)
 
 ---------------------------------------------------------
 release: 1.2.3

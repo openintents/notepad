@@ -29,7 +29,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -63,7 +62,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.Intent.ShortcutIconResource;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -152,6 +150,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final int MENU_THEME = Menu.FIRST + 8;
 	private static final int MENU_SETTINGS = Menu.FIRST + 9;
 	private static final int MENU_SEND = Menu.FIRST + 10;
+	private static final int MENU_WORD_COUNT = Menu.FIRST + 11;
 
 	//private static final int REQUEST_CODE_ENCRYPT = 1;
 	private static final int REQUEST_CODE_DECRYPT = 2;
@@ -297,7 +296,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 						canvas.drawLine(left, baseline + 1, right, baseline + 1, paint);
 					}
 				}
-			}
+			}			
+			
 			super.onDraw(canvas);
 		}
 	}
@@ -533,7 +533,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			}		
 		} else {
 			mCursor = null;
-		}		
+		}
+		
+			mText.addTextChangedListener(mTextWatcherCharCount);		
 	}
 	
 	/**
@@ -574,25 +576,35 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	}
 
 	private TextWatcher mTextWatcherSdCard = new TextWatcher() {
-		@Override
 		public void afterTextChanged(Editable s) {
 			//if (debug) Log.d(TAG, "after");
 			mFileContent = s.toString();
 			updateTitleSdCard();
 		}
 
-		@Override
 		public void beforeTextChanged(CharSequence s, int start, int count,
 				int after) {
 			//if (debug) Log.d(TAG, "before");
 		}
 
-		@Override
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
 			//if (debug) Log.d(TAG, "on");
 		}
 
+	};
+	
+	private TextWatcher mTextWatcherCharCount = new TextWatcher() {
+		public void afterTextChanged(Editable s){
+			updateCharCount();
+		}
+		public void beforeTextChanged(CharSequence s, int start, int count,
+				int after) {
+		}
+
+		public void onTextChanged(CharSequence s, int start, int before,
+				int count) {
+		}
 	};
 
 	public String readFile(File file) {
@@ -857,6 +869,25 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		setTitle(modified + filename);
 		//setTitle(getString(R.string.title_edit_file, modified + filename));
 		//setFeatureDrawableResource(Window.FEATURE_RIGHT_ICON, android.R.drawable.ic_menu_save);
+	}
+
+	private void updateCharCount(){
+		boolean charCountVisible = false;
+		String currentTitle = getTitle().toString();
+		if (currentTitle.startsWith("[")) {
+			charCountVisible = true;
+		}
+		if (PreferenceActivity.getCharCountEnabledFromPrefs(this)) {
+			if (charCountVisible) {
+				setTitle("[" + mText.length() + "]" + currentTitle.substring(currentTitle.indexOf(" ")));
+			} else {
+				setTitle("[" + mText.length() + "] " + currentTitle);
+			}
+		} else {
+			if (charCountVisible) {
+				setTitle(currentTitle.substring(currentTitle.indexOf(" ")));
+			}
+		}
 	}
 
 	@Override
@@ -1137,6 +1168,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		menu.add(4, MENU_SEND, 0, R.string.menu_share).setIcon(
 				android.R.drawable.ic_menu_share);
 		
+		menu.add(5, MENU_WORD_COUNT, 0, R.string.menu_word_count);
+		
 		/*
         if (mState == STATE_EDIT) {
 
@@ -1287,6 +1320,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			case MENU_SEND:
 				shareNote();
 				return true;
+			case MENU_WORD_COUNT:
+				showWordCount();
+				break;
 		}
 		if (item.getGroupId() == GROUP_ID_TEXT_SELECTION_ALTERNATIVE) {
 			// Process manually:
@@ -1568,7 +1604,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			case DIALOG_DELETE:
 				return new DeleteConfirmationDialog(this, new DialogInterface.OnClickListener() {
 
-					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
 						deleteNote();
 						finish();
@@ -1578,22 +1613,18 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		return null;
 	}
 
-	@Override
 	public String onLoadTheme() {
 		return loadTheme();
 	}
 
-	@Override
 	public void onSaveTheme(String theme) {
 		saveTheme(theme);
 	}
 
-	@Override
 	public void onSetTheme(String theme) {
 		setTheme(theme);
 	}
 
-	@Override
 	public void onSetThemeForAll(String theme) {
 		setThemeForAll(this, theme);
 	}
@@ -1886,6 +1917,17 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
 	private void showNotesListSettings() {
 		startActivity(new Intent(this, PreferenceActivity.class));
+	}
+
+	private void showWordCount(){
+		String number_of_words = Integer.toString(mText.getText().toString()
+				.split("\\s+").length);
+		AlertDialog.Builder wordCountAlert  = new AlertDialog.Builder(this);
+		wordCountAlert.setMessage(number_of_words + " " + getResources().getString(R.string.word_count));
+		wordCountAlert.setTitle(R.string.menu_word_count);
+		wordCountAlert.setPositiveButton(R.string.ok, null);
+		wordCountAlert.setCancelable(false);
+		wordCountAlert.create().show();
 	}
 
 	Dialog getUnsavedChangesWarningDialog() {

@@ -40,6 +40,8 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 	public static final String PREFS_SORTORDER_DEFAULT = "2";
 	public static final String PREFS_FONTSIZE = "fontsize";
 	public static final String PREFS_FONTSIZE_DEFAULT = "2";
+	public static final String PREFS_CHARCOUNT = "charcount";
+	public static final boolean PREFS_CHARCOUNT_DEFAULT = false;
 	public static final String PREFS_MARKET_EXTENSIONS = "preference_market_extensions";
 	public static final String PREFS_MARKET_THEMES = "preference_market_themes";
 	public static final String PREFS_AUTOLINK = "autolink";
@@ -126,6 +128,11 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 						PREFS_FONTSIZE,
 						PREFS_FONTSIZE_DEFAULT));
 		return size;
+	}
+	
+	public static boolean getCharCountEnabledFromPrefs(Context context) {
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(PREFS_CHARCOUNT, PREFS_CHARCOUNT_DEFAULT);
 	}
 
 	public static boolean getMarqueeFromPrefs(Context context) {

@@ -55,8 +55,15 @@
                 android:title="@string/preference_autolink_title"
                 android:summaryOn="@string/preference_autolink_summary_on"
                 android:summaryOff="@string/preference_autolink_summary_off" />
+                
+		<CheckBoxPreference 
+			android:key="charcount" 
+			android:defaultValue="false"
+			android:title="@string/preference_charcount_title"
+			android:summaryOff="@string/preference_charcount_summary_off"
+			android:summaryOn="@string/preference_charcount_summary_on" />
 
-    </PreferenceCategory>
+	</PreferenceCategory>
     
 	<PreferenceCategory android:title="@string/preference_addons">
 		<PreferenceScreen android:key="preference_screen_addons"
