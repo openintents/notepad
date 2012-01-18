@@ -426,7 +426,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	            	}
 
 	        	}*/
-			} else if (Intent.ACTION_INSERT.equals(action)) {
+			} else if (Intent.ACTION_INSERT.equals(action) || Intent.ACTION_SEND.equals(action)) {
 				// Use theme of most recently modified note:
 				ContentValues values = new ContentValues(1);
 				String theme = getMostRecentlyUsedTheme();
@@ -443,12 +443,18 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				// Requested to insert: set that state, and create a new entry
 				// in the container.
 				mState = STATE_INSERT;
-				mUri = getContentResolver().insert(intent.getData(), values);
 				/*
 	            intent.setAction(Intent.ACTION_EDIT);
 	            intent.setData(mUri);
 	            setIntent(intent);
 				 */
+				
+				if(Intent.ACTION_SEND.equals(action)) {
+					values.put(Notes.NOTE, getIntent().getStringExtra(Intent.EXTRA_TEXT));
+					mUri = getContentResolver().insert(Notes.CONTENT_URI, values);
+				} else {
+					mUri = getContentResolver().insert(intent.getData(), values);
+				}
 
 				// If we were unable to create a new note, then just finish
 				// this activity.  A RESULT_CANCELED will be sent back to the
@@ -490,7 +496,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
 		// The text view for our note, identified by its ID in the XML file.
 		mText = (EditText) findViewById(R.id.note);
-
+		
 		if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
 			// We add a text watcher, so that the title can be updated
 			// to indicate a small "*" if modified.
