@@ -36,7 +36,7 @@
 	<string name="about_comments">अपने नोट्स OI नोटपेड के साथ बनाए और बाटें.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -100,6 +100,12 @@
     <string name="warning_file_exists_title">फाइल मौजूद है</string>
     <string name="warning_file_exists_message">क्या आप मौजूदा फाइल पर दुबारा लिखना चाहेंगे?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">आयात</string>
     <string name="menu_save">सहेज</string>
@@ -150,6 +156,9 @@
 	<string name="preference_autolink_title">स्वत: निर्मित लिंक</string>
     <string name="preference_autolink_summary_on">फोन नंबर तथा ईमेल/सड़क/वेब पतों के लिए लिंक बनाएँ</string>
     <string name="preference_autolink_summary_off">व्याख्याओं पर लिंक ना बनाएँ</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">सेटिंग्स</string>
 	<string name="settings_sortorder">छंटाई क्रम</string>

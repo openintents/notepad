@@ -34,7 +34,7 @@
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -98,6 +98,12 @@
     <string name="warning_file_exists_title">Датотеката веќе постои</string>
     <string name="warning_file_exists_message">Дали сакате да ја презапишете датотеката?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Внеси</string>
     <string name="menu_save">Зачувај</string>
@@ -148,6 +154,9 @@
 	<string name="preference_autolink_title">Автоматски креирај линкови</string>
     <string name="preference_autolink_summary_on">Креирај линкови за телефонски броеви и електронска пошта/адреси/веб адреси</string>
     <string name="preference_autolink_summary_off">Не креирај линкови на белешките</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Подесувања</string>
 	<string name="settings_sortorder">Начин на подредување</string>

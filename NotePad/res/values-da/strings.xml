@@ -35,7 +35,7 @@ Launchpad Contributions:
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -99,6 +99,12 @@ Launchpad Contributions:
     <string name="warning_file_exists_title">Fil eksisterer allerede</string>
     <string name="warning_file_exists_message">Vil du virklig overskrive den eksisterende fil?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importér</string>
     <string name="menu_save">Gem</string>
@@ -149,6 +155,9 @@ Launchpad Contributions:
 	<string name="preference_autolink_title">Auto-create Links</string>
     <string name="preference_autolink_summary_on">Opret links til telefonnumre og e-mail / gade / web-adresser</string>
     <string name="preference_autolink_summary_off">Do not create links on notes</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Indstillinger</string>
 	<string name="settings_sortorder">Sorteringsrækkefølge</string>

@@ -1,11 +1,11 @@
 # Application:
-OI Notepad
+OI Piezīmju bloks
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Izveidojiet un dalieties ar piezīmēm izmantojot OI Piezīmju bloku.
 
 # Description:
-OI Notepad ir pilnīgi iespējota atvērtā pirmkoda piezīmju veikšanas aplikācija. Ar to var veidot iezīmes, meklēt un sūtīt piezīmes, papildus pamata funkcionalitātei kā piezīmju izveidošanai, izdzēšanai un labošanai. Papildus iespējas kā šifrēšana, importēšana/eksportēšana un balss piezīmes ir pieejamas izmantojot paplašinājumus. Visa ši funkcionalitāte ir apkopota vienkāršā un efektīvā izkārtojumā, pielāgojamā ar dažādām tēmām. 
+OI Piezīmju bloks ir pilnīgi iespējota atvērtā pirmkoda piezīmju veikšanas aplikācija. Ar to var veidot iezīmes, meklēt un sūtīt piezīmes, papildus pamata funkcionalitātei kā piezīmju izveidošanai, izdzēšanai un labošanai. Papildus iespējas kā šifrēšana, importēšana/eksportēšana un balss piezīmes ir pieejamas izmantojot paplašinājumus. Visa ši funkcionalitāte ir apkopota vienkāršā un efektīvā izkārtojumā, pielāgojamā ar dažādām tēmām. 
 
 Šī aplikācija ir bezmaksas un tai nevajag interneta atļauju. 
 
@@ -26,18 +26,18 @@ Funkcijas:
 * Ātra meklēšana caur piezīmēm.
 * Sūtiet piezīmes kā MMS vai SMS.
 
-Pieejamie paplašinājumi "OI Notepad": 
-* Ierakstiet un pievienojiet balss piezīmes savām piezīmēm ar "OI Voice Notes".
-* Ar "OI Convert CSV" importējiet/eksportējiet piezīmes no SD kartes.
-* Parādīt licenzes informāciju ar "OI About".
-* Ievietojiet datumu un laiku piezīmēs ar "OI Insert Date".
-* Pagrieziet tekstu kājām gaisā ar "Upside Down".
+Pieejamie paplašinājumi "OI Piezīmju blokam": 
+* Ierakstiet un pievienojiet balss piezīmes savām piezīmēm ar "OI Balss piezīmēm".
+* Ar "OI Konvertējiet CSV" importējiet/eksportējiet piezīmes no SD kartes.
+* Parādīt licenzes informāciju ar "OI Paskaidrojumi".
+* Ievietojiet datumu un laiku piezīmēs ar "OI Ievietojiet datumu".
+* Pagrieziet tekstu kājām gaisā ar "Kājām gaisā".
 
-Aplikācijas, kuras strādā ar "OI Notepad": 
-* Dublējiet piezīmes ar "My Backup Pro".
-* Šifrējiet piezīmes izmantojot "OI Safe".
-* Pārvaldiet piezīmes SD kartē ar "OI File Manager".
-* Atjauniniet ar "OI Update".
+Aplikācijas, kuras strādā ar "OI Piezīmju bloku": 
+* Dublējiet piezīmes ar "Mans rezerves kopiju Pro".
+* Šifrējiet piezīmes izmantojot "OI Seifu".
+* Pārvaldiet piezīmes SD kartē ar "OI Failu pārvaldnieku".
+* Atjauniniet ar "OI Atjauninājumi".
 * Dalieties ar piezīmēm caur "Facebook", "Gmail", "Google+", "Twitter" un daudzām citām aplikācijām.
 
 Atslēgvārdi: 
@@ -45,7 +45,7 @@ Atslēgvārdi:
 * OI, OpenIntents, Open Intents
 
 Starptautiskās versijas: 
-Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI يادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
 
 
 Meklēt rindiņas tirgum: 

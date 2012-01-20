@@ -45,7 +45,7 @@
 	<string name="about_comments">Cree y comparta sus notas con OI Bloc de Notas.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -109,6 +109,12 @@
     <string name="warning_file_exists_title">El archivo ya existe</string>
     <string name="warning_file_exists_message">¿Realmente quiere sobreescribir el archivo existente?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importar</string>
     <string name="menu_save">Guardar</string>
@@ -159,6 +165,9 @@
 	<string name="preference_autolink_title">Crear enlaces automáticamente</string>
     <string name="preference_autolink_summary_on">Crear enlaces para números de teléfono y direcciones de e-mail/calle/web</string>
     <string name="preference_autolink_summary_off">No crear enlaces de estas notas</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Configuración</string>
 	<string name="settings_sortorder">Orden de clasificación</string>

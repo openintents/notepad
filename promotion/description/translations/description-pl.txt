@@ -5,11 +5,11 @@ OI Notatnik
 Twórz i dziel się notatkami używając OI Notatnika.
 
 # Description:
-Ol Notepad jest w pełni funkcjonalną open-source-ową aplikacją do tworzenia notatek. Oprócz podstawowych funkcjonalności, takich jak tworzenie, usuwanie, i edytowanie notatek, dzięki niemu możesz znaczyć, wyszukiwać, i wysyłać swoje notatki. Zaawansowane funkcje, takie jak szyfrowanie, import / eksport, i notatki głosowe są dostępne za pośrednictwem rozszerzeń. Wszystkie te funkcje są uproszczone i efektywne, konfigurowalne za pomocą różnych motywów. 
+Ol Notepad jest w pełni funkcjonalną open-source'ową aplikacją do tworzenia notatek. Oprócz podstawowych funkcjonalności, takich jak tworzenie, usuwanie, i edytowanie notatek, dzięki niemu możesz znaczyć, wyszukiwać, i wysyłać swoje notatki. Zaawansowane funkcje, takie jak szyfrowanie, import/eksport i notatki głosowe są dostępne za pośrednictwem rozszerzeń. Wszystkie te funkcje są uproszczone i efektywne, konfigurowalne za pomocą różnych motywów. 
 
 Ta aplikacja jest darmowa i nie wymaga dostępu do internetu. 
 
-Kod źródłowy tej darmowej i open-source-owej aplikacji jest dostępny pod adresem: 
+Kod źródłowy tej darmowej i open-source'owej aplikacji jest dostępny pod adresem: 
 http://code.google.com/p/openintents
 
 Aby zobaczyć pełną listę zmian oraz FAQ, odwiedź: 
@@ -26,18 +26,18 @@ Cechy:
 * Szybkie przeszukiwanie notatek.
 * Wysyłaj notatki MMS-em albo SMS-em.
 
-Dostępne rozszerzenia dla "OI Notepad": 
-* Nagrywanie notatek głosowych i dołączanie do notatek "OI Voice Notes".
-* Z "Ol Convert CSV importuj/eksortuj notatki z karty SD.
-* Pokaż informacje licencyjne z "O Ol".
-* Wstawianie daty i czasu do notatek z "OI Insert Date".
+Dostępne rozszerzenia dla "OI Natatnik": 
+* Nagrywaj notatki głosowe i dołączaj do notatek za pomocą "OI Notatki głosowe".
+* Importuj/eksportuj notatki z karty SD za pomocą "Ol Konwertuj CSV".
+* Pokaż informacje licencyjne za pomocą "OI About".
+* Wstaw datę i czas do notatek za pomocą "OI Insert Date".
 * Obróć tekst do góry nogami używając "Upside Down".
 
-Aplikacje działające z "OI Notepad": 
+Aplikacje działające z "OI Notatnik": 
 * Przywracaj notatki z "My Backup Pro".
 * Szyfruj notatki używając "OI Safe".
-* Zarządzaj notatkami na twojej Karcie SD z "OI File Manager".
-* Aktualizuj z "OI Uptade".
+* Zarządzaj notatkami na twojej karcie SD za pomocą "OI Menedżer plików".
+* Aktualizuj za pomocą "OI Uptade".
 * Dziel się notatkami poprzez "Facebook", "Gmail", "Google+", "Twitter" oraz wiele innych aplikacji.
 
 Słowa kluczowe: 
@@ -45,10 +45,10 @@ Słowa kluczowe:
 * OI, OpenIntents, Open Intents
 
 Wersje międzynarodowe: 
-Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI يادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
 
 
-Wyszukane ciągi znakó w Markecie: 
+Szukaj ciągów znaków w Markecie: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

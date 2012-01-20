@@ -39,7 +39,7 @@
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -103,6 +103,12 @@
     <string name="warning_file_exists_title">Le fichier existe déjà</string>
     <string name="warning_file_exists_message">Voulez-vous vraiment écraser le fichier existant?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importer</string>
     <string name="menu_save">Enregistrer</string>
@@ -153,6 +159,9 @@
 	<string name="preference_autolink_title">Auto-créer des liens</string>
     <string name="preference_autolink_summary_on">Créer des liens pour les numéros de téléphone/email/rue/adresses internet</string>
     <string name="preference_autolink_summary_off">Ne pas créer de liens sur les notes</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Paramètres</string>
 	<string name="settings_sortorder">Ordre de tri</string>

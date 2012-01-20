@@ -1,8 +1,8 @@
 # Application:
-OI Notepad
+OI Нататнік
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Стварайце і дзяліцеся нататкамі з OI Нататнік.
 
 # Description:
 OI Notepad - гэта поўнафункцыянальнае прыкладанне для запісу нататак з адкрытым зыходным кодам. Вы можаце пазначаць, шукаць і адпраўляць, а таксама ствараць, выдаляць і рэдагаваць нататкі. Дадатковыя магчымасці, такія яз кадаванне, імпарт/экспарт і галасавыя нататкі даступны праз пашырэнні. Усе гэтыя функцыі аб'яднаны ў спрошчанай і эфектыўнай кампаноўцы, якая можа наладжвацца з дапамогай розных тэм. 
@@ -45,7 +45,7 @@ https://translations.launchpad.net/openintents/trunk
 * OI, OpenIntents, Open Intents
 
 Перекладзеныя версіі: 
-Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI يادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
 
 
 Пошук у Market: 

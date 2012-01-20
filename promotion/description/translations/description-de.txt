@@ -2,7 +2,7 @@
 OI Notizblock
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Mit dem OI Notizblock können sie Ihre Notizen schreiben und versenden.
 
 # Description:
 OI Notepad ist ein Open Source Notizblock mit vielen Funktionen. Mit ihm ist es möglich, ihre Notizen zu taggen, zu durchsuchen und ihre Notizen zu versenden, zusätzlich zu den Standardfunktionen, wie das Erstellen, das Löschen oder das Bearbeiten von Notizen. Erweiterte Features wie Verschlüsselung, Import/Export, und Sprachnotizen sind durch Erweiterungen verfügbar. Alle diese Funktionen werden in einem einfachen und effizienten Layout, das durch eine Vielzahl von Themen angepasst werden kann, zusammengefügt. 
@@ -45,7 +45,7 @@ Schlüsselwörter:
 * OI, OpenIntents, Open Intents
 
 Internationale Versionen: 
-Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI يادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
 
 
 Im Market suchen nach: 

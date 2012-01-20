@@ -29,15 +29,17 @@
 	<string name="about_translators">Launchpad Contributions:
   Damian Skrodzki https://launchpad.net/~damienix
   OpenIntents devs https://launchpad.net/~openintents-devs
+  Piotr Łazarczyk https://launchpad.net/~quazarxd
   Tomasz \'Zen\' Napierala https://launchpad.net/~tzn
   Tomasz Zieliński https://launchpad.net/~tomek0517
+  usul https://launchpad.net/~usultis
   zielmicha https://launchpad.net/~michal-zielinscy</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Twórz i dziel się notatkami używając OI Notatnika.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -57,7 +59,7 @@
     <string name="title_edit">Edytuj notatkę</string>
 	<string name="title_notes_list">OI Notatnik</string>   
 	<string name="title_note">Notatka</string>  
-	<string name="title_edit_title">Tytuł notatki</string>  
+	<string name="title_edit_title">Tytuł notatki:</string>  
     <string name="title_create_file">%s (nowa notatka)</string>
     <string name="title_edit_file">%s (edytuj notatkę)</string>
     
@@ -101,6 +103,12 @@
     <string name="warning_file_exists_title">Plik już istnieje</string>
     <string name="warning_file_exists_message">Na pewno nadpisać istniejący plik?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Zaimportuj</string>
     <string name="menu_save">Zapisz</string>
@@ -146,11 +154,14 @@
     
     <string name="note_editor_preferences">Edytor notatek</string>
     <string name="preference_fontsize">Rozmiar czcionki</string>
-	<string name="preference_fontsize_summary">Zmień wielkość czcionki</string>
-	<string name="preference_fontsize_dialog_title">Wybierz wielkość czcionki</string>
+	<string name="preference_fontsize_summary">Zmień rozmiar czcionki</string>
+	<string name="preference_fontsize_dialog_title">Wybierz rozmiar czcionki</string>
 	<string name="preference_autolink_title">Automatycznie twórz odnośniki</string>
     <string name="preference_autolink_summary_on">Twórz odnośniki dla numerów telefonów oraz adresów email/pocztowych/www</string>
     <string name="preference_autolink_summary_off">Nie twórz odnośników w notatkach</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Ustawienia</string>
 	<string name="settings_sortorder">Porządek sortowania</string>
@@ -161,7 +172,7 @@
 
 	<!-- OI Notepad -->
 	<!-- Permission to read notes. -->
-    <string name="oi_notepad_permission_read">OI Notatki</string>
+    <string name="oi_notepad_permission_read">czytaj notatki</string>
     <string name="oi_notepad_permission_read_descr">Pozwala aplikacji czytać notatki. Zwróć uwagę, że zaszyfrowane notatki dostępne będą w formie zaszyfrowanej.</string>
 	<!-- Permission to write notes. -->
     <string name="oi_notepad_permission_write">zapisuj notatki</string>
@@ -173,12 +184,12 @@
     <string name="oi_shopping_permission_read_descr">Pozwala aplikacji czytać listy zakupów. Zwróć uwagę, że listy i elementy zaszyfrowane będą dostępne w formie zaszyfrowanej.</string>
 	<!-- Permission to write shopping lists. -->
     <string name="oi_shopping_permission_write">zapisuj listy zakupów</string>
-    <string name="oi_shopping_permission_write_descr">Pozwaa aplikacji tworzyć nowe listy i modyfikować istniejące</string>
+    <string name="oi_shopping_permission_write_descr">Pozwala aplikacji tworzyć nowe listy i modyfikować istniejące.</string>
     
 	<!-- OI Safe -->
 	<!-- Permission to encrypt and decrypt data. -->
-	<string name="oi_safe_permission_intents">szyfruj i odszyfrowuj dane</string>
-    <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf</string>	
+	<string name="oi_safe_permission_intents">szyfrowanie i odszyfrowanie danych</string>
+    <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf.</string>	
 
 
 	<!-- ***************************
@@ -213,12 +224,12 @@
     <string name="preference_get_developer_addons">Pobierz dodatki z OpenIntents</string>
     <string name="preference_extensions">Rozszerzenia</string>
     <string name="preference_themes">Motywy</string>
-    <string name="preference_market_extensions_summary">Szukaj rozszerzeń na Android Market</string>
-    <string name="preference_market_themes_summary">Szukaj motywów na Android Market</string>
+    <string name="preference_market_extensions_summary">Szukaj rozszerzeń w Android Market</string>
+    <string name="preference_market_themes_summary">Szukaj motywów w Android Market.</string>
     <string name="preference_developer_extensions_summary">Pobierz rozszerzenia ze strony OpenIntents.</string>
-	<string name="preference_developer_themes_summary">Pobierz motywy ze strony OpenIntents</string>
+	<string name="preference_developer_themes_summary">Pobierz motywy ze strony OpenIntents.</string>
 	<string name="confirm_delete_title">Potwierdzenie usunięcia</string>
-	<string name="confirm_delete">Czy jesteś pewny że chcesz skasować tą notatkę?</string>
+	<string name="confirm_delete">Czy jesteś pewny że chcesz usunąć tę notatkę?</string>
 	
 	<string name="new_note">Nowa notatka</string>
 </resources>

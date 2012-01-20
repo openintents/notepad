@@ -2,23 +2,23 @@
 OI नोटपैड
 
 # Promo text:
-Create and share your notes with OI Notepad.
+पेंजा नोट्स OI नोटपेड सां गडद ठायो अऊँ बट्यो
 
 # Description:
 OI नोटपैड हिक्क पूर्ण विशेषताउन सां युक्त खुल्यल स्रोत अनुप्रयोग आहे नोट लिखण लाये तहां इन्ह सान टैग करे ता सगो,खोज करे ता सगो अऊँ पेंजा नोट्स मोकले ता सगो,ठायण,मितायण अऊँ संपादन करण जेड़ी बुनियादी सुविधाऊँ जे अलावा एन्क्रिप्शन, आयात / निर्यात, अऊँ आवाज मेमो जेड़ी उन्नत सुविधाऊँ उपलब्ध आहिन एक्सटेंशन जे माध्यम सां ईया सड़ी कार्यशीलता हिक्क साथ हिक्क सरलीकृत अऊँ कुशल लेआउट में घुरायी आ,जो अनुकूलन योग्य आ अलग किस्म जी थीम्स जे द्वारा 
 
 ईयो अनुप्रयोग विज्ञापन मुक्त आहे अऊँ इनखे इंटरनेट जी अनुमति जी आवश्यकता काने 
 
-इन्ह स्वतंत्र अऊँ खुले स्रोत अनुप्रयोग जो स्रोत कोड हित्ते उपलब्ध आहे : 
+:इन्ह स्वतंत्र अऊँ खुले स्रोत अनुप्रयोग जो स्रोत कोड हित्ते उपलब्ध आहे 
 http://code.google.com/p/openintents
 
-परिवर्तन अऊँ अक्सर पुष्यन वनण वारा प्रश्नन जी पूरी सूची लाये, कृपया हेड़े वन्नो: 
+:परिवर्तन अऊँ अक्सर पुष्यन वनण वारा प्रश्नन जी पूरी सूची लाये, कृपया हेड़े वन्नो 
 http://www.openintents.org
 
-तहां Launchpad ते पेंजी भाषा जे अनुवाद खे बेहतर ठायण में मदद करे ता सगो : 
+:तहां Launchpad ते पेंजी भाषा जे अनुवाद खे बेहतर ठायण में मदद करे ता सगो 
 https://translations.launchpad.net/openintents/trunk
 
-सुविधाऊँ: 
+:सुविधाऊँ 
 * जोड़यो, संपादित कयो अऊँ नोट्स मिटायो
 * नोट्स ते टैग जोड़न लाये लम्बे समय ताणी दबायो
 * फ़ॉन्ट आकार अऊँ सॉर्ट क्रम बदल्यो
@@ -46,7 +46,7 @@ https://translations.launchpad.net/openintents/trunk
 * OI, OpenIntents, Open Intents
 
 अंतर्राष्ट्रीय संस्करण: 
-Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Poznámkový blok, OI Talaan, OI Бележник, OI المفكرة, OI خاتىرە دەپتەر, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
+Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI يادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
 
 
 बाजार जे लाये स्ट्रिंग्स खोजयो  : 

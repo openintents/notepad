@@ -35,7 +35,7 @@
 	<string name="about_comments">انشأ وشارك ملاحظاتك مع مفكرة OI.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -99,6 +99,12 @@
     <string name="warning_file_exists_title">الملف موجود بالفعل</string>
     <string name="warning_file_exists_message">هل حقا تريد الكتابة فوق الملف الموجود؟</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">استيراد</string>
     <string name="menu_save">حفظ</string>
@@ -149,6 +155,9 @@
 	<string name="preference_autolink_title">الإنشاء التلقائي للارتباطات</string>
     <string name="preference_autolink_summary_on">إنشاء ارتباطات لأرقام الهواتف والبريد الإلكتروني/ الشوارع/عناوين الويب</string>
     <string name="preference_autolink_summary_off">لا تقم بإنشاء ارتباطات على الملاحظات</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">إعدادات</string>
 	<string name="settings_sortorder">ترتيب الفرز</string>

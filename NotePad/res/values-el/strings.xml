@@ -31,14 +31,14 @@
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Create and share your notes with OI Notepad.</string>
+	<string name="about_comments">Δημιουργήστε και μοιράστε τις σημειώσεις σας με το OI Σημειωματάριο.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-	<string name="app_name">OI Notepad</string>
+	<string name="app_name">OI Σημειωματάριο</string>
 	
     <string name="menu_delete">Διαγραφή</string>
     <string name="menu_insert">Προσθήκη σημείωσης</string>
@@ -52,7 +52,7 @@
 
     <string name="title_create">Δημιουργία σημείωσης</string>
     <string name="title_edit">Επεξεργασία σημείωσης</string>
-	<string name="title_notes_list">OI Notepad</string>   
+	<string name="title_notes_list">OI Σημειωματάριο</string>   
 	<string name="title_note">Σημείωση</string>  
 	<string name="title_edit_title">Τίτλος σημείωσης:</string>  
     <string name="title_create_file">%s (νέα σημείωση)</string>
@@ -98,6 +98,12 @@
     <string name="warning_file_exists_title">Το αρχείο υπάρχει ήδη</string>
     <string name="warning_file_exists_message">Θέλετε σίγουρα να αντικαταστήσετε το υπάρχων αρχείο;</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Εισαγωγή</string>
     <string name="menu_save">Αποθήκευση</string>
@@ -115,10 +121,10 @@
 
 	<!-- Search -->
 	<string name="menu_search">Αναζήτηση</string>
-    <string name="search_query_results">OI Notepad</string>
+    <string name="search_query_results">OI Σημειωματάριο</string>
     <!-- %s is the search string -->
 	<string name="search_found_no_results">Κανένα αποτέλεσμα δε βρεθηκε για %s.</string>
-    <string name="search_label">Αναζήτηση στο OI Notepad</string>
+    <string name="search_label">Αναζήτηση στο OI Σημειωματάριο</string>
     <string name="search_hint">Αναζήτηση</string>
     
     <!-- The description that will show up in the search settings for this source.  -->
@@ -148,6 +154,9 @@
 	<string name="preference_autolink_title">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="preference_autolink_summary_on">Δημιουργία συνδέσμων για αριθμούς τηλεφώνου και διυθύνσεις ηλ. ταχυδρομείου/κατοικιών/διαδικτύου</string>
     <string name="preference_autolink_summary_off">Να μη δημιουργούνται σύνδεσμοι στις σημειώσεις</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Ρυθμίσεις</string>
 	<string name="settings_sortorder">Σειρά ταξινόμησης</string>
@@ -175,7 +184,7 @@
 	<!-- OI Safe -->
 	<!-- Permission to encrypt and decrypt data. -->
 	<string name="oi_safe_permission_intents">κρυπτογράφηση και αποκρυπτογράφηση δεδομένων</string>
-    <string name="oi_safe_permission_intents_descr">Επιτρέπει την εφαρμογή να κρυπτογραφεί και να αποκρυπτογραφεί κείμενο και να αποκτά πρόσβαση στους κωδικούς που είναι αποθηκευμένοι στο OI Safe.</string>	
+    <string name="oi_safe_permission_intents_descr">Επιτρέπει την εφαρμογή να κρυπτογραφεί και να αποκρυπτογραφεί κείμενο και να αποκτά πρόσβαση στους κωδικούς που είναι αποθηκευμένοι στο OI Κιβώτιο.</string>	
 
 
 	<!-- ***************************

@@ -34,7 +34,7 @@
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -98,6 +98,12 @@
     <string name="warning_file_exists_title">קובץ כבר קיים</string>
     <string name="warning_file_exists_message">אתה רוצה לכתוב מחדש את הקובץ הקיים?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">ייבוא</string>
     <string name="menu_save">שמור</string>
@@ -148,6 +154,9 @@
 	<string name="preference_autolink_title">צור אוטומטית לינקים</string>
     <string name="preference_autolink_summary_on">צור לינקים עבור מספרי טלפון וכתובות מייל/ אינטרנט/ רחוב</string>
     <string name="preference_autolink_summary_off">אל תיור רשימות על פתקים</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">הגדרות</string>
 	<string name="settings_sortorder">אורך סידור</string>

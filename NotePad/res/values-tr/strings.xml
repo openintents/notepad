@@ -38,7 +38,7 @@ Launchpad Contributions:
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -102,6 +102,12 @@ Launchpad Contributions:
     <string name="warning_file_exists_title">Dosya zaten var</string>
     <string name="warning_file_exists_message">Mevcut dosyanın üzerine yazmak istediğinize emin misiniz?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">İçe aktar</string>
     <string name="menu_save">Kaydet</string>
@@ -152,6 +158,9 @@ Launchpad Contributions:
 	<string name="preference_autolink_title">Bağlantıları otomatik oluştur</string>
     <string name="preference_autolink_summary_on">E-posta/sokak/internet adresi ve telefon numaraları için bağlantı oluştur</string>
     <string name="preference_autolink_summary_off">Notlara link oluşturma</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Ayarlar</string>
 	<string name="settings_sortorder">Sıralama Düzeni</string>

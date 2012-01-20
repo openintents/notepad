@@ -35,7 +35,7 @@
 	<string name="about_comments">Vytvořte a sdílejte poznámky s OI Poznámkový blok</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -99,6 +99,12 @@
     <string name="warning_file_exists_title">Soubor již existuje</string>
     <string name="warning_file_exists_message">Opravdu chcete přepsat existující soubor?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importovat</string>
     <string name="menu_save">Uložit</string>
@@ -149,6 +155,9 @@
 	<string name="preference_autolink_title">Automaticky vytvářet odkazy</string>
     <string name="preference_autolink_summary_on">Vytvářet klikatelné odkazy pro telefonní čísla a e-mailové/poštovní/webové adresy</string>
     <string name="preference_autolink_summary_off">Nevytvářet v poznámkách odkazy</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Nastavení</string>
 	<string name="settings_sortorder">Pořadí řazení</string>

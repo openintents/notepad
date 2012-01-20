@@ -36,7 +36,7 @@
 	<string name="about_comments">OI メモ帳 でノートを作成したり共有したりすることができます。</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -100,6 +100,12 @@
     <string name="warning_file_exists_title">ファイルが既に存在します</string>
     <string name="warning_file_exists_message">ファイルを上書き保存してもいいですか？</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">インポート</string>
     <string name="menu_save">保存</string>
@@ -150,6 +156,9 @@
 	<string name="preference_autolink_title">リンクを自動作成</string>
     <string name="preference_autolink_summary_on">電話番号/Eメールアドレス/住所/Webアドレスからリンクを作成</string>
     <string name="preference_autolink_summary_off">リンクを作成しない</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">設定</string>
 	<string name="settings_sortorder">ソート順</string>

@@ -37,7 +37,7 @@
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
 	
 	<!-- ***************************
-	     Applicatio-specific strings
+	     Application-specific strings
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
@@ -101,6 +101,12 @@
     <string name="warning_file_exists_title">Bestand bestaat al</string>
     <string name="warning_file_exists_message">Wilt u echt het bestaande bestand overschrijven?</string>
     
+    <string name="menu_word_count">Word count</string>
+    <plurals name="word_count">
+        <item quantity="one">One word.</item>
+        <item quantity="other">%d words.</item>
+    </plurals>
+        
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
     <string name="menu_import">Importeer</string>
     <string name="menu_save">Opslaan</string>
@@ -151,6 +157,9 @@
 	<string name="preference_autolink_title">Maak automatisch links</string>
     <string name="preference_autolink_summary_on">Maak links voor telefoonnummers en e-mail/straat/web-adressen</string>
     <string name="preference_autolink_summary_off">Maak geen links in notities</string>
+	<string name="preference_charcount_title">Character count</string>
+    <string name="preference_charcount_summary_on">Show character count in editor</string>
+    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
 
 	<string name="settings">Voorkeuren</string>
 	<string name="settings_sortorder">Sorteervolgorde</string>
