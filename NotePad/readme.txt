@@ -25,6 +25,8 @@ To obtain the current release, visit
 ---------------------------------------------------------
 release 1.3
 date: ?
+- PLEASE READ THIS: The font size has been adjusted for high-density devices. Please use menu > settings > font size to set the desired size (see issue 435)
+
 - setting for marquee for long titles (issue 266, Google Code-in task by Aviral Dasgupta)
 - added delete confirmation (issue 363, Google Code-in task by Shuhao)
 - sort tags (issue 265, Google Code-in task by Shuhao)
@@ -35,7 +37,6 @@ date: ?
 - apply marquee setting immediately (issue 405, Google Code-in task by Daniel Huang)
 - support for ActionBar (patch by Menno Vogel)
 - Character / word counter (issue 456, Google Code-in task by Chickenbellyfinn)
-- fix large font size problem (issue 435)
 
 ---------------------------------------------------------
 release: 1.2.3
