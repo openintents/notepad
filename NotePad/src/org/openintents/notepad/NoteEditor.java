@@ -83,6 +83,7 @@ import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -1900,7 +1901,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	}
 
 	private void applyTheme() {
-		mText.setTextSize(mTextSize);
+		mText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
 		mText.setTypeface(mCurrentTypeface);
 		mText.setTextColor(mTextColor);
 
