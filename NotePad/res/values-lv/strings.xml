@@ -27,6 +27,7 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Tomass https://launchpad.net/~txt1</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->

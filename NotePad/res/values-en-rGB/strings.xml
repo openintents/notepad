@@ -28,7 +28,8 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   OpenIntents devs https://launchpad.net/~openintents-devs
-  hawksters https://launchpad.net/~hawksters-ay</string>
+  hawksters https://launchpad.net/~hawksters-ay
+  mrx5682 https://launchpad.net/~mrx5682</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Create and share your notes with OI Notepad.</string>
@@ -115,7 +116,7 @@
     
 	<string name="menu_theme">Theme</string>
 	<string name="theme_pick">Pick a theme</string>
-    <string name="theme_default">Default </string>
+    <string name="theme_default">Default</string>
     <string name="theme_monospaced">Monospaced font</string>
 	<string name="theme_serif">Serif font</string>
 
@@ -207,7 +208,7 @@
     	<!-- Preference fontsize: small font size -->
         <item>Small</item>
     	<!-- Preference fontsize: default font size-->
-    	<item>Default </item>
+    	<item>Default</item>
     	<!-- Preference fontsize: large font size -->
         <item>Large</item>
     </string-array>

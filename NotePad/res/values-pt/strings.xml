@@ -30,10 +30,11 @@
 
 Launchpad Contributions:
   Peli https://launchpad.net/~peli0101
+  Sérgio Marques https://launchpad.net/~sergio+marques
   Tiago Silva https://launchpad.net/~tiagosilva</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Create and share your notes with OI Notepad.</string>
+	<string name="about_comments">Crie e partilhe as suas notas com o OI Notepad.</string>
 	
 	<!-- ***************************
 	     Application-specific strings
@@ -42,12 +43,12 @@ Launchpad Contributions:
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
 	<string name="app_name">OI Notepad</string>
 	
-    <string name="menu_delete">Delete</string>
+    <string name="menu_delete">Eliminar</string>
     <string name="menu_insert">Adicionar nota</string>
-    <string name="menu_revert">Revert</string>
-    <string name="menu_discard">Discard</string>
+    <string name="menu_revert">Reverter</string>
+    <string name="menu_discard">Rejeitar</string>
     
-	<string name="no_notes">Use menu to add new notes.</string>
+	<string name="no_notes">Utilize o menu para adicionar notas.</string>
 
     <string name="resolve_edit">Editar nota</string>
     <string name="resolve_title">Editar título</string>  
@@ -56,104 +57,104 @@ Launchpad Contributions:
     <string name="title_edit">Editar nota</string>
 	<string name="title_notes_list">OI Notepad</string>   
 	<string name="title_note">Nota</string>  
-	<string name="title_edit_title">Note title:</string>  
-    <string name="title_create_file">%s (new note)</string>
-    <string name="title_edit_file">%s (edit note)</string>
+	<string name="title_edit_title">Título da nota:</string>  
+    <string name="title_create_file">%s (nova nota)</string>
+    <string name="title_edit_file">%s (editar nota)</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Pick note for shortcut</string>
+    <string name="title_pick_note_for_shortcut">Escolha a nota para o atalho</string>
 	
-	<string name="button_ok">OK</string>  
+	<string name="button_ok">Aceitar</string>  
 	
 	<string name="error_title">Erro</string>
-	<string name="error_message">Erro ao carregar nota</string>
+	<string name="error_message">Erro ao carregar a nota</string>
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
-	<string name="menu_share">Share</string>
+	<string name="menu_share">Partilhar</string>
 	<string name="empty_note">Nota vazia</string>
-	<string name="share_not_available">No application available for sharing.</string>
+	<string name="share_not_available">Sem aplicação de partilha.</string>
 	
-	<string name="encrypting_note">Encrypting note</string>
-	<string name="encrypted">Encrypted</string>
-	<string name="menu_encrypt">Encrypt</string>
-	<string name="menu_decrypt">Decrypt</string>
-	<string name="menu_undo_encryption">Undo encryption</string>
-	<string name="menu_do_not_encrypt">Do not encrypt</string>
-	<string name="already_encrypted">Already encrypted.</string>
-	<string name="not_encrypted">Not encrypted.</string>
-	<string name="encryption_failed">Encryption failed.</string>
-	<string name="decryption_failed">Decryption failed.</string>
+	<string name="encrypting_note">Codificar nota</string>
+	<string name="encrypted">Codificada</string>
+	<string name="menu_encrypt">Codificar</string>
+	<string name="menu_decrypt">Descodificar</string>
+	<string name="menu_undo_encryption">Anular codificação</string>
+	<string name="menu_do_not_encrypt">Não codificar</string>
+	<string name="already_encrypted">Já está codificada.</string>
+	<string name="not_encrypted">Não codificada.</string>
+	<string name="encryption_failed">Falha ao codificar.</string>
+	<string name="decryption_failed">Falha ao descodificar.</string>
 
-	<string name="menu_edit_tags">Edit tags</string>
-    <string name="dropdown_hint">Touch to see list</string>
-    <string name="tags_hint">Enter tags, separated by comma</string>
+	<string name="menu_edit_tags">Editar "tags"</string>
+    <string name="dropdown_hint">Toque para ver a lista</string>
+    <string name="tags_hint">Indique as "tags", separadas por vírgulas</string>
     
-    <string name="menu_save_to_sdcard">Save to SD card</string>
-    <string name="menu_open_from_sdcard">Open from SD card</string>
-    <string name="filename">File name</string>
-    <string name="save">Guardar</string>
+    <string name="menu_save_to_sdcard">Gravar no cartão SD</string>
+    <string name="menu_open_from_sdcard">Abrir do cartão SD</string>
+    <string name="filename">Nome do ficheiro</string>
+    <string name="save">Gravar</string>
     <string name="open">Abrir</string>
-    <string name="error_writing_file">Error while writing file</string>
-    <string name="error_reading_file">Error while reading file</string>
-    <string name="file_not_found">File not found</string>
-    <string name="note_saved">Note saved</string>
-    <string name="warning_file_exists_title">File exists already</string>
-    <string name="warning_file_exists_message">Do you really want to overwrite the existing file?</string>
+    <string name="error_writing_file">Erro ao escrever o ficheiro</string>
+    <string name="error_reading_file">Erro ao ler o ficheiro</string>
+    <string name="file_not_found">Ficheiro não encontrado</string>
+    <string name="note_saved">Nota gravada</string>
+    <string name="warning_file_exists_title">O ficheiro já existe</string>
+    <string name="warning_file_exists_message">Pretende substituir o ficheiro existente?</string>
     
-    <string name="menu_word_count">Word count</string>
+    <string name="menu_word_count">Contar palavras</string>
     <plurals name="word_count">
-        <item quantity="one">One word.</item>
-        <item quantity="other">%d words.</item>
+        <item quantity="one">Uma palavra.</item>
+        <item quantity="other">%d palavras.</item>
     </plurals>
         
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
-    <string name="menu_import">Import</string>
-    <string name="menu_save">Guardar</string>
-    <string name="menu_save_as">Save as</string>
-    <string name="warning_unsaved_changes_title">Text modified</string>
-    <string name="warning_unsaved_changes_message">Do you want to save the changes?</string>
-    <string name="button_save">Guardar</string>
-    <string name="button_dont_save">Don\'t save</string>
+    <string name="menu_import">Importar</string>
+    <string name="menu_save">Gravar</string>
+    <string name="menu_save_as">Gravar como</string>
+    <string name="warning_unsaved_changes_title">Texto modificado</string>
+    <string name="warning_unsaved_changes_message">Pretende gravar as alterações?</string>
+    <string name="button_save">Gravar</string>
+    <string name="button_dont_save">Não gravar</string>
     
 	<string name="menu_theme">Tema</string>
-	<string name="theme_pick">Pick a theme</string>
-    <string name="theme_default">Default </string>
-    <string name="theme_monospaced">Monospaced font</string>
-	<string name="theme_serif">Serif font</string>
+	<string name="theme_pick">Escolha o tema</string>
+    <string name="theme_default">Padrão</string>
+    <string name="theme_monospaced">Tipo de letra mono espaçada</string>
+	<string name="theme_serif">Tipo de letra Serif</string>
 
 	<!-- Search -->
-	<string name="menu_search">Search</string>
+	<string name="menu_search">Procurar</string>
     <string name="search_query_results">OI Notepad</string>
     <!-- %s is the search string -->
-	<string name="search_found_no_results">No results found for %s.</string>
-    <string name="search_label">OI Notepad search</string>
-    <string name="search_hint">Search</string>
+	<string name="search_found_no_results">Sem resultados para %s.</string>
+    <string name="search_label">Procura OI Notepad</string>
+    <string name="search_hint">Procurar</string>
     
     <!-- The description that will show up in the search settings for this source.  -->
-    <string name="search_settings_description">Titles of your notes</string>
+    <string name="search_settings_description">Títulos das notas</string>
     
 	<!--     Dialog box    -->
-	<string name="ok">OK</string>
+	<string name="ok">Aceitar</string>
 	<string name="cancel">Cancelar</string>
-    <string name="use_theme_for_all_lists">Use this theme for all lists</string>
-	<string name="get_more_themes">Get more themes</string>
+    <string name="use_theme_for_all_lists">Utilizar tema em todas as listas</string>
+	<string name="get_more_themes">Obter mais temas</string>
     
-    <string name="all_notes">All notes</string>
+    <string name="all_notes">Todas as notas</string>
     
     <!-- Settings -->
     <!-- Title for settings regarding the list of notes -->
-    <string name="noteslist_preferences">Notes List</string>
-    <string name="preference_sortorder_title">List Sorting Order</string>
-    <string name="preference_sortorder_dialog_title">List Sorting Order</string>
-    <string name="preference_sortorder_summary">The order in which notes are shown in the notes list</string>
+    <string name="noteslist_preferences">Lista de notas</string>
+    <string name="preference_sortorder_title">Organização das listas</string>
+    <string name="preference_sortorder_dialog_title">Organização das listas</string>
+    <string name="preference_sortorder_summary">A ordem em que as notas são mostradas na lista</string>
     <string name="preference_marquee_title">Marquee note titles.</string>
     <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
     
-    <string name="note_editor_preferences">Note Editor</string>
-    <string name="preference_fontsize">Font size</string>
-	<string name="preference_fontsize_summary">Change font size</string>
-	<string name="preference_fontsize_dialog_title">Choose font size</string>
-	<string name="preference_autolink_title">Auto-create Links</string>
+    <string name="note_editor_preferences">Editor de notas</string>
+    <string name="preference_fontsize">Tamanho da letra</string>
+	<string name="preference_fontsize_summary">Alterar tamanho</string>
+	<string name="preference_fontsize_dialog_title">Escolha o tamanho</string>
+	<string name="preference_autolink_title">Criar ligações automaticamente</string>
     <string name="preference_autolink_summary_on">Create links for phone numbers and email/street/web addresses</string>
     <string name="preference_autolink_summary_off">Do not create links on notes</string>
 	<string name="preference_charcount_title">Character count</string>
@@ -209,7 +210,7 @@ Launchpad Contributions:
     	<!-- Preference fontsize: small font size -->
         <item>Small</item>
     	<!-- Preference fontsize: default font size-->
-    	<item>Default </item>
+    	<item>Padrão</item>
     	<!-- Preference fontsize: large font size -->
         <item>Large</item>
     </string-array>

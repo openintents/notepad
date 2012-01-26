@@ -2,7 +2,7 @@
 OI Notepad
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Créer et partager vos notes avec OI Notepad.
 
 # Description:
 OI Notepad est une note complet open source application de prise. Avec elle, vous pouvez marquer, rechercher et envoyer vos notes, en plus de fonctionnalités de base telles que la création, suppression et modification de notes. Les fonctionnalités avancées comme le cryptage, l'import / export, et des mémos vocaux sont tous disponibles via des extensions. Toutes ces fonctionnalités sont réunies dans une mise en page simpliste et efficace, personnalisable grâce à une variété de thèmes. 
