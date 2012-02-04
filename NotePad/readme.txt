@@ -1,5 +1,5 @@
 ﻿ ****************************************************************************
- * Copyright (C) 2008-2011 OpenIntents.org                                  *
+ * Copyright (C) 2008-2012 OpenIntents.org                                  *
  *                                                                          *
  * Licensed under the Apache License, Version 2.0 (the "License");          *
  * you may not use this file except in compliance with the License.         *
@@ -24,8 +24,11 @@ To obtain the current release, visit
 
 ----------------
 release 1.3
-date: ?
+date: 2012-02-04
 - PLEASE READ THIS: The font size has been adjusted for high-density devices. Please use menu > settings > font size to set the desired size (see issue 435)
+
+Thanks to Google Code-in for many of the following patches:
+(see http://www.google-melange.com/gci/homepage/google/gci2011 )
 
 - setting for marquee for long titles (issue 266, Google Code-in task by Aviral Dasgupta)
 - added delete confirmation (issue 363, Google Code-in task by Shuhao)
@@ -37,6 +40,8 @@ date: ?
 - apply marquee setting immediately (issue 405, Google Code-in task by Daniel Huang)
 - support for ActionBar (patch by Menno Vogel)
 - Character / word counter (issue 456, Google Code-in task by Chickenbellyfinn)
+
+- new icons and translations by Google Code-in students
 
 ----------------
 release: 1.2.3

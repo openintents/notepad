@@ -1,10 +1,31 @@
----------------------------------------------------------
+----------------
+release 1.3
+date: 2012-02-04
+- PLEASE READ THIS: The font size has been adjusted for high-density devices. Please use menu > settings > font size to set the desired size (see issue 435)
+
+Thanks to Google Code-in for many of the following patches:
+(see http://www.google-melange.com/gci/homepage/google/gci2011 )
+
+- setting for marquee for long titles (issue 266, Google Code-in task by Aviral Dasgupta)
+- added delete confirmation (issue 363, Google Code-in task by Shuhao)
+- sort tags (issue 265, Google Code-in task by Shuhao)
+- shortcut for adding notes (Google Code-in task by Żyła)
+- share note directly from note editor (issue 417, Google Code-in task by Shuhao)
+- save cursor and selection position when note is closed (Google Code-in task by Aviral Dasgupta)
+- fixed pressing note icon in OI Shopping List crashes OI Notepad (issue 434, Google Code-in task by Neis)
+- apply marquee setting immediately (issue 405, Google Code-in task by Daniel Huang)
+- support for ActionBar (patch by Menno Vogel)
+- Character / word counter (issue 456, Google Code-in task by Chickenbellyfinn)
+
+- new icons and translations by Google Code-in students
+
+----------------
 release: 1.2.3
 date: 2011-05-28
 - sort by creation date or modification date (patch by Maciek)
 - support external notes (from OI Shopping List)
 
----------------------------------------------------------
+----------------
 release: 1.2.2
 date: 2011-02-05
 - new application icon for Android 2.0 or higher, with original design by VisualPharm.
@@ -12,12 +33,7 @@ date: 2011-02-05
 - support Android 2.3.
 - translations into various languages.
 
----------------------------------------------------------
-release: 1.2.1
-date: 2010-02-22
-- new font size "tiny" (for Droid users).
-
----------------------------------------------------------
+----------------
 For the complete list of changes and a list of frequently asked questions, please visit:
 http://www.openintents.org
 
