@@ -1147,12 +1147,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		.setShortcut('1', 'e')
 		.setIcon(android.R.drawable.ic_lock_lock); // TODO: better icon
 
-		MenuItem deleteItem = menu.add(1, MENU_DELETE, 0, R.string.menu_delete);
-		deleteItem.setIcon(android.R.drawable.ic_menu_delete);
-		//Show the delete icon when there is an actionbar
-		if(mActionBarAvailable){
-			WrapActionBar.showIfRoom(deleteItem);
-		}
+		MenuItem item = menu.add(1, MENU_DELETE, 0, R.string.menu_delete);
+		item.setIcon(android.R.drawable.ic_menu_delete);
 			
 		menu.add(2, MENU_IMPORT, 0, R.string.menu_import)
 		.setShortcut('1', 'i')
@@ -1172,8 +1168,11 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		menu.add(3, MENU_SETTINGS, 0, R.string.settings).setIcon(
 				android.R.drawable.ic_menu_preferences).setShortcut('9', 'p');
 
-		menu.add(4, MENU_SEND, 0, R.string.menu_share).setIcon(
-				android.R.drawable.ic_menu_share);
+		item = menu.add(4, MENU_SEND, 0, R.string.menu_share);
+		item.setIcon(android.R.drawable.ic_menu_share);
+		if(mActionBarAvailable){
+			WrapActionBar.showIfRoom(item);
+		}
 		
 		menu.add(5, MENU_WORD_COUNT, 0, R.string.menu_word_count);
 		
