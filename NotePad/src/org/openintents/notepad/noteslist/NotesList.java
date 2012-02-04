@@ -67,6 +67,7 @@ import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v2.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -488,7 +489,12 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		
 		MenuItem insertItem = menu.add(0, MENU_ITEM_INSERT, 0, R.string.menu_insert);
 		insertItem.setShortcut('1', 'i');
-		insertItem.setIcon(android.R.drawable.ic_menu_add);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			// Icon for holo theme
+			insertItem.setIcon(R.drawable.ic_menu_add_note);
+		} else {
+			insertItem.setIcon(android.R.drawable.ic_menu_add);
+		}
 		//Show the delete icon when there is an actionbar
 		if(mActionBarAvailable){
 			WrapActionBar.showIfRoom(insertItem);
