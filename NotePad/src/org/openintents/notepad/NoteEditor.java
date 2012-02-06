@@ -810,7 +810,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					// keep state does not work, so we have to do it manually:
 					mText.setSelection(mSelectionStart, mSelectionStop);
 
-					setFeatureDrawableResource(Window.FEATURE_RIGHT_ICON, android.R.drawable.ic_lock_idle_lock);
+					if (!mActionBarAvailable) {
+						setFeatureDrawableResource(Window.FEATURE_RIGHT_ICON, android.R.drawable.ic_lock_idle_lock);
+					}
 				} else {
 					// Decrypt note
 					if (debug) Log.d(TAG, "Decrypt note: " + note);
@@ -1098,7 +1100,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		getContentResolver().update(mUri, values, null, null);
 		mCursor.requery();
 
-		setFeatureDrawable(Window.FEATURE_RIGHT_ICON, null);
+		if (!mActionBarAvailable) {
+			setFeatureDrawable(Window.FEATURE_RIGHT_ICON, null);
+		}
 
 		// Small trick: Tags have not been converted properly yet. Let's do it now:
 		Intent i = new Intent(this, EncryptActivity.class);

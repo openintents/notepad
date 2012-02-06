@@ -23,6 +23,12 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
+release 1.3.1
+date: ?
+
+- fix crashing of encrypted notes on Android 3.0+
+
+----------------
 release 1.3
 date: 2012-02-04
 - PLEASE READ THIS: The font size has been adjusted for high-density devices. Please use menu > settings > font size to set the desired size (see issue 435)
