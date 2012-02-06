@@ -23,14 +23,8 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
-release 1.3.1
-date: ?
-
-- fix crashing of encrypted notes on Android 3.0+
-
-----------------
 release 1.3
-date: 2012-02-04
+date: 2012-02-07
 - PLEASE READ THIS: The font size has been adjusted for high-density devices. Please use menu > settings > font size to set the desired size (see issue 435)
 
 Thanks to Google Code-in for many of the following patches:
@@ -46,6 +40,7 @@ Thanks to Google Code-in for many of the following patches:
 - apply marquee setting immediately (issue 405, Google Code-in task by Daniel Huang)
 - support for ActionBar (patch by Menno Vogel)
 - Character / word counter (issue 456, Google Code-in task by Chickenbellyfinn)
+- fix crashing of encrypted notes on Android 3.0+
 
 - new icons and translations by Google Code-in students
 
