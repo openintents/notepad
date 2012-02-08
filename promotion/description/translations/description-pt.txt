@@ -19,17 +19,17 @@ Pode ajudar a traduzir as aplicações no Launchpad:
 https://translations.launchpad.net/openintents/trunk
 
 Características: 
-* Add, edit and delete notes.
+* Adicionar, editar e eliminar notas.
 * Long-press on notes to add tags.
-* Change font size and sort order.
+* Altere o tamanho das letras e a organização.
 * A clearly arranged layout with a variety of themes.
 * Quickly search through notes.
-* Send notes as MMS or SMS.
+* Enviar notas por MMS e SMS.
 
-Available extensions for "OI Notepad": 
+Extras para o "OI Notepad": 
 * Record and attach voice memos to notes with "OI Voice Notes".
 * With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
+* Mostrar a licença com o OI About.
 * Insert the date and time into notes with "OI Insert Date".
 * Turn text upside down with "Upside Down".
 
@@ -37,7 +37,7 @@ Applications that work with "OI Notepad":
 * Back up notes with "My Backup Pro".
 * Encrypt notes using "OI Safe".
 * Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
+* Atualizações com o OI Update.
 * Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
 
 Palavras-chave: 

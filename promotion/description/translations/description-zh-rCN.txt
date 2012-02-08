@@ -7,12 +7,12 @@ Create and share your notes with OI Notepad.
 # Description:
 OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
 
-应用程序的广告是免费的，不需要网络权限。 
+本程序不含广告，也不需要网络权限 
 
-开放源码应用程序的源代码是： 
+本程序是开源免费的，它的源代码能在这里获得 
 http://code.google.com/p/openintents
 
-完整列表的更改，请访问： 
+你可以在这里获得完整的改变列表和常见问题回答 
 http://www.openintents.org
 
 可以翻译成您的语言： 

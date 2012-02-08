@@ -106,7 +106,7 @@
     <string name="menu_word_count">Wortanzahl</string>
     <plurals name="word_count">
         <item quantity="one">Ein Wort.</item>
-        <item quantity="other"> W</item>
+        <item quantity="other">%d Wörter.</item>
     </plurals>
         
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
