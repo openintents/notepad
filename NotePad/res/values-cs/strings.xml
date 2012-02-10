@@ -29,7 +29,8 @@
 	<string name="about_translators">Launchpad Contributions:
   Marek Dobransky https://launchpad.net/~marekdobr
   Matěj Konečný https://launchpad.net/~matejkon
-  OpenIntents devs https://launchpad.net/~openintents-devs</string>
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  clever_fox https://launchpad.net/~clever-fox</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Vytvořte a sdílejte poznámky s OI Poznámkový blok</string>
@@ -99,10 +100,10 @@
     <string name="warning_file_exists_title">Soubor již existuje</string>
     <string name="warning_file_exists_message">Opravdu chcete přepsat existující soubor?</string>
     
-    <string name="menu_word_count">Word count</string>
+    <string name="menu_word_count">Počet slov</string>
     <plurals name="word_count">
-        <item quantity="one">One word.</item>
-        <item quantity="other">%d words.</item>
+        <item quantity="one">Jedno slovo.</item>
+        <item quantity="other">%d slov.</item>
     </plurals>
         
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
@@ -155,9 +156,9 @@
 	<string name="preference_autolink_title">Automaticky vytvářet odkazy</string>
     <string name="preference_autolink_summary_on">Vytvářet klikatelné odkazy pro telefonní čísla a e-mailové/poštovní/webové adresy</string>
     <string name="preference_autolink_summary_off">Nevytvářet v poznámkách odkazy</string>
-	<string name="preference_charcount_title">Character count</string>
-    <string name="preference_charcount_summary_on">Show character count in editor</string>
-    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
+	<string name="preference_charcount_title">Počet znaků</string>
+    <string name="preference_charcount_summary_on">Zobrazovat počet znaků v editoru</string>
+    <string name="preference_charcount_summary_off">Nezobrazovat počet znaků v editoru</string>
 
 	<string name="settings">Nastavení</string>
 	<string name="settings_sortorder">Pořadí řazení</string>

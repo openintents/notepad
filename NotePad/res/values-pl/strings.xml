@@ -103,10 +103,10 @@
     <string name="warning_file_exists_title">Plik już istnieje</string>
     <string name="warning_file_exists_message">Na pewno nadpisać istniejący plik?</string>
     
-    <string name="menu_word_count">Word count</string>
+    <string name="menu_word_count">Liczba słów</string>
     <plurals name="word_count">
-        <item quantity="one">One word.</item>
-        <item quantity="other">%d words.</item>
+        <item quantity="one">Jedno słowo.</item>
+        <item quantity="other">%d słów.</item>
     </plurals>
         
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
@@ -159,9 +159,9 @@
 	<string name="preference_autolink_title">Automatycznie twórz odnośniki</string>
     <string name="preference_autolink_summary_on">Twórz odnośniki dla numerów telefonów oraz adresów email/pocztowych/www</string>
     <string name="preference_autolink_summary_off">Nie twórz odnośników w notatkach</string>
-	<string name="preference_charcount_title">Character count</string>
-    <string name="preference_charcount_summary_on">Show character count in editor</string>
-    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
+	<string name="preference_charcount_title">Liczba znaków</string>
+    <string name="preference_charcount_summary_on">Pokaż liczbę znaków w edytorze</string>
+    <string name="preference_charcount_summary_off">Nie pokazuj liczby znaków w edytorze</string>
 
 	<string name="settings">Ustawienia</string>
 	<string name="settings_sortorder">Porządek sortowania</string>
