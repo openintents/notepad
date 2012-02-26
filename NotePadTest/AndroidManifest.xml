@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:targetSdkVersion="13" android:minSdkVersion="3" />
+    <uses-sdk android:targetSdkVersion="15" android:minSdkVersion="3" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -16,4 +16,8 @@
         <uses-library android:name="android.test.runner" />
     </application>
 
+    <!-- Instrumentation for Jenkins server -->
+    <instrumentation
+       android:targetPackage="org.openintents.safe"
+       android:name="pl.polidea.instrumentation.PolideaInstrumentationTestRunner" />
 </manifest>

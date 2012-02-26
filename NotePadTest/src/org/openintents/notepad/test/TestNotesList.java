@@ -25,9 +25,8 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Environment;
 import android.test.InstrumentationTestCase;
-import android.util.Log;
+import android.test.suitebuilder.annotation.Smoke;
 
 import com.jayway.android.robotium.solo.Solo;
 
@@ -68,6 +67,35 @@ public class TestNotesList extends InstrumentationTestCase {
 		}
 
 		return output;
+	}
+
+	private String getAppString(int resId) {
+		return activity.getString(resId);
+	}
+
+	@Smoke
+	public void test000Eula() {
+		String accept = getAppString(org.openintents.distribution.R.string.oi_distribution_eula_accept);
+		String cancel = getAppString(org.openintents.distribution.R.string.oi_distribution_eula_refuse);
+		boolean existsAccept = solo.searchButton(accept);
+		boolean existsCancel = solo.searchButton(cancel);
+		
+		if (existsAccept && existsCancel) {
+			solo.clickOnButton(accept);
+		}
+	}
+
+	@Smoke
+	public void test001RecentChanges() {
+		String recentChanges = getAppString(org.openintents.distribution.R.string.oi_distribution_newversion_recent_changes);
+		String cont = getAppString(org.openintents.distribution.R.string.oi_distribution_newversion_continue);
+		while(solo.scrollUp());
+		boolean existsRecentChanges = solo.searchText(recentChanges);
+		boolean existsCont = solo.searchButton(cont);
+		
+		if (existsRecentChanges && existsCont) {
+			solo.clickOnButton(cont);
+		}
 	}
 
 	/**
@@ -174,7 +202,7 @@ public class TestNotesList extends InstrumentationTestCase {
 		cleanUp();
 
 		try {
-			this.solo.finalize();
+			this.solo.finishOpenedActivities();
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
