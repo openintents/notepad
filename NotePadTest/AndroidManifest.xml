@@ -18,6 +18,6 @@
 
     <!-- Instrumentation for Jenkins server -->
     <instrumentation
-       android:targetPackage="org.openintents.safe"
+       android:targetPackage="org.openintents.notepad"
        android:name="pl.polidea.instrumentation.PolideaInstrumentationTestRunner" />
 </manifest>
