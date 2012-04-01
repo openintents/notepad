@@ -23,6 +23,12 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
+release 1.4
+date: ?
+
+- instructions adapted for action bar (patch by Alok Sharma)
+
+----------------
 release 1.3
 date: 2012-02-18
 - PLEASE READ THIS: The font size has been adjusted for high-density devices. Please use menu > settings > font size to set the desired size (see issue 435)
