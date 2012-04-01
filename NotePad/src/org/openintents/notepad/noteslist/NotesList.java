@@ -82,6 +82,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -498,6 +499,8 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		//Show the delete icon when there is an actionbar
 		if(mActionBarAvailable){
 			WrapActionBar.showIfRoom(insertItem);
+			TextView notext=(TextView)findViewById(R.id.empty);
+			notext.setText(R.string.no_notes_actionbar);
 		}
 
 		menu.add(0, MENU_SEARCH, 0, R.string.menu_search).setShortcut('2',
