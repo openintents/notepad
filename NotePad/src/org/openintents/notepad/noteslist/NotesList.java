@@ -54,6 +54,7 @@ import org.openintents.notepad.wrappers.WrapActionBar;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 
 import android.app.Dialog;
+import android.content.DialogInterface.OnDismissListener;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -90,7 +91,7 @@ import android.widget.Toast;
  * the intent if there is one, otherwise defaults to displaying the contents of
  * the {@link NotePadProvider}
  */
-public class NotesList extends DistributionLibraryListActivity implements ListView.OnScrollListener {
+public class NotesList extends DistributionLibraryListActivity implements ListView.OnScrollListener, OnDismissListener {
 	private static final String TAG = "NotesList";
 	private static final boolean debug = false;
 
@@ -325,7 +326,6 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 	protected void onResume() {
 		super.onResume();
 		if (debug) Log.d(TAG, "onResume()");
-
 		NotesListCursor.mSuspendQueries = false;
 
 		//mCursorUtils.registerContentObserver(mListContentObserver);
@@ -333,6 +333,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 
 		checkAdapter();
 
+		
 		if (!mDecryptionFailed) {
 			decryptDelayed();
 		} else {
@@ -691,7 +692,6 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		switch (item.getItemId()) {
 			case MENU_ITEM_DELETE: {
 				showDialog(DIALOG_DELETE);
-
 				//mAdapter.getCursor().requery();
 				return true;
 			}
@@ -706,6 +706,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 				return true;
 			case MENU_ITEM_EDIT_TAGS:
 				editTags();
+				
 				return true;
 				//case MENU_ITEM_SAVE:
 				//	saveToSdCard();
@@ -904,7 +905,10 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 
 		switch (id) {
 			case DIALOG_TAGS:
-				return new TagsDialog(this);
+				TagsDialog td = new TagsDialog(this);
+				td.setOnDismissListener(this);
+				return td;
+				//return new TagsDialog(this);
 			case DIALOG_GET_FROM_MARKET:
 				return new DownloadOIAppDialog(this,
 						DownloadOIAppDialog.OI_SAFE);
@@ -916,6 +920,7 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 						Uri noteUri = ContentUris.withAppendedId(getIntent().getData(),
 								mContextMenuInfo.id);
 						getContentResolver().delete(noteUri, null, null);
+						updateTagList();
 					}
 				}).create();
 		}
@@ -930,7 +935,6 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 		switch (id) {
 			case DIALOG_TAGS:
 				TagsDialog d = (TagsDialog) dialog;
-
 				Uri uri = ContentUris.withAppendedId(getIntent().getData(), mContextMenuInfo.id);
 
 				Cursor c = mAdapter.getCursor();
@@ -949,6 +953,14 @@ public class NotesList extends DistributionLibraryListActivity implements ListVi
 			case DIALOG_GET_FROM_MARKET:
 				DownloadOIAppDialog.onPrepareDialog(this, dialog);
 				break;
+		}
+	}
+	
+	public void onDismiss(DialogInterface dialog)
+	{
+		if(dialog instanceof TagsDialog)
+		{
+			updateTagList();
 		}
 	}
 

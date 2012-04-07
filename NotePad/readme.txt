@@ -27,6 +27,7 @@ release 1.4
 date: ?
 
 - instructions adapted for action bar (patch by Alok Sharma)
+- spinner in NotesList is updated after editing tags (patch by Ganesh V R Kumar)
 
 ----------------
 release 1.3
