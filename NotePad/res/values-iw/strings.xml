@@ -46,6 +46,7 @@
     <string name="menu_discard">התעלם</string>
     
 	<string name="no_notes">השתמש בפתריט כדי להוסיף פתקים חדשים</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">ערוך הערה</string>
     <string name="resolve_title">ערוך כותרת</string>  

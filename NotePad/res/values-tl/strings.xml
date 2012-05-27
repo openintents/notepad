@@ -46,6 +46,7 @@
     <string name="menu_discard">Itapon</string>
     
 	<string name="no_notes">Gamitin ang menu para magdagdag ng bagong tala.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Baguhin ang tala</string>
     <string name="resolve_title">Baguhin ang pamagat</string>  

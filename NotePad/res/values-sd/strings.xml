@@ -47,6 +47,7 @@
     <string name="menu_discard">छोड़ दें</string>
     
 	<string name="no_notes">नयी व्याख्या जोद्नन लाये मेनूअ जो  इस्तेमाल कयो</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">व्यक्ख्या सम्पादित कयो</string>
     <string name="resolve_title">शीर्षक सम्पादित कयो</string>  

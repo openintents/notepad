@@ -48,6 +48,7 @@
     <string name="menu_discard">破棄する</string>
     
 	<string name="no_notes">新しいノートの追加にメニューを使う。</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">ノートを編集する</string>
     <string name="resolve_title">タイトルを編集する</string>  

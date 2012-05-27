@@ -45,6 +45,7 @@
     <string name="menu_discard">ຖີ້ມ</string>
     
 	<string name="no_notes">ໃຊ້ລາຍການເພື່ອເພີ້ມໃຫມ່</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">ປັບປູງ</string>
     <string name="resolve_title">ປັບປຸງຫົວເລື້ອງ</string>  

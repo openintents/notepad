@@ -51,6 +51,7 @@
     <string name="menu_discard">Renunță</string>
     
 	<string name="no_notes">Folosiți meniul pentru a adăuga notițe.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Modifică notița</string>
     <string name="resolve_title">Modifică titlu</string>  

@@ -47,6 +47,7 @@ Launchpad Contributions:
     <string name="menu_discard">Kassér</string>
     
 	<string name="no_notes">Brug menuen til at tilføje nye notater</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Redigér notat</string>
     <string name="resolve_title">Rediger titel</string>  

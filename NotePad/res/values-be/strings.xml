@@ -46,6 +46,7 @@
     <string name="menu_discard">Ігнараваць</string>
     
 	<string name="no_notes">Выкарыстоўвайце меню для дадання новых нататак.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Рэдагаваць нататку</string>
     <string name="resolve_title">Рэдагаваць загаловак</string>  

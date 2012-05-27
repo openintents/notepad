@@ -47,6 +47,7 @@
     <string name="menu_discard">تجاهل</string>
     
 	<string name="no_notes">استخدم القائمة لإضافة ملاحظات جديدة.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">تحرير ملاحظة</string>
     <string name="resolve_title">تحرير العنوان</string>  

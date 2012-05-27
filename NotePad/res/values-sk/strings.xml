@@ -46,6 +46,7 @@
     <string name="menu_discard">Zahodiť</string>
     
 	<string name="no_notes">Použite menu pre pridanie nových poznámok.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Upraviť poznámku</string>
     <string name="resolve_title">Upraviť názov</string>  

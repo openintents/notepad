@@ -48,6 +48,7 @@
     <string name="menu_discard">Отхвърли</string>
     
 	<string name="no_notes">Използвайте менюто за да добавите нови бележки.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Редактирай бележка</string>
     <string name="resolve_title">Редактирай заглавие</string>  

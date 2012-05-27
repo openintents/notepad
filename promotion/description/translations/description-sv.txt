@@ -1,13 +1,6 @@
-# Application:
-OI Notesblok
-
-# Promo text:
-Create and share your notes with OI Notepad.
-
-# Description:
 OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
 
-Dette program er reklamefrit og kræver ikke internetadgang. 
+This application is ad free and does not require the internet permission. 
 
 The source code of this free and open source application is available at: 
 http://code.google.com/p/openintents

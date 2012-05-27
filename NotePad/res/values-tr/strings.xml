@@ -50,6 +50,7 @@ Launchpad Contributions:
     <string name="menu_discard">Çıkarma</string>
     
 	<string name="no_notes">Yeni not eklemek için menüyü kullanın</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Not düzenle</string>
     <string name="resolve_title">Başlık Düzenle</string>  

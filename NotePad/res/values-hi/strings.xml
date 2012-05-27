@@ -30,6 +30,7 @@
   Angad Singh  https://launchpad.net/~angad21-02-1996
   Atharva Lath https://launchpad.net/~atharvalath96
   OpenIntents devs https://launchpad.net/~openintents-devs
+  Prateek Arora https://launchpad.net/~prateekandroid
   Shitiz Garg https://launchpad.net/~l95s</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
@@ -48,6 +49,7 @@
     <string name="menu_discard">छोड़ दें</string>
     
 	<string name="no_notes">नयी व्याख्या जोड़ने में मेनू क्या इस्तेमाल करें</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">व्यक्ख्या सम्पादित करें</string>
     <string name="resolve_title">शीर्षक सम्पादित करें</string>  
@@ -100,10 +102,10 @@
     <string name="warning_file_exists_title">फाइल मौजूद है</string>
     <string name="warning_file_exists_message">क्या आप मौजूदा फाइल पर दुबारा लिखना चाहेंगे?</string>
     
-    <string name="menu_word_count">Word count</string>
+    <string name="menu_word_count">शब्द संख्या</string>
     <plurals name="word_count">
-        <item quantity="one">One word.</item>
-        <item quantity="other">%d words.</item>
+        <item quantity="one">एक शब्द।</item>
+        <item quantity="other">%d शब्द।</item>
     </plurals>
         
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
@@ -156,9 +158,9 @@
 	<string name="preference_autolink_title">स्वत: निर्मित लिंक</string>
     <string name="preference_autolink_summary_on">फोन नंबर तथा ईमेल/सड़क/वेब पतों के लिए लिंक बनाएँ</string>
     <string name="preference_autolink_summary_off">व्याख्याओं पर लिंक ना बनाएँ</string>
-	<string name="preference_charcount_title">Character count</string>
-    <string name="preference_charcount_summary_on">Show character count in editor</string>
-    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
+	<string name="preference_charcount_title">अक्षर संख्या</string>
+    <string name="preference_charcount_summary_on">संपादन उपकरण में अक्षर संख्या दीखाएं</string>
+    <string name="preference_charcount_summary_off">संपादन उपकरण में अक्षर संख्या मत दीखाएं</string>
 
 	<string name="settings">सेटिंग्स</string>
 	<string name="settings_sortorder">छंटाई क्रम</string>

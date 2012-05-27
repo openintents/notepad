@@ -46,6 +46,7 @@
     <string name="menu_discard">Hylkää</string>
     
 	<string name="no_notes">Käytä valikkoa lisätäksesia uusia muistiinpanoja.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Muokkaa muistiinpanoa</string>
     <string name="resolve_title">Muokkaa otsikkoa</string>  

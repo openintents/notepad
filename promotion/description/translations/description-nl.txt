@@ -2,10 +2,10 @@
 OI Notitieblok
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Maak en deel uw notities met OI Notepad
 
 # Description:
-OI Notepad is a full-featured open source note taking application. With it you can tag, search, and send your notes, in addition to basic functionality such as creating, deleting, and editing notes. Advanced features like encryption, import/export, and voice memos are all available through extensions. All of this functionality is brought together in a simplistic and efficient layout, customizable through a variety of themes. 
+OI Notepad is een uitgebreide, open source app voor notities Je kunt er notities mee taggen, doorzoeke en versturen, naast basisfuncties als aanmaken, bewerken en verwijderen. Met extensies krijg je geavanceerde opties, zoals encryptie, import/export en gesproken memo's. Al deze functies komen bij elkaar in een simpele, efficiënte lay-out die je kunt aanpassen via thema's. 
 
 Deze applicatie is advertentievrij, en heeft geen internet toegang nodig. 
 
@@ -19,36 +19,36 @@ Jij kan helpen om de vertaling in je eigen taal te verbeteren via Launchpad:
 https://translations.launchpad.net/openintents/trunk
 
 Eigenschappen: 
-* Add, edit and delete notes.
-* Long-press on notes to add tags.
-* Change font size and sort order.
-* A clearly arranged layout with a variety of themes.
-* Quickly search through notes.
-* Send notes as MMS or SMS.
+* Maak, wijzig en verwijder notities
+* Hou je vinger lang op een notitie om tags toe te voegen.
+* Lettergroote en sorteeropties bewerken.
+* Een duidelijke lay-out met diverse thema's.
+* Snel notities doorzoeken.
+* Notities versturen als MMS of SMS.
 
-Available extensions for "OI Notepad": 
+Beschikbare extensies voor OI Notepad: 
 * Neem stem memos op en voeg ze toe met "OI Voice Notes"
-* With "OI Convert CSV" import/export notes from the SD card.
-* Show the license information with "OI About".
+* Met "OI Convert CSV" kan je notities importeren/exporteren van een SD kaart
+* Toon licentie-informatie met OI About
 * Stel de datum en tijd in uw notities met "OI Insert Date"
 * Zet teksten ondersteboven met "Upside Down"
 
 Applicaties die werken met "OI Notepad" 
-* Back up notes with "My Backup Pro".
+* Notities back-uppen met My Backup Pro.
 * Beveilig notities met "OI Safe"
-* Manage notes on your SD Card with "OI File Manager".
-* Update with "OI Update".
-* Share notes through "Facebook", "Gmail", "Google+", "Twitter", and many other applications.
+* Beheer notities op je SD kaart met OI Bestandsbeheer
+* Updaten met OI Update
+* Deel notities via Facebook, Gmail, Google+, Twitter en vele andere applicaties.
 
 Sleutelwoorden: 
-* Note, Notepad, Note book, Notes
+* Note, Notepad, Note book, Notes, kladblok, notitie, memo
 * OI, OpenIntents, Open Intents
 
 Internationale versies 
-Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI يادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
+Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI دفترچه یادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
 
 
-Search strings for Market: 
+Zoektekst voor Market: 
 * uses OI About
 * uses OI File Manager
 * uses OI Safe

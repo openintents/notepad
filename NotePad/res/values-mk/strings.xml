@@ -46,6 +46,7 @@
     <string name="menu_discard">Отфрли</string>
     
 	<string name="no_notes">Користи го менито за да додадеш нови белешки</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Измени белешка</string>
     <string name="resolve_title">Измени наслов</string>  

@@ -48,6 +48,7 @@
     <string name="menu_discard">Zrušit</string>
     
 	<string name="no_notes">Pro přidání nových poznámek použijte menu.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Upravit poznámku</string>
     <string name="resolve_title">Upravit titulek</string>  

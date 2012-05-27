@@ -50,6 +50,7 @@ Launchpad Contributions:
     <string name="menu_discard">Rejeitar</string>
     
 	<string name="no_notes">Utilize o menu para adicionar notas.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Editar nota</string>
     <string name="resolve_title">Editar título</string>  

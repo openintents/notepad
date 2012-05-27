@@ -46,6 +46,7 @@
     <string name="menu_discard">删除</string>
     
 	<string name="no_notes">使用菜单添加新注释</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">编辑注释</string>
     <string name="resolve_title">编辑标题</string>  

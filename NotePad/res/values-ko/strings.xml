@@ -47,6 +47,7 @@
     <string name="menu_discard">버리기</string>
     
 	<string name="no_notes">메뉴를 사용해서 새 메모 추가</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">노트 편집</string>
     <string name="resolve_title">제목 수정</string>  

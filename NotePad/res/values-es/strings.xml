@@ -30,6 +30,7 @@
   DiegoJ https://launchpad.net/~diegojromerolopez
   Feder Sáiz https://launchpad.net/~federsaiz-deactivatedaccount
   Fitoschido https://launchpad.net/~fitoschido
+  Jose Luis Tirado https://launchpad.net/~txelu70
   Juan Eduardo Riva https://launchpad.net/~juaneduardoriva
   Laura Merino https://launchpad.net/~lauracmperez
   Martín González https://launchpad.net/~mgonzlezgmz
@@ -38,8 +39,7 @@
   Paco Molinero https://launchpad.net/~franciscomol
   Peli https://launchpad.net/~peli0101
   Walter Reindeer Martinez H https://launchpad.net/~waltereindeerm
-  miwie https://launchpad.net/~mw-miwie
-  txelu https://launchpad.net/~txelu70</string>
+  miwie https://launchpad.net/~mw-miwie</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Cree y comparta sus notas con OI Bloc de Notas.</string>
@@ -57,6 +57,7 @@
     <string name="menu_discard">Descartar</string>
     
 	<string name="no_notes">Use el menú para añadir notas nuevas.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Editar nota</string>
     <string name="resolve_title">Editar título</string>  

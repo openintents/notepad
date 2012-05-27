@@ -27,6 +27,7 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Danial Behzadi https://launchpad.net/~dani.behzi
   OpenIntents devs https://launchpad.net/~openintents-devs
   happynawani https://launchpad.net/~happynawani
   oren https://launchpad.net/~ahujaaditya92</string>
@@ -39,7 +40,7 @@
 	     *************************** -->
 
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-	<string name="app_name">OI يادداشت</string>
+	<string name="app_name">OI دفترچه یادداشت</string>
 	
     <string name="menu_delete">حذف</string>
     <string name="menu_insert">اضافه توجه</string>
@@ -47,16 +48,17 @@
     <string name="menu_discard">دور انداختن</string>
     
 	<string name="no_notes">استفاده از منو به اضافه کردن یادداشت های جدید است</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">ویرایش یادداشت</string>
     <string name="resolve_title">ویرایش عنوان</string>  
 
     <string name="title_create">ایجاد توجه</string>
     <string name="title_edit">ویرایش یادداشت</string>
-	<string name="title_notes_list">OI يادداشت</string>   
+	<string name="title_notes_list">OI دفترچه یادداشت</string>   
 	<string name="title_note">یادداشت</string>  
 	<string name="title_edit_title">عنوان نکته :</string>  
-    <string name="title_create_file">(توجه جدید)s%</string>
+    <string name="title_create_file">%s (یادداشت جدید)</string>
     <string name="title_edit_file">(ویرایش یادداشت)s%</string>
     
     <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
@@ -122,9 +124,9 @@
 
 	<!-- Search -->
 	<string name="menu_search">جستجو</string>
-    <string name="search_query_results">OI يادداشت</string>
+    <string name="search_query_results">OI دفترچه یادداشت</string>
     <!-- %s is the search string -->
-	<string name="search_found_no_results">بدون نتیجه برای یافتs%</string>
+	<string name="search_found_no_results">نتیجه‌ای برای %S یافت نشد.</string>
     <string name="search_label">جستجوی OI دفترچه یادداشت</string>
     <string name="search_hint">جستجو</string>
     
@@ -227,5 +229,5 @@
 	<string name="confirm_delete_title">تایید حذف</string>
 	<string name="confirm_delete">آیا شما مطمئن هستید که می خواهید پاک کنید این توجه؟</string>
 	
-	<string name="new_note">یادداشتِ جدید</string>
+	<string name="new_note">یادداشت جدید</string>
 </resources>

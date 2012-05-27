@@ -45,6 +45,7 @@
     <string name="menu_discard">Abandonar</string>
     
 	<string name="no_notes">Utilizatz lo menut per apondre de nòtas novèlas.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Modificar la nòta</string>
     <string name="resolve_title">Editar lo títol</string>  

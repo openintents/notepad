@@ -46,6 +46,7 @@
     <string name="menu_discard">Odbaci</string>
     
 	<string name="no_notes">Koristi meni da dodaš nove bjeleške.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Uredi zapis</string>
     <string name="resolve_title">Uredi naslov</string>  

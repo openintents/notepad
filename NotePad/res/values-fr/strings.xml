@@ -33,6 +33,7 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   SarahSlean https://launchpad.net/~yoda4
+  Tanguy Herrmann https://launchpad.net/~dolanor
   Thibault Févry https://launchpad.net/~thibaultfevry
   lonelyxstorm https://launchpad.net/~sleepless-l4dy</string>
 	
@@ -52,6 +53,7 @@
     <string name="menu_discard">Annuler</string>
     
 	<string name="no_notes">Utilisez le menu pour ajouter de nouvelles notes.</string>
+	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
     <string name="resolve_edit">Modifier la note</string>
     <string name="resolve_title">Modifier le titre</string>  
@@ -107,7 +109,7 @@
     <string name="menu_word_count">Compteur de mots</string>
     <plurals name="word_count">
         <item quantity="one">Un mot.</item>
-        <item quantity="other">%d words.</item>
+        <item quantity="other">%d mots.</item>
     </plurals>
         
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->

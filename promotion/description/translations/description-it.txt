@@ -2,7 +2,7 @@
 OI Blocco Note
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Crea e condividi le tue note con OI Blocco Note.
 
 # Description:
 OI Notepad è un'applicazione con fonte pubblica, con tutte le caratteristiche per scrivere le note. Con questa potete etichettare, cercare, e mandare le note, oltre alla funzionalità di base, come sarebbe creare, cancellare e modificare delle note. Le caratteristiche avanzate come sarebbe criptare, importare/esportare, e le memo vocali sono tutte disponibili attraverso le estensioni. Tutte queste funzioni sono portate insieme in un aspetto semplice e efficiente, personalizzabile con una varietà di temi. 
@@ -45,7 +45,7 @@ Le parole chiave:
 * OI, OpenIntents, Open Intents
 
 Versioni internazionali: 
-Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI يادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
+Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI دفترچه یادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
 
 
 Cerca le stringhe per Market: 
