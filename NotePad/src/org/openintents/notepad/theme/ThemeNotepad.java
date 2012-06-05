@@ -1,6 +1,5 @@
 package org.openintents.notepad.theme;
 
-
 public class ThemeNotepad {
 
 	// For Notepad theme

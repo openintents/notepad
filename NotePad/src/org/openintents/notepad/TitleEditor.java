@@ -28,8 +28,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * An activity that will edit the title of a note. Displays a floating
- * window with a text field.
+ * An activity that will edit the title of a note. Displays a floating window
+ * with a text field.
  */
 public class TitleEditor extends Activity implements View.OnClickListener {
 
@@ -42,8 +42,8 @@ public class TitleEditor extends Activity implements View.OnClickListener {
 	 * An array of the columns we are interested in.
 	 */
 	private static final String[] PROJECTION = new String[] {
-		NotePad.Notes._ID, // 0
-		NotePad.Notes.TITLE, // 1
+			NotePad.Notes._ID, // 0
+			NotePad.Notes.TITLE, // 1
 	};
 	/** Index of the title column */
 	private static final int COLUMN_INDEX_TITLE = 1;
@@ -78,7 +78,7 @@ public class TitleEditor extends Activity implements View.OnClickListener {
 
 		// Set up click handlers for the text field and button
 		mText = (EditText) this.findViewById(R.id.title);
-		//mText.setOnClickListener(this);
+		// mText.setOnClickListener(this);
 
 		Button b = (Button) findViewById(R.id.ok);
 		b.setOnClickListener(this);
@@ -100,7 +100,7 @@ public class TitleEditor extends Activity implements View.OnClickListener {
 		super.onPause();
 
 		if (mCursor != null) {
-			// Write the title back to the note 
+			// Write the title back to the note
 			ContentValues values = new ContentValues();
 			values.put(Notes.TITLE, mText.getText().toString());
 			getContentResolver().update(mUri, values, null, null);

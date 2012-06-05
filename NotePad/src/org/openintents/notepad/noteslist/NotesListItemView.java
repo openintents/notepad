@@ -25,7 +25,6 @@ public class NotesListItemView extends LinearLayout {
 	protected String mTitleEncrypted;
 	protected String mTagsEncrypted;
 
-
 	public NotesListItemView(Context context) {
 		super(context);
 		mContext = context;
@@ -34,32 +33,25 @@ public class NotesListItemView extends LinearLayout {
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		inflater.inflate(
-				R.layout.noteslist_item, this, true);
+		inflater.inflate(R.layout.noteslist_item, this, true);
 
 		mTitle = (MarqueeTextView) findViewById(R.id.title);
 		mTags = (TextView) findViewById(R.id.info);
 		mStatus = (ImageView) findViewById(R.id.status);
 	}
-	
-
 
 	@Override
 	public boolean hasFocus() {
 		// TODO Auto-generated method stub
-		if(PreferenceActivity.getMarqueeFromPrefs(mContext)==true) {
+		if (PreferenceActivity.getMarqueeFromPrefs(mContext) == true) {
 			mTitle.setEllipsize(TextUtils.TruncateAt.MARQUEE);
 			mTitle.setMarquee(true);
-		}
-		else
-		{
+		} else {
 			mTitle.setEllipsize(TextUtils.TruncateAt.END);
 			mTitle.setMarquee(false);
 		}
 		return super.hasFocus();
 	}
-
-
 
 	/**
 	 * Convenience method to set the title of a NewsView

@@ -35,11 +35,11 @@ import android.util.Log;
 import android.util.Xml;
 
 /**
- * Helper functions for retrieving remote themes,
- * that are themes in external packages.
+ * Helper functions for retrieving remote themes, that are themes in external
+ * packages.
  * 
  * @author Peli
- *
+ * 
  */
 public class ThemeUtils {
 	private static final String TAG = "ThemeUtils";
@@ -59,30 +59,34 @@ public class ThemeUtils {
 	public static final String ATTR_TITLE = "title";
 	public static final String ATTR_STYLE = "style";
 
-	public static int[] getAttributeIds(Context context, String[] attrNames, String packageName) {
+	public static int[] getAttributeIds(Context context, String[] attrNames,
+			String packageName) {
 		int len = attrNames.length;
 		Resources res = context.getResources();
 
 		int[] attrIds = new int[len];
 		for (int i = 0; i < len; i++) {
 			attrIds[i] = res.getIdentifier(attrNames[i], "attr", packageName);
-			if (debug) Log.d(TAG, attrNames[i] + ": " + attrIds[i]);
+			if (debug)
+				Log.d(TAG, attrNames[i] + ": " + attrIds[i]);
 		}
 		return attrIds;
 	}
 
 	/**
-	 * Return list of all applications that contain the 
-	 * theme meta-tag.
+	 * Return list of all applications that contain the theme meta-tag.
 	 * 
 	 * @param pm
-	 * @param firstPackage: package name of package that should be moved to front.
+	 * @param firstPackage
+	 *            : package name of package that should be moved to front.
 	 * @return
 	 */
-	private static List<ApplicationInfo> getThemePackages(PackageManager pm, String firstPackage) {
+	private static List<ApplicationInfo> getThemePackages(PackageManager pm,
+			String firstPackage) {
 		List<ApplicationInfo> appinfolist = new LinkedList<ApplicationInfo>();
 
-		List<ApplicationInfo> allapps = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+		List<ApplicationInfo> allapps = pm
+				.getInstalledApplications(PackageManager.GET_META_DATA);
 		for (ApplicationInfo ai : allapps) {
 			if (ai.metaData != null) {
 				if (ai.metaData.containsKey(METADATA_THEMES)) {
@@ -99,9 +103,9 @@ public class ThemeUtils {
 		return appinfolist;
 	}
 
-	private static void addThemeInfos(PackageManager pm, String attributeset, ApplicationInfo appinfo, List<ThemeInfo> themeinfolist) {
-		XmlResourceParser xml = appinfo.loadXmlMetaData(pm, 
-				METADATA_THEMES);
+	private static void addThemeInfos(PackageManager pm, String attributeset,
+			ApplicationInfo appinfo, List<ThemeInfo> themeinfolist) {
+		XmlResourceParser xml = appinfo.loadXmlMetaData(pm, METADATA_THEMES);
 
 		boolean useThisAttributeSet = false;
 
@@ -118,8 +122,7 @@ public class ThemeUtils {
 					}
 
 					else if (xml.getName().equals(ELEM_ATTRIBUTESET)) {
-						String name = attr.getAttributeValue(SCHEMA,
-								ATTR_NAME);
+						String name = attr.getAttributeValue(SCHEMA, ATTR_NAME);
 						useThisAttributeSet = name.equals(attributeset);
 					}
 
@@ -128,11 +131,14 @@ public class ThemeUtils {
 							ThemeInfo ti = new ThemeInfo();
 
 							ti.packageName = appinfo.packageName;
-							int titleResId = attr.getAttributeResourceValue(SCHEMA, ATTR_TITLE, 0);
-							int styleResId = attr.getAttributeResourceValue(SCHEMA, ATTR_STYLE, 0);
+							int titleResId = attr.getAttributeResourceValue(
+									SCHEMA, ATTR_TITLE, 0);
+							int styleResId = attr.getAttributeResourceValue(
+									SCHEMA, ATTR_STYLE, 0);
 
 							try {
-								Resources res = pm.getResourcesForApplication(appinfo);
+								Resources res = pm
+										.getResourcesForApplication(appinfo);
 								ti.title = res.getString(titleResId);
 								ti.styleName = res.getResourceName(styleResId);
 							} catch (NameNotFoundException e) {
@@ -151,10 +157,12 @@ public class ThemeUtils {
 			}
 
 		} catch (XmlPullParserException ex) {
-			Log.e(TAG, String.format("XML parse exception when parsing metadata for '%s': %s",
+			Log.e(TAG, String.format(
+					"XML parse exception when parsing metadata for '%s': %s",
 					appinfo.packageName, ex.getMessage()));
 		} catch (IOException ex) {
-			Log.e(TAG, String.format("I/O exception when parsing metadata for '%s': %s",
+			Log.e(TAG, String.format(
+					"I/O exception when parsing metadata for '%s': %s",
 					appinfo.packageName, ex.getMessage()));
 		}
 
@@ -162,18 +170,20 @@ public class ThemeUtils {
 	}
 
 	/**
-	 * Create a list of all possible themes installed on the device
-	 * for a specific attributeset.
+	 * Create a list of all possible themes installed on the device for a
+	 * specific attributeset.
 	 * 
 	 * @param context
 	 * @param attributeset
 	 * @return
 	 */
-	public static List<ThemeInfo> getThemeInfos(Context context, String attributeset) {
+	public static List<ThemeInfo> getThemeInfos(Context context,
+			String attributeset) {
 		PackageManager pm = context.getPackageManager();
 		String thisPackageName = context.getPackageName();
 
-		List<ApplicationInfo> appinfolist = getThemePackages(pm, thisPackageName);
+		List<ApplicationInfo> appinfolist = getThemePackages(pm,
+				thisPackageName);
 		List<ThemeInfo> themeinfolist = new LinkedList<ThemeInfo>();
 
 		for (ApplicationInfo ai : appinfolist) {

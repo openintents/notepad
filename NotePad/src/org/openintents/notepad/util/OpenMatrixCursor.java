@@ -27,8 +27,8 @@ import android.database.CursorIndexOutOfBoundsException;
 
 /**
  * A mutable cursor implementation backed by an array of {@code Object}s. Use
- * {@link #newRow()} to add rows. Automatically expands internal capacity
- * as needed.
+ * {@link #newRow()} to add rows. Automatically expands internal capacity as
+ * needed.
  */
 public class OpenMatrixCursor extends AbstractCursor {
 
@@ -39,10 +39,12 @@ public class OpenMatrixCursor extends AbstractCursor {
 
 	/**
 	 * Constructs a new cursor with the given initial capacity.
-	 *
-	 * @param columnNames names of the columns, the ordering of which
-	 *  determines column ordering elsewhere in this cursor
-	 * @param initialCapacity in rows
+	 * 
+	 * @param columnNames
+	 *            names of the columns, the ordering of which determines column
+	 *            ordering elsewhere in this cursor
+	 * @param initialCapacity
+	 *            in rows
 	 */
 	public OpenMatrixCursor(String[] columnNames, int initialCapacity) {
 		this.columnNames = columnNames;
@@ -57,9 +59,10 @@ public class OpenMatrixCursor extends AbstractCursor {
 
 	/**
 	 * Constructs a new cursor.
-	 *
-	 * @param columnNames names of the columns, the ordering of which
-	 *  determines column ordering elsewhere in this cursor
+	 * 
+	 * @param columnNames
+	 *            names of the columns, the ordering of which determines column
+	 *            ordering elsewhere in this cursor
 	 */
 	public OpenMatrixCursor(String[] columnNames) {
 		this(columnNames, 16);
@@ -71,7 +74,7 @@ public class OpenMatrixCursor extends AbstractCursor {
 	public Object get(int column) {
 		if (column < 0 || column >= columnCount) {
 			throw new CursorIndexOutOfBoundsException("Requested column: "
-					+ column + ", # of columns: " +  columnCount);
+					+ column + ", # of columns: " + columnCount);
 		}
 		if (mPos < 0) {
 			throw new CursorIndexOutOfBoundsException("Before first row.");
@@ -85,9 +88,9 @@ public class OpenMatrixCursor extends AbstractCursor {
 	/**
 	 * Adds a new row to the end and returns a builder for that row. Not safe
 	 * for concurrent use.
-	 *
+	 * 
 	 * @return builder which can be used to set the column values for the new
-	 *  row
+	 *         row
 	 */
 	public RowBuilder newRow() {
 		rowCount++;
@@ -98,13 +101,15 @@ public class OpenMatrixCursor extends AbstractCursor {
 	}
 
 	/**
-	 * Adds a new row to the end with the given column values. Not safe
-	 * for concurrent use.
-	 *
-	 * @throws IllegalArgumentException if {@code columnValues.length !=
+	 * Adds a new row to the end with the given column values. Not safe for
+	 * concurrent use.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if {@code columnValues.length !=
 	 *  columnNames.length}
-	 * @param columnValues in the same order as the the column names specified
-	 *  at cursor construction time
+	 * @param columnValues
+	 *            in the same order as the the column names specified at cursor
+	 *            construction time
 	 */
 	public void addRow(Object[] columnValues) {
 		if (columnValues.length != columnCount) {
@@ -119,13 +124,15 @@ public class OpenMatrixCursor extends AbstractCursor {
 	}
 
 	/**
-	 * Adds a new row to the end with the given column values. Not safe
-	 * for concurrent use.
-	 *
-	 * @throws IllegalArgumentException if {@code columnValues.size() !=
+	 * Adds a new row to the end with the given column values. Not safe for
+	 * concurrent use.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if {@code columnValues.size() !=
 	 *  columnNames.length}
-	 * @param columnValues in the same order as the the column names specified
-	 *  at cursor construction time
+	 * @param columnValues
+	 *            in the same order as the the column names specified at cursor
+	 *            construction time
 	 */
 	public void addRow(Iterable<?> columnValues) {
 		int start = rowCount * columnCount;
@@ -142,8 +149,8 @@ public class OpenMatrixCursor extends AbstractCursor {
 		for (Object columnValue : columnValues) {
 			if (current == end) {
 				// TODO: null out row?
-						throw new IllegalArgumentException(
-								"columnValues.size() > columnNames.length");
+				throw new IllegalArgumentException(
+						"columnValues.size() > columnNames.length");
 			}
 			localData[current++] = columnValue;
 		}
@@ -203,9 +210,9 @@ public class OpenMatrixCursor extends AbstractCursor {
 
 		/**
 		 * Sets the next column value in this row.
-		 *
-		 * @throws CursorIndexOutOfBoundsException if you try to add too many
-		 *  values
+		 * 
+		 * @throws CursorIndexOutOfBoundsException
+		 *             if you try to add too many values
 		 * @return this builder to support chaining
 		 */
 		public RowBuilder add(Object columnValue) {
@@ -235,37 +242,32 @@ public class OpenMatrixCursor extends AbstractCursor {
 
 	public short getShort(int column) {
 		Object value = get(column);
-		return (value instanceof String)
-				? Short.valueOf((String) value)
-						: ((Number) value).shortValue();
+		return (value instanceof String) ? Short.valueOf((String) value)
+				: ((Number) value).shortValue();
 	}
 
 	public int getInt(int column) {
 		Object value = get(column);
-		return (value instanceof String)
-				? Integer.valueOf((String) value)
-						: ((Number) value).intValue();
+		return (value instanceof String) ? Integer.valueOf((String) value)
+				: ((Number) value).intValue();
 	}
 
 	public long getLong(int column) {
 		Object value = get(column);
-		return (value instanceof String)
-				? Long.valueOf((String) value)
-						: ((Number) value).longValue();
+		return (value instanceof String) ? Long.valueOf((String) value)
+				: ((Number) value).longValue();
 	}
 
 	public float getFloat(int column) {
 		Object value = get(column);
-		return (value instanceof String)
-				? Float.valueOf((String) value)
-						: ((Number) value).floatValue();
+		return (value instanceof String) ? Float.valueOf((String) value)
+				: ((Number) value).floatValue();
 	}
 
 	public double getDouble(int column) {
 		Object value = get(column);
-		return (value instanceof String)
-				? Double.valueOf((String) value)
-						: ((Number) value).doubleValue();
+		return (value instanceof String) ? Double.valueOf((String) value)
+				: ((Number) value).doubleValue();
 	}
 
 	public boolean isNull(int column) {

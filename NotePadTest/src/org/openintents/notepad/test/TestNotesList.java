@@ -31,14 +31,15 @@ import android.test.suitebuilder.annotation.Smoke;
 import com.jayway.android.robotium.solo.Solo;
 
 public class TestNotesList extends InstrumentationTestCase {
-	//ActivityInstrumentationTestCase2<NotesList> {
+	// ActivityInstrumentationTestCase2<NotesList> {
 
 	// Text should be of more than one line so that it would be truncated if
 	// marquee is active. Do not include "..."
 	private static String test_text = "Note to self: OpenIntents is awesome!";
 
 	// At least one tag
-	private static final String[] test_tags = {"OpenIntents", "awesome things", "Android"};
+	private static final String[] test_tags = { "OpenIntents",
+			"awesome things", "Android" };
 
 	private Solo solo;
 	private Activity activity;
@@ -46,8 +47,11 @@ public class TestNotesList extends InstrumentationTestCase {
 
 	/**
 	 * Method to join array elements of type string
-	 * @param inputArray Array which contains strings
-	 * @param glueString String between each array element
+	 * 
+	 * @param inputArray
+	 *            Array which contains strings
+	 * @param glueString
+	 *            String between each array element
 	 * @return String containing all array elements separated by glue string
 	 */
 	public static String implodeArray(String[] inputArray, String glueString) {
@@ -58,7 +62,7 @@ public class TestNotesList extends InstrumentationTestCase {
 			StringBuilder sb = new StringBuilder();
 			sb.append(inputArray[0]);
 
-			for (int i=1; i<inputArray.length; i++) {
+			for (int i = 1; i < inputArray.length; i++) {
 				sb.append(glueString);
 				sb.append(inputArray[i]);
 			}
@@ -79,7 +83,7 @@ public class TestNotesList extends InstrumentationTestCase {
 		String cancel = getAppString(org.openintents.distribution.R.string.oi_distribution_eula_refuse);
 		boolean existsAccept = solo.searchButton(accept);
 		boolean existsCancel = solo.searchButton(cancel);
-		
+
 		if (existsAccept && existsCancel) {
 			solo.clickOnButton(accept);
 		}
@@ -89,20 +93,24 @@ public class TestNotesList extends InstrumentationTestCase {
 	public void test001RecentChanges() {
 		String recentChanges = getAppString(org.openintents.distribution.R.string.oi_distribution_newversion_recent_changes);
 		String cont = getAppString(org.openintents.distribution.R.string.oi_distribution_newversion_continue);
-		while(solo.scrollUp());
+		while (solo.scrollUp())
+			;
 		boolean existsRecentChanges = solo.searchText(recentChanges);
 		boolean existsCont = solo.searchButton(cont);
-		
+
 		if (existsRecentChanges && existsCont) {
 			solo.clickOnButton(cont);
 		}
 	}
 
 	/**
-	 * Add a note
-	 * We should be in the NotesList activity, we'd be back there at the end
-	 * @param method Would be appended to the text
-	 * @param assertCreation Assert that the note was created?
+	 * Add a note We should be in the NotesList activity, we'd be back there at
+	 * the end
+	 * 
+	 * @param method
+	 *            Would be appended to the text
+	 * @param assertCreation
+	 *            Assert that the note was created?
 	 * @return Returns the new test text string
 	 */
 	public String addNote(String method, Boolean assertCreation) {
@@ -125,10 +133,13 @@ public class TestNotesList extends InstrumentationTestCase {
 	}
 
 	/**
-	 * Remove a note
-	 * We should be in the NotesList activity, we'd be back there at the end
-	 * @param noteTitle Note title
-	 * @param assertRemoval Assert that the note was removed?
+	 * Remove a note We should be in the NotesList activity, we'd be back there
+	 * at the end
+	 * 
+	 * @param noteTitle
+	 *            Note title
+	 * @param assertRemoval
+	 *            Assert that the note was removed?
 	 */
 	public void removeNote(String noteTitle, Boolean assertCreation) {
 		solo.assertCurrentActivity("Expected NotesList activity", "NotesList");
@@ -148,12 +159,14 @@ public class TestNotesList extends InstrumentationTestCase {
 	}
 
 	/**
-	 * Add tags to a note
-	 * We should be in the NotesList activity, we'd be back there at the end
+	 * Add tags to a note We should be in the NotesList activity, we'd be back
+	 * there at the end
 	 * 
-	 * There should be at least one note with one tag already present
-	 * so that the tag selection spinner is displayed.
-	 * @param noteTitle Note title
+	 * There should be at least one note with one tag already present so that
+	 * the tag selection spinner is displayed.
+	 * 
+	 * @param noteTitle
+	 *            Note title
 	 */
 	public void addTags(String noteTitle) {
 		solo.assertCurrentActivity("Expected NotesList activity", "NotesList");
@@ -217,7 +230,8 @@ public class TestNotesList extends InstrumentationTestCase {
 
 		// Navigate to preferences
 		solo.clickOnMenuItem("Settings");
-		solo.assertCurrentActivity("Expected PreferenceActivity activity", "PreferenceActivity");
+		solo.assertCurrentActivity("Expected PreferenceActivity activity",
+				"PreferenceActivity");
 
 		// Uncheck the checkbox if it's not checked
 		if (solo.isCheckBoxChecked(0) == true) {
@@ -233,7 +247,8 @@ public class TestNotesList extends InstrumentationTestCase {
 
 		// Navigate to preferences
 		solo.clickOnMenuItem("Settings");
-		solo.assertCurrentActivity("Expected PreferenceActivity activity", "PreferenceActivity");
+		solo.assertCurrentActivity("Expected PreferenceActivity activity",
+				"PreferenceActivity");
 
 		// Check the checkbox if it's not checked
 		if (solo.isCheckBoxChecked(0) == false) {
@@ -305,8 +320,8 @@ public class TestNotesList extends InstrumentationTestCase {
 	/**
 	 * Try saving the note to the SD Card and opening it
 	 * 
-	 * OI Filemanager should not be installed.
-	 * If the file already exists, the file is overwritten.
+	 * OI Filemanager should not be installed. If the file already exists, the
+	 * file is overwritten.
 	 */
 	public void test5_NoteSDCard() {
 		// Add the note
@@ -316,7 +331,8 @@ public class TestNotesList extends InstrumentationTestCase {
 		// Try saving the file to SD Card
 		solo.clickOnMenuItem("Save to SD card");
 		assertTrue(solo.searchText("Save to SD card"));
-		String file_path = android.os.Environment.getExternalStorageDirectory().toString();
+		String file_path = android.os.Environment.getExternalStorageDirectory()
+				.toString();
 		if (!file_path.endsWith("/")) {
 			file_path += "/";
 		}
@@ -329,24 +345,25 @@ public class TestNotesList extends InstrumentationTestCase {
 		if (solo.searchText("File exists already")) {
 			solo.clickOnText("OK");
 		}
-		
+
 		solo.goBack();
 
 		// Check if the file was written on the sdcard
-		try{
-			File f = new File(file_path); 
+		try {
+			File f = new File(file_path);
 			FileInputStream fileIS = new FileInputStream(f);
-			BufferedReader buf = new BufferedReader(new InputStreamReader(fileIS));
+			BufferedReader buf = new BufferedReader(new InputStreamReader(
+					fileIS));
 			String readString = new String();
 			String file_content = new String();
-			//just reading each line and pass it on the debugger
-			while((readString = buf.readLine())!= null){
+			// just reading each line and pass it on the debugger
+			while ((readString = buf.readLine()) != null) {
 				file_content = file_content.concat(readString);
 			}
 			assertEquals(file_content, sdcard_test_text);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch (IOException e){
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -360,8 +377,8 @@ public class TestNotesList extends InstrumentationTestCase {
 	}
 
 	/**
-	 * Filter the results by a tag that we added
-	 * and verify that our note is there.
+	 * Filter the results by a tag that we added and verify that our note is
+	 * there.
 	 */
 	public void test7_TagsFilter() {
 		// Add the note and tags

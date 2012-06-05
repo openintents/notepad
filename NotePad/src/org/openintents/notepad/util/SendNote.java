@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 public class SendNote {
-	public static void sendNote(Activity from, String title, String content){
+	public static void sendNote(Activity from, String title, String content) {
 		Intent i = new Intent();
 		i.setAction(Intent.ACTION_SEND);
 		i.setType("text/plain");

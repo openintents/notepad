@@ -16,7 +16,6 @@
 
 package org.openintents.notepad;
 
-
 import java.util.HashMap;
 
 import org.openintents.intents.ProviderIntents;
@@ -78,22 +77,20 @@ public class NotePadProvider extends ContentProvider {
 
 		@Override
 		public void onCreate(SQLiteDatabase db) {
-			db.execSQL("CREATE TABLE " + NOTES_TABLE_NAME + " ("
+			db.execSQL("CREATE TABLE "
+					+ NOTES_TABLE_NAME
+					+ " ("
 					// Version 2:
-					+ Notes._ID + " INTEGER PRIMARY KEY,"
-					+ Notes.TITLE + " TEXT,"
-					+ Notes.NOTE + " TEXT,"
-					+ Notes.CREATED_DATE + " INTEGER,"
-					+ Notes.MODIFIED_DATE + " INTEGER,"
+					+ Notes._ID + " INTEGER PRIMARY KEY," + Notes.TITLE
+					+ " TEXT," + Notes.NOTE + " TEXT," + Notes.CREATED_DATE
+					+ " INTEGER," + Notes.MODIFIED_DATE
+					+ " INTEGER,"
 					// Version 3:
-					+ Notes.TAGS + " TEXT,"
-					+ Notes.ENCRYPTED + " INTEGER,"
+					+ Notes.TAGS + " TEXT," + Notes.ENCRYPTED + " INTEGER,"
 					+ Notes.THEME + " TEXT,"
 					// Version 4:
-					+ Notes.SELECTION_START + " INTEGER,"
-					+ Notes.SELECTION_END + " INTEGER,"
-					+ Notes.SCROLL_POSITION + " REAL"
-					+ ");");
+					+ Notes.SELECTION_START + " INTEGER," + Notes.SELECTION_END
+					+ " INTEGER," + Notes.SCROLL_POSITION + " REAL" + ");");
 		}
 
 		@Override
@@ -102,51 +99,59 @@ public class NotePadProvider extends ContentProvider {
 					+ newVersion + ".");
 			if (newVersion > oldVersion) {
 				// Upgrade
-				switch(oldVersion) {
-					case 2:
-						// Upgrade from version 2 to 3.
-						// It seems SQLite3 only allows to add one column at a time,
-						// so we need three SQL statements:
-						try {
-							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
-									+ Notes.TAGS + " TEXT;");
-							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
-									+ Notes.ENCRYPTED + " INTEGER;");
-							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
-									+ Notes.THEME + " TEXT;");
-						} catch (SQLException e) {
-							Log.e(TAG, "Error executing SQL: ", e);
-							// If the error is "duplicate column name" then everything is fine,
-							// as this happens after upgrading 2->3, then downgrading 3->2, 
-							// and then upgrading again 2->3.
-						}
-						// fall through for further upgrades.
-						
-					case 3:
-						// Upgrade from version 3 to 4
-						try {
-							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
-									+ Notes.SELECTION_START + " INTEGER;");
-							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
-									+ Notes.SELECTION_END + " INTEGER;");
-							db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
-									+ Notes.SCROLL_POSITION + " REAL;");
-						} catch (SQLException e) {
-							Log.e(TAG, "Error executing SQL: ", e);
-						}
-						
-					case 4:
-						// add more columns here
-						break;
-						
-					default:
-						Log.w(TAG, "Unknown version " + oldVersion + ". Creating new database.");
-						db.execSQL("DROP TABLE IF EXISTS notes");
-						onCreate(db);
+				switch (oldVersion) {
+				case 2:
+					// Upgrade from version 2 to 3.
+					// It seems SQLite3 only allows to add one column at a time,
+					// so we need three SQL statements:
+					try {
+						db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME
+								+ " ADD COLUMN " + Notes.TAGS + " TEXT;");
+						db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME
+								+ " ADD COLUMN " + Notes.ENCRYPTED
+								+ " INTEGER;");
+						db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME
+								+ " ADD COLUMN " + Notes.THEME + " TEXT;");
+					} catch (SQLException e) {
+						Log.e(TAG, "Error executing SQL: ", e);
+						// If the error is "duplicate column name" then
+						// everything is fine,
+						// as this happens after upgrading 2->3, then
+						// downgrading 3->2,
+						// and then upgrading again 2->3.
+					}
+					// fall through for further upgrades.
+
+				case 3:
+					// Upgrade from version 3 to 4
+					try {
+						db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME
+								+ " ADD COLUMN " + Notes.SELECTION_START
+								+ " INTEGER;");
+						db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME
+								+ " ADD COLUMN " + Notes.SELECTION_END
+								+ " INTEGER;");
+						db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME
+								+ " ADD COLUMN " + Notes.SCROLL_POSITION
+								+ " REAL;");
+					} catch (SQLException e) {
+						Log.e(TAG, "Error executing SQL: ", e);
+					}
+
+				case 4:
+					// add more columns here
+					break;
+
+				default:
+					Log.w(TAG, "Unknown version " + oldVersion
+							+ ". Creating new database.");
+					db.execSQL("DROP TABLE IF EXISTS notes");
+					onCreate(db);
 				}
 			} else { // newVersion <= oldVersion
 				// Downgrade
-				Log.w(TAG, "Don't know how to downgrade. Will not touch database and hope they are compatible.");
+				Log.w(TAG,
+						"Don't know how to downgrade. Will not touch database and hope they are compatible.");
 				// Do nothing.
 			}
 		}
@@ -161,24 +166,24 @@ public class NotePadProvider extends ContentProvider {
 	}
 
 	@Override
-	public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
-			String sortOrder) {
+	public Cursor query(Uri uri, String[] projection, String selection,
+			String[] selectionArgs, String sortOrder) {
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
 		switch (sUriMatcher.match(uri)) {
-			case NOTES:
-				qb.setTables(NOTES_TABLE_NAME);
-				qb.setProjectionMap(sNotesProjectionMap);
-				break;
+		case NOTES:
+			qb.setTables(NOTES_TABLE_NAME);
+			qb.setProjectionMap(sNotesProjectionMap);
+			break;
 
-			case NOTE_ID:
-				qb.setTables(NOTES_TABLE_NAME);
-				qb.setProjectionMap(sNotesProjectionMap);
-				qb.appendWhere(Notes._ID + "=" + uri.getPathSegments().get(1));
-				break;
+		case NOTE_ID:
+			qb.setTables(NOTES_TABLE_NAME);
+			qb.setProjectionMap(sNotesProjectionMap);
+			qb.appendWhere(Notes._ID + "=" + uri.getPathSegments().get(1));
+			break;
 
-			default:
-				throw new IllegalArgumentException("Unknown URI " + uri);
+		default:
+			throw new IllegalArgumentException("Unknown URI " + uri);
 		}
 
 		// If no sort order is specified use the default
@@ -191,9 +196,11 @@ public class NotePadProvider extends ContentProvider {
 
 		// Get the database and run the query
 		SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-		Cursor c = qb.query(db, projection, selection, selectionArgs, null, null, orderBy);
+		Cursor c = qb.query(db, projection, selection, selectionArgs, null,
+				null, orderBy);
 
-		// Tell the cursor what uri to watch, so it knows when its source data changes
+		// Tell the cursor what uri to watch, so it knows when its source data
+		// changes
 		c.setNotificationUri(getContext().getContentResolver(), uri);
 		return c;
 	}
@@ -201,14 +208,14 @@ public class NotePadProvider extends ContentProvider {
 	@Override
 	public String getType(Uri uri) {
 		switch (sUriMatcher.match(uri)) {
-			case NOTES:
-				return Notes.CONTENT_TYPE;
+		case NOTES:
+			return Notes.CONTENT_TYPE;
 
-			case NOTE_ID:
-				return Notes.CONTENT_ITEM_TYPE;
+		case NOTE_ID:
+			return Notes.CONTENT_ITEM_TYPE;
 
-			default:
-				throw new IllegalArgumentException("Unknown URI " + uri);
+		default:
+			throw new IllegalArgumentException("Unknown URI " + uri);
 		}
 	}
 
@@ -239,29 +246,31 @@ public class NotePadProvider extends ContentProvider {
 
 		if (values.containsKey(NotePad.Notes.TITLE) == false) {
 			Resources r = Resources.getSystem();
-			values.put(NotePad.Notes.TITLE, r.getString(android.R.string.untitled));
+			values.put(NotePad.Notes.TITLE,
+					r.getString(android.R.string.untitled));
 		}
 
 		if (values.containsKey(NotePad.Notes.NOTE) == false) {
 			values.put(NotePad.Notes.NOTE, "");
 		}
-		
-		if(values.containsKey(Notes.SELECTION_START) == false) {
+
+		if (values.containsKey(Notes.SELECTION_START) == false) {
 			values.put(Notes.SELECTION_START, 0);
 		}
-		
-		if(values.containsKey(Notes.SELECTION_END) == false) {
+
+		if (values.containsKey(Notes.SELECTION_END) == false) {
 			values.put(Notes.SELECTION_END, 0);
 		}
-		
-		if(values.containsKey(Notes.SCROLL_POSITION) == false) {
+
+		if (values.containsKey(Notes.SCROLL_POSITION) == false) {
 			values.put(Notes.SCROLL_POSITION, 0.0);
 		}
 
 		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		long rowId = db.insert(NOTES_TABLE_NAME, Notes.NOTE, values);
 		if (rowId > 0) {
-			Uri noteUri = ContentUris.withAppendedId(NotePad.Notes.CONTENT_URI, rowId);
+			Uri noteUri = ContentUris.withAppendedId(NotePad.Notes.CONTENT_URI,
+					rowId);
 			getContext().getContentResolver().notifyChange(noteUri, null);
 
 			Intent intent = new Intent(ProviderIntents.ACTION_INSERTED);
@@ -280,22 +289,24 @@ public class NotePadProvider extends ContentProvider {
 		int count;
 		long[] affectedRows = null;
 		switch (sUriMatcher.match(uri)) {
-			case NOTES:
-				affectedRows = ProviderUtils.getAffectedRows(db, NOTES_TABLE_NAME, where, whereArgs);
-				count = db.delete(NOTES_TABLE_NAME, where, whereArgs);
-				break;
+		case NOTES:
+			affectedRows = ProviderUtils.getAffectedRows(db, NOTES_TABLE_NAME,
+					where, whereArgs);
+			count = db.delete(NOTES_TABLE_NAME, where, whereArgs);
+			break;
 
-			case NOTE_ID:
-				String noteId = uri.getPathSegments().get(1);
-				String whereString = Notes._ID + "=" + noteId
-						+ (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : "");
+		case NOTE_ID:
+			String noteId = uri.getPathSegments().get(1);
+			String whereString = Notes._ID + "=" + noteId
+					+ (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : "");
 
-				affectedRows = ProviderUtils.getAffectedRows(db, NOTES_TABLE_NAME, whereString, whereArgs);
-				count = db.delete(NOTES_TABLE_NAME, whereString, whereArgs);
-				break;
+			affectedRows = ProviderUtils.getAffectedRows(db, NOTES_TABLE_NAME,
+					whereString, whereArgs);
+			count = db.delete(NOTES_TABLE_NAME, whereString, whereArgs);
+			break;
 
-			default:
-				throw new IllegalArgumentException("Unknown URI " + uri);
+		default:
+			throw new IllegalArgumentException("Unknown URI " + uri);
 		}
 
 		getContext().getContentResolver().notifyChange(uri, null);
@@ -309,22 +320,27 @@ public class NotePadProvider extends ContentProvider {
 	}
 
 	@Override
-	public int update(Uri uri, ContentValues values, String where, String[] whereArgs) {
+	public int update(Uri uri, ContentValues values, String where,
+			String[] whereArgs) {
 		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		int count;
 		switch (sUriMatcher.match(uri)) {
-			case NOTES:
-				count = db.update(NOTES_TABLE_NAME, values, where, whereArgs);
-				break;
+		case NOTES:
+			count = db.update(NOTES_TABLE_NAME, values, where, whereArgs);
+			break;
 
-			case NOTE_ID:
-				String noteId = uri.getPathSegments().get(1);
-				count = db.update(NOTES_TABLE_NAME, values, Notes._ID + "=" + noteId
-						+ (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : ""), whereArgs);
-				break;
+		case NOTE_ID:
+			String noteId = uri.getPathSegments().get(1);
+			count = db.update(NOTES_TABLE_NAME, values,
+					Notes._ID
+							+ "="
+							+ noteId
+							+ (!TextUtils.isEmpty(where) ? " AND (" + where
+									+ ')' : ""), whereArgs);
+			break;
 
-			default:
-				throw new IllegalArgumentException("Unknown URI " + uri);
+		default:
+			throw new IllegalArgumentException("Unknown URI " + uri);
 		}
 
 		getContext().getContentResolver().notifyChange(uri, null);

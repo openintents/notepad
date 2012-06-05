@@ -38,15 +38,15 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-public class SearchQueryResultsActivity extends ListActivity
-{
+public class SearchQueryResultsActivity extends ListActivity {
 	NotesListCursor mCursorUtils;
 	NotesListCursorAdapter mAdapter;
 
-	/** Called with the activity is first created.
+	/**
+	 * Called with the activity is first created.
 	 * 
-	 *  After the typical activity setup code, we check to see if we were launched
-	 *  with the ACTION_SEARCH intent, and if so, we handle it.
+	 * After the typical activity setup code, we check to see if we were
+	 * launched with the ACTION_SEARCH intent, and if so, we handle it.
 	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,12 +64,13 @@ public class SearchQueryResultsActivity extends ListActivity
 		}
 	}
 
-	/** 
+	/**
 	 * Called when new intent is delivered.
-	 *
+	 * 
 	 * This is where we check the incoming intent for a query string.
 	 * 
-	 * @param newIntent The intent used to restart this activity
+	 * @param newIntent
+	 *            The intent used to restart this activity
 	 */
 	@Override
 	public void onNewIntent(final Intent newIntent) {
@@ -90,13 +91,14 @@ public class SearchQueryResultsActivity extends ListActivity
 	/**
 	 * Generic search handler.
 	 * 
-	 * In a "real" application, you would use the query string to select results from
-	 * your data source, and present a list of those results to the user.
+	 * In a "real" application, you would use the query string to select results
+	 * from your data source, and present a list of those results to the user.
 	 */
 	private void doSearchQuery(final Intent queryIntent, final String entryPoint) {
 
 		// The search query is provided as an "extra" string in the query intent
-		final String queryString = queryIntent.getStringExtra(SearchManager.QUERY);
+		final String queryString = queryIntent
+				.getStringExtra(SearchManager.QUERY);
 
 		Intent i = new Intent();
 		i.setData(Notes.CONTENT_URI);
@@ -106,10 +108,10 @@ public class SearchQueryResultsActivity extends ListActivity
 
 		cursor = FullTextSearch.getCursor(this, queryString);
 		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-				android.R.layout.simple_list_item_2,
-				cursor,
-				new String[] {SearchManager.SUGGEST_COLUMN_TEXT_1, SearchManager.SUGGEST_COLUMN_TEXT_2},
-				new int[] {android.R.id.text1, android.R.id.text2});
+				android.R.layout.simple_list_item_2, cursor, new String[] {
+						SearchManager.SUGGEST_COLUMN_TEXT_1,
+						SearchManager.SUGGEST_COLUMN_TEXT_2 }, new int[] {
+						android.R.id.text1, android.R.id.text2 });
 
 		if (cursor.getCount() <= 0) {
 			// Nothing found.
@@ -123,7 +125,7 @@ public class SearchQueryResultsActivity extends ListActivity
 					android.R.layout.simple_list_item_1, new String[] {}));
 		} else {
 
-			//setListAdapter(mAdapter);
+			// setListAdapter(mAdapter);
 			setListAdapter(adapter);
 		}
 
@@ -148,6 +150,5 @@ public class SearchQueryResultsActivity extends ListActivity
 			startActivity(new Intent(Intent.ACTION_EDIT, uri));
 		}
 	}
-
 
 }

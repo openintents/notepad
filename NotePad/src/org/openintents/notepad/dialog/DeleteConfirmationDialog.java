@@ -9,9 +9,10 @@ import android.content.DialogInterface.OnClickListener;
 /**
  * Deletion confirmation dialog. How to delete is handled by the onClickListener
  */
-public class DeleteConfirmationDialog extends AlertDialog.Builder{
+public class DeleteConfirmationDialog extends AlertDialog.Builder {
 
-	public DeleteConfirmationDialog(Context context, OnClickListener onClickListener) {
+	public DeleteConfirmationDialog(Context context,
+			OnClickListener onClickListener) {
 		super(context);
 		setIcon(android.R.drawable.ic_dialog_alert);
 		setTitle(R.string.confirm_delete_title);

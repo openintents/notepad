@@ -37,12 +37,18 @@ public class TagsDialog extends AlertDialog implements OnClickListener {
 	String[] mTagList;
 
 	/**
-	 * @param context Parent.
-	 * @param theme the theme to apply to this dialog
-	 * @param callBack How parent is notified.
-	 * @param hourOfDay The initial hour.
-	 * @param minute The initial minute.
-	 * @param is24HourView Whether this is a 24 hour view, or AM/PM.
+	 * @param context
+	 *            Parent.
+	 * @param theme
+	 *            the theme to apply to this dialog
+	 * @param callBack
+	 *            How parent is notified.
+	 * @param hourOfDay
+	 *            The initial hour.
+	 * @param minute
+	 *            The initial minute.
+	 * @param is24HourView
+	 *            Whether this is a 24 hour view, or AM/PM.
 	 */
 	public TagsDialog(Context context) {
 		super(context);
@@ -50,11 +56,12 @@ public class TagsDialog extends AlertDialog implements OnClickListener {
 
 		setTitle(context.getText(R.string.menu_edit_tags));
 		setButton(context.getText(android.R.string.ok), this);
-		setButton2(context.getText(android.R.string.cancel), (OnClickListener) null);
-		//setIcon(R.drawable.ic_menu_edit);
+		setButton2(context.getText(android.R.string.cancel),
+				(OnClickListener) null);
+		// setIcon(R.drawable.ic_menu_edit);
 
-		LayoutInflater inflater = 
-				(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.dialog_edit_tags, null);
 		setView(view);
 
@@ -73,14 +80,10 @@ public class TagsDialog extends AlertDialog implements OnClickListener {
 			mTextView.setHint(R.string.tags_hint);
 		}
 		/*
-		Button b = (Button) view.findViewById(R.id.button1);
-		b.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				toggleTaglistPopup();
-			}
-		});
+		 * Button b = (Button) view.findViewById(R.id.button1);
+		 * b.setOnClickListener(new View.OnClickListener() {
+		 * 
+		 * @Override public void onClick(View v) { toggleTaglistPopup(); } });
 		 */
 	}
 
@@ -148,13 +151,14 @@ public class TagsDialog extends AlertDialog implements OnClickListener {
 			// Encrypt the tag
 
 			Intent i = new Intent(mContext, EncryptActivity.class);
-			i.putExtra(PrivateNotePadIntents.EXTRA_ACTION, CryptoIntents.ACTION_ENCRYPT);
-			i.putExtra(CryptoIntents.EXTRA_TEXT_ARRAY, EncryptActivity.getCryptoStringArray(null, null, tags));
+			i.putExtra(PrivateNotePadIntents.EXTRA_ACTION,
+					CryptoIntents.ACTION_ENCRYPT);
+			i.putExtra(CryptoIntents.EXTRA_TEXT_ARRAY,
+					EncryptActivity.getCryptoStringArray(null, null, tags));
 			i.putExtra(PrivateNotePadIntents.EXTRA_URI, mUri.toString());
 			mContext.startActivity(i);
 		}
 	}
-
 
 	@Override
 	public Bundle onSaveInstanceState() {

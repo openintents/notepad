@@ -32,10 +32,9 @@ public class DialogHostingActivity extends Activity {
 	public static final String EXTRA_DIALOG_ID = "org.openintents.notepad.extra.dialog_id";
 
 	/**
-	 * Whether dialog is simply pausing while hidden by another activity
-	 * or when configuration changes.
-	 * If this is false, then we can safely finish this activity if a dialog
-	 * gets dismissed.
+	 * Whether dialog is simply pausing while hidden by another activity or when
+	 * configuration changes. If this is false, then we can safely finish this
+	 * activity if a dialog gets dismissed.
 	 */
 	private boolean mIsPausing = false;
 
@@ -49,25 +48,28 @@ public class DialogHostingActivity extends Activity {
 
 		Intent i = getIntent();
 		if (i != null && savedInstanceState == null) {
-			if (debug) Log.d(TAG, "new dialog");
+			if (debug)
+				Log.d(TAG, "new dialog");
 			int dialogId = i.getIntExtra(EXTRA_DIALOG_ID, 0);
 			switch (dialogId) {
-				case DIALOG_ID_SAVE:
-					if (debug) Log.i(TAG, "Show Save dialog");
-					saveFile();
-					break;
-				case DIALOG_ID_OPEN:
-					if (debug) Log.i(TAG, "Show Save dialog");
-					openFile();
-					break;
-				case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-					if (debug) Log.i(TAG, "Show no file manager dialog");
-					showDialog(DIALOG_ID_NO_FILE_MANAGER_AVAILABLE);
-					break;
+			case DIALOG_ID_SAVE:
+				if (debug)
+					Log.i(TAG, "Show Save dialog");
+				saveFile();
+				break;
+			case DIALOG_ID_OPEN:
+				if (debug)
+					Log.i(TAG, "Show Save dialog");
+				openFile();
+				break;
+			case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+				if (debug)
+					Log.i(TAG, "Show no file manager dialog");
+				showDialog(DIALOG_ID_NO_FILE_MANAGER_AVAILABLE);
+				break;
 			}
 		}
 	}
-
 
 	/**
 	 * 
@@ -78,9 +80,12 @@ public class DialogHostingActivity extends Activity {
 		Intent intent = new Intent(FileManagerIntents.ACTION_PICK_FILE);
 		intent.setData(getIntent().getData());
 		if (IntentUtils.isIntentAvailable(this, intent)) {
-			intent.putExtra(PrivateNotePadIntents.EXTRA_URI, getIntent().getStringExtra(PrivateNotePadIntents.EXTRA_URI));
-			intent.putExtra(FileManagerIntents.EXTRA_TITLE, getText(R.string.menu_save_to_sdcard));
-			intent.putExtra(FileManagerIntents.EXTRA_BUTTON_TEXT, getText(R.string.save));
+			intent.putExtra(PrivateNotePadIntents.EXTRA_URI, getIntent()
+					.getStringExtra(PrivateNotePadIntents.EXTRA_URI));
+			intent.putExtra(FileManagerIntents.EXTRA_TITLE,
+					getText(R.string.menu_save_to_sdcard));
+			intent.putExtra(FileManagerIntents.EXTRA_BUTTON_TEXT,
+					getText(R.string.save));
 			intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
 			startActivity(intent);
 			finish();
@@ -90,16 +95,18 @@ public class DialogHostingActivity extends Activity {
 		}
 	}
 
-
 	private void openFile() {
 
 		// Check whether intent exists
 		Intent intent = new Intent(FileManagerIntents.ACTION_PICK_FILE);
 		intent.setData(getIntent().getData());
 		if (IntentUtils.isIntentAvailable(this, intent)) {
-			intent.putExtra(PrivateNotePadIntents.EXTRA_URI, getIntent().getStringExtra(PrivateNotePadIntents.EXTRA_URI));
-			intent.putExtra(FileManagerIntents.EXTRA_TITLE, getText(R.string.menu_open_from_sdcard));
-			intent.putExtra(FileManagerIntents.EXTRA_BUTTON_TEXT, getText(R.string.open));
+			intent.putExtra(PrivateNotePadIntents.EXTRA_URI, getIntent()
+					.getStringExtra(PrivateNotePadIntents.EXTRA_URI));
+			intent.putExtra(FileManagerIntents.EXTRA_TITLE,
+					getText(R.string.menu_open_from_sdcard));
+			intent.putExtra(FileManagerIntents.EXTRA_BUTTON_TEXT,
+					getText(R.string.open));
 			intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
 			startActivity(intent);
 			finish();
@@ -114,24 +121,24 @@ public class DialogHostingActivity extends Activity {
 		Dialog dialog = null;
 
 		switch (id) {
-			case DIALOG_ID_SAVE:
-				FilenameDialog fd = new FilenameDialog(this);
-				fd.setTitle(R.string.menu_save_to_sdcard);
-				fd.setFilename(mFilename);
-				fd.setOnFilenamePickedListener(mFilenamePickedListener);
-				dialog = fd;
-				break;
-			case DIALOG_ID_OPEN:
-				fd = new FilenameDialog(this);
-				fd.setTitle(R.string.menu_open_from_sdcard);
-				fd.setFilename(mFilename);
-				fd.setOnFilenamePickedListener(mFilenamePickedListener);
-				dialog = fd;
-				break;
-			case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-				dialog = new DownloadOIAppDialog(this,
-						DownloadOIAppDialog.OI_FILEMANAGER);
-				break;
+		case DIALOG_ID_SAVE:
+			FilenameDialog fd = new FilenameDialog(this);
+			fd.setTitle(R.string.menu_save_to_sdcard);
+			fd.setFilename(mFilename);
+			fd.setOnFilenamePickedListener(mFilenamePickedListener);
+			dialog = fd;
+			break;
+		case DIALOG_ID_OPEN:
+			fd = new FilenameDialog(this);
+			fd.setTitle(R.string.menu_open_from_sdcard);
+			fd.setFilename(mFilename);
+			fd.setOnFilenamePickedListener(mFilenamePickedListener);
+			dialog = fd;
+			break;
+		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+			dialog = new DownloadOIAppDialog(this,
+					DownloadOIAppDialog.OI_FILEMANAGER);
+			break;
 		}
 		if (dialog == null) {
 			dialog = super.onCreateDialog(id);
@@ -147,22 +154,24 @@ public class DialogHostingActivity extends Activity {
 		super.onPrepareDialog(id, dialog);
 
 		switch (id) {
-			case DIALOG_ID_SAVE:
-				break;
-			case DIALOG_ID_OPEN:
-				break;
-			case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-				DownloadOIAppDialog.onPrepareDialog(this, dialog);
-				break;
+		case DIALOG_ID_SAVE:
+			break;
+		case DIALOG_ID_OPEN:
+			break;
+		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+			DownloadOIAppDialog.onPrepareDialog(this, dialog);
+			break;
 		}
 	}
 
 	OnDismissListener mDismissListener = new OnDismissListener() {
 
 		public void onDismiss(DialogInterface dialoginterface) {
-			if (debug) Log.d(TAG, "Dialog dismissed. Pausing: " + mIsPausing);
+			if (debug)
+				Log.d(TAG, "Dialog dismissed. Pausing: " + mIsPausing);
 			if (!mIsPausing) {
-				if (debug) Log.d(TAG, "finish");
+				if (debug)
+					Log.d(TAG, "finish");
 				// Dialog has been dismissed by user.
 				DialogHostingActivity.this.finish();
 			} else {
@@ -176,7 +185,8 @@ public class DialogHostingActivity extends Activity {
 	OnFilenamePickedListener mFilenamePickedListener = new OnFilenamePickedListener() {
 
 		public void onFilenamePicked(String filename) {
-			if (debug) Log.d(TAG, "Filename picked: " + filename);
+			if (debug)
+				Log.d(TAG, "Filename picked: " + filename);
 
 			Intent intent = getIntent();
 			Uri uri = FileUriUtils.getUri(new File(filename));
@@ -190,16 +200,19 @@ public class DialogHostingActivity extends Activity {
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		if (debug) Log.d(TAG, "onSaveInstanceState");
+		if (debug)
+			Log.d(TAG, "onSaveInstanceState");
 		// It is important to set mIsPausing here, so that
 		// the dialog does not get closed on orientation changes.
 		mIsPausing = true;
-		if (debug) Log.d(TAG, "onSaveInstanceState. Pausing: " + mIsPausing);
+		if (debug)
+			Log.d(TAG, "onSaveInstanceState. Pausing: " + mIsPausing);
 	}
 
 	@Override
 	protected void onResume() {
-		if (debug) Log.d(TAG, "onResume");
+		if (debug)
+			Log.d(TAG, "onResume");
 		super.onResume();
 		// In case another activity is called, and we are resumed,
 		// mIsPausing should be reset to its original state.

@@ -29,6 +29,7 @@ public class FileUriUtils {
 
 	/**
 	 * Convert File into Uri.
+	 * 
 	 * @param file
 	 * @return uri
 	 */
@@ -39,9 +40,9 @@ public class FileUriUtils {
 		return null;
 	}
 
-
 	/**
 	 * Convert Uri into File.
+	 * 
 	 * @param uri
 	 * @return file
 	 */
@@ -57,6 +58,7 @@ public class FileUriUtils {
 
 	/**
 	 * Convert String into Uri.
+	 * 
 	 * @param file
 	 * @return uri
 	 */
@@ -66,6 +68,7 @@ public class FileUriUtils {
 
 	/**
 	 * Convert Uri into String.
+	 * 
 	 * @param uri
 	 * @return file
 	 */
@@ -89,8 +92,7 @@ public class FileUriUtils {
 		if (curdir.endsWith("/")) {
 			separator = "";
 		}
-		File clickedFile = new File(curdir + separator
-				+ file);
+		File clickedFile = new File(curdir + separator + file);
 		return clickedFile;
 	}
 

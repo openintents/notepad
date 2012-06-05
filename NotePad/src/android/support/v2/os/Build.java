@@ -24,93 +24,96 @@ package android.support.v2.os;
 public class Build {
 	public static class VERSION {
 		public static int SDK_INT = 2;
-		
+
 		static {
 			try {
 				// Android 1.6 (v4) and higher:
 				// access Build.VERSION.SDK_INT.
-				SDK_INT = android.os.Build.VERSION.class.getField("SDK_INT").getInt(null);
+				SDK_INT = android.os.Build.VERSION.class.getField("SDK_INT")
+						.getInt(null);
 			} catch (Exception e) {
 				try {
 					// Android 1.5 (v3) and lower:
 					// access Build.VERSION.SDK.
-					SDK_INT = Integer.parseInt((String) android.os.Build.VERSION.class.getField("SDK").get(null));
+					SDK_INT = Integer
+							.parseInt((String) android.os.Build.VERSION.class
+									.getField("SDK").get(null));
 				} catch (Exception e2) {
 					// This should never happen:
 					SDK_INT = 2;
 				}
 			}
-		}	
+		}
 	}
-	
+
 	public static class VERSION_CODES {
 		/**
-		 * Magic version number for a current development build, which has
-		 * not yet turned into an official release.
+		 * Magic version number for a current development build, which has not
+		 * yet turned into an official release.
 		 */
 		public static final int CUR_DEVELOPMENT = 10000;
-		
+
 		/**
 		 * October 2008: Android 1.0
 		 */
 		public static final int BASE = 1;
-		
+
 		/**
 		 * February 2009: Android 1.1.
 		 */
 		public static final int BASE_1_1 = 2;
-		
+
 		/**
 		 * May 2009: Android 1.5.
 		 */
 		public static final int CUPCAKE = 3;
-		
+
 		/**
 		 * September 2009: Android 1.6.
 		 */
 		public static final int DONUT = 4;
-		
+
 		/**
 		 * November 2009: Android 2.0
 		 * 
 		 */
 		public static final int ECLAIR = 5;
-		
+
 		/**
 		 * December 2009: Android 2.0.1
 		 */
 		public static final int ECLAIR_0_1 = 6;
-		
+
 		/**
 		 * January 2010: Android 2.1
 		 */
 		public static final int ECLAIR_MR1 = 7;
-		
+
 		/**
 		 * June 2010: Android 2.2
 		 */
 		public static final int FROYO = 8;
-		
+
 		/**
 		 * November 2010: Android 2.3
 		 */
 		public static final int GINGERBREAD = 9;
-		
+
 		/**
 		 * February 2011: Android 2.3.3.
 		 */
 		public static final int GINGERBREAD_MR1 = 10;
-		
+
 		/**
 		 * February 2011: Android 3.0.
 		 */
 		public static final int HONEYCOMB = 11;
-		
+
 		/**
 		 * May 2011: Android 3.1.
 		 */
 		public static final int HONEYCOMB_MR1 = 12;
-		
+
 		/**
 		 * June 2011: Android 3.2.
 		 */

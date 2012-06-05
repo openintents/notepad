@@ -37,8 +37,6 @@ public class SaveFileActivity extends Activity {
 	File mSaveFilename;
 	String mSaveContent;
 
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -47,10 +45,12 @@ public class SaveFileActivity extends Activity {
 		if (savedInstanceState != null) {
 			// retrieve data from saved instance
 			if (savedInstanceState.containsKey(BUNDLE_SAVE_FILENAME)) {
-				mSaveFilename = new File(savedInstanceState.getString(BUNDLE_SAVE_FILENAME));
+				mSaveFilename = new File(
+						savedInstanceState.getString(BUNDLE_SAVE_FILENAME));
 			}
 			if (savedInstanceState.containsKey(BUNDLE_SAVE_CONTENT)) {
-				mSaveContent = savedInstanceState.getString(BUNDLE_SAVE_CONTENT);
+				mSaveContent = savedInstanceState
+						.getString(BUNDLE_SAVE_CONTENT);
 			}
 		} else {
 			// start new activity
@@ -61,7 +61,8 @@ public class SaveFileActivity extends Activity {
 				if (uri.getScheme().equals("file")) {
 					// Save file provided in extras
 					fileUri = uri;
-					mSaveContent = intent.getStringExtra(NotepadInternalIntents.EXTRA_TEXT);
+					mSaveContent = intent
+							.getStringExtra(NotepadInternalIntents.EXTRA_TEXT);
 				} else {
 					// Save a note specified by the note URI
 					fileUri = getFilenameFromNoteTitle(uri);
@@ -83,13 +84,13 @@ public class SaveFileActivity extends Activity {
 		setResult(RESULT_CANCELED);
 	}
 
-
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 
 		if (mSaveFilename != null) {
-			outState.putString(BUNDLE_SAVE_FILENAME, mSaveFilename.getAbsolutePath());
+			outState.putString(BUNDLE_SAVE_FILENAME,
+					mSaveFilename.getAbsolutePath());
 		}
 		if (mSaveContent != null) {
 			outState.putString(BUNDLE_SAVE_CONTENT, mSaveContent);
@@ -99,7 +100,8 @@ public class SaveFileActivity extends Activity {
 	private String getNote(Uri uri) {
 		String note = null;
 
-		Cursor c = getContentResolver().query(uri, new String[] {Notes.ENCRYPTED, Notes.NOTE}, null, null, null);
+		Cursor c = getContentResolver().query(uri,
+				new String[] { Notes.ENCRYPTED, Notes.NOTE }, null, null, null);
 
 		if (c != null && c.moveToFirst()) {
 			long encrypted = c.getLong(0);
@@ -125,7 +127,9 @@ public class SaveFileActivity extends Activity {
 		File sdcard = getSdCardPath();
 
 		// Construct file name:
-		Cursor c = getContentResolver().query(noteUri, new String[] {NotePad.Notes._ID, NotePad.Notes.TITLE}, null, null, null);
+		Cursor c = getContentResolver().query(noteUri,
+				new String[] { NotePad.Notes._ID, NotePad.Notes.TITLE }, null,
+				null, null);
 		String filename;
 		if (c != null & c.moveToFirst()) {
 			filename = c.getString(1) + ".txt";
@@ -144,7 +148,8 @@ public class SaveFileActivity extends Activity {
 		filename = filename.replace(":", "");
 		filename = filename.replace("?", "");
 		filename = filename.replace("*", "");
-		Uri fileUri = FileUriUtils.getUri(FileUriUtils.getFile(sdcard, filename));
+		Uri fileUri = FileUriUtils.getUri(FileUriUtils
+				.getFile(sdcard, filename));
 
 		return fileUri;
 
@@ -153,36 +158,37 @@ public class SaveFileActivity extends Activity {
 	private void askForFilename(Uri fileUri) {
 
 		Intent i = new Intent(this, DialogHostingActivity.class);
-		i.putExtra(DialogHostingActivity.EXTRA_DIALOG_ID, DialogHostingActivity.DIALOG_ID_SAVE);
+		i.putExtra(DialogHostingActivity.EXTRA_DIALOG_ID,
+				DialogHostingActivity.DIALOG_ID_SAVE);
 		i.setData(fileUri);
 		startActivityForResult(i, REQUEST_CODE_SAVE);
 	}
 
+	protected void onActivityResult(int requestCode, int resultCode,
+			Intent intent) {
+		Log.i(TAG, "Received requestCode " + requestCode + ", resultCode "
+				+ resultCode);
+		switch (requestCode) {
+		case REQUEST_CODE_SAVE:
+			if (resultCode == RESULT_OK && intent != null) {
+				// File name should be in Uri:
+				mSaveFilename = FileUriUtils.getFile(intent.getData());
 
-	protected void onActivityResult (int requestCode, int resultCode, Intent intent) {
-		Log.i(TAG, "Received requestCode " + requestCode + ", resultCode " + resultCode);
-		switch(requestCode) {
-			case REQUEST_CODE_SAVE:
-				if (resultCode == RESULT_OK && intent != null) {
-					// File name should be in Uri:
-					mSaveFilename = FileUriUtils.getFile(intent.getData());
-
-					if (mSaveFilename.exists()) {
-						showDialog(DIALOG_OVERWRITE_WARNING);
-					} else {
-						writeToFileAndFinish();
-					}
+				if (mSaveFilename.exists()) {
+					showDialog(DIALOG_OVERWRITE_WARNING);
 				} else {
-					// nothing to do.
-					finish();
+					writeToFileAndFinish();
 				}
-				break;
-			default:
-				// We should never reach here...
+			} else {
+				// nothing to do.
 				finish();
+			}
+			break;
+		default:
+			// We should never reach here...
+			finish();
 		}
 	}
-
 
 	private void writeToFileAndFinish() {
 		// save file
@@ -197,8 +203,7 @@ public class SaveFileActivity extends Activity {
 	}
 
 	private File getSdCardPath() {
-		return android.os.Environment
-				.getExternalStorageDirectory();
+		return android.os.Environment.getExternalStorageDirectory();
 	}
 
 	public static void writeToFile(Context context, File file, String text) {
@@ -207,8 +212,8 @@ public class SaveFileActivity extends Activity {
 			BufferedWriter out = new BufferedWriter(fstream);
 			out.write(text);
 			out.close();
-			Toast.makeText(context, R.string.note_saved,
-					Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, R.string.note_saved, Toast.LENGTH_SHORT)
+					.show();
 		} catch (IOException e) {
 			Toast.makeText(context, R.string.error_writing_file,
 					Toast.LENGTH_SHORT).show();
@@ -220,12 +225,11 @@ public class SaveFileActivity extends Activity {
 	protected Dialog onCreateDialog(int id) {
 
 		switch (id) {
-			case DIALOG_OVERWRITE_WARNING:
-				return getOverwriteWarningDialog();
+		case DIALOG_OVERWRITE_WARNING:
+			return getOverwriteWarningDialog();
 		}
 		return null;
 	}
-
 
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
@@ -235,25 +239,24 @@ public class SaveFileActivity extends Activity {
 
 	Dialog getOverwriteWarningDialog() {
 		return new AlertDialog.Builder(this)
-		.setIcon(android.R.drawable.ic_dialog_alert)
-		.setTitle(R.string.warning_file_exists_title)
-		.setMessage(R.string.warning_file_exists_message)
-		.setPositiveButton(android.R.string.ok,
-				new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog,
-					int whichButton) {
-				// click Ok
-				writeToFileAndFinish();
-			}
-		})
-		.setNegativeButton(android.R.string.cancel,
-				new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog,
-					int whichButton) {
-				// click Cancel
-				finish();
-			}
-		})
-		.create();
+				.setIcon(android.R.drawable.ic_dialog_alert)
+				.setTitle(R.string.warning_file_exists_title)
+				.setMessage(R.string.warning_file_exists_message)
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								// click Ok
+								writeToFileAndFinish();
+							}
+						})
+				.setNegativeButton(android.R.string.cancel,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								// click Cancel
+								finish();
+							}
+						}).create();
 	}
 }

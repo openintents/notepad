@@ -49,14 +49,14 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 	public static final String PREFS_SCREEN_ADDONS = "preference_screen_addons";
 
 	public static final String EXTRA_SHOW_GET_ADD_ONS = "show_get_add_ons";
-	
+
 	private static boolean mActionBarAvailable;
-	
+
 	static {
 		try {
 			WrapActionBar.checkAvailable();
 			mActionBarAvailable = true;
-		} catch(Throwable t){
+		} catch (Throwable t) {
 			mActionBarAvailable = false;
 		}
 	}
@@ -65,14 +65,14 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 	protected void onCreate(Bundle icicle) {
 
 		super.onCreate(icicle);
-		
-		//enable the user to go back with the actionbar
-		if(mActionBarAvailable){
+
+		// enable the user to go back with the actionbar
+		if (mActionBarAvailable) {
 			WrapActionBar bar = new WrapActionBar(this);
 			bar.setDisplayHomeAsUpEnabled(true);
-			
-			//force to show the actionbar on version 14+
-			if(Integer.valueOf(android.os.Build.VERSION.SDK) >= 14){
+
+			// force to show the actionbar on version 14+
+			if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 14) {
 				bar.setHomeButtonEnabled(true);
 			}
 		}
@@ -92,7 +92,8 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 
 		if (getIntent() != null && getIntent().hasExtra(EXTRA_SHOW_GET_ADD_ONS)) {
 			// Open License section directly:
-			PreferenceScreen licensePrefScreen = (PreferenceScreen) getPreferenceScreen().findPreference(PREFS_SCREEN_ADDONS);
+			PreferenceScreen licensePrefScreen = (PreferenceScreen) getPreferenceScreen()
+					.findPreference(PREFS_SCREEN_ADDONS);
 			setPreferenceScreen(licensePrefScreen);
 		}
 	}
@@ -101,20 +102,22 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 	 * Returns the sort order for the notes list based on the user preferences.
 	 * Performs error-checking.
 	 * 
-	 * @param context The context to grab the preferences from.
+	 * @param context
+	 *            The context to grab the preferences from.
 	 */
 	static public String getSortOrderFromPrefs(Context context) {
 		int sortOrder = 0;
 		try {
-			sortOrder = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context)
-					.getString(PREFS_SORTORDER, PREFS_SORTORDER_DEFAULT));
+			sortOrder = Integer.parseInt(PreferenceManager
+					.getDefaultSharedPreferences(context).getString(
+							PREFS_SORTORDER, PREFS_SORTORDER_DEFAULT));
 		} catch (NumberFormatException e) {
-			// Guess somebody messed with the preferences and put a string into this
+			// Guess somebody messed with the preferences and put a string into
+			// this
 			// field. We'll use the default value then.
 		}
 
-		if (sortOrder >= 0 && sortOrder < Notes.SORT_ORDERS.length)
-		{
+		if (sortOrder >= 0 && sortOrder < Notes.SORT_ORDERS.length) {
 			return Notes.SORT_ORDERS[sortOrder];
 		}
 
@@ -124,12 +127,11 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 
 	public static int getFontSizeFromPrefs(Context context) {
 		int size = Integer.parseInt(PreferenceManager
-				.getDefaultSharedPreferences(context).getString(
-						PREFS_FONTSIZE,
+				.getDefaultSharedPreferences(context).getString(PREFS_FONTSIZE,
 						PREFS_FONTSIZE_DEFAULT));
 		return size;
 	}
-	
+
 	public static boolean getCharCountEnabledFromPrefs(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context)
 				.getBoolean(PREFS_CHARCOUNT, PREFS_CHARCOUNT_DEFAULT);
@@ -139,27 +141,29 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
 		return PreferenceManager.getDefaultSharedPreferences(context)
 				.getBoolean(PREFS_MARQUEE, PREFS_MARQUEE_DEFAULT);
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle all of the possible menu actions.
 		switch (item.getItemId()) {
-			default:
-				Intent intent = new Intent(this, NotesList.class);
-	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	            startActivity(intent);
-				break;
+		default:
+			Intent intent = new Intent(this, NotesList.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
 	/**
 	 * Check whether Market is available.
+	 * 
 	 * @return true if Market is available
 	 */
 	private boolean isMarketAvailable() {
 		Intent i = new Intent(Intent.ACTION_VIEW);
-		i.setData(Uri.parse(getString(R.string.preference_market_extensions_link)));
+		i.setData(Uri
+				.parse(getString(R.string.preference_market_extensions_link)));
 		return IntentUtils.isIntentAvailable(this, i);
 	}
 
