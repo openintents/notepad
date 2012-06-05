@@ -29,6 +29,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -92,6 +93,8 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.box.onecloud.android.OneCloudData;
 
 /**
  * A generic activity for editing a note in a database. This can be used either
@@ -162,6 +165,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final int STATE_INSERT = 1;
 	private static final int STATE_EDIT_NOTE_FROM_SDCARD = 2;
 	private static final int STATE_EDIT_EXTERNAL_NOTE = 3;
+	private static final int STATE_EDIT_NOTE_FROM_ONE_CLOUD = 4;
 
 	private static final int DIALOG_UNSAVED_CHANGES = 1;
 	private static final int DIALOG_THEME = 2;
@@ -226,6 +230,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private boolean hasThemeColumn = true;
 	private boolean hasSelection_startColumn = true;
 	private boolean hasSelection_endColumn = true;
+	private OneCloudData mOneCloudData;
 
 	/**
 	 * Lines mode: 0..no line. 2..show lines only where there is text (padding
@@ -375,7 +380,16 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				mState = STATE_EDIT;
 				mUri = intent.getData();
 
-				if (mUri.getScheme().equals("file")) {
+				if (mUri == null
+						|| intent
+								.getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD) != null) {
+					mOneCloudData = (OneCloudData) intent
+							.getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD);
+
+					mState = STATE_EDIT_NOTE_FROM_ONE_CLOUD;
+					mFileContent = readFile(mOneCloudData.getInputStream());
+
+				} else if (mUri.getScheme().equals("file")) {
 					mState = STATE_EDIT_NOTE_FROM_SDCARD;
 					// Load the file into a new note.
 
@@ -628,15 +642,37 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	public String readFile(File file) {
 
 		FileInputStream fis = null;
+		String result = null;
+
+		try {
+			fis = new FileInputStream(file);
+			result = readFile(fis);
+			// dispose all the resources after using them.
+			fis.close();
+
+		} catch (FileNotFoundException e) {
+			Log.e(TAG, "File not found", e);
+			Toast.makeText(this, R.string.file_not_found, Toast.LENGTH_SHORT)
+					.show();
+			return null;
+		} catch (IOException e) {
+			Log.e(TAG, "File not found", e);
+			Toast.makeText(this, R.string.error_reading_file,
+					Toast.LENGTH_SHORT).show();
+			return null;
+		}
+
+		return result;
+	}
+
+	private String readFile(InputStream inputStream) {
 		BufferedInputStream bis = null;
 		DataInputStream dis = null;
 		StringBuffer sb = new StringBuffer();
 
 		try {
-			fis = new FileInputStream(file);
-
 			// Here BufferedInputStream is added for fast reading.
-			bis = new BufferedInputStream(fis);
+			bis = new BufferedInputStream(inputStream);
 			dis = new DataInputStream(bis);
 
 			// dis.available() returns 0 if the file does not have more lines.
@@ -650,16 +686,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				}
 			}
 
-			// dispose all the resources after using them.
-			fis.close();
 			bis.close();
 			dis.close();
-
-		} catch (FileNotFoundException e) {
-			Log.e(TAG, "File not found", e);
-			Toast.makeText(this, R.string.file_not_found, Toast.LENGTH_SHORT)
-					.show();
-			return null;
 		} catch (IOException e) {
 			Log.e(TAG, "File not found", e);
 			Toast.makeText(this, R.string.error_reading_file,
