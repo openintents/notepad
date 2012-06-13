@@ -27,8 +27,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.notepad"
     android:installLocation="auto"
-    android:versionCode="10068"
-    android:versionName="1.3" >
+    android:versionCode="10069"
+    android:versionName="1.4.0.2" >
 
     <!--
     History:

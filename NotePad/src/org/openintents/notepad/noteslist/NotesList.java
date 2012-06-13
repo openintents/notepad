@@ -54,13 +54,13 @@ import org.openintents.notepad.wrappers.WrapActionBar;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 
 import android.app.Dialog;
-import android.content.DialogInterface.OnDismissListener;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
