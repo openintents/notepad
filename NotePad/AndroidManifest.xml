@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<!--
  * Copyright (C) 2007 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,22 +13,25 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- -->
- 
+-->
+
 <!-- Version 1.0.0: Modifications by OpenIntents: see NoteEditor.java -->
 
-<!-- Declare the contents of this Android application.  The namespace
+<!--
+     Declare the contents of this Android application.  The namespace
      attribute brings in the Android platform namespace, and the package
      supplies a unique name for the application.  When writing your
      own application, the package name must be changed from "com.example.*"
-     to come from a domain that you own or have control over. -->
+     to come from a domain that you own or have control over.
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.notepad"
     android:installLocation="auto"
-	android:versionName="1.3"
-	android:versionCode="10068"
-	>
-	<!-- History:
+    android:versionCode="10068"
+    android:versionName="1.3" >
+
+    <!--
+    History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
 	[10068] 1.3: 2012-02-18
 	[10067] 1.3-rc2: 2012-02-07
@@ -40,116 +43,169 @@
 	[10058] 1.1.3: 2009-11-11
 	[10056] 1.1.2: 2009-10-15
 	[10054] 1.1.1: 2009-05-16
-	[10052] 1.1.0: 2009-02-02 -->
+	[10052] 1.1.0: 2009-02-02
+    -->
+
+
+    <uses-sdk
+        android:minSdkVersion="2"
+        android:targetSdkVersion="15" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+        <permission
+        android:name="org.openintents.notepad.READ_PERMISSION"
+        android:description="@string/oi_notepad_permission_read_descr"
+        android:label="@string/oi_notepad_permission_read"
+        android:permissionGroup="android.permission-group.PERSONAL_INFO"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="org.openintents.notepad.WRITE_PERMISSION"
+        android:description="@string/oi_notepad_permission_write_descr"
+        android:label="@string/oi_notepad_permission_write"
+        android:permissionGroup="android.permission-group.PERSONAL_INFO"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="org.openintents.safe.ACCESS_INTENTS"
+        android:description="@string/oi_safe_permission_intents_descr"
+        android:label="@string/oi_safe_permission_intents"
+        android:protectionLevel="dangerous" />
     
-    <uses-sdk android:minSdkVersion="2"
-    	android:targetSdkVersion="15" />
-	
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
     
-    <application android:icon="@drawable/ic_launcher_notepad"
-        android:label="@string/app_name"
-    ><!-- android:debuggable="true" -->
+    <uses-permission android:name="org.openintents.notepad.READ_PERMISSION" />
+    <uses-permission android:name="org.openintents.notepad.WRITE_PERMISSION" />
+    <uses-permission android:name="org.openintents.safe.ACCESS_INTENTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <application
+        android:icon="@drawable/ic_launcher_notepad"
+        android:label="@string/app_name" > <!-- android:debuggable="true" -->
         <!-- aTrackDog metadata -->
-        <meta-data android:name="com.a0soft.gphone.aTrackDog.testVersion"
-           android:value="10067" />
-        
+        <meta-data
+            android:name="com.a0soft.gphone.aTrackDog.testVersion"
+            android:value="10067" />
+
         <!-- OI About metadata -->
-		<meta-data android:name="org.openintents.about"
-			android:resource="@xml/about" />
-        <meta-data android:name="org.openintents.metadata.DUZ_ID"
-        			   android:value="aglkaWR1bm96YXRyGAsSEEFwcGxpY2F0aW9uTW9kZWwY0aQBDA"/>
-        
-	    <meta-data android:name="org.openintents.themes"
-	        android:resource="@xml/themes"
-	      />
-	    
-        <provider android:name=".NotePadProvider" 
-            android:authorities="org.openintents.notepad"
-        />
-        <provider android:name="org.openintents.notepad.backup.MyBackupPro"  
-            android:authorities="org.openintents.notepad.backup.MyBackupPro"
-        /> 
-        <!-- Permissions not yet active! Activate permissions in one of the following releases.
+        <meta-data
+            android:name="org.openintents.about"
+            android:resource="@xml/about" />
+        <meta-data
+            android:name="org.openintents.metadata.DUZ_ID"
+            android:value="aglkaWR1bm96YXRyGAsSEEFwcGxpY2F0aW9uTW9kZWwY0aQBDA" />
+        <meta-data
+            android:name="org.openintents.themes"
+            android:resource="@xml/themes" />
+
+        <provider
+            android:name=".NotePadProvider"
+            android:authorities="org.openintents.notepad" />
+        <provider
+            android:name="org.openintents.notepad.backup.MyBackupPro"
+            android:authorities="org.openintents.notepad.backup.MyBackupPro" />
+        <!--
+             Permissions not yet active! Activate permissions in one of the following releases.
         	(Give time to extensions to implement permissions.)
         	android:readPermission="org.openintents.notepad.READ_PERMISSION"
 			android:writePermission="org.openintents.notepad.WRITE_PERMISSION"
-         -->
+        -->
+
 
         <!-- This metadata entry causes .app.SearchQueryResults to be the default context -->
         <!-- whenever the user invokes search while in this Activity. -->
-        <meta-data android:name="android.app.default_searchable"
-                   android:value=".search.SearchQueryResultsActivity" />
-                       
-        <activity android:name=".noteslist.NotesList" android:label="@string/title_notes_list">
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".search.SearchQueryResultsActivity" />
+
+        <activity
+            android:name=".noteslist.NotesList"
+            android:label="@string/title_notes_list" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
                 <action android:name="android.intent.action.PICK" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.dir/vnd.openintents.notepad.note" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/vnd.openintents.notepad.note" />
             </intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.CREATE_SHORTCUT" />
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
+            </intent-filter>
         </activity>
-        
-        <activity android:name="NoteEditor"
-            android:theme="@android:style/Theme.Light"
+        <activity
+            android:name="NoteEditor"
             android:label="@string/title_note"
-        	android:windowSoftInputMode="stateHidden"
-        >
-            <!-- This filter says that we can view or edit the data of
-                 a single note -->
-            <intent-filter android:label="@string/resolve_edit"
-            	android:icon="@drawable/ic_menu_edit">
+            android:theme="@android:style/Theme.Light"
+            android:windowSoftInputMode="stateHidden" >
+
+            <!--
+                 This filter says that we can view or edit the data of
+                 a single note
+            -->
+            <intent-filter
+                android:icon="@drawable/ic_menu_edit"
+                android:label="@string/resolve_edit" >
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
                 <action android:name="com.android.notepad.action.EDIT_NOTE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/vnd.openintents.notepad.note" />
             </intent-filter>
-            
-            <intent-filter android:label="@string/resolve_edit">
+            <intent-filter android:label="@string/resolve_edit" >
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
 
-            <!-- This filter says that we can create a new note inside
-                 of a directory of notes. -->
+            <!--
+                 This filter says that we can create a new note inside
+                 of a directory of notes.
+            -->
             <intent-filter>
                 <action android:name="android.intent.action.INSERT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.dir/vnd.openintents.notepad.note" />
             </intent-filter>
-            
+
             <!-- Filter for creating 'New Note' shortcut -->
-            <intent-filter android:label="@string/new_note">
+            <intent-filter android:label="@string/new_note" >
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
             </intent-filter>
-                
+
             <!-- Filter from creating new note from "shared" content -->
-            <intent-filter android:label="@string/app_name">
+            <intent-filter android:label="@string/app_name" >
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
         </activity>
-        
-        <!-- 
+
+        <!--
 		<activity android:name="TitleEditor" android:label="@string/title_edit_title"
 				android:theme="@android:style/Theme.Dialog">
             <!- - This activity implements an alternative action that can be
@@ -173,91 +229,104 @@
                 <data android:mimeType="vnd.android.cursor.item/vnd.google.note" />
             </intent-filter>
         </activity>
-         -->
-         
-        <activity android:name=".search.SearchQueryResultsActivity"
-                  android:label="@string/search_query_results" >
+        -->
+
+        <activity
+            android:name=".search.SearchQueryResultsActivity"
+            android:label="@string/search_query_results" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            
+
             <!-- This intent-filter identifies this activity as "searchable" -->
-            
+
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            
+
             <!-- This metadata entry provides further configuration details for searches -->
             <!-- that are handled by this activity. -->
-            
-            <meta-data android:name="android.app.searchable"
-                       android:resource="@xml/searchable" />
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
 
         <!-- This provider declaration informs the Search Manager that you have a provider of -->
         <!-- Search suggestions, and provides information about how to access it. -->
-        
-        <provider android:name=".search.SearchSuggestionProvider"
-                  android:authorities="org.openintents.notepad.search.SuggestionProvider" />
-        
-         
-		<activity android:name=".activity.SaveFileActivity"
-				android:label="@string/menu_save_to_sdcard"
-				android:icon="@drawable/ic_menu_save"
-				android:theme="@android:style/Theme.Translucent.NoTitleBar">
-			<!-- This intent filter allows to save an internal note from
-			     various menus. -->
+
+        <provider
+            android:name=".search.SearchSuggestionProvider"
+            android:authorities="org.openintents.notepad.search.SuggestionProvider" />
+
+        <activity
+            android:name=".activity.SaveFileActivity"
+            android:icon="@drawable/ic_menu_save"
+            android:label="@string/menu_save_to_sdcard"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+
+            <!--
+                 This intent filter allows to save an internal note from
+			     various menus.
+            -->
             <intent-filter>
                 <action android:name="org.openintents.notepad.action.SAVE_TO_SD_CARD" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.ALTERNATIVE" />
                 <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+
                 <data android:mimeType="vnd.android.cursor.item/vnd.openintents.notepad.note" />
             </intent-filter>
-			<!-- This intent filter is used for the "Save as" menu command when editing
-			     a file from the SD card. -->
+            <!--
+                 This intent filter is used for the "Save as" menu command when editing
+			     a file from the SD card.
+            -->
             <intent-filter>
                 <action android:name="org.openintents.notepad.action.SAVE_TO_SD_CARD" />
+
                 <data android:scheme="file" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        <activity android:name="org.openintents.notepad.crypto.EncryptActivity" android:label="@string/encrypting_note">
-        </activity> 
-        
-        <activity android:name="org.openintents.notepad.filename.DialogHostingActivity" android:label="@string/filename"
-    		android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        <activity
+            android:name="org.openintents.notepad.crypto.EncryptActivity"
+            android:label="@string/encrypting_note" >
         </activity>
-        
-    	<activity android:name=".PreferenceActivity" android:label="@string/settings"></activity>
-    	
-		<!-- Activities from OI Distribution Library -->
+        <activity
+            android:name="org.openintents.notepad.filename.DialogHostingActivity"
+            android:label="@string/filename"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".PreferenceActivity"
+            android:label="@string/settings" >
+        </activity>
+
+        <!-- Activities from OI Distribution Library -->
         <activity android:name="org.openintents.distribution.EulaActivity" />
         <activity android:name="org.openintents.distribution.NewVersionActivity" />
-	</application>
 
-	<uses-permission android:name="org.openintents.notepad.READ_PERMISSION" />
-	<uses-permission android:name="org.openintents.notepad.WRITE_PERMISSION" />
-    <uses-permission android:name="org.openintents.safe.ACCESS_INTENTS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-	
-	<permission android:name="org.openintents.notepad.READ_PERMISSION"
-		android:label="@string/oi_notepad_permission_read"
-		android:description="@string/oi_notepad_permission_read_descr"
-		android:permissionGroup="android.permission-group.PERSONAL_INFO"
-		android:protectionLevel="normal" />
-	<permission android:name="org.openintents.notepad.WRITE_PERMISSION"
-		android:label="@string/oi_notepad_permission_write"
-		android:description="@string/oi_notepad_permission_write_descr"
-		android:permissionGroup="android.permission-group.PERSONAL_INFO"
-		android:protectionLevel="normal" />
-    <permission android:name="org.openintents.safe.ACCESS_INTENTS"
-			android:protectionLevel="dangerous"
-			android:label="@string/oi_safe_permission_intents"
-        	android:description="@string/oi_safe_permission_intents_descr" />
-	
+        <receiver android:name="org.openintents.notepad.box.TextPlainBoxOneCloudReceiver" >
+            <intent-filter>
+                <action android:name="com.box.android.EDIT_FILE" />
+                <action android:name="com.box.android.CREATE_FILE" />
+                <action android:name="com.box.android.VIEW_FILE" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.box.android.LAUNCH" />
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+    
+
 </manifest>
-

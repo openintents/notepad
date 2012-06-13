@@ -1,9 +1,11 @@
 package org.openintents.notepad.activity;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 
 import org.openintents.notepad.NotePad;
 import org.openintents.notepad.R;
@@ -211,6 +213,20 @@ public class SaveFileActivity extends Activity {
 			FileWriter fstream = new FileWriter(file);
 			BufferedWriter out = new BufferedWriter(fstream);
 			out.write(text);
+			out.close();
+			Toast.makeText(context, R.string.note_saved, Toast.LENGTH_SHORT)
+					.show();
+		} catch (IOException e) {
+			Toast.makeText(context, R.string.error_writing_file,
+					Toast.LENGTH_SHORT).show();
+			Log.e(TAG, "Error writing file");
+		}
+	}
+	
+	public static void writeToStream(Context context, OutputStream stream, String text) {
+		try {			
+			BufferedOutputStream out = new BufferedOutputStream(stream);
+			out.write(text.getBytes());
 			out.close();
 			Toast.makeText(context, R.string.note_saved, Toast.LENGTH_SHORT)
 					.show();

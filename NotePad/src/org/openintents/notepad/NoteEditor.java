@@ -75,6 +75,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.os.RemoteException;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.Spannable;
@@ -95,6 +97,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.box.onecloud.android.OneCloudData;
+import com.box.onecloud.android.OneCloudData.UploadListener;
 
 /**
  * A generic activity for editing a note in a database. This can be used either
@@ -230,7 +233,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private boolean hasThemeColumn = true;
 	private boolean hasSelection_startColumn = true;
 	private boolean hasSelection_endColumn = true;
-	private OneCloudData mOneCloudData;
+	private OneCloudData mOneCloudData;	
 
 	/**
 	 * Lines mode: 0..no line. 2..show lines only where there is text (padding
@@ -374,6 +377,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			final Intent intent = getIntent();
 
 			final String action = intent.getAction();
+			
+			mOneCloudData = (OneCloudData)intent.getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD);
+			
 			if (Intent.ACTION_EDIT.equals(action)
 					|| Intent.ACTION_VIEW.equals(action)) {
 				// Requested to edit: set that state, and the data being edited.
@@ -381,20 +387,17 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				mUri = intent.getData();
 
 				if (mUri == null
-						|| intent
-								.getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD) != null) {
-					mOneCloudData = (OneCloudData) intent
-							.getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD);
+						||  mOneCloudData != null) {					
 
 					mState = STATE_EDIT_NOTE_FROM_ONE_CLOUD;
 					mFileContent = readFile(mOneCloudData.getInputStream());
 
-				} else if (mUri.getScheme().equals("file")) {
+				} else if (mUri != null && mUri.getScheme().equals("file")) {
 					mState = STATE_EDIT_NOTE_FROM_SDCARD;
 					// Load the file into a new note.
 
 					mFileContent = readFile(FileUriUtils.getFile(mUri));
-				} else if (!mUri.getAuthority().equals(NotePad.AUTHORITY)) {
+				} else if (mUri != null && !mUri.getAuthority().equals(NotePad.AUTHORITY)) {
 					// Note a notepad note. Treat slightly differently.
 					// (E.g. a note from OI Shopping List)
 					mState = STATE_EDIT_EXTERNAL_NOTE;
@@ -519,13 +522,13 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		// The text view for our note, identified by its ID in the XML file.
 		mText = (EditText) findViewById(R.id.note);
 
-		if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
+		if (mState == STATE_EDIT_NOTE_FROM_SDCARD || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
 			// We add a text watcher, so that the title can be updated
 			// to indicate a small "*" if modified.
 			mText.addTextChangedListener(mTextWatcherSdCard);
 		}
 
-		if (mState != STATE_EDIT_NOTE_FROM_SDCARD) {
+		if (mState != STATE_EDIT_NOTE_FROM_SDCARD && mState != STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
 			// Check if we load a note from notepad or from some external module
 			if (mState == STATE_EDIT_EXTERNAL_NOTE) {
 				// Get all the columns as we don't know which columns are
@@ -717,7 +720,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		if (mState == STATE_EDIT || mState == STATE_INSERT
 				|| mState == STATE_EDIT_EXTERNAL_NOTE) {
 			getNoteFromContentProvider();
-		} else if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
+		} else if (mState == STATE_EDIT_NOTE_FROM_SDCARD || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
 			getNoteFromFile();
 		}
 
@@ -1311,7 +1314,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		// Show comands on the URI only if the note is not encrypted
 		menu.setGroupVisible(Menu.CATEGORY_ALTERNATIVE, isNoteUnencrypted);
 
-		if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
+		if (mState == STATE_EDIT_NOTE_FROM_SDCARD || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
 			// Menus for editing from SD card
 			menu.setGroupVisible(0, false);
 			menu.setGroupVisible(1, false);
@@ -1555,7 +1558,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		}
 		newNote = sb.toString();
 
-		if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
+		if (mState == STATE_EDIT_NOTE_FROM_SDCARD || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
 			mFileContent = newNote;
 			mSelectionStart = newStartPos;
 			mSelectionStop = newEndPos;
@@ -1647,8 +1650,37 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private void saveNote() {
 		mFileContent = mText.getText().toString();
 
-		File file = FileUriUtils.getFile(mUri);
-		SaveFileActivity.writeToFile(this, file, mFileContent);
+		if (mOneCloudData != null){
+			SaveFileActivity.writeToStream(this, mOneCloudData.getOutputStream(), mFileContent);
+			try {
+				mOneCloudData.uploadNewVersion(new UploadListener() {
+					
+					@Override
+					public void onProgress(long bytesTransferred, long totalBytes) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void onError() {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void onComplete() {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			File file = FileUriUtils.getFile(mUri);
+			SaveFileActivity.writeToFile(this, file, mFileContent);
+		}
 
 		mOriginalContent = mFileContent;
 	}
@@ -2069,7 +2101,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
+			if (mState == STATE_EDIT_NOTE_FROM_SDCARD || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
 				mFileContent = mText.getText().toString();
 				if (!mFileContent.equals(mOriginalContent)) {
 					// Show a dialog
