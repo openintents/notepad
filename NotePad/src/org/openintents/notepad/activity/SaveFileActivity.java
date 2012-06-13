@@ -222,9 +222,10 @@ public class SaveFileActivity extends Activity {
 			Log.e(TAG, "Error writing file");
 		}
 	}
-	
-	public static void writeToStream(Context context, OutputStream stream, String text) {
-		try {			
+
+	public static void writeToStream(Context context, OutputStream stream,
+			String text) {
+		try {
 			BufferedOutputStream out = new BufferedOutputStream(stream);
 			out.write(text.getBytes());
 			out.close();
