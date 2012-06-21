@@ -24,8 +24,9 @@ To obtain the current release, visit
 
 ----------------
 release 1.4
-date: ?
+date: 2012-06-25
 
+- integration of Box (Online storage via Box app)
 - instructions adapted for action bar (patch by Alok Sharma)
 - spinner in NotesList is updated after editing tags (patch by Ganesh V R Kumar)
 

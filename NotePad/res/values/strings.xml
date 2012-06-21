@@ -108,6 +108,7 @@
     <string name="menu_import">Import</string>
     <string name="menu_save">Save</string>
     <string name="menu_save_as">Save as</string>
+    <string name="menu_upload">Upload</string>
     <string name="warning_unsaved_changes_title">Text modified</string>
     <string name="warning_unsaved_changes_message">Do you want to save the changes?</string>
     <string name="button_save">Save</string>

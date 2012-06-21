@@ -26,7 +26,7 @@ public class TextPlainBoxOneCloudReceiver extends BoxOneCloudReceiver {
 		// do this.
 		Intent i = new Intent(context, NoteEditor.class);
 		i.setAction(Intent.ACTION_EDIT);
-		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		i.putExtra(NotepadIntents.EXTRA_ONE_CLOUD, oneCloudData); // This is
 																	// what we
 																	// need to
@@ -42,7 +42,7 @@ public class TextPlainBoxOneCloudReceiver extends BoxOneCloudReceiver {
 		Intent i = new Intent(context, NoteEditor.class);
 		i.setAction(Intent.ACTION_INSERT);
 		i.setData(Notes.CONTENT_URI);
-		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		i.putExtra(NotepadIntents.EXTRA_ONE_CLOUD, oneCloudData); // This is
 																	// what we
 																	// need to
@@ -58,7 +58,7 @@ public class TextPlainBoxOneCloudReceiver extends BoxOneCloudReceiver {
 		// do this.
 		Intent i = new Intent(context, NoteEditor.class);
 		i.setAction(Intent.ACTION_VIEW);
-		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		i.putExtra(NotepadIntents.EXTRA_ONE_CLOUD, oneCloudData); // This is
 																	// what we
 																	// need to

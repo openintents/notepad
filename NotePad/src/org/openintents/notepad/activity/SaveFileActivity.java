@@ -7,11 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import org.openintents.intents.NotepadIntents;
 import org.openintents.notepad.NotePad;
-import org.openintents.notepad.R;
 import org.openintents.notepad.NotePad.Notes;
+import org.openintents.notepad.R;
 import org.openintents.notepad.filename.DialogHostingActivity;
 import org.openintents.notepad.intents.NotepadInternalIntents;
+import org.openintents.notepad.util.ExtractTitle;
 import org.openintents.notepad.util.FileUriUtils;
 
 import android.app.Activity;
@@ -23,21 +25,62 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.support.v2.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.box.onecloud.android.OneCloudData;
+import com.box.onecloud.android.OneCloudData.UploadListener;
+
 public class SaveFileActivity extends Activity {
+	public class BroadcastUploadListener implements UploadListener {
+
+		private String mFilename;
+
+		public BroadcastUploadListener(String saveFilename) {
+			mFilename = saveFilename;
+		}
+
+		@Override
+		public void onProgress(long bytesTransferred, long totalBytes) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onError() {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onComplete() {
+			Intent intent = new Intent(LOCAL_ACTION_UPDATE_TITLE);
+			intent.putExtra(DialogHostingActivity.EXTRA_FILENAME, mFilename);
+			LocalBroadcastManager.getInstance(SaveFileActivity.this)
+					.sendBroadcast(intent);
+
+		}
+
+	}
+
 	private static final String TAG = "SaveFileActivity";
 
 	private static final int REQUEST_CODE_SAVE = 1;
+	private static final int REQUEST_CODE_UPLOAD = 2;
 
 	private static final int DIALOG_OVERWRITE_WARNING = 1;
 
 	private static final String BUNDLE_SAVE_FILENAME = "save_filename";
 	private static final String BUNDLE_SAVE_CONTENT = "save_content";
 
+	public static final String LOCAL_ACTION_UPDATE_TITLE = "UPDATE_TITLE";
+
 	File mSaveFilename;
 	String mSaveContent;
+
+	private OneCloudData mOneCloudData;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +114,22 @@ public class SaveFileActivity extends Activity {
 					mSaveContent = getNote(uri);
 				}
 				if (mSaveContent != null && fileUri != null) {
-					askForFilename(fileUri);
+					askForFilenameSDCard(fileUri);
 				} else {
 					// Nothing to save
 					finish();
 				}
+			} else if (intent
+					.getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD) != null) {
+				mOneCloudData = intent
+						.getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD);
+				mSaveContent = intent
+						.getStringExtra(NotepadInternalIntents.EXTRA_TEXT);
+				String fileName = mOneCloudData.getFileName();
+				if (fileName == null || fileName.length() == 0){
+					fileName = ExtractTitle.extractTitle(mSaveContent) + ".txt";
+				}				
+				askForFilenameUpload(fileName);
 			} else {
 				Log.w(TAG, "Invalid URI");
 				finish();
@@ -157,13 +211,22 @@ public class SaveFileActivity extends Activity {
 
 	}
 
-	private void askForFilename(Uri fileUri) {
+	private void askForFilenameSDCard(Uri fileUri) {
 
 		Intent i = new Intent(this, DialogHostingActivity.class);
 		i.putExtra(DialogHostingActivity.EXTRA_DIALOG_ID,
 				DialogHostingActivity.DIALOG_ID_SAVE);
 		i.setData(fileUri);
 		startActivityForResult(i, REQUEST_CODE_SAVE);
+	}
+
+	private void askForFilenameUpload(String fileName) {
+		Intent i = new Intent(this, DialogHostingActivity.class);
+		i.putExtra(DialogHostingActivity.EXTRA_DIALOG_ID,
+				DialogHostingActivity.DIALOG_ID_UPLOAD);
+		i.putExtra(DialogHostingActivity.EXTRA_FILENAME, fileName);
+		startActivityForResult(i, REQUEST_CODE_UPLOAD);
+
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode,
@@ -186,6 +249,34 @@ public class SaveFileActivity extends Activity {
 				finish();
 			}
 			break;
+
+		case REQUEST_CODE_UPLOAD:
+			if (resultCode == RESULT_OK && intent != null) {
+				// File name should be in Uri:
+				final String saveFilename = intent
+						.getStringExtra(DialogHostingActivity.EXTRA_FILENAME);
+
+				try {
+					writeToStream(this, mOneCloudData.getOutputStream(),
+							mSaveContent);
+					mOneCloudData.uploadNewFile(saveFilename,
+							new BroadcastUploadListener(saveFilename));
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				Intent i = new Intent();
+				i.putExtra(BUNDLE_SAVE_FILENAME, saveFilename);
+				setResult(RESULT_OK, i);
+				finish();
+
+			} else {
+				// nothing to do.
+				finish();
+			}
+			break;
+
 		default:
 			// We should never reach here...
 			finish();
@@ -229,8 +320,7 @@ public class SaveFileActivity extends Activity {
 			BufferedOutputStream out = new BufferedOutputStream(stream);
 			out.write(text.getBytes());
 			out.close();
-			Toast.makeText(context, R.string.note_saved, Toast.LENGTH_SHORT)
-					.show();
+
 		} catch (IOException e) {
 			Toast.makeText(context, R.string.error_writing_file,
 					Toast.LENGTH_SHORT).show();

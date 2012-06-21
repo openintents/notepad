@@ -28,8 +28,10 @@ public class DialogHostingActivity extends Activity {
 	public static final int DIALOG_ID_SAVE = 1;
 	public static final int DIALOG_ID_OPEN = 2;
 	public static final int DIALOG_ID_NO_FILE_MANAGER_AVAILABLE = 3;
+	public static final int DIALOG_ID_UPLOAD = 4;
 
 	public static final String EXTRA_DIALOG_ID = "org.openintents.notepad.extra.dialog_id";
+	public static final String EXTRA_FILENAME = "org.openintents.notepad.extra.filename";
 
 	/**
 	 * Whether dialog is simply pausing while hidden by another activity or when
@@ -59,7 +61,7 @@ public class DialogHostingActivity extends Activity {
 				break;
 			case DIALOG_ID_OPEN:
 				if (debug)
-					Log.i(TAG, "Show Save dialog");
+					Log.i(TAG, "Show Open dialog");
 				openFile();
 				break;
 			case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
@@ -67,30 +69,43 @@ public class DialogHostingActivity extends Activity {
 					Log.i(TAG, "Show no file manager dialog");
 				showDialog(DIALOG_ID_NO_FILE_MANAGER_AVAILABLE);
 				break;
+			case DIALOG_ID_UPLOAD:
+				if (debug)
+					Log.i(TAG, "Show Save dialog");
+				uploadFile();
+				break;
 			}
 		}
 	}
+
+	
 
 	/**
 	 * 
 	 */
 	private void saveFile() {
 
-		// Check whether intent exists
-		Intent intent = new Intent(FileManagerIntents.ACTION_PICK_FILE);
-		intent.setData(getIntent().getData());
-		if (IntentUtils.isIntentAvailable(this, intent)) {
-			intent.putExtra(PrivateNotePadIntents.EXTRA_URI, getIntent()
-					.getStringExtra(PrivateNotePadIntents.EXTRA_URI));
-			intent.putExtra(FileManagerIntents.EXTRA_TITLE,
-					getText(R.string.menu_save_to_sdcard));
-			intent.putExtra(FileManagerIntents.EXTRA_BUTTON_TEXT,
-					getText(R.string.save));
-			intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-			startActivity(intent);
-			finish();
+		Uri uri = getIntent().getData();
+		if (uri != null) {
+			// Check whether intent exists
+			Intent intent = new Intent(FileManagerIntents.ACTION_PICK_FILE);
+			intent.setData(uri);
+			if (IntentUtils.isIntentAvailable(this, intent)) {
+				intent.putExtra(PrivateNotePadIntents.EXTRA_URI, getIntent()
+						.getStringExtra(PrivateNotePadIntents.EXTRA_URI));
+				intent.putExtra(FileManagerIntents.EXTRA_TITLE,
+						getText(R.string.menu_save_to_sdcard));
+				intent.putExtra(FileManagerIntents.EXTRA_BUTTON_TEXT,
+						getText(R.string.save));
+				intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+				startActivity(intent);
+				finish();
+			} else {
+				mFilename = FileUriUtils.getFilename(getIntent().getData());
+				showDialog(DIALOG_ID_SAVE);
+			}
 		} else {
-			mFilename = FileUriUtils.getFilename(getIntent().getData());
+			mFilename = getIntent().getStringExtra(EXTRA_FILENAME);
 			showDialog(DIALOG_ID_SAVE);
 		}
 	}
@@ -116,20 +131,25 @@ public class DialogHostingActivity extends Activity {
 		}
 	}
 
+	private void uploadFile() {
+		mFilename = getIntent().getStringExtra(EXTRA_FILENAME);
+		showDialog(DIALOG_ID_UPLOAD);		
+	}
+	
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		Dialog dialog = null;
 
 		switch (id) {
 		case DIALOG_ID_SAVE:
-			FilenameDialog fd = new FilenameDialog(this);
+			FilenameDialog fd = new FilenameDialog(this, true);
 			fd.setTitle(R.string.menu_save_to_sdcard);
 			fd.setFilename(mFilename);
 			fd.setOnFilenamePickedListener(mFilenamePickedListener);
 			dialog = fd;
 			break;
 		case DIALOG_ID_OPEN:
-			fd = new FilenameDialog(this);
+			fd = new FilenameDialog(this, true);
 			fd.setTitle(R.string.menu_open_from_sdcard);
 			fd.setFilename(mFilename);
 			fd.setOnFilenamePickedListener(mFilenamePickedListener);
@@ -138,6 +158,13 @@ public class DialogHostingActivity extends Activity {
 		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
 			dialog = new DownloadOIAppDialog(this,
 					DownloadOIAppDialog.OI_FILEMANAGER);
+			break;
+		case DIALOG_ID_UPLOAD:
+			fd = new FilenameDialog(this, false);
+			fd.setTitle(R.string.menu_upload);
+			fd.setFilename(mFilename);
+			fd.setOnFilenamePickedListener(mFilenamePickedForUploadListener);
+			dialog = fd;
 			break;
 		}
 		if (dialog == null) {
@@ -191,6 +218,20 @@ public class DialogHostingActivity extends Activity {
 			Intent intent = getIntent();
 			Uri uri = FileUriUtils.getUri(new File(filename));
 			intent.setData(uri);
+
+			setResult(RESULT_OK, intent);
+		}
+
+	};
+	
+	OnFilenamePickedListener mFilenamePickedForUploadListener = new OnFilenamePickedListener() {
+
+		public void onFilenamePicked(String filename) {
+			if (debug)
+				Log.d(TAG, "Filename picked: " + filename);
+
+			Intent intent = getIntent();
+			intent.putExtra(EXTRA_FILENAME, filename);
 
 			setResult(RESULT_OK, intent);
 		}
