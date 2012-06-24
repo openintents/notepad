@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
 	<!-- ***************************
 	     About information
 	     *************************** -->
 
     <!-- Strings for OI About -->
-	<string name="about_copyright">Copyright © 2008-2012 OpenIntents</string>
+	<string name="about_copyright">Copyright © 2008–2012 OpenIntents</string>
 	<string name="about_website_url">http://www.openintents.org/en/notepad</string>
 	<string name="about_email">support@openintents.org</string>
 	

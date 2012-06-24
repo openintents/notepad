@@ -72,7 +72,7 @@
 	<string name="empty_note">Tyhjä muistiinpano</string>
 	<string name="share_not_available">No application available for sharing.</string>
 	
-	<string name="encrypting_note">Salataan muistiin panoa...</string>
+	<string name="encrypting_note">Salataan muistiin panoa…</string>
 	<string name="encrypted">Salattu</string>
 	<string name="menu_encrypt">Salaa</string>
 	<string name="menu_decrypt">Pura salaus</string>

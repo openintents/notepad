@@ -94,7 +94,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
+import android.webkit.WebStorage.Origin;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -110,7 +112,7 @@ import com.box.onecloud.android.OneCloudData.UploadListener;
  */
 public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final String TAG = "NoteEditor";
-	private static final boolean debug = true;
+	private static final boolean debug = false;
 
 	/**
 	 * Standard projection for the interesting columns of a normal note.
@@ -248,6 +250,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	public static int mLinesMode;
 	public static int mLinesColor;
 
+	// TODO use this flag to make the note read-only 
 	private boolean mReadOnly;
 
 	private TextWatcher mTextWatcherSdCard = new TextWatcher() {
@@ -738,7 +741,14 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			getNoteFromFile();
 		} else if (mState == STATE_INSERT && mOneCloudData != null) {
 			setTitle(getText(R.string.title_create));
-			mOriginalContent = "";
+		    mOriginalContent = "";
+		
+			
+			if (mFileContent!=null && !mFileContent.equals(mText.getText().toString())) {
+				mText.setTextKeepState(mFileContent);
+				// keep state does not work, so we have to do it manually:
+				mText.setSelection(mSelectionStart, mSelectionStop);
+			}
 		}
 
 		if (mEncrypted == 0 || mDecryptedText != null) {
@@ -1111,6 +1121,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					// mText.setText(R.string.encrypted);
 				}
 			}
+		} else if (mOneCloudData != null){
+			if (mState == STATE_INSERT ){
+				mOriginalContent = mText.getText().toString();
+			}
 		}
 	}
 
@@ -1278,8 +1292,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		menu.add(2, MENU_IMPORT, 0, R.string.menu_import).setShortcut('1', 'i')
 				.setIcon(android.R.drawable.ic_menu_add);
 
-		menu.add(2, MENU_SAVE, 0, R.string.menu_save).setShortcut('2', 's')
-				.setIcon(android.R.drawable.ic_menu_save);
+		item = menu.add(2, MENU_SAVE, 0, R.string.menu_save).setShortcut('2', 's')
+				.setIcon(android.R.drawable.ic_menu_save);		
 
 		menu.add(2, MENU_SAVE_AS, 0, R.string.menu_save_as)
 				.setShortcut('3', 'w').setIcon(android.R.drawable.ic_menu_save);
@@ -1370,7 +1384,13 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			menu.setGroupVisible(0, false);
 			menu.setGroupVisible(1, false);
 			menu.setGroupVisible(2, true);
-			menu.findItem(MENU_SAVE).setEnabled(contentChanged);
+			
+			if (mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD || (mState == STATE_INSERT && mOneCloudData != null)){
+				// FIXME should be sensitive to contentchanged. However, with ICS (4.0.4) and action bar enable/disable does not work dynamically.
+				menu.findItem(MENU_SAVE).setEnabled(true);
+			} else {
+				menu.findItem(MENU_SAVE).setEnabled(contentChanged);
+			}
 		} else if (mState == STATE_EDIT_EXTERNAL_NOTE) {
 			// Menus for external notes, e.g. from OI Shopping List.
 			// In this case, don't show encryption/decryption.
