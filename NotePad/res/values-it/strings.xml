@@ -27,8 +27,11 @@
 
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Andrea Bernini https://launchpad.net/~andrea-bernini
+  CAppa https://launchpad.net/~cappa-temp-1
   Diego Pierotto https://launchpad.net/~gringo
   Martino Barbon https://launchpad.net/~martins999
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   simone.sandri https://launchpad.net/~lexluxsox</string>
 	
@@ -48,7 +51,7 @@
     <string name="menu_discard">Abbandona</string>
     
 	<string name="no_notes">Usa il menu per aggiungere nuove note</string>
-	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
+	<string name="no_notes_actionbar">Usa l\'opzione sopra per aggiungere note.</string>
 
     <string name="resolve_edit">Modifica nota</string>
     <string name="resolve_title">Modifica titolo</string>  

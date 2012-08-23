@@ -48,7 +48,7 @@
     <string name="menu_discard">دور انداختن</string>
     
 	<string name="no_notes">استفاده از منو به اضافه کردن یادداشت های جدید است</string>
-	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
+	<string name="no_notes_actionbar">از گزینه ی فوق برای افزودن یادداشت‌های جدید استفاده کنید.</string>
 
     <string name="resolve_edit">ویرایش یادداشت</string>
     <string name="resolve_title">ویرایش عنوان</string>  
@@ -101,10 +101,10 @@
     <string name="warning_file_exists_title">فایل وجود دارد در حال حاضر</string>
     <string name="warning_file_exists_message">آیا شما واقعا می خواهید به بازنویسی فایل های موجود؟</string>
     
-    <string name="menu_word_count">Word count</string>
+    <string name="menu_word_count">شمارش واژه</string>
     <plurals name="word_count">
-        <item quantity="one">One word.</item>
-        <item quantity="other">%d words.</item>
+        <item quantity="one">یک واژه.</item>
+        <item quantity="other">% واژه.</item>
     </plurals>
         
     <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
@@ -157,9 +157,9 @@
 	<string name="preference_autolink_title">خودکار ایجاد لینک</string>
     <string name="preference_autolink_summary_on">ایجاد لینک برای شماره تلفن ها و آدرس های ایمیل / خیابان ها / وب</string>
     <string name="preference_autolink_summary_off">لینک یادداشت را ایجاد کنید</string>
-	<string name="preference_charcount_title">Character count</string>
-    <string name="preference_charcount_summary_on">Show character count in editor</string>
-    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
+	<string name="preference_charcount_title">شمارش نویسار</string>
+    <string name="preference_charcount_summary_on">نمایش شمارش نویسار در ویرایشگر</string>
+    <string name="preference_charcount_summary_off">عدم نمایش شمارش نویسار در ویرایشگر</string>
 
 	<string name="settings">تنظیمات</string>
 	<string name="settings_sortorder">ترتیب مرتب سازی بر اساس</string>
