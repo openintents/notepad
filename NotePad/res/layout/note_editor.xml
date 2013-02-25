@@ -20,17 +20,28 @@
     android:orientation="vertical"
     android:background="@android:color/white"
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent">
-    
-<view android:id="@+id/note"
-    class="org.openintents.notepad.NoteEditor$LinedEditText"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="5dip"
-    android:scrollbars="vertical"
-    android:fadingEdge="vertical"
-    android:gravity="top"
-    android:capitalize="sentences"/>
+    android:layout_height="match_parent">
+
+	<ScrollView
+		android:id="@+id/scroll"
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:fillViewport="true"
+		android:fadingEdge="none">
+		<view android:id="@+id/note"
+			class="org.openintents.notepad.NoteEditor$LinedEditText"
+			android:padding="5dip"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:background="@color/darkPink"
+			android:fadingEdge="none"
+			android:scrollbars="vertical|horizontal"
+			android:gravity="top"
+			android:autoText="false"
+			android:capitalize="none"
+			/>
+			</ScrollView>
 
     <LinearLayout android:id="@+id/editor_color"
         android:clickable="true"
