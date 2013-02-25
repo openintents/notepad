@@ -27,6 +27,11 @@ public class NotesListItemView extends LinearLayout {
 	protected String mTitleEncrypted;
 	protected String mTagsEncrypted;
 
+	private static final int BLUE = 1;
+	private static final int GREEN = 2;
+	private static final int GREY = 3;
+	private static final int PINK = 4;
+	private static final int YELLOW = 5;
 
 	public NotesListItemView(Context context) {
 		super(context);
@@ -93,16 +98,16 @@ public class NotesListItemView extends LinearLayout {
 		Resources res = this.getResources();
 		Drawable d = res.getDrawable(R.drawable.note_item_bg_yellow);
 		switch(color) {
-			case R.color.lightBabyBlue:
+			case BLUE:
 				d = res.getDrawable(R.drawable.note_item_bg_blue);
 				break;
-			case R.color.lightGray:
+			case GREY:
 				d = res.getDrawable(R.drawable.note_item_bg_grey);
 				break;
-			case R.color.lightGreen:
+			case GREEN:
 				d = res.getDrawable(R.drawable.note_item_bg_green);
 				break;
-			case R.color.lightPink:
+			case PINK:
 				d = res.getDrawable(R.drawable.note_item_bg_pink);
 				break;
 			default:

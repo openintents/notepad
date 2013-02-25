@@ -208,6 +208,12 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static int sSelectionStart = 0;
 	private static int sSelectionStop = 0;
 
+	private static final int BLUE = 1;
+	private static final int GREEN = 2;
+	private static final int GREY = 3;
+	private static final int PINK = 4;
+	private static final int YELLOW = 5;
+
 
 	private String mFileContent;
 
@@ -1403,19 +1409,19 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             // TODO Auto-generated method stub
             switch (v.getId()) {
             case R.id.editor_color_yellow: 
-                setNoteColor((int)R.color.lightYellow);
+                setNoteColor(YELLOW);
                 break;
             case R.id.editor_color_pink:
-            	setNoteColor((int)R.color.lightPink);
+            	setNoteColor(PINK);
                 break;
             case R.id.editor_color_blue:
-            	setNoteColor((int)R.color.lightBabyBlue);
+            	setNoteColor(BLUE);
                 break;
             case R.id.editor_color_green:
-            	setNoteColor((int)R.color.lightGreen);
+            	setNoteColor(GREEN);
                 break;
             case R.id.editor_color_gray:
-            	setNoteColor((int)R.color.lightGray);
+            	setNoteColor(GREY);
                 break;
             default:
                 break;
@@ -1430,10 +1436,29 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	}
 
 	protected void setNoteColor(int color) {
+		int id = (int)R.color.lightYellow;
 		Resources res = getResources();
 		LinearLayout c = (LinearLayout) findViewById(R.id.editor_color);
         c.setVisibility(View.GONE);
-		mText.setBackgroundDrawable(res.getDrawable(color));
+        
+		switch (color) {
+			case BLUE:
+				id = (int)R.color.lightBabyBlue;
+				break;
+			case GREEN:
+				id = (int)R.color.lightGreen;
+				break;
+			case PINK:
+				id = (int)R.color.lightPink;
+				break;
+			case GREY:
+				id = (int)R.color.lightGray;
+				break;
+			default:
+				break;
+		}
+
+		mText.setBackgroundDrawable(res.getDrawable(id));		
 		
 		if (color == mColor)
 			return;
