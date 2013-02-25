@@ -20,7 +20,7 @@ public class NotesListItemView extends LinearLayout {
 
 	Context mContext;
 
-	private MarqueeTextView mTitle;
+	private arqueeTextView mTitle;
 	private TextView mTags;
 	private ImageView mStatus;
 
@@ -41,32 +41,25 @@ public class NotesListItemView extends LinearLayout {
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		inflater.inflate(
-				R.layout.noteslist_item, this, true);
+		inflater.inflate(R.layout.noteslist_item, this, true);
 
-		mTitle = (MarqueeTextView) findViewById(R.id.title);
+		mTitle = (arqueeTextView) findViewById(R.id.title);
 		mTags = (TextView) findViewById(R.id.info);
 		mStatus = (ImageView) findViewById(R.id.status);
 	}
-	
-
 
 	@Override
 	public boolean hasFocus() {
 		// TODO Auto-generated method stub
-		if(PreferenceActivity.getMarqueeFromPrefs(mContext)==true) {
-			mTitle.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-			mTitle.setMarquee(true);
-		}
-		else
-		{
+		if (PreferenceActivity.getarqueeFromPrefs(mContext) == true) {
+			mTitle.setEllipsize(TextUtils.TruncateAt.ARQUEE);
+			mTitle.setarquee(true);
+		} else {
 			mTitle.setEllipsize(TextUtils.TruncateAt.END);
-			mTitle.setMarquee(false);
+			mTitle.setarquee(false);
 		}
 		return super.hasFocus();
 	}
-
-
 
 	/**
 	 * Convenience method to set the title of a NewsView
@@ -92,8 +85,6 @@ public class NotesListItemView extends LinearLayout {
 		}
 	}
 
-
-
 	public void setColor(int color) {
 		Resources res = this.getResources();
 		Drawable d = res.getDrawable(R.drawable.note_item_bg_yellow);
@@ -113,7 +104,7 @@ public class NotesListItemView extends LinearLayout {
 			default:
 				break;
 		}
-		
-		mTitle.setBackgroundDrawable(d);		
+
+		mTitle.setBackgroundDrawable(d);
 	}
 }

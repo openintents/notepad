@@ -30,26 +30,24 @@ public class NotesListCursor extends OpenMatrixCursor {
 	/**
 	 * The columns we are interested in from the database
 	 */
-	protected static final String[] PROJECTION_DB = new String[] { 
-		Notes._ID, // 0
-		Notes.TITLE, // 1
-		Notes.TAGS, // 2
-		Notes.ENCRYPTED, // 3
-		Notes.COLOR // 4
+	protected static final String[] PROJECTION_DB = new String[] { Notes._ID, // 0
+			Notes.TITLE, // 1
+			Notes.TAGS, // 2
+			Notes.ENCRYPTED, // 3
+			Notes.COLOR // 4
 	};
 
 
 	/**
 	 * This cursors' columns
 	 */
-	public static final String[] PROJECTION = new String[] { 
-		Notes._ID, // 0
-		Notes.TITLE, // 1
-		Notes.TAGS, // 2
-		Notes.ENCRYPTED, // 3
-		TITLE_DECRYPTED, // 4
-		TAGS_DECRYPTED, // 5
-		Notes.COLOR // 6
+	public static final String[] PROJECTION = new String[] { Notes._ID, // 0
+			Notes.TITLE, // 1
+			Notes.TAGS, // 2
+			Notes.ENCRYPTED, // 3
+			TITLE_DECRYPTED, // 4
+			TAGS_DECRYPTED, // 5
+			Notes.COLOR // 6
 	};
 
 	public static final int COLUMN_INDEX_ID = 0;
@@ -69,11 +67,11 @@ public class NotesListCursor extends OpenMatrixCursor {
 
 	Context mContext;
 	Intent mIntent;
-	//OpenMatrixCursor mCursor;
+	// OpenMatrixCursor mCursor;
 
 	/**
-	 * A database cursor that corresponds to the encrypted data of
-	 * the current cursor (that contains also decrypted information).
+	 * A database cursor that corresponds to the encrypted data of the current
+	 * cursor (that contains also decrypted information).
 	 */
 	Cursor mDbCursor;
 
@@ -83,13 +81,15 @@ public class NotesListCursor extends OpenMatrixCursor {
 	/**
 	 * Map encrypted titles to decrypted ones.
 	 */
-	public static HashMap<String,String> mEncryptedStringHashMap = new HashMap<String,String>();
+	public static HashMap<String, String> mEncryptedStringHashMap = new HashMap<String, String>();
 
 	/**
-	 * List containing all encrypted strings. These are decrypted one at a time while idle.
-	 * The list is synchronized because background threads may add items to it.
+	 * List containing all encrypted strings. These are decrypted one at a time
+	 * while idle. The list is synchronized because background threads may add
+	 * items to it.
 	 */
-	public static List<String> mEncryptedStringList = Collections.synchronizedList(new LinkedList<String>());
+	public static List<String> mEncryptedStringList = Collections
+			.synchronizedList(new LinkedList<String>());
 
 	public boolean mContainsEncryptedStrings;
 
@@ -102,7 +102,6 @@ public class NotesListCursor extends OpenMatrixCursor {
 
 	}
 
-
 	// TODO: Replace new Handler() by mHandler from NotesList somehow.
 	ContentObserver mContentObserver = new ContentObserver(new Handler()) {
 
@@ -114,16 +113,17 @@ public class NotesListCursor extends OpenMatrixCursor {
 		@Override
 		public void onChange(boolean selfChange) {
 			super.onChange(selfChange);
-			if (debug) Log.d(TAG, "NoteListCursor changed: " + selfChange);
+			if (debug)
+				Log.d(TAG, "NoteListCursor changed: " + selfChange);
 
 			if (!mSuspendQueries) {
-				if (debug) Log.d(TAG, "NoteListCursor requery()");
+				if (debug)
+					Log.d(TAG, "NoteListCursor requery()");
 				requery();
 			}
 		}
 
 	};
-
 
 	@Override
 	public boolean requery() {
@@ -132,8 +132,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 		return super.requery();
 	}
 
-
-	/** 
+	/**
 	 * Return a new cursor with decrypted information.
 	 * 
 	 * @param constraint
@@ -144,21 +143,22 @@ public class NotesListCursor extends OpenMatrixCursor {
 		return cursor;
 	}
 
-	/** 
+	/**
 	 * Return a query with decrypted information on the current cursor.
 	 * 
 	 * @param constraint
 	 */
 	private void runQuery(CharSequence constraint, String tag) {
 
-		// We have to query all items and return a new object, because notes may be encrypted.
+		// We have to query all items and return a new object, because notes may
+		// be encrypted.
 
 		if (constraint != null) {
 			mCurrentFilter = constraint.toString();
 		} else {
 			mCurrentFilter = null;
 		}
-		if(tag != null) {
+		if (tag != null) {
 			mSelectedTag = tag;
 		} else {
 			mSelectedTag = null;
@@ -169,16 +169,17 @@ public class NotesListCursor extends OpenMatrixCursor {
 			mDbCursor.close();
 			mDbCursor = null;
 		}
-		mDbCursor = mContext.getContentResolver().query(mIntent.getData(), PROJECTION_DB, 
-				null, null, PreferenceActivity.getSortOrderFromPrefs(mContext));
-
+		mDbCursor = mContext.getContentResolver().query(mIntent.getData(),
+				PROJECTION_DB, null, null,
+				PreferenceActivity.getSortOrderFromPrefs(mContext));
 
 		// Register content observer
 		mDbCursor.registerContentObserver(mContentObserver);
 
-		if (debug) Log.d(TAG, "Cursor count: " + mDbCursor.getCount());
+		if (debug)
+			Log.d(TAG, "Cursor count: " + mDbCursor.getCount());
 
-		//mCursor = new OpenMatrixCursor(PROJECTION, dbcursor.getCount());
+		// mCursor = new OpenMatrixCursor(PROJECTION, dbcursor.getCount());
 
 		reset();
 		mContainsEncryptedStrings = false;
@@ -203,10 +204,12 @@ public class NotesListCursor extends OpenMatrixCursor {
 				String titleDecrypted = mEncryptedStringHashMap.get(title);
 
 				if (titleDecrypted != null) {
-					if (debug) Log.d(TAG, "got title: " + titleDecrypted);
+					if (debug)
+						Log.d(TAG, "got title: " + titleDecrypted);
 					title = titleDecrypted;
 				} else {
-					if (debug) Log.d(TAG, "decrypt title later.");
+					if (debug)
+						Log.d(TAG, "decrypt title later.");
 					// decrypt later
 					addForEncryption(title);
 
@@ -220,10 +223,12 @@ public class NotesListCursor extends OpenMatrixCursor {
 				if (tags != null) {
 					String tagsDecrypted = mEncryptedStringHashMap.get(tags);
 					if (tagsDecrypted != null) {
-						if (debug) Log.d(TAG, "got tags: " + tagsDecrypted);
+						if (debug)
+							Log.d(TAG, "got tags: " + tagsDecrypted);
 						tags = tagsDecrypted;
 					} else {
-						if (debug) Log.d(TAG, "decrypt tags later.");
+						if (debug)
+							Log.d(TAG, "decrypt tags later.");
 						// decrypt later
 						addForEncryption(tags);
 
@@ -236,7 +241,8 @@ public class NotesListCursor extends OpenMatrixCursor {
 				}
 
 				if (!mLoggedIn) {
-					if (debug) Log.d(TAG, "not logged in.");
+					if (debug)
+						Log.d(TAG, "not logged in.");
 					// suppress all decrypted output
 					title = encryptedlabel;
 					tags = "";
@@ -245,11 +251,13 @@ public class NotesListCursor extends OpenMatrixCursor {
 
 			boolean addrow = false;
 
-			if (TextUtils.isEmpty(mCurrentFilter) && TextUtils.isEmpty(mSelectedTag)) {
+			if (TextUtils.isEmpty(mCurrentFilter)
+					&& TextUtils.isEmpty(mSelectedTag)) {
 				// Add all rows if there is no filter.
 				addrow = true;
 			} else if (skipEncrypted) {
-				if (debug) Log.d(TAG, "skipEncrypted)");
+				if (debug)
+					Log.d(TAG, "skipEncrypted)");
 				addrow = false;
 			} else {
 				// test the filter
@@ -267,20 +275,22 @@ public class NotesListCursor extends OpenMatrixCursor {
 
 				List<String> tagList = new ArrayList<String>();
 				if (!TextUtils.isEmpty(tags)) {
-					for(String tagString: tags.split(",")) {
-						if(tagString.trim().length() != 0) {
+					for (String tagString : tags.split(",")) {
+						if (tagString.trim().length() != 0) {
 							tagList.add(tagString.trim());
 						}
 					}
 				}
 
-				if ( TextUtils.isEmpty(mCurrentFilter) ) {
+				if (TextUtils.isEmpty(mCurrentFilter)) {
 					addrow = tagList.contains(mSelectedTag.trim());
-				} else if ( TextUtils.isEmpty(mSelectedTag) ) {
-					addrow = searchstring.contains(" " + mCurrentFilter.toUpperCase());
+				} else if (TextUtils.isEmpty(mSelectedTag)) {
+					addrow = searchstring.contains(" "
+							+ mCurrentFilter.toUpperCase());
 				} else {
-					addrow = searchstring.contains(" " + mCurrentFilter.toUpperCase()) &&
-							tagList.contains(mSelectedTag.trim());
+					addrow = searchstring.contains(" "
+							+ mCurrentFilter.toUpperCase())
+							&& tagList.contains(mSelectedTag.trim());
 				}
 
 				if (!addrow && encrypted != 0) {
@@ -299,14 +309,15 @@ public class NotesListCursor extends OpenMatrixCursor {
 					mContainsEncryptedStrings = true;
 				}
 
-				Object[] row = new Object[] {id, title, tags, encrypted, titleEncrypted, tagsEncrypted, color};
+				Object[] row = new Object[] { id, title, tags, encrypted,
+						titleEncrypted, tagsEncrypted, color};
 				addRow(row);
 			}
 		}
 	}
 
 	public static void flushDecryptedStringHashMap() {
-		mEncryptedStringHashMap = new HashMap<String,String>();
+		mEncryptedStringHashMap = new HashMap<String, String>();
 		mLoggedIn = false;
 	}
 
@@ -319,7 +330,8 @@ public class NotesListCursor extends OpenMatrixCursor {
 
 	public static String getNextEncryptedString() {
 		if (!NotesListCursor.mEncryptedStringList.isEmpty()) {
-			String encryptedString = NotesListCursor.mEncryptedStringList.remove(0);
+			String encryptedString = NotesListCursor.mEncryptedStringList
+					.remove(0);
 			return encryptedString;
 		} else {
 			return null;
@@ -328,28 +340,29 @@ public class NotesListCursor extends OpenMatrixCursor {
 
 	@Override
 	public void close() {
-		if (debug) Log.d(TAG, "Close NotesListCursor");
+		if (debug)
+			Log.d(TAG, "Close NotesListCursor");
 		super.close();
 	}
 
-
 	@Override
 	public void deactivate() {
-		if (debug) Log.d(TAG, "Deactivate NotesListCursor");
+		if (debug)
+			Log.d(TAG, "Deactivate NotesListCursor");
 		if (mDbCursor != null) {
 			mDbCursor.deactivate();
 		}
 		super.deactivate();
 	}
 
-
 	@Override
 	protected void finalize() {
-		if (debug) Log.d(TAG, "Finalize NotesListCursor");
+		if (debug)
+			Log.d(TAG, "Finalize NotesListCursor");
 
 		if (mDbCursor != null) {
 			mDbCursor.unregisterContentObserver(mContentObserver);
-			//mDbCursor.close();
+			// mDbCursor.close();
 			mDbCursor.deactivate();
 			mDbCursor.close();
 			mDbCursor = null;
@@ -357,6 +370,5 @@ public class NotesListCursor extends OpenMatrixCursor {
 
 		super.finalize();
 	}
-
 
 }

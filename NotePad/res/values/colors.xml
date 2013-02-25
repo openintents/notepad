@@ -12,16 +12,15 @@
 
     <color name="lightBrown">#825f3f</color>
     <color name="darkBrown">#5b371d</color>
-    
+
     <color name="lightBabyBlue">#ddf2ff</color>
     <color name="darkBabyBlue">#ddf2ff</color>
     <color name="darkestBabyBlue">#acd6f1</color>
-    
-    
+
     <color name="lightPink">#ffeded</color>
     <color name="darkPink">#ffeded</color>
     <color name="darkestPink">#d1c2c2</color>
-    
+
 	<color name="lightGreen">#eafecf</color>
 	<color name="darkGreen">#cfe08a</color>
 	<color name="darkestGreen">#b3c665</color>
