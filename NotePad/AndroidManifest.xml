@@ -240,7 +240,7 @@
         <receiver android:name="org.openintents.notepad.noteslist.Widget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="org.openintents.notepad.NOTE_EDIT"></action>
+                <action android:name="org.openintents.notepad.NOTE_EDITED"></action>
             </intent-filter>
 
             <meta-data
@@ -276,4 +276,3 @@
         	android:description="@string/oi_safe_permission_intents_descr" />
 	
 </manifest>
-
