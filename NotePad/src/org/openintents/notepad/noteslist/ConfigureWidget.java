@@ -11,28 +11,18 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.method.MovementMethod;
-import android.text.method.ScrollingMovementMethod;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CursorAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RemoteViews;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
-
 
 public class ConfigureWidget extends ListActivity{
 	
 	private int widgetId;
 	NotesListCursor mCursorUtils;
 	CursorAdapter adapter1;
-	private String[] from;
+	private String[] from,columns;
 	private int[] to;
 	AppWidgetManager appWidgetManager;
 	RemoteViews views;
@@ -42,15 +32,16 @@ public class ConfigureWidget extends ListActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.configure_widget);
 		
-		from = new String[]{ Notes._ID, Notes.TITLE };
-		to = new int[]{R.id.id_row_notelist,R.id.title_row_notelist};
+		columns = new String[]{Notes._ID,Notes.TITLE};
+		from = new String[]{Notes.TITLE };
+		to = new int[]{R.id.title_row_notelist};
 		Intent intent = getIntent();
 		if (intent.getData() == null) {
 			intent.setData(Notes.CONTENT_URI);
 		}
 		Uri notesUri = getIntent().getData();
 		Cursor managedCursor = getContentResolver().query(notesUri,
-				from, null, null, null);
+				columns, null, null, null);
 		startManagingCursor(managedCursor);
 		adapter1 = new SimpleCursorAdapter(this,R.layout.config_widget_entry, managedCursor,from,to);
 		setListAdapter(adapter1);
@@ -83,13 +74,7 @@ public class ConfigureWidget extends ListActivity{
 		Intent intent1 = new Intent(Intent.ACTION_EDIT, uri);
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
 				intent1, 0);
-		
-	//	LayoutInflater inflator = getLayoutInflater();
-	//	View ll = inflator.inflate(R.layout.widget_layout, null);
-	//	TextView text = (TextView)ll.findViewById(R.id.textViewWidget);
-	//	text.setMovementMethod(new ScrollingMovementMethod());
-	//	Toast.makeText(this, text.getText(), Toast.LENGTH_SHORT).show();
-			
+				
 		views.setOnClickPendingIntent(R.id.textViewWidget, pendingIntent);
 		appWidgetManager.updateAppWidget(widgetId, views);
 		
@@ -103,7 +88,6 @@ public class ConfigureWidget extends ListActivity{
 		Intent resultValue = new Intent();
 		resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
 		setResult(RESULT_OK,resultValue);
-		NotesList.hasWidget = true;
 		finish();
 	}
 
