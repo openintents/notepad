@@ -43,5 +43,5 @@ public class NotepadInternalIntents {
 	 * Constant Value: "org.openintents.notepad.NOTE_EDIT"
 	 * </p>
 	 */
-	public static final String NOTE_EDIT = "org.openintents.notepad.NOTE_EDIT";
+	public static final String NOTE_EDITED = "org.openintents.notepad.NOTE_EDITED";
 }
