@@ -31,7 +31,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-
 import org.openintents.intents.CryptoIntents;
 import org.openintents.intents.NotepadIntents;
 import org.openintents.notepad.NotePad.Notes;
@@ -51,7 +50,6 @@ import org.openintents.notepad.util.SendNote;
 import org.openintents.notepad.wrappers.WrapActionBar;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 import org.openintents.util.UpperCaseTransformationMethod;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -966,7 +964,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				int length = text.length();
 
 				//Created an intent to broadcast editnote 
-				Intent widgetUpdate = new Intent(NotepadInternalIntents.NOTE_EDIT);
+				Intent widgetUpdate = new Intent(NotepadInternalIntents.NOTE_EDITED);
 				widgetUpdate.putExtra("Note", text);
 				
 				// If this activity is finished, and there is no text, then we
