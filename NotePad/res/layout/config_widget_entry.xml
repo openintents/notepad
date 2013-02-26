@@ -5,16 +5,10 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/id_row_notelist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:visibility="invisible" />
-
-    <TextView
         android:id="@+id/title_row_notelist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
