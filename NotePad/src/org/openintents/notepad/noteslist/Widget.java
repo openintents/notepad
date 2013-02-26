@@ -2,15 +2,12 @@ package org.openintents.notepad.noteslist;
 
 import org.openintents.notepad.R;
 import org.openintents.notepad.intents.NotepadInternalIntents;
-
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.widget.RemoteViews;
 
 public class Widget extends AppWidgetProvider {
@@ -24,7 +21,7 @@ public class Widget extends AppWidgetProvider {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		super.onReceive(context, intent);
-		if (intent.getAction().equals(NotepadInternalIntents.NOTE_EDIT)
+		if (intent.getAction().equals(NotepadInternalIntents.NOTE_EDITED)
 				|| intent.getAction().equals(
 						AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
 			Bundle extras = intent.getExtras();
@@ -45,7 +42,6 @@ public class Widget extends AppWidgetProvider {
 				SharedPreferences.Editor editor = sp.edit();
 				editor.putString("RemoteText" + uriId, note);
 				editor.commit();
-				// }
 			}
 		}
 	}
