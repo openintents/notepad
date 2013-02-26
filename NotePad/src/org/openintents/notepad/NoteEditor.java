@@ -374,7 +374,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				// Requested to edit: set that state, and the data being edited.
 				mState = STATE_EDIT;
 				mUri = intent.getData();
-
 				if (mUri.getScheme().equals("file")) {
 					mState = STATE_EDIT_NOTE_FROM_SDCARD;
 					// Load the file into a new note.
@@ -953,7 +952,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			Log.d(TAG, "onPause");
 
 		mText.setAutoLinkMask(0);
-
+		//Get the note id so that we can change the corrosponding widgetby sending a broadcast
+		//Bundle extras = getIntent().getExtras();
 		// The user is going somewhere else, so make sure their current
 		// changes are safely saved away in the provider. We don't need
 		// to do this if only editing.
@@ -965,6 +965,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				String text = mText.getText().toString();
 				int length = text.length();
 
+				//Created an intent to broadcast editnote 
+				Intent widgetUpdate = new Intent(NotepadInternalIntents.NOTE_EDIT);
+				widgetUpdate.putExtra("Note", text);
+				
 				// If this activity is finished, and there is no text, then we
 				// do something a little special: simply delete the note entry.
 				// Note that we do this both for editing and inserting... it
@@ -976,15 +980,18 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					// Get out updates into the provider.
 				} else {
 					ContentValues values = new ContentValues();
-
+					//Toast.makeText(this, "Paused unecrypted note:"+text, Toast.LENGTH_SHORT).show();
 					// This stuff is only done when working with a full-fledged
 					// note.
 					if (!mNoteOnly) {
 						String oldText = "";
 						Cursor cursor = getContentResolver().query(mUri,
-								new String[] { "note" }, null, null, null);
+								new String[] {"note" ,"_id"}, null, null, null);
 						if (cursor.moveToFirst()) {
 							oldText = cursor.getString(0);
+							String id = cursor.getString(1);
+							widgetUpdate.putExtra("ID",id);
+							//Toast.makeText(this,id+ ""+oldText, Toast.LENGTH_SHORT).show();
 						}
 						if (!oldText.equals(text)) {
 							// Bump the modification time to now.
@@ -1015,13 +1022,15 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					if (hasSelection_endColumn) {
 						values.put(Notes.SELECTION_END, mText.getSelectionEnd());
 					}
-
+					
+					sendBroadcast(widgetUpdate);
 					// Commit all of our changes to persistent storage. When the
 					// update completes
 					// the content provider will notify the cursor of the
 					// change, which will
 					// cause the UI to be updated.
 					getContentResolver().update(mUri, values, null, null);
+					
 				}
 			} else {
 				// encrypted note: First encrypt and store encrypted note:

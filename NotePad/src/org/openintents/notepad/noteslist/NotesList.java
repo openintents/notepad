@@ -52,7 +52,6 @@ import org.openintents.notepad.util.FileUriUtils;
 import org.openintents.notepad.util.SendNote;
 import org.openintents.notepad.wrappers.WrapActionBar;
 import org.openintents.util.MenuIntentOptionsWithIcons;
-
 import android.app.Dialog;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.ActivityNotFoundException;
@@ -135,9 +134,13 @@ public class NotesList extends DistributionLibraryListActivity implements
 	NotesListCursor mCursorUtils;
 	NotesListCursorAdapter mAdapter;
 
+	static boolean hasWidget = false;
 	String mLastFilter;
 	String mSelectedTag;
+	Uri uriString;
+	long noteClicked = 1;
 
+	private int uriId;
 	private Handler mHandler = new Handler();
 
 	private boolean mDecryptionFailed;
@@ -207,13 +210,11 @@ public class NotesList extends DistributionLibraryListActivity implements
 		 * // Perform a managed query. The Activity will handle closing and //
 		 * requerying the cursor // when needed. Cursor cursor =
 		 * managedQuery(getIntent().getData(), PROJECTION, null, null,
-		 * Notes.DEFAULT_SORT_ORDER);
-		 * 
-		 * /* // Used to map notes entries from the database to views
-		 * SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-		 * R.layout.noteslist_item, cursor, new String[] { Notes.TITLE }, new
-		 * int[] { android.R.id.text1 }); / mAdapter = new
-		 * NotesListCursorAdapter(this, cursor, getIntent());
+		 * Notes.DEFAULT_SORT_ORDER); ureWidget) /* // Used to map notes entries
+		 * from the database to views SimpleCursorAdapter adapter = new
+		 * SimpleCursorAdapter(this, R.layout.noteslist_item, cursor, new
+		 * String[] { Notes.TITLE }, new int[] { android.R.id.text1 }); /
+		 * mAdapter = new NotesListCursorAdapter(this, cursor, getIntent());
 		 * setListAdapter(mAdapter);
 		 */
 
@@ -291,13 +292,14 @@ public class NotesList extends DistributionLibraryListActivity implements
 			do {
 				String tags = managedCursor.getString(0);
 				long encrypted = managedCursor.getLong(1);
-
+				Log.d("Cursor", "tags:" + tags);
 				if (!TextUtils.isEmpty(tags)) {
 					if (encrypted == 0) {
 						for (String tag : tags.split(",")) {
 							if (!taglist.contains(tag.trim())) {
 								taglist.add(tag.trim());
 							}
+							// Log.d("Cursor", tags);
 						}
 					} else {
 						// Currently: ignore encrypted tags.
@@ -430,7 +432,6 @@ public class NotesList extends DistributionLibraryListActivity implements
 		super.onPause();
 
 		mLastFilter = mCursorUtils.mCurrentFilter;
-
 		// Deactivating the cursor leads to flickering whenever some
 		// encrypted information is retrieved.
 		// Cursor c = mAdapter.getCursor();
@@ -455,6 +456,11 @@ public class NotesList extends DistributionLibraryListActivity implements
 		NotesListCursor.mSuspendQueries = true;
 		mDecryptionFailed = false;
 		mDecryptionSucceeded = false;
+		// Intent i = new Intent(this,Widget.class);
+		// i.setAction(Widget.NOTE_EDIT);
+		// i.putExtra("uri",uriString);
+		// i.putExtra("ID", uriId);
+		// this.sendBroadcast(i);
 	}
 
 	@Override
@@ -909,7 +915,6 @@ public class NotesList extends DistributionLibraryListActivity implements
 			return new DeleteConfirmationDialog(this,
 					new DialogInterface.OnClickListener() {
 
-						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							Uri noteUri = ContentUris.withAppendedId(
 									getIntent().getData(), mContextMenuInfo.id);
@@ -999,7 +1004,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 		// First see if note is encrypted
 		Cursor c = mAdapter.getCursor();
 		c.moveToPosition(position);
-
+		noteClicked = id;
 		long encrypted = c.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
 
 		String encryptedTitle = c
@@ -1040,7 +1045,8 @@ public class NotesList extends DistributionLibraryListActivity implements
 		}
 
 		Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
-
+		uriString = getIntent().getData();
+		
 		String action = getIntent().getAction();
 		if (Intent.ACTION_PICK.equals(action)
 				|| Intent.ACTION_GET_CONTENT.equals(action)) {
@@ -1071,7 +1077,10 @@ public class NotesList extends DistributionLibraryListActivity implements
 			finish();
 		} else {
 			// Launch activity to view/edit the currently selected item
-			startActivity(new Intent(Intent.ACTION_EDIT, uri));
+			uriId = (int) id;
+			Intent edit = new Intent(Intent.ACTION_EDIT, uri);
+			edit.putExtra("_ID", uriId);
+			startActivity(edit);
 		}
 	}
 
