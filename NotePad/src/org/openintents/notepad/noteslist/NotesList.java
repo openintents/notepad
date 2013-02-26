@@ -134,13 +134,9 @@ public class NotesList extends DistributionLibraryListActivity implements
 	NotesListCursor mCursorUtils;
 	NotesListCursorAdapter mAdapter;
 
-	static boolean hasWidget = false;
 	String mLastFilter;
 	String mSelectedTag;
-	Uri uriString;
-	long noteClicked = 1;
-
-	private int uriId;
+	
 	private Handler mHandler = new Handler();
 
 	private boolean mDecryptionFailed;
@@ -1004,7 +1000,6 @@ public class NotesList extends DistributionLibraryListActivity implements
 		// First see if note is encrypted
 		Cursor c = mAdapter.getCursor();
 		c.moveToPosition(position);
-		noteClicked = id;
 		long encrypted = c.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
 
 		String encryptedTitle = c
@@ -1045,7 +1040,6 @@ public class NotesList extends DistributionLibraryListActivity implements
 		}
 
 		Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
-		uriString = getIntent().getData();
 		
 		String action = getIntent().getAction();
 		if (Intent.ACTION_PICK.equals(action)
@@ -1077,10 +1071,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 			finish();
 		} else {
 			// Launch activity to view/edit the currently selected item
-			uriId = (int) id;
-			Intent edit = new Intent(Intent.ACTION_EDIT, uri);
-			edit.putExtra("_ID", uriId);
-			startActivity(edit);
+			startActivity(new Intent(Intent.ACTION_EDIT,uri));
 		}
 	}
 
