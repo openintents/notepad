@@ -20,7 +20,7 @@ public class NotesListItemView extends LinearLayout {
 
 	Context mContext;
 
-	private arqueeTextView mTitle;
+	private MarqueeTextView mTitle;
 	private TextView mTags;
 	private ImageView mStatus;
 
@@ -43,7 +43,7 @@ public class NotesListItemView extends LinearLayout {
 
 		inflater.inflate(R.layout.noteslist_item, this, true);
 
-		mTitle = (arqueeTextView) findViewById(R.id.title);
+		mTitle = (MarqueeTextView) findViewById(R.id.title);
 		mTags = (TextView) findViewById(R.id.info);
 		mStatus = (ImageView) findViewById(R.id.status);
 	}
@@ -51,12 +51,12 @@ public class NotesListItemView extends LinearLayout {
 	@Override
 	public boolean hasFocus() {
 		// TODO Auto-generated method stub
-		if (PreferenceActivity.getarqueeFromPrefs(mContext) == true) {
-			mTitle.setEllipsize(TextUtils.TruncateAt.ARQUEE);
-			mTitle.setarquee(true);
+		if (PreferenceActivity.getMarqueeFromPrefs(mContext) == true) {
+			mTitle.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+			mTitle.setMarquee(true);
 		} else {
 			mTitle.setEllipsize(TextUtils.TruncateAt.END);
-			mTitle.setarquee(false);
+			mTitle.setMarquee(false);
 		}
 		return super.hasFocus();
 	}
