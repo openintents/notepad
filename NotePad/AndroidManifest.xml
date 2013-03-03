@@ -237,6 +237,22 @@
 		<!-- Activities from OI Distribution Library -->
         <activity android:name="org.openintents.distribution.EulaActivity" />
         <activity android:name="org.openintents.distribution.NewVersionActivity" />
+        <receiver android:name="org.openintents.notepad.noteslist.Widget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="org.openintents.notepad.NOTE_EDITED"></action>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget" />
+        </receiver>
+        <service  android:name="org.openintents.notepad.noteslist.WidgetService"></service>
+        <activity android:name="org.openintents.notepad.noteslist.ConfigureWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
 	</application>
 
 	<uses-permission android:name="org.openintents.notepad.READ_PERMISSION" />
@@ -260,4 +276,3 @@
         	android:description="@string/oi_safe_permission_intents_descr" />
 	
 </manifest>
-
