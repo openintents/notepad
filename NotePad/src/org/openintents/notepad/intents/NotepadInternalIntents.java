@@ -37,4 +37,18 @@ public class NotepadInternalIntents {
 	 * </p>
 	 */
 	public static final String EXTRA_TAGS = "org.openintents.extra.TAGS";
+	/**
+	 * If the note is edited.
+	 * <p>
+	 * Constant Value: "org.openintents.notepad.NOTE_EDIT"
+	 * </p>
+	 */
+	public static final String NOTE_EDITED = "org.openintents.notepad.NOTE_EDITED";
+	/**
+	 * If the note is added or removed.
+	 * <p>
+	 * Constant Value: "org.openintents.notepad.NOTE_ADD_DEL"
+	 * </p>
+	 */
+	public static final String NOTE_ADD_DEL = "org.openintents.notepad.NOTE_ADD_DEL";
 }
