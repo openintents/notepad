@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<appwidget-provider
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:minWidth="270dp"
+  android:minHeight="180dp"
+  android:updatePeriodMillis="3600000"
+  android:previewImage="@drawable/stack"
+  android:initialLayout="@layout/stack_widget"
+  android:autoAdvanceViewId="@id/stackView1"
+  android:resizeMode="horizontal|vertical"
+  >
+</appwidget-provider>
