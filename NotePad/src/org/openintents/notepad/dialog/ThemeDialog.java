@@ -153,7 +153,7 @@ public class ThemeDialog extends AlertDialog implements OnClickListener,
 	 */
 	private void updateList() {
 		String theme = mListener.onLoadTheme();
-
+		
 		// Check special cases for backward compatibility:
 		if ("1".equals(theme)) {
 			theme = mContext.getResources().getResourceName(
@@ -169,13 +169,16 @@ public class ThemeDialog extends AlertDialog implements OnClickListener,
 		// Reset selection in case the current theme is not
 		// in this list (for example got uninstalled).
 		mListView.setItemChecked(-1, false);
+		
+		//Set the default theme listitem.
+		mListView.setItemChecked(0, true);
 		mListView.setSelection(0);
 
 		int pos = 0;
 		for (ThemeInfo ti : mListInfo) {
 			if (ti.styleName.equals(theme)) {
 				mListView.setItemChecked(pos, true);
-
+				
 				// Move list to show the selected item:
 				mListView.setSelection(pos);
 				break;
@@ -256,6 +259,21 @@ public class ThemeDialog extends AlertDialog implements OnClickListener,
 		/* User clicked No so do some stuff */
 		String theme = mListener.onLoadTheme();
 		mListener.onSetTheme(theme);
+
+		//Set the list to the default theme
+		mListView.setItemChecked(0, true);
+		mListView.setSelection(0);
+		
+		//Set the list item to the previously chosen theme.
+		int pos = 0;
+		for (ThemeInfo ti : mListInfo) {
+			if (ti.styleName.equals(theme)) {
+				mListView.setItemChecked(pos, true);
+				mListView.setSelection(pos);
+				break;
+			}
+			pos++;
+		}
 	}
 
 	@Override
