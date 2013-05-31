@@ -57,6 +57,9 @@
         <!-- OI About metadata -->
 		<meta-data android:name="org.openintents.about"
 			android:resource="@xml/about" />
+		<meta-data android:name="org.openintents.support"
+			android:resource="@xml/about" />
+		
         <meta-data android:name="org.openintents.metadata.DUZ_ID"
         			   android:value="aglkaWR1bm96YXRyGAsSEEFwcGxpY2F0aW9uTW9kZWwY0aQBDA"/>
         
