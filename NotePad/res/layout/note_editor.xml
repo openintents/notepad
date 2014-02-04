@@ -16,15 +16,63 @@
  * limitations under the License.
  -->
 
-<view xmlns:android="http://schemas.android.com/apk/res/android"
-    class="org.openintents.notepad.NoteEditor$LinedEditText"
-    android:id="@+id/note"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/white"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/transparent"
-    android:padding="5dip"
-    android:scrollbars="vertical"
-    android:fadingEdge="vertical"
-    android:gravity="top"
-    android:capitalize="sentences"
-/>
+    android:layout_height="match_parent">
+
+	<ScrollView
+		android:id="@+id/scroll"
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:fillViewport="true"
+		android:fadingEdge="none">
+		<view android:id="@+id/note"
+			class="org.openintents.notepad.NoteEditor$LinedEditText"
+			android:singleLine="false"
+			android:inputType="textMultiLine"
+			android:padding="5dip"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:background="@color/darkPink"
+			android:fadingEdge="none"
+			android:scrollbars="vertical|horizontal"
+			android:gravity="top"
+			android:autoText="false"
+			android:capitalize="none"
+			/>
+			</ScrollView>
+
+    <LinearLayout android:id="@+id/editor_color"
+        android:clickable="true"
+		android:orientation="horizontal"
+		android:layout_width="290.0dp" android:layout_height="wrap_content"
+		android:layout_gravity="top|center" android:gravity="center"
+		android:layout_marginTop="70.0dp"
+		android:background="@drawable/zhengwen_xuanyanse"
+		android:visibility="gone">
+		<ImageView android:id="@+id/editor_color_yellow"
+			android:layout_weight="1.0" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:scaleType="center"
+			android:background="@drawable/transparent72" />
+		<ImageView android:id="@+id/editor_color_pink"
+			android:layout_weight="1.0" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:scaleType="center"
+			android:background="@drawable/transparent72" />
+		<ImageView android:id="@+id/editor_color_blue"
+			android:layout_weight="1.0" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:scaleType="center"
+			android:background="@drawable/transparent72" />
+		<ImageView android:id="@+id/editor_color_green"
+			android:layout_weight="1.0" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:scaleType="center"
+			android:background="@drawable/transparent72" />
+		<ImageView android:id="@+id/editor_color_gray"
+			android:layout_weight="1.0" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:scaleType="center"
+			android:background="@drawable/transparent72" />
+	</LinearLayout>
+
+</FrameLayout>

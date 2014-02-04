@@ -68,6 +68,8 @@
 	<!-- <string name="no_notes">Note list is empty.</string>  -->
 	
 	<string name="menu_share">Share</string>
+	<string name="menu_color">Color</string>
+
 	<string name="empty_note">Empty note</string>
 	<string name="share_not_available">No application available for sharing.</string>
 	

@@ -37,6 +37,7 @@ public class NotesListCursorAdapter extends CursorAdapter {
 				.getString(NotesListCursor.COLUMN_INDEX_TITLE_ENCRYPTED);
 		String tagsEncrypted = cursor
 				.getString(NotesListCursor.COLUMN_INDEX_TAGS_ENCRYPTED);
+		int color = cursor.getInt(NotesListCursor.COLUMN_INDEX_COLOR + 2);
 
 		nliv.setEncrypted(encrypted);
 
@@ -44,6 +45,7 @@ public class NotesListCursorAdapter extends CursorAdapter {
 		nliv.setTags(tags);
 		nliv.mTitleEncrypted = titleEncrypted;
 		nliv.mTagsEncrypted = tagsEncrypted;
+		nliv.setColor(color);
 
 		/*
 		 * if (encrypted == 0) { // Not encrypted: nliv.setTitle(title);

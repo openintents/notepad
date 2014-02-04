@@ -33,8 +33,10 @@ public class NotesListCursor extends OpenMatrixCursor {
 	protected static final String[] PROJECTION_DB = new String[] { Notes._ID, // 0
 			Notes.TITLE, // 1
 			Notes.TAGS, // 2
-			Notes.ENCRYPTED // 3
+			Notes.ENCRYPTED, // 3
+			Notes.COLOR // 4
 	};
+
 
 	/**
 	 * This cursors' columns
@@ -44,7 +46,8 @@ public class NotesListCursor extends OpenMatrixCursor {
 			Notes.TAGS, // 2
 			Notes.ENCRYPTED, // 3
 			TITLE_DECRYPTED, // 4
-			TAGS_DECRYPTED // 5
+			TAGS_DECRYPTED, // 5
+			Notes.COLOR // 6
 	};
 
 	public static final int COLUMN_INDEX_ID = 0;
@@ -55,6 +58,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 	/** Contains the encrypted title if it has not been decrypted yet */
 	public static final int COLUMN_INDEX_TITLE_ENCRYPTED = 4;
 	public static final int COLUMN_INDEX_TAGS_ENCRYPTED = 5;
+	public static final int COLUMN_INDEX_COLOR = 4;
 
 	static boolean mLoggedIn = false;
 
@@ -188,6 +192,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 			String title = mDbCursor.getString(COLUMN_INDEX_TITLE);
 			String tags = mDbCursor.getString(COLUMN_INDEX_TAGS);
 			long encrypted = mDbCursor.getLong(COLUMN_INDEX_ENCRYPTED);
+			int color = mDbCursor.getInt(COLUMN_INDEX_COLOR);
 			String titleEncrypted = "";
 			String tagsEncrypted = "";
 
@@ -305,7 +310,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 				}
 
 				Object[] row = new Object[] { id, title, tags, encrypted,
-						titleEncrypted, tagsEncrypted };
+						titleEncrypted, tagsEncrypted, color};
 				addRow(row);
 			}
 		}

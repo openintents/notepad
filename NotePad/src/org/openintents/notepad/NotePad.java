@@ -157,6 +157,16 @@ public final class NotePad {
 		public static final String SCROLL_POSITION = "scroll_position";
 
 		/**
+		 * A color id
+		 * <P>
+		 * Type: INTEGER
+		 * </P>
+		 * 
+		 * @since 1.3.2
+		 */
+		public static final String COLOR = "color";
+
+		/**
 		 * Support sort orders. The "sort order" in the preferences is an index
 		 * into this array.
 		 */

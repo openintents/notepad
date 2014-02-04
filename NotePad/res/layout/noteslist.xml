@@ -17,22 +17,9 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:background="@drawable/notes_background"
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent">
-    <!-- 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent" 
-        android:layout_height="wrap_content">
-        
-        <Button android:id="@+id/add"
-            android:layout_width="wrap_content" 
-            android:layout_height="wrap_content"
-            android:text="@string/menu_insert"
-            android:layout_gravity="center" />
-            
-    </LinearLayout>
-     -->
     <Spinner
         android:id="@+id/tagselection"
         android:layout_width="fill_parent"

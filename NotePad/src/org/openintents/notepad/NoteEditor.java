@@ -88,8 +88,12 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -114,6 +118,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			Notes.SELECTION_START, // 5
 			Notes.SELECTION_END, // 6
 			Notes.SCROLL_POSITION, // 7
+			Notes.COLOR, // 7
 	};
 	/** The index of the note column */
 	private static final int COLUMN_INDEX_ID = 0;
@@ -124,6 +129,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final int COLUMN_INDEX_SELECTION_START = 5;
 	private static final int COLUMN_INDEX_SELECTION_END = 6;
 	private static final int COLUMN_INDEX_SCROLL_POSITION = 7;
+	private static final int COLUMN_INDEX_COLOR = 8;
 
 	// This is our state data that is stored when freezing.
 	private static final String BUNDLE_ORIGINAL_CONTENT = "original_content";
@@ -151,6 +157,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final int MENU_SETTINGS = Menu.FIRST + 9;
 	private static final int MENU_SEND = Menu.FIRST + 10;
 	private static final int MENU_WORD_COUNT = Menu.FIRST + 11;
+	private static final int MENU_COLOR = Menu.FIRST + 12;
 
 	// private static final int REQUEST_CODE_ENCRYPT = 1;
 	private static final int REQUEST_CODE_DECRYPT = 2;
@@ -196,12 +203,21 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private long mEncrypted;
 	private String mDecryptedText;
 
+	private int mColor = -1;
+
 	/**
 	 * static string for hack. Only used for configuration changes.
 	 */
 	private static String sDecryptedText = null;
 	private static int sSelectionStart = 0;
 	private static int sSelectionStop = 0;
+
+	private static final int BLUE = 1;
+	private static final int GREEN = 2;
+	private static final int GREY = 3;
+	private static final int PINK = 4;
+	private static final int YELLOW = 5;
+
 
 	private String mFileContent;
 
@@ -223,6 +239,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private boolean hasNoteColumn = true;
 	private boolean hasTagsColumn = true;
 	private boolean hasEncryptionColumn = true;
+	private boolean hasColorColumn = true;
 	private boolean hasThemeColumn = true;
 	private boolean hasSelection_startColumn = true;
 	private boolean hasSelection_endColumn = true;
@@ -534,7 +551,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				if (!columnNames.contains(Notes.THEME)) {
 					hasThemeColumn = false;
 				}
-				if (!columnNames.contains(Notes.SELECTION_START)) {
+				if(!columnNames.contains(Notes.COLOR)){
+					hasColorColumn = false;
+				}
+				if(!columnNames.contains(Notes.SELECTION_START)){
 					hasSelection_startColumn = false;
 				}
 				if (!columnNames.contains(Notes.SELECTION_END)) {
@@ -799,6 +819,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 				mTheme = mCursor.getString(COLUMN_INDEX_THEME);
 				mSelectionStart = mCursor.getInt(COLUMN_INDEX_SELECTION_START);
 				mSelectionStop = mCursor.getInt(COLUMN_INDEX_SELECTION_END);
+				mColor = mCursor.getInt(COLUMN_INDEX_COLOR);
 			}
 
 			if (mEncrypted == 0) {
@@ -1008,11 +1029,13 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					if (hasThemeColumn) {
 						values.put(Notes.THEME, mTheme);
 					}
-					if (hasSelection_startColumn) {
-						values.put(Notes.SELECTION_START,
-								mText.getSelectionStart());
+					if(hasColorColumn){
+						values.put(Notes.COLOR, mColor);
 					}
-					if (hasSelection_endColumn) {
+					if(hasSelection_startColumn){
+						values.put(Notes.SELECTION_START, mText.getSelectionStart());
+					}
+					if(hasSelection_endColumn){
 						values.put(Notes.SELECTION_END, mText.getSelectionEnd());
 					}
 
@@ -1031,6 +1054,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
 				if (hasThemeColumn) {
 					values.put(Notes.THEME, mTheme);
+				}
+				if(hasColorColumn){
+					values.put(Notes.COLOR, mColor);
 				}
 
 				getContentResolver().update(mUri, values, null, null);
@@ -1219,6 +1245,12 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			WrapActionBar.showIfRoom(item);
 		}
 
+		item = menu.add(4, MENU_COLOR, 0, R.string.menu_color);
+		item.setIcon( R.drawable.notes_btn_changecolors );
+		if(mActionBarAvailable){
+			WrapActionBar.showIfRoom(item);
+		}
+
 		menu.add(5, MENU_WORD_COUNT, 0, R.string.menu_word_count);
 
 		/*
@@ -1368,6 +1400,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		case MENU_SEND:
 			shareNote();
 			return true;
+		case MENU_COLOR:
+			setColor();
+			return true;
 		case MENU_WORD_COUNT:
 			showWordCount();
 			break;
@@ -1383,10 +1418,86 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		return super.onOptionsItemSelected(item);
 	}
 
+	private void setColor() {
+		LinearLayout color = (LinearLayout) findViewById(R.id.editor_color);
+		ImageView color_yellow = (ImageView) findViewById(R.id.editor_color_yellow);
+		ImageView color_pink = (ImageView) findViewById(R.id.editor_color_pink);
+		ImageView color_blue = (ImageView) findViewById(R.id.editor_color_blue);
+		ImageView color_green = (ImageView) findViewById(R.id.editor_color_green);
+		ImageView color_gray = (ImageView) findViewById(R.id.editor_color_gray);
+
+		color_yellow.setOnClickListener(colorListener);
+		color_pink.setOnClickListener(colorListener);
+		color_blue.setOnClickListener(colorListener);
+		color_green.setOnClickListener(colorListener);
+		color_gray.setOnClickListener(colorListener);
+
+		color.setVisibility(View.VISIBLE);
+	}
+
+	OnClickListener colorListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			switch (v.getId()) {
+			case R.id.editor_color_yellow:
+				setNoteColor(YELLOW);
+				break;
+			case R.id.editor_color_pink:
+				setNoteColor(PINK);
+				break;
+			case R.id.editor_color_blue:
+				setNoteColor(BLUE);
+				break;
+			case R.id.editor_color_green:
+				setNoteColor(GREEN);
+				break;
+			case R.id.editor_color_gray:
+				setNoteColor(GREY);
+				break;
+			default:
+				break;
+			}
+		}
+	};
+
 	private void shareNote() {
 		String content = mText.getText().toString();
 		String title = ExtractTitle.extractTitle(content);
 		SendNote.sendNote(this, title, content);
+	}
+
+	protected void setNoteColor(int color) {
+		int id = (int)R.color.lightYellow;
+		Resources res = getResources();
+		LinearLayout c = (LinearLayout) findViewById(R.id.editor_color);
+		c.setVisibility(View.GONE);
+
+		switch (color) {
+			case BLUE:
+				id = (int)R.color.lightBabyBlue;
+				break;
+			case GREEN:
+				id = (int)R.color.lightGreen;
+				break;
+			case PINK:
+				id = (int)R.color.lightPink;
+				break;
+			case GREY:
+				id = (int)R.color.lightGray;
+				break;
+			default:
+				break;
+		}
+
+		mText.setBackgroundDrawable(res.getDrawable(id));
+
+		if (color == mColor)
+			return;
+		mColor = color;
+		ContentValues values = new ContentValues();
+		values.put(Notes.COLOR, mColor);
+		getContentResolver().update(mUri, values, null, null);
 	}
 
 	private void deleteNoteWithConfirm() {
@@ -1885,6 +1996,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 					} else {
 						// remove background
 						mText.setBackgroundResource(0);
+						setNoteColor(mColor);
 					}
 				} catch (NameNotFoundException e) {
 					Log.e(TAG, "Package not found for Theme background.", e);

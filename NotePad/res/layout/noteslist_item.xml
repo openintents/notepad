@@ -16,32 +16,31 @@
  * limitations under the License.
  */
 -->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-	android:layout_marginLeft="8dip" android:layout_marginRight="12dip"
 	android:minHeight="?android:attr/listPreferredItemHeight" 
-    ><!-- android:layout_marginTop="8dip" android:layout_marginBottom="8dip"
-	 -->
-    <LinearLayout
+    >
+	<LinearLayout
 	    android:orientation="vertical"
 	    android:layout_width="0dip"
 	    android:layout_height="wrap_content"
 	    android:layout_weight="1"
 		android:layout_gravity="center_vertical"
-		android:layout_marginLeft="5dip"
-	    ><!-- android:layout_alignParentLeft="true"
-	     -->
+	    >
 		<org.openintents.notepad.noteslist.MarqueeTextView
 		    android:id="@+id/title"
-		    android:layout_height="wrap_content"
-		    android:layout_width="wrap_content"
+		    android:layout_height="fill_parent"
+		    android:layout_width="fill_parent"
+		    android:drawablePadding="1dp"
 		    android:textAppearance="?android:attr/textAppearanceLarge"
 			android:singleLine="true"
+			android:background="@drawable/note_item_bg_yellow"
 		    android:ellipsize="end"
 		    android:scrollHorizontally="true"
+			android:textColor="#ff4b4b4b"
+			android:padding="20dp"
 		/> 
 		<!-- CheckedTextView: android:checkMark="?android:attr/listChoiceIndicatorMultiple"
 		     -->
@@ -62,7 +61,6 @@
     	android:layout_gravity="center_vertical"
     	/>
     
-	
 </LinearLayout>
 
 <!-- 

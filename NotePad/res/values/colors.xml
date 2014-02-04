@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Note colors -->
+    <color name="lightYellow">#faffd1</color>
+    <color name="darkYellow">#eef3c1</color>
+    <color name="darkestYellow">#cdd0a4</color>
+
+    <color name="gray">#CCCCCC</color>
+    <color name="lightGray">#EFEFEF</color>
+    <color name="darkGray1">#848484</color>
+    <color name="darkGray2">#2D2D2D</color>
+
+    <color name="lightBrown">#825f3f</color>
+    <color name="darkBrown">#5b371d</color>
+
+    <color name="lightBabyBlue">#ddf2ff</color>
+    <color name="darkBabyBlue">#ddf2ff</color>
+    <color name="darkestBabyBlue">#acd6f1</color>
+
+    <color name="lightPink">#ffeded</color>
+    <color name="darkPink">#ffeded</color>
+    <color name="darkestPink">#d1c2c2</color>
+
+	<color name="lightGreen">#eafecf</color>
+	<color name="darkGreen">#cfe08a</color>
+	<color name="darkestGreen">#b3c665</color>
+</resources>

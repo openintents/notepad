@@ -54,9 +54,10 @@ public class NotePadProvider extends ContentProvider {
 	 * <li>Version 2 (1.0.0 - 1.0.2): title, note, created_date, modified_date</li>
 	 * <li>Version 3 (1.1.0 - 1.2.3): tags, encrypted, theme</li>
 	 * <li>Version 4 (1.2.3 - ): selection_start, selection_end</li>
+	 * <li>Version 5 (1.3 - ): color</li>
 	 * </ul>
 	 */
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 5;
 	private static final String NOTES_TABLE_NAME = "notes";
 
 	private static HashMap<String, String> sNotesProjectionMap;
@@ -90,7 +91,10 @@ public class NotePadProvider extends ContentProvider {
 					+ Notes.THEME + " TEXT,"
 					// Version 4:
 					+ Notes.SELECTION_START + " INTEGER," + Notes.SELECTION_END
-					+ " INTEGER," + Notes.SCROLL_POSITION + " REAL" + ");");
+					+ " INTEGER," + Notes.SCROLL_POSITION + " REAL,"
+					// Version 5:
+					+ Notes.COLOR+ " INTEGER);"
+				);
 		}
 
 		@Override
@@ -139,6 +143,15 @@ public class NotePadProvider extends ContentProvider {
 					}
 
 				case 4:
+					try {
+						db.execSQL("ALTER TABLE " + NOTES_TABLE_NAME + " ADD COLUMN "
+							+ Notes.COLOR + " INTEGER;");
+					} catch (SQLException e) {
+						Log.e(TAG, "Error executing SQL: ", e);
+					}
+					// fall through for further upgrades.
+
+				case 5:
 					// add more columns here
 					break;
 
@@ -266,6 +279,10 @@ public class NotePadProvider extends ContentProvider {
 			values.put(Notes.SCROLL_POSITION, 0.0);
 		}
 
+		if(values.containsKey(Notes.COLOR) == false) {
+			values.put(Notes.COLOR, -1);
+		}
+
 		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		long rowId = db.insert(NOTES_TABLE_NAME, Notes.NOTE, values);
 		if (rowId > 0) {
@@ -369,5 +386,6 @@ public class NotePadProvider extends ContentProvider {
 		sNotesProjectionMap.put(Notes.SELECTION_START, Notes.SELECTION_START);
 		sNotesProjectionMap.put(Notes.SELECTION_END, Notes.SELECTION_END);
 		sNotesProjectionMap.put(Notes.SCROLL_POSITION, Notes.SCROLL_POSITION);
+		sNotesProjectionMap.put(Notes.COLOR, Notes.COLOR);
 	}
 }

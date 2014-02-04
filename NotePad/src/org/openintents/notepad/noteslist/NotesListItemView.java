@@ -4,6 +4,8 @@ import org.openintents.notepad.PreferenceActivity;
 import org.openintents.notepad.R;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +26,12 @@ public class NotesListItemView extends LinearLayout {
 
 	protected String mTitleEncrypted;
 	protected String mTagsEncrypted;
+
+	private static final int BLUE = 1;
+	private static final int GREEN = 2;
+	private static final int GREY = 3;
+	private static final int PINK = 4;
+	private static final int YELLOW = 5;
 
 	public NotesListItemView(Context context) {
 		super(context);
@@ -75,5 +83,28 @@ public class NotesListItemView extends LinearLayout {
 		} else {
 			mStatus.setImageBitmap(null);
 		}
+	}
+
+	public void setColor(int color) {
+		Resources res = this.getResources();
+		Drawable d = res.getDrawable(R.drawable.note_item_bg_yellow);
+		switch(color) {
+			case BLUE:
+				d = res.getDrawable(R.drawable.note_item_bg_blue);
+				break;
+			case GREY:
+				d = res.getDrawable(R.drawable.note_item_bg_grey);
+				break;
+			case GREEN:
+				d = res.getDrawable(R.drawable.note_item_bg_green);
+				break;
+			case PINK:
+				d = res.getDrawable(R.drawable.note_item_bg_pink);
+				break;
+			default:
+				break;
+		}
+
+		mTitle.setBackgroundDrawable(d);
 	}
 }
