@@ -224,13 +224,6 @@ public class NotesList extends DistributionLibraryListActivity implements
 		getListView().setOnScrollListener(this);
 
 		mLastFilter = null;
-
-		mCursorUtils = new NotesListCursor(this, getIntent());
-
-		// Make sure mAdapter is created here already,
-		// because onPrepareDialog for the Tags dialog may be called
-		// before onResume() is called.
-		checkAdapter();
 		
 		if (savedInstanceState != null) {
 			mLastFilter = savedInstanceState.getString(BUNDLE_LAST_FILTER);
@@ -253,6 +246,13 @@ public class NotesList extends DistributionLibraryListActivity implements
 			if (!savedTag.equals("")) mSelectedTag = savedTag;
 		}	
 
+		mCursorUtils = new NotesListCursor(this, getIntent());
+
+		// Make sure mAdapter is created here already,
+		// because onPrepareDialog for the Tags dialog may be called
+		// before onResume() is called.
+		checkAdapter();
+		
 		if (Intent.ACTION_CREATE_SHORTCUT.equals(intent.getAction())) {
 			setTitle(R.string.title_pick_note_for_shortcut);
 		}
@@ -271,8 +271,13 @@ public class NotesList extends DistributionLibraryListActivity implements
 		Spinner s = (Spinner) findViewById(R.id.tagselection);
 		s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				if (position == 0) {
+					mSelectedTag = null;
+				} else {
+					mSelectedTag = parent.getItemAtPosition(position).toString();
+				}
 				NotesList.this.updateQuery();
 				decryptDelayed();
 			}
@@ -415,6 +420,15 @@ public class NotesList extends DistributionLibraryListActivity implements
 			mAdapter = new NotesListCursorAdapter(this, cursor, mCursorUtils);
 			setListAdapter(mAdapter);
 
+			if (mSelectedTag==null) {
+				Spinner s = (Spinner) findViewById(R.id.tagselection);
+
+				if (s.getSelectedItemPosition() == 0) {
+					mSelectedTag = null;
+				} else {
+					mSelectedTag = (String) s.getSelectedItem();
+				}
+			}
 			updateQuery();
 		} else {
 			mAdapter.getCursor().requery();
@@ -422,14 +436,6 @@ public class NotesList extends DistributionLibraryListActivity implements
 	}
 
 	protected void updateQuery() {
-		Spinner s = (Spinner) findViewById(R.id.tagselection);
-
-		if (s.getSelectedItemPosition() == 0) {
-			mSelectedTag = null;
-		} else {
-			mSelectedTag = (String) s.getSelectedItem();
-		}
-
 		if (debug) {
 			Log.i(TAG, "updateQuery: Lastfilter: " + mLastFilter + ", mSelectedTag: " + mSelectedTag);
 		}
