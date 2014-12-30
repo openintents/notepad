@@ -41,7 +41,8 @@ import android.widget.TextView;
 public class SearchQueryResultsActivity extends ListActivity {
 	NotesListCursor mCursorUtils;
 	NotesListCursorAdapter mAdapter;
-
+	String queryString;
+	
 	/**
 	 * Called with the activity is first created.
 	 * 
@@ -97,8 +98,7 @@ public class SearchQueryResultsActivity extends ListActivity {
 	private void doSearchQuery(final Intent queryIntent, final String entryPoint) {
 
 		// The search query is provided as an "extra" string in the query intent
-		final String queryString = queryIntent
-				.getStringExtra(SearchManager.QUERY);
+		queryString = queryIntent.getStringExtra(SearchManager.QUERY);
 
 		Intent i = new Intent();
 		i.setData(Notes.CONTENT_URI);
@@ -147,7 +147,7 @@ public class SearchQueryResultsActivity extends ListActivity {
 			Uri uri = ContentUris.withAppendedId(Notes.CONTENT_URI, id);
 
 			// Launch activity to view/edit the currently selected item
-			startActivity(new Intent(Intent.ACTION_EDIT, uri));
+			startActivity(new Intent(Intent.ACTION_EDIT, uri).putExtra("SEARCH_STRING", queryString));
 		}
 	}
 

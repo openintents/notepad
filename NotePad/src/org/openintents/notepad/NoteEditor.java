@@ -88,8 +88,12 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -151,6 +155,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 	private static final int MENU_SETTINGS = Menu.FIRST + 9;
 	private static final int MENU_SEND = Menu.FIRST + 10;
 	private static final int MENU_WORD_COUNT = Menu.FIRST + 11;
+	private static final int MENU_SEARCH = Menu.FIRST + 12;
 
 	// private static final int REQUEST_CODE_ENCRYPT = 1;
 	private static final int REQUEST_CODE_DECRYPT = 2;
@@ -552,6 +557,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		}
 
 		mText.addTextChangedListener(mTextWatcherCharCount);
+		
+		initSearchPanel();
 	}
 
 	/**
@@ -737,6 +744,110 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 		});
 
 		setTheme(loadTheme());
+		
+		startupSearch();		
+	}
+	
+	// Handle search command from notes editor menu
+	private void menuSearch()
+	{
+		LinearLayout searchLayout = (LinearLayout)findViewById(R.id.search);
+		searchLayout.setVisibility(View.VISIBLE);
+        EditText edt = (EditText)findViewById(R.id.edtSearchWord);
+        edt.requestFocus();
+	}
+
+	// if editor was invoked from a global search, take over the search word and show the search panel
+	private void startupSearch()
+	{
+		String searchString = getIntent().getStringExtra("SEARCH_STRING");
+		if(searchString!=null && !searchString.equals(""))
+		{
+			LinearLayout searchLayout = (LinearLayout)findViewById(R.id.search);
+			searchLayout.setVisibility(View.VISIBLE);
+	        EditText edt = (EditText)findViewById(R.id.edtSearchWord);
+	        edt.setText(searchString);
+	        mText.setSelection(0, 0);
+	        searchForward();
+		}
+	}
+
+	// Initialize the search panel
+	private void initSearchPanel()
+	{       
+		ImageButton mBtnForward = (ImageButton)findViewById(R.id.btnForward);
+        mBtnForward.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+              	searchForward();
+            }
+        });
+		ImageButton mBtnBackward = (ImageButton)findViewById(R.id.btnBackward);
+        mBtnBackward.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+           		searchBackward();
+            }
+        });
+		ImageButton btnClose = (ImageButton)findViewById(R.id.btnClose);
+		btnClose.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+        		LinearLayout searchLayout = (LinearLayout)findViewById(R.id.search);
+        		searchLayout.setVisibility(View.GONE);
+            }
+        });
+	}
+	
+	// Search forward from current selection
+	private void searchForward()
+	{
+        EditText edt = (EditText)findViewById(R.id.edtSearchWord);
+        String search = edt.getText().toString();
+		if(search!=null && !search.equals(""))
+		{
+			String text = mText.getText().toString();
+			if(text!=null && !text.equals(""))
+			{
+				int start = text.toUpperCase().indexOf(search.toUpperCase(), mText.getSelectionEnd());
+				if(start!=-1)
+				{
+					mText.requestFocus();
+					mText.setSelection(start, start+search.length());
+				}
+				else
+				{
+					mText.setSelection(0); // not found, set cursor at beginning of text
+					Toast toast = Toast.makeText(getApplicationContext(),
+							getText(R.string.toast_wrap_bottom), Toast.LENGTH_SHORT);
+					toast.show();
+				}
+			}
+		}
+	}
+	
+	// Search backwards from current selection
+	private void searchBackward()
+	{
+        EditText edt = (EditText)findViewById(R.id.edtSearchWord);
+        String search = edt.getText().toString();
+        if(search!=null && !search.equals(""))
+        {
+        	String text = mText.getText().toString();
+        	if(text!=null && !text.equals(""))
+        	{
+        		int start = text.toUpperCase().lastIndexOf(search.toUpperCase(), mText.getSelectionStart()-1);
+        		if(start!=-1)
+        		{
+        			mText.requestFocus();
+        			mText.setSelection(start, start+search.length());
+        		}
+				else
+				{
+					mText.setSelection(text.length()); // not found, set cursor at end of text
+					Toast toast = Toast.makeText(getApplicationContext(),
+							getText(R.string.toast_wrap_top), Toast.LENGTH_SHORT);
+					toast.show();
+				}
+        	}
+        }
 	}
 
 	private void getNoteFromContentProvider() {
@@ -1177,6 +1288,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
 		// Build the menus that are shown when editing.
 
+		menu.add(5, MENU_SEARCH, 0, R.string.menu_search).setShortcut('3', 'f')
+		.setIcon(android.R.drawable.ic_menu_search);
+
 		// if (!mOriginalContent.equals(mText.getText().toString())) {
 
 		menu.add(0, MENU_REVERT, 0, R.string.menu_revert).setShortcut('0', 'r')
@@ -1334,6 +1448,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 			Intent intent = new Intent(this, NotesList.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
+			break;
+		case MENU_SEARCH:
+			menuSearch();
 			break;
 		case MENU_DELETE:
 			deleteNoteWithConfirm();
