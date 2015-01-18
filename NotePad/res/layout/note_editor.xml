@@ -16,6 +16,14 @@
  * limitations under the License.
  -->
 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+<include layout="@layout/search_toolbar" />
+    
 <view xmlns:android="http://schemas.android.com/apk/res/android"
     class="org.openintents.notepad.NoteEditor$LinedEditText"
     android:id="@+id/note"
@@ -28,3 +36,4 @@
     android:gravity="top"
     android:capitalize="sentences"
 />
+</LinearLayout>
