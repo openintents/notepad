@@ -85,6 +85,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 /**
  * Displays a list of notes. Will display notes from the {@link Uri} provided in
@@ -112,9 +113,12 @@ public class NotesList extends DistributionLibraryListActivity implements
 																			// LAST
 
 	private static final String BUNDLE_LAST_FILTER = "last_filter";
-
+	private static final String BUNDLE_LAST_TAG = "last_tag";
+	
 	private static final String BUNDLE_CONTEXTMENUINFO_ID = "ctx_menu_id";
 	private static final String BUNDLE_CONTEXTMENUINFO_POSITION = "ctx_menu_position";
+
+    public static final String PREFS_NAME = "NotesListPrefs";
 
 	/**
 	 * A group id for alternative menu items.
@@ -220,9 +224,10 @@ public class NotesList extends DistributionLibraryListActivity implements
 		getListView().setOnScrollListener(this);
 
 		mLastFilter = null;
-
+		
 		if (savedInstanceState != null) {
 			mLastFilter = savedInstanceState.getString(BUNDLE_LAST_FILTER);
+			if(mSelectedTag==null) mSelectedTag = savedInstanceState.getString(BUNDLE_LAST_TAG);
 
 			// Restore information for context menu, for opening "Tags" dialog.
 			if (savedInstanceState.containsKey(BUNDLE_CONTEXTMENUINFO_ID)) {
@@ -233,6 +238,13 @@ public class NotesList extends DistributionLibraryListActivity implements
 						position, id);
 			}
 		}
+		// if mSelectedTag was not in memory and not in bundle: try to recover it from persistent storage
+		if(mSelectedTag==null)
+		{
+			SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+			String savedTag = settings.getString(BUNDLE_LAST_TAG, "");
+			if (!savedTag.equals("")) mSelectedTag = savedTag;
+		}	
 
 		mCursorUtils = new NotesListCursor(this, getIntent());
 
@@ -240,7 +252,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 		// because onPrepareDialog for the Tags dialog may be called
 		// before onResume() is called.
 		checkAdapter();
-
+		
 		if (Intent.ACTION_CREATE_SHORTCUT.equals(intent.getAction())) {
 			setTitle(R.string.title_pick_note_for_shortcut);
 		}
@@ -259,8 +271,13 @@ public class NotesList extends DistributionLibraryListActivity implements
 		Spinner s = (Spinner) findViewById(R.id.tagselection);
 		s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				if (position == 0) {
+					mSelectedTag = null;
+				} else {
+					mSelectedTag = parent.getItemAtPosition(position).toString();
+				}
 				NotesList.this.updateQuery();
 				decryptDelayed();
 			}
@@ -311,10 +328,14 @@ public class NotesList extends DistributionLibraryListActivity implements
 		Collections.sort(taglist, Collator.getInstance(Locale.getDefault()));
 		taglist.add(0, getString(R.string.all_notes));
 		Spinner s = (Spinner) findViewById(R.id.tagselection);
-		ArrayAdapter adapter = new ArrayAdapter(this,
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, taglist);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		s.setAdapter(adapter);
+		int position = adapter.getPosition(mSelectedTag);
+		if (position != -1)	{
+			s.setSelection(position);
+		}
 
 		// Hide Spinner if there are no tags
 		if (taglist.size() > 1) {
@@ -399,6 +420,15 @@ public class NotesList extends DistributionLibraryListActivity implements
 			mAdapter = new NotesListCursorAdapter(this, cursor, mCursorUtils);
 			setListAdapter(mAdapter);
 
+			if (mSelectedTag==null) {
+				Spinner s = (Spinner) findViewById(R.id.tagselection);
+
+				if (s.getSelectedItemPosition() == 0) {
+					mSelectedTag = null;
+				} else {
+					mSelectedTag = (String) s.getSelectedItem();
+				}
+			}
 			updateQuery();
 		} else {
 			mAdapter.getCursor().requery();
@@ -407,17 +437,9 @@ public class NotesList extends DistributionLibraryListActivity implements
 
 	protected void updateQuery() {
 		if (debug) {
-			Log.i(TAG, "Lastfilter: " + mLastFilter);
+			Log.i(TAG, "updateQuery: Lastfilter: " + mLastFilter + ", mSelectedTag: " + mSelectedTag);
 		}
-
-		Spinner s = (Spinner) findViewById(R.id.tagselection);
-
-		if (s.getSelectedItemPosition() == 0) {
-			mSelectedTag = null;
-		} else {
-			mSelectedTag = (String) s.getSelectedItem();
-		}
-
+		
 		// if (mLastFilter != null || mSelectedTag != null) {
 		Cursor cursor = mAdapter.runQueryOnBackgroundThread(mLastFilter,
 				mSelectedTag);
@@ -458,6 +480,18 @@ public class NotesList extends DistributionLibraryListActivity implements
 	}
 
 	@Override
+	protected void onStop() {
+		super.onStop();
+		if (debug)
+			Log.d(TAG, "onStop()");
+				
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(BUNDLE_LAST_TAG, mSelectedTag);
+        editor.commit();
+	}
+	
+	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
@@ -469,6 +503,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 		super.onSaveInstanceState(outState);
 
 		outState.putString(BUNDLE_LAST_FILTER, mCursorUtils.mCurrentFilter);
+		outState.putString(BUNDLE_LAST_TAG, mSelectedTag);
 
 		if (mContextMenuInfo != null) {
 			outState.putLong(BUNDLE_CONTEXTMENUINFO_ID, mContextMenuInfo.id);
