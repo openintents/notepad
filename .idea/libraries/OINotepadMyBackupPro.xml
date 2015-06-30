@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OINotepadMyBackupPro">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/NotePad/libs/OINotepadMyBackupPro.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

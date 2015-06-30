@@ -1,0 +1,26 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "org.openintents.notepad"
+        minSdkVersion 7
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
+}
+
+dependencies {
+    compile files('libs/OINotepadMyBackupPro.jar')
+    compile 'org.openintents:distribution-lib:1.0.2'
+    androidTestCompile files('libs/polidea_test_runner_1.2.jar')
+    androidTestCompile files('libs/robotium-solo-3.1.jar')
+}
