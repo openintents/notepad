@@ -258,10 +258,6 @@
 		android:description="@string/oi_notepad_permission_write_descr"
 		android:permissionGroup="android.permission-group.PERSONAL_INFO"
 		android:protectionLevel="normal" />
-    <permission android:name="org.openintents.safe.ACCESS_INTENTS"
-			android:protectionLevel="dangerous"
-			android:label="@string/oi_safe_permission_intents"
-        	android:description="@string/oi_safe_permission_intents_descr" />
 	
 </manifest>
 
