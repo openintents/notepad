@@ -68,7 +68,9 @@
 	    
         <provider android:name=".NotePadProvider" 
             android:authorities="org.openintents.notepad"
-        />
+            android:readPermission="org.openintents.notepad.READ_PERMISSION"
+            android:writePermission="org.openintents.notepad.WRITE_PERMISSION"
+            android:exported="true" />
         <provider android:name="org.openintents.notepad.backup.MyBackupPro"  
             android:authorities="org.openintents.notepad.backup.MyBackupPro"
         /> 
