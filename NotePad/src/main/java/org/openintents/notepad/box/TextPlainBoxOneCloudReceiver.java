@@ -1,15 +1,15 @@
 package org.openintents.notepad.box;
 
-import org.openintents.intents.NotepadIntents;
-import org.openintents.notepad.NoteEditor;
-import org.openintents.notepad.NotePad.Notes;
-import org.openintents.notepad.noteslist.NotesList;
-
 import android.content.Context;
 import android.content.Intent;
 
 import com.box.onecloud.android.BoxOneCloudReceiver;
 import com.box.onecloud.android.OneCloudData;
+
+import org.openintents.intents.NotepadIntents;
+import org.openintents.notepad.NoteEditor;
+import org.openintents.notepad.NotePad.Notes;
+import org.openintents.notepad.noteslist.NotesList;
 
 /**
  * This example just illustrates how to handle Box requesting that your app edit
