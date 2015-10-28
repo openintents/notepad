@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "org.openintents.notepad"
-        minSdkVersion 7
+        minSdkVersion 9
         targetSdkVersion 22
         versionCode 10080
         versionName "1.5"
@@ -20,8 +20,12 @@ android {
 }
 
 dependencies {
+    ext.supportLibsVersion = '22.2.1'
+
     compile files('libs/OINotepadMyBackupPro.jar')
     compile 'org.openintents:distribution-lib:1.0.2'
+    compile project(':OneCloudAppToApp')
+    compile "com.android.support:support-v4:$supportLibsVersion"
     androidTestCompile files('libs/polidea_test_runner_1.2.jar')
     androidTestCompile files('libs/robotium-solo-3.1.jar')
 }

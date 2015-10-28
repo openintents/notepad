@@ -1,5 +1,22 @@
 package org.openintents.notepad.activity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.box.onecloud.android.OneCloudData;
+import com.box.onecloud.android.OneCloudData.UploadListener;
+
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,23 +32,6 @@ import org.openintents.notepad.filename.DialogHostingActivity;
 import org.openintents.notepad.intents.NotepadInternalIntents;
 import org.openintents.notepad.util.ExtractTitle;
 import org.openintents.notepad.util.FileUriUtils;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.support.v2.content.LocalBroadcastManager;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.box.onecloud.android.OneCloudData;
-import com.box.onecloud.android.OneCloudData.UploadListener;
 
 public class SaveFileActivity extends Activity {
 	public class BroadcastUploadListener implements UploadListener {
