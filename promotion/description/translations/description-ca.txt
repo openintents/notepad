@@ -2,7 +2,7 @@
 Bloc de notes d'OI
 
 # Promo text:
-Create and share your notes with OI Notepad.
+Creeu i compartiu notes amb el bloc de notes de l'OI
 
 # Description:
 El bloc de notes d'OI és una aplicació de codi obert amb moltes característiques que et permet prendre notes. Amb ella, pots etiquetar, cercar i enviar les teves notes, a part de funcions bàsiques com crear-ne, esborrar-ne o editar-ne. També hi ha característiques avançades com encriptació, importació/exportació i memos de veu disponibles per mitjà d'extensions. Totes aquestes funcions són disponibles en un format simple i eficient, personalitzable per mitjà d'un grapat de temes. 
@@ -45,7 +45,7 @@ Paraules clau:
 * OI, OpenIntents, Open Intents
 
 Versions internacionals: 
-Bloc de notas OI, Bloc de notes d'OI, ແພ່ນຂຽນ OI, OI 메모장, OI Blocco Note, OI Blokčić, OI Notatblokk, OI Notatnik, OI Not defteri, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI المفكرة, OI خاتىرە دەپتەر, OI دفترچه یادداشت, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI记事本, פנקס OI
+Bloc de notas OI, Bloc de notes d'OI, OI Blocco Note, OI Blokčić, OI Not defteri, OI Notatblokk, OI Notatnik, OI Notepad, OI Notesblok, OI Notitieblok, OI Notizblock, OI Piezīmju bloks, OI Poznámkový blok, OI Talaan, OI Σημειωματάριο, OI Бележник, OI Нататнік, OI المفكرة, OI خاتىرە دەپتەر, OI دفترچه یادداشت, OI नोटपैड, OI ਨੋਟਪੈਡ, OI メモ帳, OI 메모장, OI记事本, פנקס OI, ແພ່ນຂຽນ OI
 
 
 Cerca cadenes al Mercat: 
