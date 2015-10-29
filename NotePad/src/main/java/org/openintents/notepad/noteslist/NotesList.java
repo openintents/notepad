@@ -198,14 +198,10 @@ public class NotesList extends DistributionLibraryListActivity implements
 		getListView().setEmptyView(findViewById(R.id.empty));
 		getListView().setTextFilterEnabled(true);
 
-		/*
-		 * Button b = (Button) findViewById(R.id.add); b.setOnClickListener(new
-		 * Button.OnClickListener() {
-		 * 
-		 * @Override public void onClick(View arg0) { insertNewNote(); }
-		 * 
-		 * });
-		 */
+		if (mActionBarAvailable) {
+			TextView notext = (TextView) findViewById(R.id.empty);
+			notext.setText(R.string.no_notes_actionbar);
+		}
 
 		/*
 		 * // Perform a managed query. The Activity will handle closing and //
@@ -528,8 +524,6 @@ public class NotesList extends DistributionLibraryListActivity implements
 		// Show the delete icon when there is an actionbar
 		if (mActionBarAvailable) {
 			WrapActionBar.showIfRoom(insertItem);
-			TextView notext = (TextView) findViewById(R.id.empty);
-			notext.setText(R.string.no_notes_actionbar);
 		}
 
 		menu.add(0, MENU_SEARCH, 0, R.string.menu_search).setShortcut('2', 's')
