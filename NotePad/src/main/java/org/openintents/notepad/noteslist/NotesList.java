@@ -564,7 +564,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		super.onPrepareOptionsMenu(menu);
-		final boolean haveItems = getListAdapter().getCount() > 0;
+		final boolean haveItems = getListAdapter() != null && getListAdapter().getCount() > 0;
 
 		// If there are any notes in the list (which implies that one of
 		// them is selected), then we need to generate the actions that
