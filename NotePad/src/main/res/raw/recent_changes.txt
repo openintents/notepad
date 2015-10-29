@@ -1,4 +1,12 @@
 ----------------
+release 1.4
+date: 2012-06-25
+
+- integration of Box (Online storage via Box app)
+- instructions adapted for action bar (patch by Alok Sharma)
+- spinner in NotesList is updated after editing tags (patch by Ganesh V R Kumar)
+
+----------------
 release 1.3
 date: 2012-02-18
 - PLEASE READ THIS: The font size has been adjusted for high-density devices. Please use menu > settings > font size to set the desired size (see issue 435)
@@ -25,14 +33,6 @@ release: 1.2.3
 date: 2011-05-28
 - sort by creation date or modification date (patch by Maciek)
 - support external notes (from OI Shopping List)
-
-----------------
-release: 1.2.2
-date: 2011-02-05
-- new application icon for Android 2.0 or higher, with original design by VisualPharm.
-- allow app installation on external storage (requires Android 2.2 or higher)
-- support Android 2.3.
-- translations into various languages.
 
 ----------------
 For the complete list of changes and a list of frequently asked questions, please visit:

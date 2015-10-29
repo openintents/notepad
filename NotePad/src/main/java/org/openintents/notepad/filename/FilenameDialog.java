@@ -30,7 +30,7 @@ public class FilenameDialog extends AlertDialog implements OnClickListener {
 
 	OnFilenamePickedListener mListener;
 
-	public FilenameDialog(Context context) {
+	public FilenameDialog(Context context, boolean showFilemanager) {
 		super(context);
 		mContext = context;
 
@@ -61,7 +61,7 @@ public class FilenameDialog extends AlertDialog implements OnClickListener {
 				openFileManager();
 			}
 		});
-
+		buttonFileManager.setVisibility(showFilemanager ? View.VISIBLE : View.GONE);
 	}
 
 	public void setFilename(String filename) {

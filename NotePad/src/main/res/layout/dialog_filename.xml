@@ -26,9 +26,10 @@
     <EditText android:id="@+id/file_path"
 	    android:layout_width="0dip" 
 	    android:layout_height="wrap_content" 
+	    android:inputType="text"
 	    android:layout_weight="1"/>
 	<ImageButton android:id="@+id/file_manager"
 		android:src="@drawable/ic_launcher_folder_small"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 </LinearLayout>

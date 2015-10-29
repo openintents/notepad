@@ -27,6 +27,7 @@
   android:installLocation="auto">
   <!-- History:
    * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
+	[10073] 1.4.0.6: 2012-06-24 (rc for Box OneCloud)
   [10068] 1.3: 2012-02-18
   [10067] 1.3-rc2: 2012-02-07
   [10066] 1.3-rc1: 2012-02-04
@@ -265,6 +266,12 @@
         <data android:scheme="file" />
         <category android:name="android.intent.category.DEFAULT" />
       </intent-filter>
+
+      <intent-filter>
+        <action android:name="org.openintents.notepad.action.SAVE_TO_SD_CARD" />
+        <data android:mimeType="text/plain" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
     </activity>
 
     <activity
@@ -283,6 +290,20 @@
     <!-- Activities from OI Distribution Library -->
     <activity android:name="org.openintents.distribution.EulaActivity" />
     <activity android:name="org.openintents.distribution.NewVersionActivity" />
+
+    <receiver android:name="org.openintents.notepad.box.TextPlainBoxOneCloudReceiver">
+      <intent-filter>
+        <action android:name="com.box.android.EDIT_FILE" />
+        <action android:name="com.box.android.CREATE_FILE" />
+        <action android:name="com.box.android.VIEW_FILE" />
+
+        <data android:mimeType="text/plain" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.box.android.LAUNCH" />
+        <action android:name="com.android.vending.INSTALL_REFERRER" />
+      </intent-filter>
+    </receiver>
   </application>
 </manifest>
 

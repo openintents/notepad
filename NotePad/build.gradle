@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "org.openintents.notepad"
-        minSdkVersion 7
+        minSdkVersion 9
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 10080
+        versionName "1.5"
     }
 
     lintOptions {
@@ -17,11 +17,44 @@ android {
         abortOnError false
     }
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    def propertyFile = new File(projectDir, "build-private.properties")
+    if (propertyFile && propertyFile.exists()) {
+        signingConfigs {
+            release {
+                Properties props = new Properties()
+                props.load(new FileInputStream(propertyFile))
+
+                storeFile file(props.getProperty("key.store"))
+                storePassword props.getProperty("key.store.password")
+                keyAlias props.getProperty("key.alias")
+                keyPassword props.getProperty("key.alias.password")
+            }
+        }
+        buildTypes.release.signingConfig signingConfigs.release
+        println "Release apks will be signed!"
+    } else {
+        println "For signed release apks you need to create a build-private.properties file"
+    }
+
+
 }
 
 dependencies {
+    ext.supportLibsVersion = '22.2.1'
+
     compile files('libs/OINotepadMyBackupPro.jar')
     compile 'org.openintents:distribution-lib:1.0.2'
+    compile project(':OneCloudAppToApp')
+    compile "com.android.support:support-v4:$supportLibsVersion"
     androidTestCompile files('libs/polidea_test_runner_1.2.jar')
     androidTestCompile files('libs/robotium-solo-3.1.jar')
 }
+
+
