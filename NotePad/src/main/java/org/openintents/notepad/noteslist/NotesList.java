@@ -23,6 +23,7 @@
 
 package org.openintents.notepad.noteslist;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -34,6 +35,7 @@ import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.net.Uri;
@@ -132,7 +134,9 @@ public class NotesList extends DistributionLibraryListActivity implements
 	private static final int DIALOG_TAGS = 1;
 	private static final int DIALOG_GET_FROM_MARKET = 3;
 	private static final int DIALOG_DELETE = 4;
+	private static final int DIALOG_PERMISSION_FAILURE = 5;
 	private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
+
 
 	private final int DECRYPT_DELAY = 100;
 
@@ -912,7 +916,12 @@ public class NotesList extends DistributionLibraryListActivity implements
 		intent.putExtra(CryptoIntents.EXTRA_PROMPT, false);
 
 		try {
-			startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
+			if (checkCallingOrSelfPermission(CryptoIntents.PERMISSION_SAFE_ACCESS_INTENTS) == PackageManager.PERMISSION_GRANTED) {
+				startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
+			} else {
+                mDecryptionFailed = true;
+                showDialog(DIALOG_PERMISSION_FAILURE);
+			}
 		} catch (ActivityNotFoundException e) {
 			mDecryptionFailed = true;
 			/*
@@ -946,7 +955,20 @@ public class NotesList extends DistributionLibraryListActivity implements
 							updateTagList();
 						}
 					}).create();
-		}
+		case DIALOG_PERMISSION_FAILURE:
+		return new AlertDialog.Builder(this)
+				.setMessage(R.string.decryption_failed_due_to_permissions)
+				.setPositiveButton(
+						R.string.contact_support, new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:support@openintents.org"));
+								dialog.dismiss();
+							}
+						}
+				)
+				.create();
+        }
 		return super.onCreateDialog(id);
 	}
 

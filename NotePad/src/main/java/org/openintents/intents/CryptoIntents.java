@@ -150,4 +150,6 @@ public class CryptoIntents {
 	 * </p>
 	 */
 	public static final String EXTRA_PROMPT = "org.openintents.extra.PROMPT";
+
+	public static final String PERMISSION_SAFE_ACCESS_INTENTS = "org.openintents.safe.ACCESS_INTENTS";
 }
