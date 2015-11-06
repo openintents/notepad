@@ -962,7 +962,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 						R.string.contact_support, new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
-								new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:support@openintents.org"));
+								new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:info@openintents.biz"));
 								dialog.dismiss();
 							}
 						}
