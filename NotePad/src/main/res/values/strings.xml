@@ -81,8 +81,9 @@
 	<string name="not_encrypted">Not encrypted.</string>
 	<string name="encryption_failed">Encryption failed.</string>
 	<string name="decryption_failed">Decryption failed.</string>
-
-	<string name="menu_edit_tags">Edit tags</string>
+    <string name="decryption_failed_due_to_permissions">Decryption failed due to changes in the operating system (Android).</string>
+    <string name="contact_support">Please contact support@openintents.org</string>
+    <string name="menu_edit_tags">Edit tags</string>
     <string name="dropdown_hint">Touch to see list</string>
     <string name="tags_hint">Enter tags, separated by comma</string>
     
