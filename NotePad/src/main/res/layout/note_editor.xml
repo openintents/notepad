@@ -35,9 +35,9 @@
       class="org.openintents.notepad.NoteEditor$LinedEditText"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:inputType="none"
       android:fadingEdge="none"
       android:gravity="top"
+      android:inputType="none"
       android:padding="5dip"
       android:scrollbars="vertical|horizontal" />
   </ScrollView>

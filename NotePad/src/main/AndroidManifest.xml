@@ -276,16 +276,16 @@
 
     <activity
       android:name="org.openintents.notepad.crypto.EncryptActivity"
-      android:label="@string/encrypting_note"/>
+      android:label="@string/encrypting_note" />
 
     <activity
       android:name="org.openintents.notepad.filename.DialogHostingActivity"
       android:label="@string/filename"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+      android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
     <activity
       android:name=".PreferenceActivity"
-      android:label="@string/settings"/>
+      android:label="@string/settings" />
 
     <!-- Activities from OI Distribution Library -->
     <activity android:name="org.openintents.distribution.EulaActivity" />

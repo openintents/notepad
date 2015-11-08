@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
  * Copyright (C) 2009 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,88 +14,97 @@
  * limitations under the License.
  -->
 
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-            android:title="@string/noteslist_preferences">
+  <PreferenceCategory android:title="@string/noteslist_preferences">
 
-               
-        <ListPreference
-                android:key="sortorder"
-                android:defaultValue="2"
-                android:title="@string/preference_sortorder_title"
-                android:summary="@string/preference_sortorder_summary"
-                android:entries="@array/preference_sortorder_entries"
-                android:entryValues="@array/preference_sortorder_entryvalues"
-                android:dialogTitle="@string/preference_sortorder_dialog_title" />
-                
-        <CheckBoxPreference
-        		android:key="marquee"
-        		android:defaultValue="false"
-        		android:title="@string/preference_marquee_title"
-        		android:summary="@string/preference_marquee_summary" />
 
-    </PreferenceCategory>
+    <ListPreference
+      android:defaultValue="2"
+      android:dialogTitle="@string/preference_sortorder_dialog_title"
+      android:entries="@array/preference_sortorder_entries"
+      android:entryValues="@array/preference_sortorder_entryvalues"
+      android:key="sortorder"
+      android:summary="@string/preference_sortorder_summary"
+      android:title="@string/preference_sortorder_title" />
 
-    <PreferenceCategory
-            android:title="@string/note_editor_preferences">
+    <CheckBoxPreference
+      android:defaultValue="false"
+      android:key="marquee"
+      android:summary="@string/preference_marquee_summary"
+      android:title="@string/preference_marquee_title" />
 
-		<ListPreference android:key="fontsize"
-			android:defaultValue="2" android:title="@string/preference_fontsize"
-			android:summary="@string/preference_fontsize_summary"
-			android:entries="@array/preference_fontsize_entries"
-			android:entryValues="@array/preference_fontsize_entryvalues"
-			android:dialogTitle="@string/preference_fontsize_dialog_title" />
-               
-        <CheckBoxPreference
-                android:key="autolink"
-                android:defaultValue="true"
-                android:title="@string/preference_autolink_title"
-                android:summaryOn="@string/preference_autolink_summary_on"
-                android:summaryOff="@string/preference_autolink_summary_off" />
-                
-		<CheckBoxPreference 
-			android:key="charcount" 
-			android:defaultValue="false"
-			android:title="@string/preference_charcount_title"
-			android:summaryOff="@string/preference_charcount_summary_off"
-			android:summaryOn="@string/preference_charcount_summary_on" />
+  </PreferenceCategory>
 
-	</PreferenceCategory>
-    
-	<PreferenceCategory android:title="@string/preference_addons">
-		<PreferenceScreen android:key="preference_screen_addons"
-			android:title="@string/preference_get_addons" android:summary="@string/preference_get_addons_summary">
-			<PreferenceCategory android:title="@string/preference_get_market_addons">
+  <PreferenceCategory android:title="@string/note_editor_preferences">
 
-				<PreferenceScreen android:key="preference_market_extensions"
-					android:title="@string/preference_extensions"
-					android:summary="@string/preference_market_extensions_summary">
-					<intent android:action="android.intent.action.VIEW"
-						android:data="@string/preference_market_extensions_link" />
-				</PreferenceScreen>
-				<PreferenceScreen android:key="preference_market_themes"
-					android:title="@string/preference_themes"
-					android:summary="@string/preference_market_themes_summary">
-					<intent android:action="android.intent.action.VIEW"
-						android:data="@string/preference_market_themes_link" />
-				</PreferenceScreen>
-			</PreferenceCategory>
-			<PreferenceCategory android:title="@string/preference_get_developer_addons">
-				<PreferenceScreen android:title="@string/preference_extensions"
-					android:summary="@string/preference_developer_extensions_summary">
-					<intent android:action="android.intent.action.VIEW"
-						android:data="@string/preference_developer_extensions_link" />
-				</PreferenceScreen>
-				<PreferenceScreen android:title="@string/preference_themes"
-					android:summary="@string/preference_developer_themes_summary">
-					<intent android:action="android.intent.action.VIEW"
-						android:data="@string/preference_developer_themes_link" />
-				</PreferenceScreen>
-			</PreferenceCategory>
-		</PreferenceScreen>
-	</PreferenceCategory>
-	
+    <ListPreference
+      android:defaultValue="2"
+      android:dialogTitle="@string/preference_fontsize_dialog_title"
+      android:entries="@array/preference_fontsize_entries"
+      android:entryValues="@array/preference_fontsize_entryvalues"
+      android:key="fontsize"
+      android:summary="@string/preference_fontsize_summary"
+      android:title="@string/preference_fontsize" />
+
+    <CheckBoxPreference
+      android:defaultValue="true"
+      android:key="autolink"
+      android:summaryOff="@string/preference_autolink_summary_off"
+      android:summaryOn="@string/preference_autolink_summary_on"
+      android:title="@string/preference_autolink_title" />
+
+    <CheckBoxPreference
+      android:defaultValue="false"
+      android:key="charcount"
+      android:summaryOff="@string/preference_charcount_summary_off"
+      android:summaryOn="@string/preference_charcount_summary_on"
+      android:title="@string/preference_charcount_title" />
+
+  </PreferenceCategory>
+
+  <PreferenceCategory android:title="@string/preference_addons">
+    <PreferenceScreen
+      android:key="preference_screen_addons"
+      android:summary="@string/preference_get_addons_summary"
+      android:title="@string/preference_get_addons">
+      <PreferenceCategory android:title="@string/preference_get_market_addons">
+
+        <PreferenceScreen
+          android:key="preference_market_extensions"
+          android:summary="@string/preference_market_extensions_summary"
+          android:title="@string/preference_extensions">
+          <intent
+            android:action="android.intent.action.VIEW"
+            android:data="@string/preference_market_extensions_link" />
+        </PreferenceScreen>
+        <PreferenceScreen
+          android:key="preference_market_themes"
+          android:summary="@string/preference_market_themes_summary"
+          android:title="@string/preference_themes">
+          <intent
+            android:action="android.intent.action.VIEW"
+            android:data="@string/preference_market_themes_link" />
+        </PreferenceScreen>
+      </PreferenceCategory>
+      <PreferenceCategory android:title="@string/preference_get_developer_addons">
+        <PreferenceScreen
+          android:summary="@string/preference_developer_extensions_summary"
+          android:title="@string/preference_extensions">
+          <intent
+            android:action="android.intent.action.VIEW"
+            android:data="@string/preference_developer_extensions_link" />
+        </PreferenceScreen>
+        <PreferenceScreen
+          android:summary="@string/preference_developer_themes_summary"
+          android:title="@string/preference_themes">
+          <intent
+            android:action="android.intent.action.VIEW"
+            android:data="@string/preference_developer_themes_link" />
+        </PreferenceScreen>
+      </PreferenceCategory>
+    </PreferenceScreen>
+  </PreferenceCategory>
+
 </PreferenceScreen>
     

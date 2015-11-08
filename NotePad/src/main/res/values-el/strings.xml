@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
  * Copyright (C) 2008 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,220 +12,219 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- -->
-<!-- 
+ --><!--
  * Original copyright:
  * Based on the Android SDK sample application NotePad.
  * Copyright (C) 2007 Google Inc.
  * Licensed under the Apache License, Version 2.0.
   -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
+  <!-- ***************************
+       About information
+       *************************** -->
 
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Giannis Konstantinidis https://launchpad.net/~giankonstantinidis
   OpenIntents devs https://launchpad.net/~openintents-devs
   Pantelis Koukousoulas https://launchpad.net/~pktoss</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Δημιουργήστε και μοιράστε τις σημειώσεις σας με το OI Σημειωματάριο.</string>
-	
-	<!-- ***************************
-	     Application-specific strings
-	     *************************** -->
 
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-	<string name="app_name">OI Σημειωματάριο</string>
-	
-    <string name="menu_delete">Διαγραφή</string>
-    <string name="menu_insert">Προσθήκη σημείωσης</string>
-    <string name="menu_revert">Επαναφορά</string>
-    <string name="menu_discard">Απόρριψη</string>
-    
-	<string name="no_notes">Χρήση του μενού για την προσθήκη νέων σημειώσεων.</string>
-	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Δημιουργήστε και μοιράστε τις σημειώσεις σας με το OI Σημειωματάριο.</string>
 
-    <string name="resolve_edit">Επεξεργασία σημείωσης</string>
-    <string name="resolve_title">Επεξεργασία τίτλου</string>  
+  <!-- ***************************
+       Application-specific strings
+       *************************** -->
 
-    <string name="title_create">Δημιουργία σημείωσης</string>
-    <string name="title_edit">Επεξεργασία σημείωσης</string>
-	<string name="title_notes_list">OI Σημειωματάριο</string>   
-	<string name="title_note">Σημείωση</string>  
-	<string name="title_edit_title">Τίτλος σημείωσης:</string>  
-    <string name="title_create_file">%s (νέα σημείωση)</string>
-    <string name="title_edit_file">%s (επεξεργασία σημείωσης)</string>
-    
-    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Επιλογή σημείωσης για συντόμευση</string>
-	
-	<string name="button_ok">Εντάξει</string>  
-	
-	<string name="error_title">Σφάλμα</string>
-	<string name="error_message">Σφάλμα κατά τη φόρτωση σημείωσης</string>
-	<!-- <string name="no_notes">Note list is empty.</string>  -->
-	
-	<string name="menu_share">Διαμοιρασμός</string>
-	<string name="empty_note">Κενή σημείωση</string>
-	<string name="share_not_available">Καμία διαθέσιμη εφαρμογή προς διαμοιρασμό</string>
-	
-	<string name="encrypting_note">Κρυπτογράφηση σημείωσης</string>
-	<string name="encrypted">Κρυπτογραφημένος/η</string>
-	<string name="menu_encrypt">Κρυπτογράφηση</string>
-	<string name="menu_decrypt">Αποκρυπτογράφηση</string>
-	<string name="menu_undo_encryption">Αναίρεση κρυπτογράφησης</string>
-	<string name="menu_do_not_encrypt">Να μη γίνει κρυπτογράφηση</string>
-	<string name="already_encrypted">Ήδη κρυπτογραφημένο.</string>
-	<string name="not_encrypted">Μη κρυπτογραφημένο.</string>
-	<string name="encryption_failed">Η κρυπτογράφηση απέτυχε.</string>
-	<string name="decryption_failed">Η αποκρυπτογράφηση απέτυχε.</string>
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Σημειωματάριο</string>
 
-	<string name="menu_edit_tags">Επεξεργασία ετικετών</string>
-    <string name="dropdown_hint">Αγγίξτε για να δείτε τη λίστα</string>
-    <string name="tags_hint">Εισάγετε ετικέτες, διαχωρισμένες με ένα κόμμα</string>
-    
-    <string name="menu_save_to_sdcard">Αποθήκευση σε κάρτα SD</string>
-    <string name="menu_open_from_sdcard">Άνοιγμα από κάρτα SD</string>
-    <string name="filename">Όνομα αρχείου</string>
-    <string name="save">Αποθήκευση</string>
-    <string name="open">Άνοιγμα</string>
-    <string name="error_writing_file">Σφάλμα κατά την εγγραφή του αρχείου</string>
-    <string name="error_reading_file">Σφάλμα κατά την ανάγνωση του αρχείου</string>
-    <string name="file_not_found">Το αρχείο δε βρέθηκε</string>
-    <string name="note_saved">Η σημείωση αποθηκεύτηκε</string>
-    <string name="warning_file_exists_title">Το αρχείο υπάρχει ήδη</string>
-    <string name="warning_file_exists_message">Θέλετε σίγουρα να αντικαταστήσετε το υπάρχων αρχείο;</string>
-    
-    <string name="menu_word_count">Καταμέτρηση λέξεων</string>
-    <plurals name="word_count">
-        <item quantity="one">Μία λέξη.</item>
-        <item quantity="other">%d λέξεις.</item>
-    </plurals>
-        
-    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
-    <string name="menu_import">Εισαγωγή</string>
-    <string name="menu_save">Αποθήκευση</string>
-    <string name="menu_save_as">Αποθήκευση ως</string>
-    <string name="warning_unsaved_changes_title">Τροποποιημένο κείμενο</string>
-    <string name="warning_unsaved_changes_message">Θέλετε να αποθηκεύσετε τις αλλαγές;</string>
-    <string name="button_save">Αποθήκευση</string>
-    <string name="button_dont_save">Να μη γίνει αποθήκευση</string>
-    
-	<string name="menu_theme">Θέμα</string>
-	<string name="theme_pick">Επιλογή ενός θέματος</string>
-    <string name="theme_default">Προεπιλογή</string>
-    <string name="theme_monospaced">Γραμματοσειρά Monospaced</string>
-	<string name="theme_serif">Γραμματοσειρά Serif</string>
+  <string name="menu_delete">Διαγραφή</string>
+  <string name="menu_insert">Προσθήκη σημείωσης</string>
+  <string name="menu_revert">Επαναφορά</string>
+  <string name="menu_discard">Απόρριψη</string>
 
-	<!-- Search -->
-	<string name="menu_search">Αναζήτηση</string>
-    <string name="search_query_results">OI Σημειωματάριο</string>
-    <!-- %s is the search string -->
-	<string name="search_found_no_results">Κανένα αποτέλεσμα δε βρεθηκε για %s.</string>
-    <string name="search_label">Αναζήτηση στο OI Σημειωματάριο</string>
-    <string name="search_hint">Αναζήτηση</string>
-    
-    <!-- The description that will show up in the search settings for this source.  -->
-    <string name="search_settings_description">Τίτλοι των σημειώσεων σας</string>
-    
-	<!--     Dialog box    -->
-	<string name="ok">Εντάξει</string>
-	<string name="cancel">Ακύρωση</string>
-    <string name="use_theme_for_all_lists">Χρήση αυτού του θέματος σε όλες τις λίστες</string>
-	<string name="get_more_themes">Λήψη επιπλέον θεμάτων</string>
-    
-    <string name="all_notes">Όλες οι σημειώσεις</string>
-    
-    <!-- Settings -->
-    <!-- Title for settings regarding the list of notes -->
-    <string name="noteslist_preferences">Λίστα σημιώσεων</string>
-    <string name="preference_sortorder_title">Σειρά ταξινόμησης λιστών</string>
-    <string name="preference_sortorder_dialog_title">Σειρά ταξινόμησης λιστών</string>
-    <string name="preference_sortorder_summary">Η σειρά με την οποία οι σημειώσεις εμφανίζονται στη λίστα σημειώσεων</string>
-    <string name="preference_marquee_title">Κύλιση τίτλων σημειώσεων.</string>
-    <string name="preference_marquee_summary">Συνεχής κύλιση τίτλων σημειώσεων που είναι πολύ μεγάλοι.</string>
-    
-    <string name="note_editor_preferences">Επεξεργαστής σημειώσεων</string>
-    <string name="preference_fontsize">Μέγεθος γραμματοσειράς</string>
-	<string name="preference_fontsize_summary">Αλλαγή μεγέθους γραμματοσειράς</string>
-	<string name="preference_fontsize_dialog_title">Επιλογή μεγέθους γραμματοσειράς</string>
-	<string name="preference_autolink_title">Αυτόματη δημιουργία συνδέσμων</string>
-    <string name="preference_autolink_summary_on">Δημιουργία συνδέσμων για αριθμούς τηλεφώνου και διυθύνσεις ηλ. ταχυδρομείου/κατοικιών/διαδικτύου</string>
-    <string name="preference_autolink_summary_off">Να μη δημιουργούνται σύνδεσμοι στις σημειώσεις</string>
-	<string name="preference_charcount_title">Πλήθος χαρακτήρων</string>
-    <string name="preference_charcount_summary_on">Εμφάνιση πλήθους χαρακτήρων στο διορθωτή</string>
-    <string name="preference_charcount_summary_off">Μη εμφάνιση πλήθους χαρακτήρων στο διορθωτή</string>
+  <string name="no_notes">Χρήση του μενού για την προσθήκη νέων σημειώσεων.</string>
+  <string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
-	<string name="settings">Ρυθμίσεις</string>
-	<string name="settings_sortorder">Σειρά ταξινόμησης</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <string name="resolve_edit">Επεξεργασία σημείωσης</string>
+  <string name="resolve_title">Επεξεργασία τίτλου</string>
 
-	<!-- OI Notepad -->
-	<!-- Permission to read notes. -->
-    <string name="oi_notepad_permission_read">ανάνγωση σημειώσεων</string>
-    <string name="oi_notepad_permission_read_descr">Επιτρέπει μια εφαρμογή να διαβάζει σημειώσεις. Σημειώστε οτι οι κρυπτογραφημένες σημειώσεις παρέχονται στην κρυπτογραφημένη μορφή.</string>
-	<!-- Permission to write notes. -->
-    <string name="oi_notepad_permission_write">εγγραφή σημειώσεων</string>
-    <string name="oi_notepad_permission_write_descr">Επιτρέπει μια εφαρμογή να δημιουργεί νέες σημειώσεις ή να επεξεργάζεται παλαιότερες.</string>
-    
-	<!-- OI Shopping list -->
-	<!-- Permission to read shopping lists. -->
-    <string name="oi_shopping_permission_read">ανάγνωση λιστών αγορών</string>
-    <string name="oi_shopping_permission_read_descr">Επιτρέπει σε μια εφαρμογή την ανάγνωση λιστών αγορών. Σημειώστε ότι οι κρυπτογραφημένες λίστες και τα στοιχεία παρέχονται σε κρυπτογραφημένη μορφή.</string>
-	<!-- Permission to write shopping lists. -->
-    <string name="oi_shopping_permission_write">εγγραφή λιστών αγορών</string>
-    <string name="oi_shopping_permission_write_descr">Επιτρέπει μια εφαρμογή να δημιουργεί νέες λίστες και στοιχεία ή να επεξεργάζεται παλαιότερες.</string>
-    
-	<!-- OI Safe -->
-	<!-- Permission to encrypt and decrypt data. -->
-	<string name="oi_safe_permission_intents">κρυπτογράφηση και αποκρυπτογράφηση δεδομένων</string>
-    <string name="oi_safe_permission_intents_descr">Επιτρέπει την εφαρμογή να κρυπτογραφεί και να αποκρυπτογραφεί κείμενο και να αποκτά πρόσβαση στους κωδικούς που είναι αποθηκευμένοι στο OI Κιβώτιο.</string>	
+  <string name="title_create">Δημιουργία σημείωσης</string>
+  <string name="title_edit">Επεξεργασία σημείωσης</string>
+  <string name="title_notes_list">OI Σημειωματάριο</string>
+  <string name="title_note">Σημείωση</string>
+  <string name="title_edit_title">Τίτλος σημείωσης:</string>
+  <string name="title_create_file">%s (νέα σημείωση)</string>
+  <string name="title_edit_file">%s (επεξεργασία σημείωσης)</string>
+
+  <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+  <string name="title_pick_note_for_shortcut">Επιλογή σημείωσης για συντόμευση</string>
+
+  <string name="button_ok">Εντάξει</string>
+
+  <string name="error_title">Σφάλμα</string>
+  <string name="error_message">Σφάλμα κατά τη φόρτωση σημείωσης</string>
+  <!-- <string name="no_notes">Note list is empty.</string>  -->
+
+  <string name="menu_share">Διαμοιρασμός</string>
+  <string name="empty_note">Κενή σημείωση</string>
+  <string name="share_not_available">Καμία διαθέσιμη εφαρμογή προς διαμοιρασμό</string>
+
+  <string name="encrypting_note">Κρυπτογράφηση σημείωσης</string>
+  <string name="encrypted">Κρυπτογραφημένος/η</string>
+  <string name="menu_encrypt">Κρυπτογράφηση</string>
+  <string name="menu_decrypt">Αποκρυπτογράφηση</string>
+  <string name="menu_undo_encryption">Αναίρεση κρυπτογράφησης</string>
+  <string name="menu_do_not_encrypt">Να μη γίνει κρυπτογράφηση</string>
+  <string name="already_encrypted">Ήδη κρυπτογραφημένο.</string>
+  <string name="not_encrypted">Μη κρυπτογραφημένο.</string>
+  <string name="encryption_failed">Η κρυπτογράφηση απέτυχε.</string>
+  <string name="decryption_failed">Η αποκρυπτογράφηση απέτυχε.</string>
+
+  <string name="menu_edit_tags">Επεξεργασία ετικετών</string>
+  <string name="dropdown_hint">Αγγίξτε για να δείτε τη λίστα</string>
+  <string name="tags_hint">Εισάγετε ετικέτες, διαχωρισμένες με ένα κόμμα</string>
+
+  <string name="menu_save_to_sdcard">Αποθήκευση σε κάρτα SD</string>
+  <string name="menu_open_from_sdcard">Άνοιγμα από κάρτα SD</string>
+  <string name="filename">Όνομα αρχείου</string>
+  <string name="save">Αποθήκευση</string>
+  <string name="open">Άνοιγμα</string>
+  <string name="error_writing_file">Σφάλμα κατά την εγγραφή του αρχείου</string>
+  <string name="error_reading_file">Σφάλμα κατά την ανάγνωση του αρχείου</string>
+  <string name="file_not_found">Το αρχείο δε βρέθηκε</string>
+  <string name="note_saved">Η σημείωση αποθηκεύτηκε</string>
+  <string name="warning_file_exists_title">Το αρχείο υπάρχει ήδη</string>
+  <string name="warning_file_exists_message">Θέλετε σίγουρα να αντικαταστήσετε το υπάρχων αρχείο;</string>
+
+  <string name="menu_word_count">Καταμέτρηση λέξεων</string>
+  <plurals name="word_count">
+    <item quantity="one">Μία λέξη.</item>
+    <item quantity="other">%d λέξεις.</item>
+  </plurals>
+
+  <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+  <string name="menu_import">Εισαγωγή</string>
+  <string name="menu_save">Αποθήκευση</string>
+  <string name="menu_save_as">Αποθήκευση ως</string>
+  <string name="warning_unsaved_changes_title">Τροποποιημένο κείμενο</string>
+  <string name="warning_unsaved_changes_message">Θέλετε να αποθηκεύσετε τις αλλαγές;</string>
+  <string name="button_save">Αποθήκευση</string>
+  <string name="button_dont_save">Να μη γίνει αποθήκευση</string>
+
+  <string name="menu_theme">Θέμα</string>
+  <string name="theme_pick">Επιλογή ενός θέματος</string>
+  <string name="theme_default">Προεπιλογή</string>
+  <string name="theme_monospaced">Γραμματοσειρά Monospaced</string>
+  <string name="theme_serif">Γραμματοσειρά Serif</string>
+
+  <!-- Search -->
+  <string name="menu_search">Αναζήτηση</string>
+  <string name="search_query_results">OI Σημειωματάριο</string>
+  <!-- %s is the search string -->
+  <string name="search_found_no_results">Κανένα αποτέλεσμα δε βρεθηκε για %s.</string>
+  <string name="search_label">Αναζήτηση στο OI Σημειωματάριο</string>
+  <string name="search_hint">Αναζήτηση</string>
+
+  <!-- The description that will show up in the search settings for this source.  -->
+  <string name="search_settings_description">Τίτλοι των σημειώσεων σας</string>
+
+  <!--     Dialog box    -->
+  <string name="ok">Εντάξει</string>
+  <string name="cancel">Ακύρωση</string>
+  <string name="use_theme_for_all_lists">Χρήση αυτού του θέματος σε όλες τις λίστες</string>
+  <string name="get_more_themes">Λήψη επιπλέον θεμάτων</string>
+
+  <string name="all_notes">Όλες οι σημειώσεις</string>
+
+  <!-- Settings -->
+  <!-- Title for settings regarding the list of notes -->
+  <string name="noteslist_preferences">Λίστα σημιώσεων</string>
+  <string name="preference_sortorder_title">Σειρά ταξινόμησης λιστών</string>
+  <string name="preference_sortorder_dialog_title">Σειρά ταξινόμησης λιστών</string>
+  <string name="preference_sortorder_summary">Η σειρά με την οποία οι σημειώσεις εμφανίζονται στη λίστα σημειώσεων</string>
+  <string name="preference_marquee_title">Κύλιση τίτλων σημειώσεων.</string>
+  <string name="preference_marquee_summary">Συνεχής κύλιση τίτλων σημειώσεων που είναι πολύ μεγάλοι.</string>
+
+  <string name="note_editor_preferences">Επεξεργαστής σημειώσεων</string>
+  <string name="preference_fontsize">Μέγεθος γραμματοσειράς</string>
+  <string name="preference_fontsize_summary">Αλλαγή μεγέθους γραμματοσειράς</string>
+  <string name="preference_fontsize_dialog_title">Επιλογή μεγέθους γραμματοσειράς</string>
+  <string name="preference_autolink_title">Αυτόματη δημιουργία συνδέσμων</string>
+  <string name="preference_autolink_summary_on">Δημιουργία συνδέσμων για αριθμούς τηλεφώνου και διυθύνσεις ηλ. ταχυδρομείου/κατοικιών/διαδικτύου</string>
+  <string name="preference_autolink_summary_off">Να μη δημιουργούνται σύνδεσμοι στις σημειώσεις</string>
+  <string name="preference_charcount_title">Πλήθος χαρακτήρων</string>
+  <string name="preference_charcount_summary_on">Εμφάνιση πλήθους χαρακτήρων στο διορθωτή</string>
+  <string name="preference_charcount_summary_off">Μη εμφάνιση πλήθους χαρακτήρων στο διορθωτή</string>
+
+  <string name="settings">Ρυθμίσεις</string>
+  <string name="settings_sortorder">Σειρά ταξινόμησης</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Notepad -->
+  <!-- Permission to read notes. -->
+  <string name="oi_notepad_permission_read">ανάνγωση σημειώσεων</string>
+  <string name="oi_notepad_permission_read_descr">Επιτρέπει μια εφαρμογή να διαβάζει σημειώσεις. Σημειώστε οτι οι κρυπτογραφημένες σημειώσεις παρέχονται στην κρυπτογραφημένη μορφή.</string>
+  <!-- Permission to write notes. -->
+  <string name="oi_notepad_permission_write">εγγραφή σημειώσεων</string>
+  <string name="oi_notepad_permission_write_descr">Επιτρέπει μια εφαρμογή να δημιουργεί νέες σημειώσεις ή να επεξεργάζεται παλαιότερες.</string>
+
+  <!-- OI Shopping list -->
+  <!-- Permission to read shopping lists. -->
+  <string name="oi_shopping_permission_read">ανάγνωση λιστών αγορών</string>
+  <string name="oi_shopping_permission_read_descr">Επιτρέπει σε μια εφαρμογή την ανάγνωση λιστών αγορών. Σημειώστε ότι οι κρυπτογραφημένες λίστες και τα στοιχεία παρέχονται σε κρυπτογραφημένη μορφή.</string>
+  <!-- Permission to write shopping lists. -->
+  <string name="oi_shopping_permission_write">εγγραφή λιστών αγορών</string>
+  <string name="oi_shopping_permission_write_descr">Επιτρέπει μια εφαρμογή να δημιουργεί νέες λίστες και στοιχεία ή να επεξεργάζεται παλαιότερες.</string>
+
+  <!-- OI Safe -->
+  <!-- Permission to encrypt and decrypt data. -->
+  <string name="oi_safe_permission_intents">κρυπτογράφηση και αποκρυπτογράφηση δεδομένων</string>
+  <string name="oi_safe_permission_intents_descr">Επιτρέπει την εφαρμογή να κρυπτογραφεί και να αποκρυπτογραφεί κείμενο και να αποκτά πρόσβαση στους κωδικούς που είναι αποθηκευμένοι στο OI Κιβώτιο.</string>
 
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- ***************************
+       Preferences
+       *************************** -->
 
-	<!-- sort order -->
-    <string-array name="preference_sortorder_entries">
-        <item>Αλφαβητικά</item>
-        <item>Αλφαβητικά με ανάποδη σειρά</item>
-        <item>Τελευταία Τροποποίηση</item>
-        <item>Αρχική Τροποποίηση</item>
-        <item>Από νεότερο σε παλαιότερο</item>  
-        <item>Από παλαιότερο σε νεότερο</item>
-    </string-array>
+  <!-- sort order -->
+  <string-array name="preference_sortorder_entries">
+    <item>Αλφαβητικά</item>
+    <item>Αλφαβητικά με ανάποδη σειρά</item>
+    <item>Τελευταία Τροποποίηση</item>
+    <item>Αρχική Τροποποίηση</item>
+    <item>Από νεότερο σε παλαιότερο</item>
+    <item>Από παλαιότερο σε νεότερο</item>
+  </string-array>
 
-    <string-array name="preference_fontsize_entries">
-    	<!-- Preference fontsize: tiny font size -->
-        <item>Μικροσκοπικό</item>
-    	<!-- Preference fontsize: small font size -->
-        <item>Μικρό</item>
-    	<!-- Preference fontsize: default font size-->
-    	<item>Προεπιλογή</item>
-    	<!-- Preference fontsize: large font size -->
-        <item>Μεγάλο</item>
-    </string-array>
+  <string-array name="preference_fontsize_entries">
+    <!-- Preference fontsize: tiny font size -->
+    <item>Μικροσκοπικό</item>
+    <!-- Preference fontsize: small font size -->
+    <item>Μικρό</item>
+    <!-- Preference fontsize: default font size-->
+    <item>Προεπιλογή</item>
+    <!-- Preference fontsize: large font size -->
+    <item>Μεγάλο</item>
+  </string-array>
 
-    <string name="preference_addons">Πρόσθετα</string>
-    <string name="preference_get_addons">Λήψη νέων προσθέτων</string>
-    <string name="preference_get_addons_summary">Αναζήτηση για επεκτάσεις και θέματα στο διαδίκτυο</string>
-    <string name="preference_get_market_addons">Λήψη προσθέτων από το Market</string>
-    <string name="preference_get_developer_addons">Λήψη προσθέτων από OpenIntents</string>
-    <string name="preference_extensions">Επεκτάσεις</string>
-    <string name="preference_themes">Θέματα</string>
-    <string name="preference_market_extensions_summary">Αναζήτηση επεκτάσεων στο Android Market.</string>
-    <string name="preference_market_themes_summary">Αναζήτηση θεμάτων στο Android Market.</string>
-    <string name="preference_developer_extensions_summary">Λήψη επεκτάσεων από την κεντρική σελίδα του OpenIntents.</string>
-	<string name="preference_developer_themes_summary">Λήψη θεμάτων από την κεντρική σελίδα του OpenIntents.</string>
-	<string name="confirm_delete_title">Επιβεβαίωση Διαγραφής</string>
-	<string name="confirm_delete">Είστε σίγουρος οτι θέλετε να διαγράψετε αυτή τη σημείωση;</string>
-	
-	<string name="new_note">Νέα σημείωση</string>
+  <string name="preference_addons">Πρόσθετα</string>
+  <string name="preference_get_addons">Λήψη νέων προσθέτων</string>
+  <string name="preference_get_addons_summary">Αναζήτηση για επεκτάσεις και θέματα στο διαδίκτυο</string>
+  <string name="preference_get_market_addons">Λήψη προσθέτων από το Market</string>
+  <string name="preference_get_developer_addons">Λήψη προσθέτων από OpenIntents</string>
+  <string name="preference_extensions">Επεκτάσεις</string>
+  <string name="preference_themes">Θέματα</string>
+  <string name="preference_market_extensions_summary">Αναζήτηση επεκτάσεων στο Android Market.</string>
+  <string name="preference_market_themes_summary">Αναζήτηση θεμάτων στο Android Market.</string>
+  <string name="preference_developer_extensions_summary">Λήψη επεκτάσεων από την κεντρική σελίδα του OpenIntents.</string>
+  <string name="preference_developer_themes_summary">Λήψη θεμάτων από την κεντρική σελίδα του OpenIntents.</string>
+  <string name="confirm_delete_title">Επιβεβαίωση Διαγραφής</string>
+  <string name="confirm_delete">Είστε σίγουρος οτι θέλετε να διαγράψετε αυτή τη σημείωση;</string>
+
+  <string name="new_note">Νέα σημείωση</string>
 </resources>

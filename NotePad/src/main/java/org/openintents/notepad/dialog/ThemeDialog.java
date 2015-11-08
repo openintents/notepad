@@ -16,21 +16,13 @@
 
 package org.openintents.notepad.dialog;
 
-import java.util.List;
-
-import org.openintents.notepad.PreferenceActivity;
-import org.openintents.notepad.R;
-import org.openintents.notepad.theme.ThemeNotepad;
-import org.openintents.notepad.theme.ThemeUtils;
-import org.openintents.notepad.theme.ThemeUtils.ThemeInfo;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
@@ -39,260 +31,288 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import java.util.List;
+
+import org.openintents.notepad.PreferenceActivity;
+import org.openintents.notepad.R;
+import org.openintents.notepad.theme.ThemeNotepad;
+import org.openintents.notepad.theme.ThemeUtils;
+import org.openintents.notepad.theme.ThemeUtils.ThemeInfo;
 
 public class ThemeDialog extends AlertDialog implements OnClickListener,
-		OnCancelListener, OnItemClickListener {
-	private static final String TAG = "ThemeDialog";
+        OnCancelListener, OnItemClickListener {
+    private static final String TAG = "ThemeDialog";
 
-	private static final String BUNDLE_THEME = "theme";
+    private static final String BUNDLE_THEME = "theme";
 
-	Context mContext;
-	ThemeDialogListener mListener;
-	ListView mListView;
-	CheckBox mCheckBox;
-	List<ThemeInfo> mListInfo;
+    Context mContext;
+    ThemeDialogListener mListener;
+    ListView mListView;
+    CheckBox mCheckBox;
+    List<ThemeInfo> mListInfo;
 
-	public ThemeDialog(Context context) {
-		super(context);
-		mContext = context;
-		init();
-	}
+    public ThemeDialog(Context context) {
+        super(context);
+        mContext = context;
+        init();
+    }
 
-	public ThemeDialog(Context context, ThemeDialogListener listener) {
-		super(context);
-		mContext = context;
-		mListener = listener;
-		init();
-	}
+    public ThemeDialog(Context context, ThemeDialogListener listener) {
+        super(context);
+        mContext = context;
+        mListener = listener;
+        init();
+    }
 
-	private void init() {
-		setInverseBackgroundForced(true);
+    private void init() {
+        setInverseBackgroundForced(true);
 
-		LayoutInflater inflate = (LayoutInflater) mContext
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflate = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		inflate = inflate.cloneInContext(new ContextThemeWrapper(mContext,
-				android.R.style.Theme_Light));
+        inflate = inflate.cloneInContext(
+                new ContextThemeWrapper(
+                        mContext,
+                        android.R.style.Theme_Light
+                )
+        );
 
-		final View view = inflate.inflate(R.layout.dialog_theme_settings, null);
+        final View view = inflate.inflate(R.layout.dialog_theme_settings, null);
 
-		setView(view);
+        setView(view);
 
-		mListView = (ListView) view.findViewById(R.id.list1);
-		mListView.setCacheColorHint(0);
-		mListView.setItemsCanFocus(false);
-		mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        mListView = (ListView) view.findViewById(R.id.list1);
+        mListView.setCacheColorHint(0);
+        mListView.setItemsCanFocus(false);
+        mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-		Button b = new Button(mContext);
-		b.setText(R.string.get_more_themes);
-		b.setOnClickListener(new View.OnClickListener() {
+        Button b = new Button(mContext);
+        b.setText(R.string.get_more_themes);
+        b.setOnClickListener(
+                new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(mContext, PreferenceActivity.class);
-				i.putExtra(PreferenceActivity.EXTRA_SHOW_GET_ADD_ONS, true);
-				mContext.startActivity(i);
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(mContext, PreferenceActivity.class);
+                        i.putExtra(PreferenceActivity.EXTRA_SHOW_GET_ADD_ONS, true);
+                        mContext.startActivity(i);
 
-				pressCancel();
-				dismiss();
-			}
-		});
+                        pressCancel();
+                        dismiss();
+                    }
+                }
+        );
 
-		LinearLayout ll = new LinearLayout(mContext);
-		LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT);
-		ll.setPadding(20, 10, 20, 10);
-		ll.addView(b, lp);
-		ll.setGravity(Gravity.CENTER);
-		mListView.addFooterView(ll);
+        LinearLayout ll = new LinearLayout(mContext);
+        LayoutParams lp = new LayoutParams(
+                LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT
+        );
+        ll.setPadding(20, 10, 20, 10);
+        ll.addView(b, lp);
+        ll.setGravity(Gravity.CENTER);
+        mListView.addFooterView(ll);
 
-		mCheckBox = (CheckBox) view.findViewById(R.id.check1);
+        mCheckBox = (CheckBox) view.findViewById(R.id.check1);
 
-		setTitle(R.string.theme_pick);
+        setTitle(R.string.theme_pick);
 
-		setButton(Dialog.BUTTON_POSITIVE, mContext.getText(R.string.ok), this);
-		setButton(Dialog.BUTTON_NEGATIVE, mContext.getText(R.string.cancel),
-				this);
-		setOnCancelListener(this);
+        setButton(Dialog.BUTTON_POSITIVE, mContext.getText(R.string.ok), this);
+        setButton(
+                Dialog.BUTTON_NEGATIVE, mContext.getText(R.string.cancel),
+                this
+        );
+        setOnCancelListener(this);
 
-		prepareDialog();
-	}
+        prepareDialog();
+    }
 
-	public void fillThemes() {
-		mListInfo = ThemeUtils.getThemeInfos(mContext,
-				ThemeNotepad.THEME_NOTEPAD);
+    public void fillThemes() {
+        mListInfo = ThemeUtils.getThemeInfos(
+                mContext,
+                ThemeNotepad.THEME_NOTEPAD
+        );
 
-		String[] s = new String[mListInfo.size()];
-		int i = 0;
-		for (ThemeInfo ti : mListInfo) {
-			s[i] = ti.title;
-			i++;
-		}
+        String[] s = new String[mListInfo.size()];
+        int i = 0;
+        for (ThemeInfo ti : mListInfo) {
+            s[i] = ti.title;
+            i++;
+        }
 
-		mListView.setAdapter(new ArrayAdapter<String>(new ContextThemeWrapper(
-				mContext, android.R.style.Theme_Light),
-				android.R.layout.simple_list_item_single_choice, s));
+        mListView.setAdapter(
+                new ArrayAdapter<String>(
+                        new ContextThemeWrapper(
+                                mContext, android.R.style.Theme_Light
+                        ),
+                        android.R.layout.simple_list_item_single_choice, s
+                )
+        );
 
-		mListView.setOnItemClickListener(this);
-	}
+        mListView.setOnItemClickListener(this);
+    }
 
-	public void prepareDialog() {
-		fillThemes();
-		updateList();
-		mCheckBox.setChecked(PreferenceActivity.getThemeSetForAll(mContext));
-	}
+    public void prepareDialog() {
+        fillThemes();
+        updateList();
+        mCheckBox.setChecked(PreferenceActivity.getThemeSetForAll(mContext));
+    }
 
-	/**
-	 * Set selection to currently used theme.
-	 */
-	private void updateList() {
-		String theme = mListener.onLoadTheme();
-		
-		// Check special cases for backward compatibility:
-		if ("1".equals(theme)) {
-			theme = mContext.getResources().getResourceName(
-					R.style.Theme_Notepad);
-		} else if ("2".equals(theme)) {
-			theme = mContext.getResources().getResourceName(
-					R.style.Theme_Notepad_Monospaced);
-		} else if ("3".equals(theme)) {
-			theme = mContext.getResources().getResourceName(
-					R.style.Theme_Notepad_Serif);
-		}
+    /**
+     * Set selection to currently used theme.
+     */
+    private void updateList() {
+        String theme = mListener.onLoadTheme();
 
-		// Reset selection in case the current theme is not
-		// in this list (for example got uninstalled).
-		mListView.setItemChecked(-1, false);
-		
-		//Set the default theme listitem.
-		mListView.setItemChecked(0, true);
-		mListView.setSelection(0);
+        // Check special cases for backward compatibility:
+        if ("1".equals(theme)) {
+            theme = mContext.getResources().getResourceName(
+                    R.style.Theme_Notepad
+            );
+        } else if ("2".equals(theme)) {
+            theme = mContext.getResources().getResourceName(
+                    R.style.Theme_Notepad_Monospaced
+            );
+        } else if ("3".equals(theme)) {
+            theme = mContext.getResources().getResourceName(
+                    R.style.Theme_Notepad_Serif
+            );
+        }
 
-		int pos = 0;
-		for (ThemeInfo ti : mListInfo) {
-			if (ti.styleName.equals(theme)) {
-				mListView.setItemChecked(pos, true);
-				
-				// Move list to show the selected item:
-				mListView.setSelection(pos);
-				break;
-			}
-			pos++;
-		}
-	}
+        // Reset selection in case the current theme is not
+        // in this list (for example got uninstalled).
+        mListView.setItemChecked(-1, false);
 
-	@Override
-	public Bundle onSaveInstanceState() {
-		Log.d(TAG, "onSaveInstanceState");
+        //Set the default theme listitem.
+        mListView.setItemChecked(0, true);
+        mListView.setSelection(0);
 
-		Bundle b = super.onSaveInstanceState();
-		String theme = getSelectedTheme();
-		b.putString(BUNDLE_THEME, theme);
-		return b;
-	}
+        int pos = 0;
+        for (ThemeInfo ti : mListInfo) {
+            if (ti.styleName.equals(theme)) {
+                mListView.setItemChecked(pos, true);
 
-	@Override
-	public void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onRestoreInstanceState(savedInstanceState);
+                // Move list to show the selected item:
+                mListView.setSelection(pos);
+                break;
+            }
+            pos++;
+        }
+    }
 
-		Log.d(TAG, "onRestore");
+    @Override
+    public Bundle onSaveInstanceState() {
+        Log.d(TAG, "onSaveInstanceState");
 
-		String theme = getSelectedTheme();
+        Bundle b = super.onSaveInstanceState();
+        String theme = getSelectedTheme();
+        b.putString(BUNDLE_THEME, theme);
+        return b;
+    }
 
-		if (savedInstanceState != null) {
-			if (savedInstanceState.containsKey(BUNDLE_THEME)) {
-				theme = savedInstanceState.getString(BUNDLE_THEME);
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
 
-				Log.d(TAG, "onRestore theme " + theme);
-			}
-		}
+        Log.d(TAG, "onRestore");
 
-		mListener.onSetTheme(theme);
-	}
+        String theme = getSelectedTheme();
 
-	public void onClick(DialogInterface dialog, int which) {
-		if (which == BUTTON_POSITIVE) {
-			pressOk();
-		} else if (which == BUTTON_NEGATIVE) {
-			pressCancel();
-		}
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(BUNDLE_THEME)) {
+                theme = savedInstanceState.getString(BUNDLE_THEME);
 
-	}
+                Log.d(TAG, "onRestore theme " + theme);
+            }
+        }
 
-	@Override
-	public void onCancel(DialogInterface arg0) {
-		pressCancel();
-	}
+        mListener.onSetTheme(theme);
+    }
 
-	public void pressOk() {
+    public void onClick(DialogInterface dialog, int which) {
+        if (which == BUTTON_POSITIVE) {
+            pressOk();
+        } else if (which == BUTTON_NEGATIVE) {
+            pressCancel();
+        }
+
+    }
+
+    @Override
+    public void onCancel(DialogInterface arg0) {
+        pressCancel();
+    }
+
+    public void pressOk() {
 
 		/* User clicked Yes so do some stuff */
-		String theme = getSelectedTheme();
-		mListener.onSaveTheme(theme);
-		mListener.onSetTheme(theme);
+        String theme = getSelectedTheme();
+        mListener.onSaveTheme(theme);
+        mListener.onSetTheme(theme);
 
-		boolean setForAllThemes = mCheckBox.isChecked();
-		PreferenceActivity.setThemeSetForAll(mContext, setForAllThemes);
-		if (setForAllThemes) {
-			mListener.onSetThemeForAll(theme);
-		}
-	}
+        boolean setForAllThemes = mCheckBox.isChecked();
+        PreferenceActivity.setThemeSetForAll(mContext, setForAllThemes);
+        if (setForAllThemes) {
+            mListener.onSetThemeForAll(theme);
+        }
+    }
 
-	private String getSelectedTheme() {
-		int pos = mListView.getCheckedItemPosition();
+    private String getSelectedTheme() {
+        int pos = mListView.getCheckedItemPosition();
 
-		if (pos != ListView.INVALID_POSITION) {
-			ThemeInfo ti = mListInfo.get(pos);
-			return ti.styleName;
-		} else {
-			return null;
-		}
-	}
+        if (pos != ListView.INVALID_POSITION) {
+            ThemeInfo ti = mListInfo.get(pos);
+            return ti.styleName;
+        } else {
+            return null;
+        }
+    }
 
-	public void pressCancel() {
-		/* User clicked No so do some stuff */
-		String theme = mListener.onLoadTheme();
-		mListener.onSetTheme(theme);
+    public void pressCancel() {
+        /* User clicked No so do some stuff */
+        String theme = mListener.onLoadTheme();
+        mListener.onSetTheme(theme);
 
-		//Set the list to the default theme
-		mListView.setItemChecked(0, true);
-		mListView.setSelection(0);
-		
-		//Set the list item to the previously chosen theme.
-		int pos = 0;
-		for (ThemeInfo ti : mListInfo) {
-			if (ti.styleName.equals(theme)) {
-				mListView.setItemChecked(pos, true);
-				mListView.setSelection(pos);
-				break;
-			}
-			pos++;
-		}
-	}
+        //Set the list to the default theme
+        mListView.setItemChecked(0, true);
+        mListView.setSelection(0);
 
-	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
-		String theme = getSelectedTheme();
+        //Set the list item to the previously chosen theme.
+        int pos = 0;
+        for (ThemeInfo ti : mListInfo) {
+            if (ti.styleName.equals(theme)) {
+                mListView.setItemChecked(pos, true);
+                mListView.setSelection(pos);
+                break;
+            }
+            pos++;
+        }
+    }
 
-		if (theme != null) {
-			mListener.onSetTheme(theme);
-		}
-	}
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position,
+                            long id) {
+        String theme = getSelectedTheme();
 
-	public interface ThemeDialogListener {
-		void onSetTheme(String theme);
+        if (theme != null) {
+            mListener.onSetTheme(theme);
+        }
+    }
 
-		void onSetThemeForAll(String theme);
+    public interface ThemeDialogListener {
+        void onSetTheme(String theme);
 
-		String onLoadTheme();
+        void onSetThemeForAll(String theme);
 
-		void onSaveTheme(String theme);
-	}
+        String onLoadTheme();
+
+        void onSaveTheme(String theme);
+    }
 }

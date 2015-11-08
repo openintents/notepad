@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
  * Copyright (C) 2008 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,222 +12,221 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- -->
-<!-- 
+ --><!--
  * Original copyright:
  * Based on the Android SDK sample application NotePad.
  * Copyright (C) 2007 Google Inc.
  * Licensed under the Apache License, Version 2.0.
   -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
+  <!-- ***************************
+       About information
+       *************************** -->
 
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Angad Singh  https://launchpad.net/~angad21-02-1996
   Atharva Lath https://launchpad.net/~atharvalath96
   OpenIntents devs https://launchpad.net/~openintents-devs
   Prateek Arora https://launchpad.net/~prateekandroid
   Shitiz Garg https://launchpad.net/~l95s</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">अपने नोट्स OI नोटपेड के साथ बनाए और बाटें.</string>
-	
-	<!-- ***************************
-	     Application-specific strings
-	     *************************** -->
 
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-	<string name="app_name">OI नोटपैड</string>
-	
-    <string name="menu_delete">हटाएँ</string>
-    <string name="menu_insert">व्याख्या करें</string>
-    <string name="menu_revert">पलटें</string>
-    <string name="menu_discard">छोड़ दें</string>
-    
-	<string name="no_notes">नयी व्याख्या जोड़ने में मेनू क्या इस्तेमाल करें</string>
-	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">अपने नोट्स OI नोटपेड के साथ बनाए और बाटें.</string>
 
-    <string name="resolve_edit">व्यक्ख्या सम्पादित करें</string>
-    <string name="resolve_title">शीर्षक सम्पादित करें</string>  
+  <!-- ***************************
+       Application-specific strings
+       *************************** -->
 
-    <string name="title_create">व्याख्या करें</string>
-    <string name="title_edit">व्यक्ख्या सम्पादित करें</string>
-	<string name="title_notes_list">OI नोटपैड</string>   
-	<string name="title_note">व्याख्या</string>  
-	<string name="title_edit_title">नोट शीर्षक:</string>  
-    <string name="title_create_file">%s (नया व्याख्या)</string>
-    <string name="title_edit_file">%s (व्याख्या संपादन)</string>
-    
-    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">शोर्त्चुत के लिया व्याख्या चुनिए</string>
-	
-	<string name="button_ok">ठीक है</string>  
-	
-	<string name="error_title">गलती</string>
-	<string name="error_message">व्याख्या खोलने में गलती</string>
-	<!-- <string name="no_notes">Note list is empty.</string>  -->
-	
-	<string name="menu_share">बाटें</string>
-	<string name="empty_note">खली व्याक्या</string>
-	<string name="share_not_available">बाँटने के लिए कोई प्रयोग उपलब्ध नहीं</string>
-	
-	<string name="encrypting_note">व्याख्या गोपनीय  हो रही हैं</string>
-	<string name="encrypted">गोपनीय</string>
-	<string name="menu_encrypt">गोपन करें</string>
-	<string name="menu_decrypt">विकोड</string>
-	<string name="menu_undo_encryption">गोपनीयता  हटाएँ</string>
-	<string name="menu_do_not_encrypt">गोपनीय ना करें</string>
-	<string name="already_encrypted">गोपनीय है</string>
-	<string name="not_encrypted">गोपनीय नहीं है</string>
-	<string name="encryption_failed">गोपनीय कार्य असफल</string>
-	<string name="decryption_failed">विकोड असफल</string>
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI नोटपैड</string>
 
-	<string name="menu_edit_tags">टाग संपादन</string>
-    <string name="dropdown_hint">सूंची देखने के लिए छूएं</string>
-    <string name="tags_hint">कोमा द्वारा अलग किये तेग लिख्यियें</string>
-    
-    <string name="menu_save_to_sdcard">सड कार्ड में सहेंजे</string>
-    <string name="menu_open_from_sdcard">सड कार्ड से खोलें</string>
-    <string name="filename">फाइल नाम</string>
-    <string name="save">सहेज</string>
-    <string name="open">खोलें</string>
-    <string name="error_writing_file">फाइल लिखने में त्रुटि</string>
-    <string name="error_reading_file">फ़ाइल पढते समय त्रुटि हुई</string>
-    <string name="file_not_found">फाइल नहीं मिली</string>
-    <string name="note_saved">व्याख्या सहेजी</string>
-    <string name="warning_file_exists_title">फाइल मौजूद है</string>
-    <string name="warning_file_exists_message">क्या आप मौजूदा फाइल पर दुबारा लिखना चाहेंगे?</string>
-    
-    <string name="menu_word_count">शब्द संख्या</string>
-    <plurals name="word_count">
-        <item quantity="one">एक शब्द।</item>
-        <item quantity="other">%d शब्द।</item>
-    </plurals>
-        
-    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
-    <string name="menu_import">आयात</string>
-    <string name="menu_save">सहेज</string>
-    <string name="menu_save_as">ऐसे ही संचित करें</string>
-    <string name="warning_unsaved_changes_title">टेक्स्ट बदला गया</string>
-    <string name="warning_unsaved_changes_message">क्या बदलाव सहेजना चाहते हैं?</string>
-    <string name="button_save">सहेज</string>
-    <string name="button_dont_save">न सहेजें</string>
-    
-	<string name="menu_theme">विषयवस्तु</string>
-	<string name="theme_pick">विषयवस्तु चुने</string>
-    <string name="theme_default">तयशुदा</string>
-    <string name="theme_monospaced">समंदूरी फॉण्ट</string>
-	<string name="theme_serif">सेरिफ़ फॉण्ट</string>
+  <string name="menu_delete">हटाएँ</string>
+  <string name="menu_insert">व्याख्या करें</string>
+  <string name="menu_revert">पलटें</string>
+  <string name="menu_discard">छोड़ दें</string>
 
-	<!-- Search -->
-	<string name="menu_search">खोंजे</string>
-    <string name="search_query_results">OI नोटपैड</string>
-    <!-- %s is the search string -->
-	<string name="search_found_no_results">%s के लिए कोई परिणाम नहीं</string>
-    <string name="search_label">OI नोट्पाद खोज</string>
-    <string name="search_hint">खोंजे</string>
-    
-    <!-- The description that will show up in the search settings for this source.  -->
-    <string name="search_settings_description">व्याख्याओं के लिए शीर्षक</string>
-    
-	<!--     Dialog box    -->
-	<string name="ok">ठीक है</string>
-	<string name="cancel">रद्द</string>
-    <string name="use_theme_for_all_lists">सभी सूचियों के लिए इस विषयवस्तु का प्रयोग करें</string>
-	<string name="get_more_themes">और विषयवस्तु लायें</string>
-    
-    <string name="all_notes">सभी व्याख्याएं</string>
-    
-    <!-- Settings -->
-    <!-- Title for settings regarding the list of notes -->
-    <string name="noteslist_preferences">व्याख्या सूंची</string>
-    <string name="preference_sortorder_title">सूंची क्रम बद्ध करें</string>
-    <string name="preference_sortorder_dialog_title">सूंची क्रम बद्ध करें</string>
-    <string name="preference_sortorder_summary">जिस तरह से व्याख्याएं सूंची में क्रम बद्ध की गयी हैं</string>
-    <string name="preference_marquee_title">मार्की व्याख्या शीर्षक</string>
-    <string name="preference_marquee_summary">ज्यादा लंबे व्याख्या शीर्षकों को लगातार खिसकाते रहें</string>
-    
-    <string name="note_editor_preferences">व्याख्या संपादक</string>
-    <string name="preference_fontsize">फॉण्ट माप</string>
-	<string name="preference_fontsize_summary">फॉण्ट माप बदलें</string>
-	<string name="preference_fontsize_dialog_title">फॉण्ट माप चुने</string>
-	<string name="preference_autolink_title">स्वत: निर्मित लिंक</string>
-    <string name="preference_autolink_summary_on">फोन नंबर तथा ईमेल/सड़क/वेब पतों के लिए लिंक बनाएँ</string>
-    <string name="preference_autolink_summary_off">व्याख्याओं पर लिंक ना बनाएँ</string>
-	<string name="preference_charcount_title">अक्षर संख्या</string>
-    <string name="preference_charcount_summary_on">संपादन उपकरण में अक्षर संख्या दीखाएं</string>
-    <string name="preference_charcount_summary_off">संपादन उपकरण में अक्षर संख्या मत दीखाएं</string>
+  <string name="no_notes">नयी व्याख्या जोड़ने में मेनू क्या इस्तेमाल करें</string>
+  <string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
-	<string name="settings">सेटिंग्स</string>
-	<string name="settings_sortorder">छंटाई क्रम</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <string name="resolve_edit">व्यक्ख्या सम्पादित करें</string>
+  <string name="resolve_title">शीर्षक सम्पादित करें</string>
 
-	<!-- OI Notepad -->
-	<!-- Permission to read notes. -->
-    <string name="oi_notepad_permission_read">व्याख्या पढ़ें</string>
-    <string name="oi_notepad_permission_read_descr">अनुप्रयोग को व्यख्या पढ़ने देता है| ध्यान दें कि गोपनीय व्यख्या गोपनीय प्रारूप में दिए हैं</string>
-	<!-- Permission to write notes. -->
-    <string name="oi_notepad_permission_write">व्याख्या लिखें</string>
-    <string name="oi_notepad_permission_write_descr">अनुप्रयोग को नयी व्याख्या को बनाने या मोजुदा व्याख्या को बदलने देता है</string>
-    
-	<!-- OI Shopping list -->
-	<!-- Permission to read shopping lists. -->
-    <string name="oi_shopping_permission_read">खरीदारी सूची पढ़ें</string>
-    <string name="oi_shopping_permission_read_descr">अनुप्रयोग को खरीदारी सूचियों को पढ़ने देता है| ध्यान दें कि गोपनीय सूचियाँ तथा आइटम गोपनीय प्रारूप में दिए गए हैं</string>
-	<!-- Permission to write shopping lists. -->
-    <string name="oi_shopping_permission_write">खरीदारी सूची लिखें</string>
-    <string name="oi_shopping_permission_write_descr">अनुप्रयोग को नयी सूची बनाने या मोजुदा सूची को बदलने देता है</string>
-    
-	<!-- OI Safe -->
-	<!-- Permission to encrypt and decrypt data. -->
-	<string name="oi_safe_permission_intents">डाटा गूढ़ तथा विगूढ़ करें</string>
-    <string name="oi_safe_permission_intents_descr">अनुप्रयोग को व्याख्या को  गूढ़ तथा विगूढ़ करने देता है तथा ओआई सुरक्षा में संचित पासवर्डों तक जाने देता है</string>	
+  <string name="title_create">व्याख्या करें</string>
+  <string name="title_edit">व्यक्ख्या सम्पादित करें</string>
+  <string name="title_notes_list">OI नोटपैड</string>
+  <string name="title_note">व्याख्या</string>
+  <string name="title_edit_title">नोट शीर्षक:</string>
+  <string name="title_create_file">%s (नया व्याख्या)</string>
+  <string name="title_edit_file">%s (व्याख्या संपादन)</string>
+
+  <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+  <string name="title_pick_note_for_shortcut">शोर्त्चुत के लिया व्याख्या चुनिए</string>
+
+  <string name="button_ok">ठीक है</string>
+
+  <string name="error_title">गलती</string>
+  <string name="error_message">व्याख्या खोलने में गलती</string>
+  <!-- <string name="no_notes">Note list is empty.</string>  -->
+
+  <string name="menu_share">बाटें</string>
+  <string name="empty_note">खली व्याक्या</string>
+  <string name="share_not_available">बाँटने के लिए कोई प्रयोग उपलब्ध नहीं</string>
+
+  <string name="encrypting_note">व्याख्या गोपनीय  हो रही हैं</string>
+  <string name="encrypted">गोपनीय</string>
+  <string name="menu_encrypt">गोपन करें</string>
+  <string name="menu_decrypt">विकोड</string>
+  <string name="menu_undo_encryption">गोपनीयता  हटाएँ</string>
+  <string name="menu_do_not_encrypt">गोपनीय ना करें</string>
+  <string name="already_encrypted">गोपनीय है</string>
+  <string name="not_encrypted">गोपनीय नहीं है</string>
+  <string name="encryption_failed">गोपनीय कार्य असफल</string>
+  <string name="decryption_failed">विकोड असफल</string>
+
+  <string name="menu_edit_tags">टाग संपादन</string>
+  <string name="dropdown_hint">सूंची देखने के लिए छूएं</string>
+  <string name="tags_hint">कोमा द्वारा अलग किये तेग लिख्यियें</string>
+
+  <string name="menu_save_to_sdcard">सड कार्ड में सहेंजे</string>
+  <string name="menu_open_from_sdcard">सड कार्ड से खोलें</string>
+  <string name="filename">फाइल नाम</string>
+  <string name="save">सहेज</string>
+  <string name="open">खोलें</string>
+  <string name="error_writing_file">फाइल लिखने में त्रुटि</string>
+  <string name="error_reading_file">फ़ाइल पढते समय त्रुटि हुई</string>
+  <string name="file_not_found">फाइल नहीं मिली</string>
+  <string name="note_saved">व्याख्या सहेजी</string>
+  <string name="warning_file_exists_title">फाइल मौजूद है</string>
+  <string name="warning_file_exists_message">क्या आप मौजूदा फाइल पर दुबारा लिखना चाहेंगे?</string>
+
+  <string name="menu_word_count">शब्द संख्या</string>
+  <plurals name="word_count">
+    <item quantity="one">एक शब्द।</item>
+    <item quantity="other">%d शब्द।</item>
+  </plurals>
+
+  <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+  <string name="menu_import">आयात</string>
+  <string name="menu_save">सहेज</string>
+  <string name="menu_save_as">ऐसे ही संचित करें</string>
+  <string name="warning_unsaved_changes_title">टेक्स्ट बदला गया</string>
+  <string name="warning_unsaved_changes_message">क्या बदलाव सहेजना चाहते हैं?</string>
+  <string name="button_save">सहेज</string>
+  <string name="button_dont_save">न सहेजें</string>
+
+  <string name="menu_theme">विषयवस्तु</string>
+  <string name="theme_pick">विषयवस्तु चुने</string>
+  <string name="theme_default">तयशुदा</string>
+  <string name="theme_monospaced">समंदूरी फॉण्ट</string>
+  <string name="theme_serif">सेरिफ़ फॉण्ट</string>
+
+  <!-- Search -->
+  <string name="menu_search">खोंजे</string>
+  <string name="search_query_results">OI नोटपैड</string>
+  <!-- %s is the search string -->
+  <string name="search_found_no_results">%s के लिए कोई परिणाम नहीं</string>
+  <string name="search_label">OI नोट्पाद खोज</string>
+  <string name="search_hint">खोंजे</string>
+
+  <!-- The description that will show up in the search settings for this source.  -->
+  <string name="search_settings_description">व्याख्याओं के लिए शीर्षक</string>
+
+  <!--     Dialog box    -->
+  <string name="ok">ठीक है</string>
+  <string name="cancel">रद्द</string>
+  <string name="use_theme_for_all_lists">सभी सूचियों के लिए इस विषयवस्तु का प्रयोग करें</string>
+  <string name="get_more_themes">और विषयवस्तु लायें</string>
+
+  <string name="all_notes">सभी व्याख्याएं</string>
+
+  <!-- Settings -->
+  <!-- Title for settings regarding the list of notes -->
+  <string name="noteslist_preferences">व्याख्या सूंची</string>
+  <string name="preference_sortorder_title">सूंची क्रम बद्ध करें</string>
+  <string name="preference_sortorder_dialog_title">सूंची क्रम बद्ध करें</string>
+  <string name="preference_sortorder_summary">जिस तरह से व्याख्याएं सूंची में क्रम बद्ध की गयी हैं</string>
+  <string name="preference_marquee_title">मार्की व्याख्या शीर्षक</string>
+  <string name="preference_marquee_summary">ज्यादा लंबे व्याख्या शीर्षकों को लगातार खिसकाते रहें</string>
+
+  <string name="note_editor_preferences">व्याख्या संपादक</string>
+  <string name="preference_fontsize">फॉण्ट माप</string>
+  <string name="preference_fontsize_summary">फॉण्ट माप बदलें</string>
+  <string name="preference_fontsize_dialog_title">फॉण्ट माप चुने</string>
+  <string name="preference_autolink_title">स्वत: निर्मित लिंक</string>
+  <string name="preference_autolink_summary_on">फोन नंबर तथा ईमेल/सड़क/वेब पतों के लिए लिंक बनाएँ</string>
+  <string name="preference_autolink_summary_off">व्याख्याओं पर लिंक ना बनाएँ</string>
+  <string name="preference_charcount_title">अक्षर संख्या</string>
+  <string name="preference_charcount_summary_on">संपादन उपकरण में अक्षर संख्या दीखाएं</string>
+  <string name="preference_charcount_summary_off">संपादन उपकरण में अक्षर संख्या मत दीखाएं</string>
+
+  <string name="settings">सेटिंग्स</string>
+  <string name="settings_sortorder">छंटाई क्रम</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Notepad -->
+  <!-- Permission to read notes. -->
+  <string name="oi_notepad_permission_read">व्याख्या पढ़ें</string>
+  <string name="oi_notepad_permission_read_descr">अनुप्रयोग को व्यख्या पढ़ने देता है| ध्यान दें कि गोपनीय व्यख्या गोपनीय प्रारूप में दिए हैं</string>
+  <!-- Permission to write notes. -->
+  <string name="oi_notepad_permission_write">व्याख्या लिखें</string>
+  <string name="oi_notepad_permission_write_descr">अनुप्रयोग को नयी व्याख्या को बनाने या मोजुदा व्याख्या को बदलने देता है</string>
+
+  <!-- OI Shopping list -->
+  <!-- Permission to read shopping lists. -->
+  <string name="oi_shopping_permission_read">खरीदारी सूची पढ़ें</string>
+  <string name="oi_shopping_permission_read_descr">अनुप्रयोग को खरीदारी सूचियों को पढ़ने देता है| ध्यान दें कि गोपनीय सूचियाँ तथा आइटम गोपनीय प्रारूप में दिए गए हैं</string>
+  <!-- Permission to write shopping lists. -->
+  <string name="oi_shopping_permission_write">खरीदारी सूची लिखें</string>
+  <string name="oi_shopping_permission_write_descr">अनुप्रयोग को नयी सूची बनाने या मोजुदा सूची को बदलने देता है</string>
+
+  <!-- OI Safe -->
+  <!-- Permission to encrypt and decrypt data. -->
+  <string name="oi_safe_permission_intents">डाटा गूढ़ तथा विगूढ़ करें</string>
+  <string name="oi_safe_permission_intents_descr">अनुप्रयोग को व्याख्या को  गूढ़ तथा विगूढ़ करने देता है तथा ओआई सुरक्षा में संचित पासवर्डों तक जाने देता है</string>
 
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- ***************************
+       Preferences
+       *************************** -->
 
-	<!-- sort order -->
-    <string-array name="preference_sortorder_entries">
-        <item>अकारादि</item>
-        <item>प्रतिलोम वर्णमाला अनुक्रमणिका</item>
-        <item>पिछली बार परिवर्धित</item>
-        <item>पहली बार संशोधित</item>
-        <item>सबसे नए से सबसे पुराने</item>  
-        <item>सबसे पुराने से सबसे नए</item>
-    </string-array>
+  <!-- sort order -->
+  <string-array name="preference_sortorder_entries">
+    <item>अकारादि</item>
+    <item>प्रतिलोम वर्णमाला अनुक्रमणिका</item>
+    <item>पिछली बार परिवर्धित</item>
+    <item>पहली बार संशोधित</item>
+    <item>सबसे नए से सबसे पुराने</item>
+    <item>सबसे पुराने से सबसे नए</item>
+  </string-array>
 
-    <string-array name="preference_fontsize_entries">
-    	<!-- Preference fontsize: tiny font size -->
-        <item>छोटा</item>
-    	<!-- Preference fontsize: small font size -->
-        <item>छोटा</item>
-    	<!-- Preference fontsize: default font size-->
-    	<item>तयशुदा</item>
-    	<!-- Preference fontsize: large font size -->
-        <item>बड़ा</item>
-    </string-array>
+  <string-array name="preference_fontsize_entries">
+    <!-- Preference fontsize: tiny font size -->
+    <item>छोटा</item>
+    <!-- Preference fontsize: small font size -->
+    <item>छोटा</item>
+    <!-- Preference fontsize: default font size-->
+    <item>तयशुदा</item>
+    <!-- Preference fontsize: large font size -->
+    <item>बड़ा</item>
+  </string-array>
 
-    <string name="preference_addons">सहयुक्ति</string>
-    <string name="preference_get_addons">नए सहयुक्ति लें</string>
-    <string name="preference_get_addons_summary">विस्तारों तथा विषयों को ऑनलाइन ढूंढें</string>
-    <string name="preference_get_market_addons">सह्युक्तियों को बाजार से लें</string>
-    <string name="preference_get_developer_addons">सह्युक्तियों को ओपनइन्टेंटस से लें</string>
-    <string name="preference_extensions">विस्तार</string>
-    <string name="preference_themes">थीम्स</string>
-    <string name="preference_market_extensions_summary">अंद्रोइड बाजार में विस्तार खोजें</string>
-    <string name="preference_market_themes_summary">अंद्रोइड बाजार में थीम्स खोजें</string>
-    <string name="preference_developer_extensions_summary">ओपनइन्टेंट मुखपृष्ठ में से विस्तार प्राप्त करें</string>
-	<string name="preference_developer_themes_summary">ओपनइन्टेंट मुखपृष्ठ में से थीम्स प्राप्त करें</string>
-	<string name="confirm_delete_title">हटाना पुष्टिकरण</string>
-	<string name="confirm_delete">क्या आप इस व्याख्या को हटाने के लिए निश्चित हैं?</string>
-	
-	<string name="new_note">नयी व्यख्या</string>
+  <string name="preference_addons">सहयुक्ति</string>
+  <string name="preference_get_addons">नए सहयुक्ति लें</string>
+  <string name="preference_get_addons_summary">विस्तारों तथा विषयों को ऑनलाइन ढूंढें</string>
+  <string name="preference_get_market_addons">सह्युक्तियों को बाजार से लें</string>
+  <string name="preference_get_developer_addons">सह्युक्तियों को ओपनइन्टेंटस से लें</string>
+  <string name="preference_extensions">विस्तार</string>
+  <string name="preference_themes">थीम्स</string>
+  <string name="preference_market_extensions_summary">अंद्रोइड बाजार में विस्तार खोजें</string>
+  <string name="preference_market_themes_summary">अंद्रोइड बाजार में थीम्स खोजें</string>
+  <string name="preference_developer_extensions_summary">ओपनइन्टेंट मुखपृष्ठ में से विस्तार प्राप्त करें</string>
+  <string name="preference_developer_themes_summary">ओपनइन्टेंट मुखपृष्ठ में से थीम्स प्राप्त करें</string>
+  <string name="confirm_delete_title">हटाना पुष्टिकरण</string>
+  <string name="confirm_delete">क्या आप इस व्याख्या को हटाने के लिए निश्चित हैं?</string>
+
+  <string name="new_note">नयी व्यख्या</string>
 </resources>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
  * Copyright (C) 2007-2012 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,67 +13,73 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  -->
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources xmlns:tools="http://schemas.android.com/tools"
+  tools:ignore="MissingTranslation">
 
-	<!-- ***************************
-	     About information
-	     *************************** -->
+  <!-- ***************************
+       About information
+       *************************** -->
 
-    <!-- Strings for OI About -->
-	<string name="about_copyright">Copyright © 2008–2012 OpenIntents</string>
-	<string name="about_website_url">http://www.openintents.org/en/notepad</string>
-	<string name="about_email">support@openintents.org</string>
-	
-	
-    <string-array name="about_authors"><!-- Add your name here if you helped out -->
-        <item>Peli</item>
-        <item>Friedger</item>
-        <item>Michael A. Krehan</item>
-        <item>Matthias Blaesing</item><!-- issues 240, 241 -->
-        
-        <!-- The following item should always stay at the end -->
-        <item>The Android Open Source Project</item>
-    </string-array>
-    
-    <string-array name="about_documenters"><!-- Add your name here if you helped out -->
-        <!-- <item></item> -->
-    </string-array>
-    
-    <string-array name="about_artists"><!-- Add your name here if you helped out -->
-        <item>VisualPharm</item>
-        <item>Peli</item>
-    </string-array>
-    
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
-	
-    <string-array name="preference_sortorder_entryvalues">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>  
-        <item>3</item>
-		<item>4</item> 
-		<item>5</item>
-    </string-array>
-    
-    <string-array name="preference_fontsize_entryvalues">
-    	<item>0</item>
-    	<item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-    
-    <!-- URL to OI Notepad extensions on Market -->
-    <string name="preference_market_extensions_link" formatted="false">market://search?q=extension%20oi%20notepad</string>
-    
-    <!-- URL to OI Notepad themes on Market -->
-    <string name="preference_market_themes_link" formatted="false">market://search?q=theme%20oi%20notepad</string>
-    
-    <!-- URL to OI Notepad extensions -->
-    <string name="preference_developer_extensions_link" formatted="false">http://www.openintents.org/en/notepad#extensions</string>
-    
-    <!-- URL to OI Notepad themes -->
-    <string name="preference_developer_themes_link" formatted="false">http://www.openintents.org/en/notepad#themes</string>
+  <!-- Strings for OI About -->
+  <string name="about_copyright">Copyright © 2008–2012 OpenIntents</string>
+  <string name="about_website_url">http://www.openintents.org/en/notepad</string>
+  <string name="about_email">support@openintents.org</string>
+
+
+  <string-array name="about_authors"><!-- Add your name here if you helped out -->
+    <item>Peli</item>
+    <item>Friedger</item>
+    <item>Michael A. Krehan</item>
+    <item>Matthias Blaesing</item>
+    <!-- issues 240, 241 -->
+
+    <!-- The following item should always stay at the end -->
+    <item>The Android Open Source Project</item>
+  </string-array>
+
+  <string-array name="about_documenters"><!-- Add your name here if you helped out -->
+    <!-- <item></item> -->
+  </string-array>
+
+  <string-array name="about_artists"><!-- Add your name here if you helped out -->
+    <item>VisualPharm</item>
+    <item>Peli</item>
+  </string-array>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <string-array name="preference_sortorder_entryvalues">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+  </string-array>
+
+  <string-array name="preference_fontsize_entryvalues">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+  </string-array>
+
+  <!-- URL to OI Notepad extensions on Market -->
+  <string name="preference_market_extensions_link"
+    formatted="false">market://search?q=extension%20oi%20notepad</string>
+
+  <!-- URL to OI Notepad themes on Market -->
+  <string name="preference_market_themes_link"
+    formatted="false">market://search?q=theme%20oi%20notepad</string>
+
+  <!-- URL to OI Notepad extensions -->
+  <string name="preference_developer_extensions_link"
+    formatted="false">http://www.openintents.org/en/notepad#extensions</string>
+
+  <!-- URL to OI Notepad themes -->
+  <string name="preference_developer_themes_link"
+    formatted="false">http://www.openintents.org/en/notepad#themes</string>
 
 </resources>

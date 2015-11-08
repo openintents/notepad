@@ -6,31 +6,33 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 public class MarqueeTextView extends TextView {
-	private boolean mMarquee = false;
+    private boolean mMarquee = false;
 
-	public MarqueeTextView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-	}
+    public MarqueeTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-	public void setMarquee(boolean marquee) {
-		mMarquee = marquee;
-	}
+    public void setMarquee(boolean marquee) {
+        mMarquee = marquee;
+    }
 
-	@Override
-	public void onFocusChanged(boolean focused, int direction,
-			Rect previouslyFocusedRect) {
-		if (focused)
-			super.onFocusChanged(focused, direction, previouslyFocusedRect);
-	}
+    @Override
+    public void onFocusChanged(boolean focused, int direction,
+                               Rect previouslyFocusedRect) {
+        if (focused) {
+            super.onFocusChanged(focused, direction, previouslyFocusedRect);
+        }
+    }
 
-	@Override
-	public void onWindowFocusChanged(boolean focused) {
-		if (focused)
-			super.onWindowFocusChanged(focused);
-	}
+    @Override
+    public void onWindowFocusChanged(boolean focused) {
+        if (focused) {
+            super.onWindowFocusChanged(focused);
+        }
+    }
 
-	@Override
-	public boolean isFocused() {
-		return mMarquee;
-	}
+    @Override
+    public boolean isFocused() {
+        return mMarquee;
+    }
 }

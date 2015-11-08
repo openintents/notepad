@@ -95,124 +95,127 @@ import org.openintents.util.MenuIntentOptionsWithIcons;
  * the {@link NotePadProvider}
  */
 public class NotesList extends DistributionLibraryListActivity implements
-		ListView.OnScrollListener, OnDismissListener {
-	private static final String TAG = "NotesList";
-	private static final boolean debug = false;
-
-	// Menu item ids
-	private static final int MENU_ITEM_DELETE = Menu.FIRST;
-	private static final int MENU_ITEM_INSERT = Menu.FIRST + 1;
-	private static final int MENU_ITEM_SHARE = Menu.FIRST + 2;
-	private static final int MENU_ITEM_ENCRYPT = Menu.FIRST + 5;
-	private static final int MENU_ITEM_UNENCRYPT = Menu.FIRST + 6;
-	private static final int MENU_ITEM_EDIT_TAGS = Menu.FIRST + 7;
-	// private static final int MENU_ITEM_SAVE = Menu.FIRST + 8;
-	private static final int MENU_OPEN = Menu.FIRST + 9;
-	private static final int MENU_SETTINGS = Menu.FIRST + 10;
-	private static final int MENU_SEARCH = Menu.FIRST + 11;
-	private static final int MENU_DISTRIBUTION_START = Menu.FIRST + 100; // MUST
-																			// BE
-																			// LAST
-
-	private static final String BUNDLE_LAST_FILTER = "last_filter";
-	private static final String BUNDLE_LAST_TAG = "last_tag";
-	
-	private static final String BUNDLE_CONTEXTMENUINFO_ID = "ctx_menu_id";
-	private static final String BUNDLE_CONTEXTMENUINFO_POSITION = "ctx_menu_position";
-
+        ListView.OnScrollListener, OnDismissListener {
     public static final String PREFS_NAME = "NotesListPrefs";
+    private static final String TAG = "NotesList";
+    private static final boolean debug = false;
+    // Menu item ids
+    private static final int MENU_ITEM_DELETE = Menu.FIRST;
+    private static final int MENU_ITEM_INSERT = Menu.FIRST + 1;
+    private static final int MENU_ITEM_SHARE = Menu.FIRST + 2;
+    private static final int MENU_ITEM_ENCRYPT = Menu.FIRST + 5;
+    private static final int MENU_ITEM_UNENCRYPT = Menu.FIRST + 6;
+    private static final int MENU_ITEM_EDIT_TAGS = Menu.FIRST + 7;
+    // private static final int MENU_ITEM_SAVE = Menu.FIRST + 8;
+    private static final int MENU_OPEN = Menu.FIRST + 9;
+    private static final int MENU_SETTINGS = Menu.FIRST + 10;
+    private static final int MENU_SEARCH = Menu.FIRST + 11;
+    // BE
+    // LAST
+    private static final int MENU_DISTRIBUTION_START = Menu.FIRST + 100; // MUST
+    private static final String BUNDLE_LAST_FILTER = "last_filter";
+    private static final String BUNDLE_LAST_TAG = "last_tag";
+    private static final String BUNDLE_CONTEXTMENUINFO_ID = "ctx_menu_id";
+    private static final String BUNDLE_CONTEXTMENUINFO_POSITION = "ctx_menu_position";
+    /**
+     * A group id for alternative menu items.
+     */
+    private final static int CATEGORY_ALTERNATIVE_GLOBAL = 1;
 
-	/**
-	 * A group id for alternative menu items.
-	 */
-	private final static int CATEGORY_ALTERNATIVE_GLOBAL = 1;
+    private static final int REQUEST_CODE_DECRYPT_TITLE = 3;
+    // private static final int REQUEST_CODE_UNENCRYPT_NOTE = 4;
+    private static final int REQUEST_CODE_OPEN = 5;
 
-	private static final int REQUEST_CODE_DECRYPT_TITLE = 3;
-	// private static final int REQUEST_CODE_UNENCRYPT_NOTE = 4;
-	private static final int REQUEST_CODE_OPEN = 5;
+    private static final int DIALOG_TAGS = 1;
+    private static final int DIALOG_GET_FROM_MARKET = 3;
+    private static final int DIALOG_DELETE = 4;
+    private static final int DIALOG_PERMISSION_FAILURE = 5;
+    private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
+    private static boolean mActionBarAvailable;
 
-	private static final int DIALOG_TAGS = 1;
-	private static final int DIALOG_GET_FROM_MARKET = 3;
-	private static final int DIALOG_DELETE = 4;
-	private static final int DIALOG_PERMISSION_FAILURE = 5;
-	private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
+    static {
+        try {
+            WrapActionBar.checkAvailable();
+            mActionBarAvailable = true;
+        } catch (Throwable t) {
+            mActionBarAvailable = false;
+        }
+    }
 
+    private final int DECRYPT_DELAY = 100;
+    NotesListCursor mCursorUtils;
+    NotesListCursorAdapter mAdapter;
+    String mLastFilter;
+    String mSelectedTag;
+    AdapterView.AdapterContextMenuInfo mContextMenuInfo;
+    BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
 
-	private final int DECRYPT_DELAY = 100;
+        public void onReceive(Context context, Intent intent) {
+            if (debug) {
+                Log.i(TAG, "flush decrypted data");
+            }
+            NotesListCursor.flushDecryptedStringHashMap();
+            mAdapter.getCursor().requery();
+        }
 
-	NotesListCursor mCursorUtils;
-	NotesListCursorAdapter mAdapter;
+    };
+    private Handler mHandler = new Handler();
+    private boolean mDecryptionFailed;
+    private boolean mDecryptionSucceeded;
 
-	String mLastFilter;
-	String mSelectedTag;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	private Handler mHandler = new Handler();
+        if (debug) {
+            Log.d(
+                    TAG, "onCreate() "
+                            + (savedInstanceState == null ? "(no bundle)"
+                            : "(with bundle)")
+            );
+        }
 
-	private boolean mDecryptionFailed;
-	private boolean mDecryptionSucceeded;
+        mDistribution.setFirst(
+                MENU_DISTRIBUTION_START,
+                DIALOG_DISTRIBUTION_START
+        );
 
-	private static boolean mActionBarAvailable;
+        // Check whether EULA has been accepted
+        // or information about new version can be presented.
+        if (mDistribution.showEulaOrNewVersion()) {
+            return;
+        }
 
-	static {
-		try {
-			WrapActionBar.checkAvailable();
-			mActionBarAvailable = true;
-		} catch (Throwable t) {
-			mActionBarAvailable = false;
-		}
-	}
+        setDefaultKeyMode(DEFAULT_KEYS_SHORTCUT);
 
-	AdapterView.AdapterContextMenuInfo mContextMenuInfo;
+        // If no data was given in the intent (because we were started
+        // as a MAIN activity), then use our default content provider.
+        Intent intent = getIntent();
+        if (intent.getData() == null) {
+            intent.setData(Notes.CONTENT_URI);
+        }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+        // show loading
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        requestWindowFeature(Window.FEATURE_PROGRESS);
 
-		if (debug) {
-			Log.d(TAG, "onCreate() "
-					+ (savedInstanceState == null ? "(no bundle)"
-							: "(with bundle)"));
-		}
+        // Inform the list we provide context menus for items
+        setContentView(R.layout.noteslist);
+        getListView().setOnCreateContextMenuListener(this);
+        getListView().setEmptyView(findViewById(R.id.empty));
+        getListView().setTextFilterEnabled(true);
 
-		mDistribution.setFirst(MENU_DISTRIBUTION_START,
-				DIALOG_DISTRIBUTION_START);
-
-		// Check whether EULA has been accepted
-		// or information about new version can be presented.
-		if (mDistribution.showEulaOrNewVersion()) {
-			return;
-		}
-
-		setDefaultKeyMode(DEFAULT_KEYS_SHORTCUT);
-
-		// If no data was given in the intent (because we were started
-		// as a MAIN activity), then use our default content provider.
-		Intent intent = getIntent();
-		if (intent.getData() == null) {
-			intent.setData(Notes.CONTENT_URI);
-		}
-
-		// show loading
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		requestWindowFeature(Window.FEATURE_PROGRESS);
-
-		// Inform the list we provide context menus for items
-		setContentView(R.layout.noteslist);
-		getListView().setOnCreateContextMenuListener(this);
-		getListView().setEmptyView(findViewById(R.id.empty));
-		getListView().setTextFilterEnabled(true);
-
-		if (mActionBarAvailable) {
-			TextView notext = (TextView) findViewById(R.id.empty);
-			notext.setText(R.string.no_notes_actionbar);
-		}
+        if (mActionBarAvailable) {
+            TextView notext = (TextView) findViewById(R.id.empty);
+            notext.setText(R.string.no_notes_actionbar);
+        }
 
 		/*
 		 * // Perform a managed query. The Activity will handle closing and //
 		 * requerying the cursor // when needed. Cursor cursor =
 		 * managedQuery(getIntent().getData(), PROJECTION, null, null,
 		 * Notes.DEFAULT_SORT_ORDER);
-		 * 
+		 *
 		 * /* // Used to map notes entries from the database to views
 		 * SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 		 * R.layout.noteslist_item, cursor, new String[] { Notes.TITLE }, new
@@ -221,195 +224,210 @@ public class NotesList extends DistributionLibraryListActivity implements
 		 * setListAdapter(mAdapter);
 		 */
 
-		getListView().setOnScrollListener(this);
+        getListView().setOnScrollListener(this);
 
-		mLastFilter = null;
-		
-		if (savedInstanceState != null) {
-			mLastFilter = savedInstanceState.getString(BUNDLE_LAST_FILTER);
-			if(mSelectedTag==null) mSelectedTag = savedInstanceState.getString(BUNDLE_LAST_TAG);
+        mLastFilter = null;
 
-			// Restore information for context menu, for opening "Tags" dialog.
-			if (savedInstanceState.containsKey(BUNDLE_CONTEXTMENUINFO_ID)) {
-				long id = savedInstanceState.getLong(BUNDLE_CONTEXTMENUINFO_ID);
-				int position = savedInstanceState
-						.getInt(BUNDLE_CONTEXTMENUINFO_POSITION);
-				mContextMenuInfo = new AdapterView.AdapterContextMenuInfo(null,
-						position, id);
-			}
-		}
-		// if mSelectedTag was not in memory and not in bundle: try to recover it from persistent storage
-		if(mSelectedTag==null)
-		{
-			SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-			String savedTag = settings.getString(BUNDLE_LAST_TAG, "");
-			if (!savedTag.equals("")) mSelectedTag = savedTag;
-		}	
+        if (savedInstanceState != null) {
+            mLastFilter = savedInstanceState.getString(BUNDLE_LAST_FILTER);
+            if (mSelectedTag == null) {
+                mSelectedTag = savedInstanceState.getString(BUNDLE_LAST_TAG);
+            }
 
-		mCursorUtils = new NotesListCursor(this, getIntent());
+            // Restore information for context menu, for opening "Tags" dialog.
+            if (savedInstanceState.containsKey(BUNDLE_CONTEXTMENUINFO_ID)) {
+                long id = savedInstanceState.getLong(BUNDLE_CONTEXTMENUINFO_ID);
+                int position = savedInstanceState
+                        .getInt(BUNDLE_CONTEXTMENUINFO_POSITION);
+                mContextMenuInfo = new AdapterView.AdapterContextMenuInfo(
+                        null,
+                        position, id
+                );
+            }
+        }
+        // if mSelectedTag was not in memory and not in bundle: try to recover it from persistent storage
+        if (mSelectedTag == null) {
+            SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+            String savedTag = settings.getString(BUNDLE_LAST_TAG, "");
+            if (!savedTag.equals("")) {
+                mSelectedTag = savedTag;
+            }
+        }
 
-		// Make sure mAdapter is created here already,
-		// because onPrepareDialog for the Tags dialog may be called
-		// before onResume() is called.
-		checkAdapter();
-		
-		if (Intent.ACTION_CREATE_SHORTCUT.equals(intent.getAction())) {
-			setTitle(R.string.title_pick_note_for_shortcut);
-		}
+        mCursorUtils = new NotesListCursor(this, getIntent());
 
-		updateTagList();
+        // Make sure mAdapter is created here already,
+        // because onPrepareDialog for the Tags dialog may be called
+        // before onResume() is called.
+        checkAdapter();
 
-		Cursor cur = mAdapter.runQueryOnBackgroundThread(null, null);
+        if (Intent.ACTION_CREATE_SHORTCUT.equals(intent.getAction())) {
+            setTitle(R.string.title_pick_note_for_shortcut);
+        }
 
-		cur.registerDataSetObserver(new DataSetObserver() {
-			@Override
-			public void onChanged() {
-				NotesList.this.updateTagList();
-			}
-		});
+        updateTagList();
 
-		Spinner s = (Spinner) findViewById(R.id.tagselection);
-		s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Cursor cur = mAdapter.runQueryOnBackgroundThread(null, null);
 
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				if (position == 0) {
-					mSelectedTag = null;
-				} else {
-					mSelectedTag = parent.getItemAtPosition(position).toString();
-				}
-				NotesList.this.updateQuery();
-				decryptDelayed();
-			}
+        cur.registerDataSetObserver(
+                new DataSetObserver() {
+                    @Override
+                    public void onChanged() {
+                        NotesList.this.updateTagList();
+                    }
+                }
+        );
 
-			public void onNothingSelected(AdapterView<?> arg0) {
+        Spinner s = (Spinner) findViewById(R.id.tagselection);
+        s.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
 
-			}
-		});
+                    public void onItemSelected(AdapterView<?> parent, View view,
+                                               int position, long id) {
+                        if (position == 0) {
+                            mSelectedTag = null;
+                        } else {
+                            mSelectedTag = parent.getItemAtPosition(position).toString();
+                        }
+                        NotesList.this.updateQuery();
+                        decryptDelayed();
+                    }
 
-		mDecryptionFailed = false;
-		mDecryptionSucceeded = false;
+                    public void onNothingSelected(AdapterView<?> arg0) {
 
-		// disable the progressbar when done.
-		setProgressBarIndeterminateVisibility(false);
-		setProgressBarVisibility(false);
-	}
+                    }
+                }
+        );
 
-	protected void updateTagList() {
+        mDecryptionFailed = false;
+        mDecryptionSucceeded = false;
 
-		List<String> taglist = new ArrayList<String>();
+        // disable the progressbar when done.
+        setProgressBarIndeterminateVisibility(false);
+        setProgressBarVisibility(false);
+    }
 
-		Uri notesUri = getIntent().getData();
+    protected void updateTagList() {
 
-		Cursor managedCursor = getContentResolver().query(notesUri,
-				new String[] { Notes.TAGS, Notes.ENCRYPTED }, null, null, null);
+        List<String> taglist = new ArrayList<String>();
 
-		if (managedCursor.moveToFirst()) {
-			do {
-				String tags = managedCursor.getString(0);
-				long encrypted = managedCursor.getLong(1);
+        Uri notesUri = getIntent().getData();
 
-				if (!TextUtils.isEmpty(tags)) {
-					if (encrypted == 0) {
-						for (String tag : tags.split(",")) {
-							if (!taglist.contains(tag.trim())) {
-								taglist.add(tag.trim());
-							}
-						}
-					} else {
-						// Currently: ignore encrypted tags.
+        Cursor managedCursor = getContentResolver().query(
+                notesUri,
+                new String[]{Notes.TAGS, Notes.ENCRYPTED}, null, null, null
+        );
 
-						// TODO: store encrypted tags in an array,
-						// decrypt them, and show them.
-					}
-				}
-			} while (managedCursor.moveToNext());
-		}
-		Collections.sort(taglist, Collator.getInstance(Locale.getDefault()));
-		taglist.add(0, getString(R.string.all_notes));
-		Spinner s = (Spinner) findViewById(R.id.tagselection);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, taglist);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		s.setAdapter(adapter);
-		int position = adapter.getPosition(mSelectedTag);
-		if (position != -1)	{
-			s.setSelection(position);
-		}
+        if (managedCursor.moveToFirst()) {
+            do {
+                String tags = managedCursor.getString(0);
+                long encrypted = managedCursor.getLong(1);
 
-		// Hide Spinner if there are no tags
-		if (taglist.size() > 1) {
-			s.setVisibility(View.VISIBLE);
-		} else {
-			s.setVisibility(View.GONE);
-		}
-	}
+                if (!TextUtils.isEmpty(tags)) {
+                    if (encrypted == 0) {
+                        for (String tag : tags.split(",")) {
+                            if (!taglist.contains(tag.trim())) {
+                                taglist.add(tag.trim());
+                            }
+                        }
+                    } else {
+                        // Currently: ignore encrypted tags.
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if (debug)
-			Log.d(TAG, "onResume()");
-		NotesListCursor.mSuspendQueries = false;
+                        // TODO: store encrypted tags in an array,
+                        // decrypt them, and show them.
+                    }
+                }
+            } while (managedCursor.moveToNext());
+        }
+        Collections.sort(taglist, Collator.getInstance(Locale.getDefault()));
+        taglist.add(0, getString(R.string.all_notes));
+        Spinner s = (Spinner) findViewById(R.id.tagselection);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_item, taglist
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(adapter);
+        int position = adapter.getPosition(mSelectedTag);
+        if (position != -1) {
+            s.setSelection(position);
+        }
 
-		// mCursorUtils.registerContentObserver(mListContentObserver);
-		// mCursorUtils.registerDataSetObserver(mListDatasetObserver);
+        // Hide Spinner if there are no tags
+        if (taglist.size() > 1) {
+            s.setVisibility(View.VISIBLE);
+        } else {
+            s.setVisibility(View.GONE);
+        }
+    }
 
-		checkAdapter();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (debug) {
+            Log.d(TAG, "onResume()");
+        }
+        NotesListCursor.mSuspendQueries = false;
 
-		if (!mDecryptionFailed) {
-			decryptDelayed();
-		} else {
-			// Reset
-			mDecryptionFailed = false;
-		}
+        // mCursorUtils.registerContentObserver(mListContentObserver);
+        // mCursorUtils.registerDataSetObserver(mListDatasetObserver);
 
-		if (mDecryptionSucceeded) {
-			NotesListCursor.mLoggedIn = true;
-			if (debug)
-				Log.d(TAG, "onResume: logged in");
-		}
+        checkAdapter();
 
-		IntentFilter filter = new IntentFilter();
-		filter.addAction(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-		registerReceiver(mBroadcastReceiver, filter);
+        if (!mDecryptionFailed) {
+            decryptDelayed();
+        } else {
+            // Reset
+            mDecryptionFailed = false;
+        }
 
-		// getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-	}
+        if (mDecryptionSucceeded) {
+            NotesListCursor.mLoggedIn = true;
+            if (debug) {
+                Log.d(TAG, "onResume: logged in");
+            }
+        }
 
-	/*
-	 * ContentObserver mListContentObserver = new ContentObserver(mHandler) {
-	 * 
-	 * @Override public boolean deliverSelfNotifications() { Log.i(TAG,
-	 * "NotesList:mListContentObserver: deliverSelfNotifications"); return
-	 * super.deliverSelfNotifications(); }
-	 * 
-	 * @Override public void onChange(boolean arg0) { Log.i(TAG,
-	 * "NotesList:mListContentObserver: onChange");
-	 * //mCursorListFilter.requery(); updateTagList();
-	 * 
-	 * super.onChange(arg0); } };
-	 * 
-	 * DataSetObserver mListDatasetObserver = new DataSetObserver() {
-	 * 
-	 * @Override public void onChanged() { Log.i(TAG,
-	 * "mListDatasetObserver: onChanged"); super.onChanged(); }
-	 * 
-	 * @Override public void onInvalidated() { Log.i(TAG,
-	 * "mListDatasetObserver: onInvalidated"); super.onInvalidated(); }
-	 * 
-	 * };
-	 */
-	private void checkAdapter() {
-		if (mAdapter == null) {
-			// Perform a managed query. The Activity will handle closing and
-			// requerying the cursor
-			// when needed.
-			// Cursor cursor = getContentResolver().query(getIntent().getData(),
-			// NotesListCursorUtils.PROJECTION, null,
-			// null, Notes.DEFAULT_SORT_ORDER);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+        registerReceiver(mBroadcastReceiver, filter);
 
-			Cursor cursor = mCursorUtils.query(null, null);
+        // getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+    }
+
+    /*
+     * ContentObserver mListContentObserver = new ContentObserver(mHandler) {
+     *
+     * @Override public boolean deliverSelfNotifications() { Log.i(TAG,
+     * "NotesList:mListContentObserver: deliverSelfNotifications"); return
+     * super.deliverSelfNotifications(); }
+     *
+     * @Override public void onChange(boolean arg0) { Log.i(TAG,
+     * "NotesList:mListContentObserver: onChange");
+     * //mCursorListFilter.requery(); updateTagList();
+     *
+     * super.onChange(arg0); } };
+     *
+     * DataSetObserver mListDatasetObserver = new DataSetObserver() {
+     *
+     * @Override public void onChanged() { Log.i(TAG,
+     * "mListDatasetObserver: onChanged"); super.onChanged(); }
+     *
+     * @Override public void onInvalidated() { Log.i(TAG,
+     * "mListDatasetObserver: onInvalidated"); super.onInvalidated(); }
+     *
+     * };
+     */
+    private void checkAdapter() {
+        if (mAdapter == null) {
+            // Perform a managed query. The Activity will handle closing and
+            // requerying the cursor
+            // when needed.
+            // Cursor cursor = getContentResolver().query(getIntent().getData(),
+            // NotesListCursorUtils.PROJECTION, null,
+            // null, Notes.DEFAULT_SORT_ORDER);
+
+            Cursor cursor = mCursorUtils.query(null, null);
 
 			/*
 			 * // Used to map notes entries from the database to views
@@ -417,439 +435,470 @@ public class NotesList extends DistributionLibraryListActivity implements
 			 * R.layout.noteslist_item, cursor, new String[] { Notes.TITLE },
 			 * new int[] { android.R.id.text1 });
 			 */
-			mAdapter = new NotesListCursorAdapter(this, cursor, mCursorUtils);
-			setListAdapter(mAdapter);
+            mAdapter = new NotesListCursorAdapter(this, cursor, mCursorUtils);
+            setListAdapter(mAdapter);
 
-			if (mSelectedTag==null) {
-				Spinner s = (Spinner) findViewById(R.id.tagselection);
+            if (mSelectedTag == null) {
+                Spinner s = (Spinner) findViewById(R.id.tagselection);
 
-				if (s.getSelectedItemPosition() == 0) {
-					mSelectedTag = null;
-				} else {
-					mSelectedTag = (String) s.getSelectedItem();
-				}
-			}
-			updateQuery();
-		} else {
-			mAdapter.getCursor().requery();
-		}
-	}
+                if (s.getSelectedItemPosition() == 0) {
+                    mSelectedTag = null;
+                } else {
+                    mSelectedTag = (String) s.getSelectedItem();
+                }
+            }
+            updateQuery();
+        } else {
+            mAdapter.getCursor().requery();
+        }
+    }
 
-	protected void updateQuery() {
-		if (debug) {
-			Log.i(TAG, "updateQuery: Lastfilter: " + mLastFilter + ", mSelectedTag: " + mSelectedTag);
-		}
-		
-		// if (mLastFilter != null || mSelectedTag != null) {
-		Cursor cursor = mAdapter.runQueryOnBackgroundThread(mLastFilter,
-				mSelectedTag);
-		mAdapter.changeCursor(cursor);
-		// }
-	}
+    protected void updateQuery() {
+        if (debug) {
+            Log.i(TAG, "updateQuery: Lastfilter: " + mLastFilter + ", mSelectedTag: " + mSelectedTag);
+        }
 
-	@Override
-	protected void onPause() {
-		super.onPause();
+        // if (mLastFilter != null || mSelectedTag != null) {
+        Cursor cursor = mAdapter.runQueryOnBackgroundThread(
+                mLastFilter,
+                mSelectedTag
+        );
+        mAdapter.changeCursor(cursor);
+        // }
+    }
 
-		mLastFilter = mCursorUtils.mCurrentFilter;
+    @Override
+    protected void onPause() {
+        super.onPause();
 
-		// Deactivating the cursor leads to flickering whenever some
-		// encrypted information is retrieved.
-		// Cursor c = mAdapter.getCursor();
-		// if (c != null) {
-		// c.deactivate();
-		// }
+        mLastFilter = mCursorUtils.mCurrentFilter;
 
-		// mCursorUtils.unregisterDataSetObserver(mListDatasetObserver);
-		// mCursorUtils.unregisterContentObserver(mListContentObserver);
+        // Deactivating the cursor leads to flickering whenever some
+        // encrypted information is retrieved.
+        // Cursor c = mAdapter.getCursor();
+        // if (c != null) {
+        // c.deactivate();
+        // }
 
-		unregisterReceiver(mBroadcastReceiver);
+        // mCursorUtils.unregisterDataSetObserver(mListDatasetObserver);
+        // mCursorUtils.unregisterContentObserver(mListContentObserver);
 
-		// After unregistering broadcastreceiver, the logged in state is not
-		// clear.
-		NotesListCursor.mLoggedIn = false;
-		if (debug)
-			Log.d(TAG, "onPause: logged out");
+        unregisterReceiver(mBroadcastReceiver);
 
-		// No need wasting a lot of time doing queries when external
-		// applications change the
-		// database - we requery in onResume anyway.
-		NotesListCursor.mSuspendQueries = true;
-		mDecryptionFailed = false;
-		mDecryptionSucceeded = false;
-	}
+        // After unregistering broadcastreceiver, the logged in state is not
+        // clear.
+        NotesListCursor.mLoggedIn = false;
+        if (debug) {
+            Log.d(TAG, "onPause: logged out");
+        }
 
-	@Override
-	protected void onStop() {
-		super.onStop();
-		if (debug)
-			Log.d(TAG, "onStop()");
-				
+        // No need wasting a lot of time doing queries when external
+        // applications change the
+        // database - we requery in onResume anyway.
+        NotesListCursor.mSuspendQueries = true;
+        mDecryptionFailed = false;
+        mDecryptionSucceeded = false;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (debug) {
+            Log.d(TAG, "onStop()");
+        }
+
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(BUNDLE_LAST_TAG, mSelectedTag);
         editor.commit();
-	}
-	
-	@Override
-	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
+    }
 
-	}
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        super.onDestroy();
 
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
+    }
 
-		outState.putString(BUNDLE_LAST_FILTER, mCursorUtils.mCurrentFilter);
-		outState.putString(BUNDLE_LAST_TAG, mSelectedTag);
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
-		if (mContextMenuInfo != null) {
-			outState.putLong(BUNDLE_CONTEXTMENUINFO_ID, mContextMenuInfo.id);
-			outState.putInt(BUNDLE_CONTEXTMENUINFO_POSITION,
-					mContextMenuInfo.position);
-		}
-	}
+        outState.putString(BUNDLE_LAST_FILTER, mCursorUtils.mCurrentFilter);
+        outState.putString(BUNDLE_LAST_TAG, mSelectedTag);
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
+        if (mContextMenuInfo != null) {
+            outState.putLong(BUNDLE_CONTEXTMENUINFO_ID, mContextMenuInfo.id);
+            outState.putInt(
+                    BUNDLE_CONTEXTMENUINFO_POSITION,
+                    mContextMenuInfo.position
+            );
+        }
+    }
 
-		MenuItem insertItem = menu.add(0, MENU_ITEM_INSERT, 0,
-				R.string.menu_insert);
-		insertItem.setShortcut('1', 'i');
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			// Icon for holo theme
-			insertItem.setIcon(R.drawable.ic_menu_add_note);
-		} else {
-			insertItem.setIcon(android.R.drawable.ic_menu_add);
-		}
-		// Show the delete icon when there is an actionbar
-		if (mActionBarAvailable) {
-			WrapActionBar.showIfRoom(insertItem);
-		}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
 
-		menu.add(0, MENU_SEARCH, 0, R.string.menu_search).setShortcut('2', 's')
-				.setIcon(android.R.drawable.ic_menu_search);
+        MenuItem insertItem = menu.add(
+                0, MENU_ITEM_INSERT, 0,
+                R.string.menu_insert
+        );
+        insertItem.setShortcut('1', 'i');
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            // Icon for holo theme
+            insertItem.setIcon(R.drawable.ic_menu_add_note);
+        } else {
+            insertItem.setIcon(android.R.drawable.ic_menu_add);
+        }
+        // Show the delete icon when there is an actionbar
+        if (mActionBarAvailable) {
+            WrapActionBar.showIfRoom(insertItem);
+        }
 
-		menu.add(0, MENU_OPEN, 0, R.string.menu_open_from_sdcard)
-				.setShortcut('3', 'o').setIcon(R.drawable.ic_menu_folder);
+        menu.add(0, MENU_SEARCH, 0, R.string.menu_search).setShortcut('2', 's')
+                .setIcon(android.R.drawable.ic_menu_search);
 
-		menu.add(0, MENU_SETTINGS, 0, R.string.settings)
-				.setIcon(android.R.drawable.ic_menu_preferences)
-				.setShortcut('9', 's');
+        menu.add(0, MENU_OPEN, 0, R.string.menu_open_from_sdcard)
+                .setShortcut('3', 'o').setIcon(R.drawable.ic_menu_folder);
 
-		// Add distribution menu items last.
-		mDistribution.onCreateOptionsMenu(menu);
+        menu.add(0, MENU_SETTINGS, 0, R.string.settings)
+                .setIcon(android.R.drawable.ic_menu_preferences)
+                .setShortcut('9', 's');
 
-		// Generate any additional actions that can be performed on the
-		// overall list. In a normal install, there are no additional
-		// actions found here, but this allows other applications to extend
-		// our menu with their own actions.
-		Intent intent = new Intent(null, getIntent().getData());
-		if (debug)
-			Log.i(TAG, "Building options menu for: " + intent.getDataString());
-		intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
-		// menu
-		// .addIntentOptions(CATEGORY_ALTERNATIVE_GLOBAL, 0, 0,
-		// new ComponentName(this, NotesList.class), null, intent,
-		// 0, null);
+        // Add distribution menu items last.
+        mDistribution.onCreateOptionsMenu(menu);
 
-		// Workaround to add icons:
-		MenuIntentOptionsWithIcons menu2 = new MenuIntentOptionsWithIcons(this,
-				menu);
-		menu2.addIntentOptions(CATEGORY_ALTERNATIVE_GLOBAL, 0, 0,
-				new ComponentName(this, NotesList.class), null, intent, 0, null);
+        // Generate any additional actions that can be performed on the
+        // overall list. In a normal install, there are no additional
+        // actions found here, but this allows other applications to extend
+        // our menu with their own actions.
+        Intent intent = new Intent(null, getIntent().getData());
+        if (debug) {
+            Log.i(TAG, "Building options menu for: " + intent.getDataString());
+        }
+        intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
+        // menu
+        // .addIntentOptions(CATEGORY_ALTERNATIVE_GLOBAL, 0, 0,
+        // new ComponentName(this, NotesList.class), null, intent,
+        // 0, null);
 
-		return true;
-	}
+        // Workaround to add icons:
+        MenuIntentOptionsWithIcons menu2 = new MenuIntentOptionsWithIcons(
+                this,
+                menu
+        );
+        menu2.addIntentOptions(
+                CATEGORY_ALTERNATIVE_GLOBAL, 0, 0,
+                new ComponentName(this, NotesList.class), null, intent, 0, null
+        );
 
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		super.onPrepareOptionsMenu(menu);
-		final boolean haveItems = getListAdapter() != null && getListAdapter().getCount() > 0;
+        return true;
+    }
 
-		// If there are any notes in the list (which implies that one of
-		// them is selected), then we need to generate the actions that
-		// can be performed on the current selection. This will be a combination
-		// of our own specific actions along with any extensions that can be
-		// found.
-		if (haveItems) {
-			// This is the selected item.
-			Uri uri = ContentUris.withAppendedId(getIntent().getData(),
-					getSelectedItemId());
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        final boolean haveItems = getListAdapter() != null && getListAdapter().getCount() > 0;
 
-			// Build menu... always starts with the EDIT action...
-			Intent[] specifics = new Intent[1];
-			specifics[0] = new Intent(Intent.ACTION_EDIT, uri);
-			MenuItem[] items = new MenuItem[1];
+        // If there are any notes in the list (which implies that one of
+        // them is selected), then we need to generate the actions that
+        // can be performed on the current selection. This will be a combination
+        // of our own specific actions along with any extensions that can be
+        // found.
+        if (haveItems) {
+            // This is the selected item.
+            Uri uri = ContentUris.withAppendedId(
+                    getIntent().getData(),
+                    getSelectedItemId()
+            );
 
-			// ... is followed by whatever other actions are available...
-			Intent intent = new Intent(null, uri);
-			intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
-			// menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0, null,
-			// specifics, intent, 0, items);
+            // Build menu... always starts with the EDIT action...
+            Intent[] specifics = new Intent[1];
+            specifics[0] = new Intent(Intent.ACTION_EDIT, uri);
+            MenuItem[] items = new MenuItem[1];
 
-			// Workaround to add icons:
-			MenuIntentOptionsWithIcons menu2 = new MenuIntentOptionsWithIcons(
-					this, menu);
-			menu2.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0, null,
-					specifics, intent, 0, items);
+            // ... is followed by whatever other actions are available...
+            Intent intent = new Intent(null, uri);
+            intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
+            // menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0, null,
+            // specifics, intent, 0, items);
 
-			// Give a shortcut to the edit action.
-			if (items[0] != null) {
-				items[0].setShortcut('1', 'e');
-			}
-		} else {
-			menu.removeGroup(Menu.CATEGORY_ALTERNATIVE);
-		}
+            // Workaround to add icons:
+            MenuIntentOptionsWithIcons menu2 = new MenuIntentOptionsWithIcons(
+                    this, menu
+            );
+            menu2.addIntentOptions(
+                    Menu.CATEGORY_ALTERNATIVE, 0, 0, null,
+                    specifics, intent, 0, items
+            );
 
-		return true;
-	}
+            // Give a shortcut to the edit action.
+            if (items[0] != null) {
+                items[0].setShortcut('1', 'e');
+            }
+        } else {
+            menu.removeGroup(Menu.CATEGORY_ALTERNATIVE);
+        }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case MENU_ITEM_INSERT:
-			insertNewNote();
-			return true;
-		case MENU_SEARCH:
-			search();
-			return true;
-		case MENU_OPEN:
-			openFromSdCard();
-			return true;
-		case MENU_SETTINGS:
-			showNotesListSettings();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+        return true;
+    }
 
-	/**
-	 * Launch activity to insert a new item.
-	 */
-	private void insertNewNote() {
-		// Launch activity to insert a new item
-		Intent i = new Intent(Intent.ACTION_INSERT, getIntent().getData());
-		i.putExtra(NotepadInternalIntents.EXTRA_TAGS, mSelectedTag);
-		startActivity(i);
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_ITEM_INSERT:
+                insertNewNote();
+                return true;
+            case MENU_SEARCH:
+                search();
+                return true;
+            case MENU_OPEN:
+                openFromSdCard();
+                return true;
+            case MENU_SETTINGS:
+                showNotesListSettings();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-	private void search() {
-		onSearchRequested();
-	}
+    /**
+     * Launch activity to insert a new item.
+     */
+    private void insertNewNote() {
+        // Launch activity to insert a new item
+        Intent i = new Intent(Intent.ACTION_INSERT, getIntent().getData());
+        i.putExtra(NotepadInternalIntents.EXTRA_TAGS, mSelectedTag);
+        startActivity(i);
+    }
 
-	private void openFromSdCard() {
+    private void search() {
+        onSearchRequested();
+    }
 
-		File sdcard = getSdCardPath();
-		String directory = sdcard.getAbsolutePath();
-		if (!directory.endsWith("/")) {
-			directory += "/";
-		}
-		Uri uri = FileUriUtils.getUri(directory);
+    private void openFromSdCard() {
 
-		Intent i = new Intent(this, DialogHostingActivity.class);
-		i.putExtra(DialogHostingActivity.EXTRA_DIALOG_ID,
-				DialogHostingActivity.DIALOG_ID_OPEN);
-		i.setData(uri);
-		startActivityForResult(i, REQUEST_CODE_OPEN);
-	}
+        File sdcard = getSdCardPath();
+        String directory = sdcard.getAbsolutePath();
+        if (!directory.endsWith("/")) {
+            directory += "/";
+        }
+        Uri uri = FileUriUtils.getUri(directory);
 
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View view,
-			ContextMenuInfo menuInfo) {
-		AdapterView.AdapterContextMenuInfo info;
-		try {
-			info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-		} catch (ClassCastException e) {
-			Log.e(TAG, "bad menuInfo", e);
-			return;
-		}
+        Intent i = new Intent(this, DialogHostingActivity.class);
+        i.putExtra(
+                DialogHostingActivity.EXTRA_DIALOG_ID,
+                DialogHostingActivity.DIALOG_ID_OPEN
+        );
+        i.setData(uri);
+        startActivityForResult(i, REQUEST_CODE_OPEN);
+    }
 
-		Cursor cursor = (Cursor) getListAdapter().getItem(info.position);
-		if (cursor == null) {
-			// For some reason the requested item isn't available, do nothing
-			return;
-		}
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View view,
+                                    ContextMenuInfo menuInfo) {
+        AdapterView.AdapterContextMenuInfo info;
+        try {
+            info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        } catch (ClassCastException e) {
+            Log.e(TAG, "bad menuInfo", e);
+            return;
+        }
 
-		Uri noteUri = ContentUris
-				.withAppendedId(getIntent().getData(), info.id);
+        Cursor cursor = (Cursor) getListAdapter().getItem(info.position);
+        if (cursor == null) {
+            // For some reason the requested item isn't available, do nothing
+            return;
+        }
 
-		long encrypted = cursor.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
+        Uri noteUri = ContentUris
+                .withAppendedId(getIntent().getData(), info.id);
 
-		// Setup the menu header
-		menu.setHeaderTitle(cursor
-				.getString(NotesListCursor.COLUMN_INDEX_TITLE));
+        long encrypted = cursor.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
 
-		menu.add(0, MENU_ITEM_EDIT_TAGS, 0, R.string.menu_edit_tags);
+        // Setup the menu header
+        menu.setHeaderTitle(
+                cursor
+                        .getString(NotesListCursor.COLUMN_INDEX_TITLE)
+        );
 
-		if (encrypted == 0) {
+        menu.add(0, MENU_ITEM_EDIT_TAGS, 0, R.string.menu_edit_tags);
 
-			// Add a menu item to send the note
-			menu.add(0, MENU_ITEM_SHARE, 0, R.string.menu_share);
+        if (encrypted == 0) {
 
-			// Added automatically through manifest:
-			// menu.add(0, MENU_ITEM_SAVE, 0, R.string.menu_save_to_sdcard);
+            // Add a menu item to send the note
+            menu.add(0, MENU_ITEM_SHARE, 0, R.string.menu_share);
 
-			menu.add(0, MENU_ITEM_ENCRYPT, 0, R.string.menu_encrypt);
-		} else {
-			menu.add(0, MENU_ITEM_UNENCRYPT, 0, R.string.menu_undo_encryption);
-		}
+            // Added automatically through manifest:
+            // menu.add(0, MENU_ITEM_SAVE, 0, R.string.menu_save_to_sdcard);
 
-		// Add a menu item to delete the note
-		menu.add(0, MENU_ITEM_DELETE, 0, R.string.menu_delete);
+            menu.add(0, MENU_ITEM_ENCRYPT, 0, R.string.menu_encrypt);
+        } else {
+            menu.add(0, MENU_ITEM_UNENCRYPT, 0, R.string.menu_undo_encryption);
+        }
 
-		// Add additional items only if note is not encrypted:
+        // Add a menu item to delete the note
+        menu.add(0, MENU_ITEM_DELETE, 0, R.string.menu_delete);
 
-		if (encrypted == 0) {
-			Intent intent = new Intent(null, noteUri);
-			intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
-			menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0,
-					new ComponentName(this, NotesList.class), null, intent, 0,
-					null);
-		}
+        // Add additional items only if note is not encrypted:
 
-	}
+        if (encrypted == 0) {
+            Intent intent = new Intent(null, noteUri);
+            intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
+            menu.addIntentOptions(
+                    Menu.CATEGORY_ALTERNATIVE, 0, 0,
+                    new ComponentName(this, NotesList.class), null, intent, 0,
+                    null
+            );
+        }
 
-	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-		try {
-			mContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item
-					.getMenuInfo();
-		} catch (ClassCastException e) {
-			Log.e(TAG, "bad menuInfo", e);
-			return false;
-		}
+    }
 
-		switch (item.getItemId()) {
-		case MENU_ITEM_DELETE: {
-			showDialog(DIALOG_DELETE);
-			// mAdapter.getCursor().requery();
-			return true;
-		}
-		case MENU_ITEM_SHARE:
-			sendNoteByEmail(mContextMenuInfo.id);
-			return true;
-		case MENU_ITEM_ENCRYPT:
-			encryptNote(mContextMenuInfo.id, CryptoIntents.ACTION_ENCRYPT);
-			return true;
-		case MENU_ITEM_UNENCRYPT:
-			encryptNote(mContextMenuInfo.id, CryptoIntents.ACTION_DECRYPT);
-			return true;
-		case MENU_ITEM_EDIT_TAGS:
-			editTags();
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        try {
+            mContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item
+                    .getMenuInfo();
+        } catch (ClassCastException e) {
+            Log.e(TAG, "bad menuInfo", e);
+            return false;
+        }
 
-			return true;
-			// case MENU_ITEM_SAVE:
-			// saveToSdCard();
-			// return true;
-		}
-		return false;
-	}
+        switch (item.getItemId()) {
+            case MENU_ITEM_DELETE: {
+                showDialog(DIALOG_DELETE);
+                // mAdapter.getCursor().requery();
+                return true;
+            }
+            case MENU_ITEM_SHARE:
+                sendNoteByEmail(mContextMenuInfo.id);
+                return true;
+            case MENU_ITEM_ENCRYPT:
+                encryptNote(mContextMenuInfo.id, CryptoIntents.ACTION_ENCRYPT);
+                return true;
+            case MENU_ITEM_UNENCRYPT:
+                encryptNote(mContextMenuInfo.id, CryptoIntents.ACTION_DECRYPT);
+                return true;
+            case MENU_ITEM_EDIT_TAGS:
+                editTags();
 
-	private void sendNoteByEmail(long id) {
-		// Obtain Uri for the context menu
-		Uri noteUri = ContentUris.withAppendedId(getIntent().getData(), id);
-		// getContentResolver().(noteUri, null, null);
+                return true;
+            // case MENU_ITEM_SAVE:
+            // saveToSdCard();
+            // return true;
+        }
+        return false;
+    }
 
-		Cursor c = getContentResolver().query(noteUri,
-				new String[] { NotePad.Notes.TITLE, NotePad.Notes.NOTE }, null,
-				null, PreferenceActivity.getSortOrderFromPrefs(this));
+    private void sendNoteByEmail(long id) {
+        // Obtain Uri for the context menu
+        Uri noteUri = ContentUris.withAppendedId(getIntent().getData(), id);
+        // getContentResolver().(noteUri, null, null);
 
-		String title = "";
-		String content = getString(R.string.empty_note);
-		if (c != null) {
-			c.moveToFirst();
-			title = c.getString(0);
-			content = c.getString(1);
-		}
+        Cursor c = getContentResolver().query(
+                noteUri,
+                new String[]{NotePad.Notes.TITLE, NotePad.Notes.NOTE}, null,
+                null, PreferenceActivity.getSortOrderFromPrefs(this)
+        );
 
-		if (debug)
-			Log.i(TAG, "Title to send: " + title);
-		if (debug)
-			Log.i(TAG, "Content to send: " + content);
-		SendNote.sendNote(this, title, content);
-	}
+        String title = "";
+        String content = getString(R.string.empty_note);
+        if (c != null) {
+            c.moveToFirst();
+            title = c.getString(0);
+            content = c.getString(1);
+        }
 
-	/**
-	 * Encrypt or unencrypt a note.
-	 * 
-	 * @param id
-	 * @param action
-	 */
-	private void encryptNote(long id, String action) {
-		// Obtain Uri for the context menu
-		Uri noteUri = ContentUris.withAppendedId(getIntent().getData(), id);
-		// getContentResolver().(noteUri, null, null);
+        if (debug) {
+            Log.i(TAG, "Title to send: " + title);
+        }
+        if (debug) {
+            Log.i(TAG, "Content to send: " + content);
+        }
+        SendNote.sendNote(this, title, content);
+    }
 
-		Cursor c = getContentResolver().query(
-				noteUri,
-				new String[] { NotePad.Notes.TITLE, NotePad.Notes.NOTE,
-						NotePad.Notes.TAGS, NotePad.Notes.ENCRYPTED }, null,
-				null, PreferenceActivity.getSortOrderFromPrefs(this));
+    /**
+     * Encrypt or unencrypt a note.
+     *
+     * @param id
+     * @param action
+     */
+    private void encryptNote(long id, String action) {
+        // Obtain Uri for the context menu
+        Uri noteUri = ContentUris.withAppendedId(getIntent().getData(), id);
+        // getContentResolver().(noteUri, null, null);
 
-		String title = "";
-		String text = getString(R.string.empty_note);
-		String tags = "";
-		int encrypted = 0;
-		if (c != null) {
-			c.moveToFirst();
-			title = c.getString(0);
-			text = c.getString(1);
-			tags = c.getString(2);
-			encrypted = c.getInt(3);
-		}
+        Cursor c = getContentResolver().query(
+                noteUri,
+                new String[]{NotePad.Notes.TITLE, NotePad.Notes.NOTE,
+                        NotePad.Notes.TAGS, NotePad.Notes.ENCRYPTED}, null,
+                null, PreferenceActivity.getSortOrderFromPrefs(this)
+        );
 
-		if (action.equals(CryptoIntents.ACTION_ENCRYPT) && encrypted != 0) {
-			Toast.makeText(this, R.string.already_encrypted, Toast.LENGTH_SHORT)
-					.show();
-			return;
-		}
+        String title = "";
+        String text = getString(R.string.empty_note);
+        String tags = "";
+        int encrypted = 0;
+        if (c != null) {
+            c.moveToFirst();
+            title = c.getString(0);
+            text = c.getString(1);
+            tags = c.getString(2);
+            encrypted = c.getInt(3);
+        }
 
-		if (action.equals(CryptoIntents.ACTION_DECRYPT) && encrypted == 0) {
-			Toast.makeText(this, R.string.not_encrypted, Toast.LENGTH_SHORT)
-					.show();
-			return;
-		}
+        if (action.equals(CryptoIntents.ACTION_ENCRYPT) && encrypted != 0) {
+            Toast.makeText(this, R.string.already_encrypted, Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
 
-		Intent i = new Intent(this, EncryptActivity.class);
-		i.putExtra(PrivateNotePadIntents.EXTRA_ACTION, action);
-		i.putExtra(CryptoIntents.EXTRA_TEXT_ARRAY,
-				EncryptActivity.getCryptoStringArray(text, title, tags));
-		i.putExtra(PrivateNotePadIntents.EXTRA_URI, noteUri.toString());
-		startActivity(i);
-	}
+        if (action.equals(CryptoIntents.ACTION_DECRYPT) && encrypted == 0) {
+            Toast.makeText(this, R.string.not_encrypted, Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
 
-	private void editTags() {
-		showDialog(DIALOG_TAGS);
-	}
+        Intent i = new Intent(this, EncryptActivity.class);
+        i.putExtra(PrivateNotePadIntents.EXTRA_ACTION, action);
+        i.putExtra(
+                CryptoIntents.EXTRA_TEXT_ARRAY,
+                EncryptActivity.getCryptoStringArray(text, title, tags)
+        );
+        i.putExtra(PrivateNotePadIntents.EXTRA_URI, noteUri.toString());
+        startActivity(i);
+    }
 
-	private File getSdCardPath() {
-		return android.os.Environment.getExternalStorageDirectory();
-	}
+    private void editTags() {
+        showDialog(DIALOG_TAGS);
+    }
 
-	private void showNotesListSettings() {
-		startActivity(new Intent(this, PreferenceActivity.class));
-	}
+    private File getSdCardPath() {
+        return android.os.Environment.getExternalStorageDirectory();
+    }
 
-	public void onScroll(AbsListView view, int firstVisibleItem,
-			int visibleItemCount, int totalItemCount) {
-	}
+    private void showNotesListSettings() {
+        startActivity(new Intent(this, PreferenceActivity.class));
+    }
 
-	public void onScrollStateChanged(AbsListView view, int scrollState) {
-		switch (scrollState) {
-		case OnScrollListener.SCROLL_STATE_IDLE:
-			Log.i(TAG, "idle");
-			mAdapter.mBusy = false;
+    public void onScroll(AbsListView view, int firstVisibleItem,
+                         int visibleItemCount, int totalItemCount) {
+    }
 
-			if (!NotesListCursor.mEncryptedStringList.isEmpty()) {
-				String encryptedString = NotesListCursor.mEncryptedStringList
-						.remove(0);
-				Log.i(TAG, "Decrypt idle: " + encryptedString);
-				decryptTitle(encryptedString);
-			}
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        switch (scrollState) {
+            case OnScrollListener.SCROLL_STATE_IDLE:
+                Log.i(TAG, "idle");
+                mAdapter.mBusy = false;
+
+                if (!NotesListCursor.mEncryptedStringList.isEmpty()) {
+                    String encryptedString = NotesListCursor.mEncryptedStringList
+                            .remove(0);
+                    Log.i(TAG, "Decrypt idle: " + encryptedString);
+                    decryptTitle(encryptedString);
+                }
 			/*
 			 * int first = view.getFirstVisiblePosition(); int count =
 			 * view.getChildCount(); for (int i=0; i<count; i++) {
@@ -857,331 +906,354 @@ public class NotesList extends DistributionLibraryListActivity implements
 			 * String encryptedTitle = (String) t.getTag(); if (encryptedTitle
 			 * != null) { // Retrieve decrypted title
 			 * decryptTitle(encryptedTitle); t.setTag(null);
-			 * 
+			 *
 			 * // decrypt one item at a time. break; } }
 			 */
 
-			break;
-		case OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
-			mAdapter.mBusy = true;
-			break;
-		case OnScrollListener.SCROLL_STATE_FLING:
-			mAdapter.mBusy = true;
-			break;
-		}
-	}
+                break;
+            case OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
+                mAdapter.mBusy = true;
+                break;
+            case OnScrollListener.SCROLL_STATE_FLING:
+                mAdapter.mBusy = true;
+                break;
+        }
+    }
 
-	public void decryptDelayed() {
-		// Poll the next string that has not been decrypted yet.
-		String encryptedString = NotesListCursor.getNextEncryptedString();
-		if (encryptedString != null) {
-			setProgressBarIndeterminateVisibility(true);
-			decryptDelayed(encryptedString, DECRYPT_DELAY);
-		} else if (!mDecryptionFailed && !mDecryptionSucceeded) {
-			// If neither failed nor succeeded yet, we send a test intent.
-			// This is to ensure that the service is still running
-			// even if we may serve all decrypted strings from the cache.
-			NotesListCursor nlc = (NotesListCursor) mAdapter.getCursor();
-			if (nlc.mContainsEncryptedStrings) {
-				// Of course only if there is at least one encrypted string.
-				setProgressBarIndeterminateVisibility(true);
-				decryptDelayed(null, 0);
-			}
-		} else {
-			// Done with decryption
-			setProgressBarIndeterminateVisibility(false);
-		}
-	}
+    public void decryptDelayed() {
+        // Poll the next string that has not been decrypted yet.
+        String encryptedString = NotesListCursor.getNextEncryptedString();
+        if (encryptedString != null) {
+            setProgressBarIndeterminateVisibility(true);
+            decryptDelayed(encryptedString, DECRYPT_DELAY);
+        } else if (!mDecryptionFailed && !mDecryptionSucceeded) {
+            // If neither failed nor succeeded yet, we send a test intent.
+            // This is to ensure that the service is still running
+            // even if we may serve all decrypted strings from the cache.
+            NotesListCursor nlc = (NotesListCursor) mAdapter.getCursor();
+            if (nlc.mContainsEncryptedStrings) {
+                // Of course only if there is at least one encrypted string.
+                setProgressBarIndeterminateVisibility(true);
+                decryptDelayed(null, 0);
+            }
+        } else {
+            // Done with decryption
+            setProgressBarIndeterminateVisibility(false);
+        }
+    }
 
-	public void decryptDelayed(final String encryptedTitle, long delayMillis) {
-		mHandler.postDelayed(new Runnable() {
+    public void decryptDelayed(final String encryptedTitle, long delayMillis) {
+        mHandler.postDelayed(
+                new Runnable() {
 
-			public void run() {
-				decryptTitle(encryptedTitle);
-			}
+                    public void run() {
+                        decryptTitle(encryptedTitle);
+                    }
 
-		}, delayMillis);
-	}
+                }, delayMillis
+        );
+    }
 
-	public void decryptTitle(String encryptedTitle) {
+    public void decryptTitle(String encryptedTitle) {
 
-		Intent intent = new Intent();
-		intent.setAction(CryptoIntents.ACTION_DECRYPT);
-		if (encryptedTitle != null) {
-			intent.putExtra(CryptoIntents.EXTRA_TEXT, encryptedTitle);
-			intent.putExtra(PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT,
-					encryptedTitle);
-		}
+        Intent intent = new Intent();
+        intent.setAction(CryptoIntents.ACTION_DECRYPT);
+        if (encryptedTitle != null) {
+            intent.putExtra(CryptoIntents.EXTRA_TEXT, encryptedTitle);
+            intent.putExtra(
+                    PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT,
+                    encryptedTitle
+            );
+        }
 
-		intent.putExtra(CryptoIntents.EXTRA_PROMPT, false);
+        intent.putExtra(CryptoIntents.EXTRA_PROMPT, false);
 
-		try {
-			if (checkCallingOrSelfPermission(CryptoIntents.PERMISSION_SAFE_ACCESS_INTENTS) == PackageManager.PERMISSION_GRANTED) {
-				startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
-			} else {
+        try {
+            if (checkCallingOrSelfPermission(CryptoIntents.PERMISSION_SAFE_ACCESS_INTENTS) == PackageManager.PERMISSION_GRANTED) {
+                startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
+            } else {
                 mDecryptionFailed = true;
                 showDialog(DIALOG_PERMISSION_FAILURE);
-			}
-		} catch (ActivityNotFoundException e) {
-			mDecryptionFailed = true;
+            }
+        } catch (ActivityNotFoundException e) {
+            mDecryptionFailed = true;
 			/*
 			 * Toast.makeText(this, R.string.decryption_failed,
 			 * Toast.LENGTH_SHORT).show();
 			 */
-			Log.e(TAG, "failed to invoke encrypt");
-		}
-	}
-
-	@Override
-	protected Dialog onCreateDialog(int id) {
-
-		switch (id) {
-		case DIALOG_TAGS:
-			TagsDialog td = new TagsDialog(this);
-			td.setOnDismissListener(this);
-			return td;
-			// return new TagsDialog(this);
-		case DIALOG_GET_FROM_MARKET:
-			return new DownloadOIAppDialog(this, DownloadOIAppDialog.OI_SAFE);
-		case DIALOG_DELETE:
-			return new DeleteConfirmationDialog(this,
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							Uri noteUri = ContentUris.withAppendedId(
-									getIntent().getData(), mContextMenuInfo.id);
-							getContentResolver().delete(noteUri, null, null);
-							updateTagList();
-						}
-					}).create();
-		case DIALOG_PERMISSION_FAILURE:
-		return new AlertDialog.Builder(this)
-				.setMessage(R.string.decryption_failed_due_to_permissions)
-				.setPositiveButton(
-						R.string.contact_support, new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:info@openintents.biz"));
-								dialog.dismiss();
-							}
-						}
-				)
-				.create();
+            Log.e(TAG, "failed to invoke encrypt");
         }
-		return super.onCreateDialog(id);
-	}
+    }
 
-	@Override
-	protected void onPrepareDialog(int id, Dialog dialog) {
-		if (debug)
-			Log.d(TAG, "onPrepareDialog()");
+    @Override
+    protected Dialog onCreateDialog(int id) {
 
-		switch (id) {
-		case DIALOG_TAGS:
-			TagsDialog d = (TagsDialog) dialog;
-			Uri uri = ContentUris.withAppendedId(getIntent().getData(),
-					mContextMenuInfo.id);
+        switch (id) {
+            case DIALOG_TAGS:
+                TagsDialog td = new TagsDialog(this);
+                td.setOnDismissListener(this);
+                return td;
+            // return new TagsDialog(this);
+            case DIALOG_GET_FROM_MARKET:
+                return new DownloadOIAppDialog(this, DownloadOIAppDialog.OI_SAFE);
+            case DIALOG_DELETE:
+                return new DeleteConfirmationDialog(
+                        this,
+                        new DialogInterface.OnClickListener() {
 
-			Cursor c = mAdapter.getCursor();
-			c.moveToPosition(mContextMenuInfo.position);
-			String tags = c.getString(NotesListCursor.COLUMN_INDEX_TAGS);
-			long encrypted = c.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Uri noteUri = ContentUris.withAppendedId(
+                                        getIntent().getData(), mContextMenuInfo.id
+                                );
+                                getContentResolver().delete(noteUri, null, null);
+                                updateTagList();
+                            }
+                        }
+                ).create();
+            case DIALOG_PERMISSION_FAILURE:
+                return new AlertDialog.Builder(this)
+                        .setMessage(R.string.decryption_failed_due_to_permissions)
+                        .setPositiveButton(
+                                R.string.contact_support, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:info@openintents.biz"));
+                                        dialog.dismiss();
+                                    }
+                                }
+                        )
+                        .create();
+        }
+        return super.onCreateDialog(id);
+    }
 
-			d.setUri(uri);
-			d.setTags(tags);
-			d.setEncrypted(encrypted);
+    @Override
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        if (debug) {
+            Log.d(TAG, "onPrepareDialog()");
+        }
 
-			String[] taglist = getTaglist(c);
-			d.setTagList(taglist);
+        switch (id) {
+            case DIALOG_TAGS:
+                TagsDialog d = (TagsDialog) dialog;
+                Uri uri = ContentUris.withAppendedId(
+                        getIntent().getData(),
+                        mContextMenuInfo.id
+                );
 
-			break;
-		case DIALOG_GET_FROM_MARKET:
-			DownloadOIAppDialog.onPrepareDialog(this, dialog);
-			break;
-		}
-	}
+                Cursor c = mAdapter.getCursor();
+                c.moveToPosition(mContextMenuInfo.position);
+                String tags = c.getString(NotesListCursor.COLUMN_INDEX_TAGS);
+                long encrypted = c.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
 
-	public void onDismiss(DialogInterface dialog) {
-		if (dialog instanceof TagsDialog) {
-			updateTagList();
-		}
-	}
+                d.setUri(uri);
+                d.setTags(tags);
+                d.setEncrypted(encrypted);
 
-	/**
-	 * Create list of tags.
-	 * 
-	 * Tags for notes can be comma-separated. Here we create a list of the
-	 * unique tags.
-	 * 
-	 * @param c
-	 * @return
-	 */
-	String[] getTaglist(Cursor c) {
-		// Create a set of all tags (every tag should only appear once).
-		HashSet<String> tagset = new HashSet<String>();
-		c.moveToPosition(-1);
-		while (c.moveToNext()) {
-			String tags = c.getString(NotesListCursor.COLUMN_INDEX_TAGS);
-			if (tags != null) {
-				// Split several tags in a line, separated by comma
-				String[] smalltaglist = tags.split(",");
-				for (String tag : smalltaglist) {
-					if (!tag.equals("")) {
-						tagset.add(tag.trim());
-					}
-				}
-			}
-		}
+                String[] taglist = getTaglist(c);
+                d.setTagList(taglist);
 
-		// Sort the list
-		// 1. Convert HashSet to String list.
-		ArrayList<String> list = new ArrayList<String>();
-		list.addAll(tagset);
-		// 2. Sort the String list
-		Collections.sort(list);
-		// 3. Convert it to String array
-		return list.toArray(new String[0]);
-	}
+                break;
+            case DIALOG_GET_FROM_MARKET:
+                DownloadOIAppDialog.onPrepareDialog(this, dialog);
+                break;
+        }
+    }
 
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onDismiss(DialogInterface dialog) {
+        if (dialog instanceof TagsDialog) {
+            updateTagList();
+        }
+    }
 
-		// First see if note is encrypted
-		Cursor c = mAdapter.getCursor();
-		c.moveToPosition(position);
+    /**
+     * Create list of tags.
+     * <p/>
+     * Tags for notes can be comma-separated. Here we create a list of the
+     * unique tags.
+     *
+     * @param c
+     * @return
+     */
+    String[] getTaglist(Cursor c) {
+        // Create a set of all tags (every tag should only appear once).
+        HashSet<String> tagset = new HashSet<String>();
+        c.moveToPosition(-1);
+        while (c.moveToNext()) {
+            String tags = c.getString(NotesListCursor.COLUMN_INDEX_TAGS);
+            if (tags != null) {
+                // Split several tags in a line, separated by comma
+                String[] smalltaglist = tags.split(",");
+                for (String tag : smalltaglist) {
+                    if (!tag.equals("")) {
+                        tagset.add(tag.trim());
+                    }
+                }
+            }
+        }
 
-		long encrypted = c.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
+        // Sort the list
+        // 1. Convert HashSet to String list.
+        ArrayList<String> list = new ArrayList<String>();
+        list.addAll(tagset);
+        // 2. Sort the String list
+        Collections.sort(list);
+        // 3. Convert it to String array
+        return list.toArray(new String[0]);
+    }
 
-		String encryptedTitle = c
-				.getString(NotesListCursor.COLUMN_INDEX_TITLE_ENCRYPTED);
-		// are we in decrypted mode?
-		// Log.i(TAG, "Encrypted title: " + encryptedTitle);
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
 
-		String title = c.getString(NotesListCursor.COLUMN_INDEX_TITLE);
-		// Log.i(TAG, "title: " + title);
+        // First see if note is encrypted
+        Cursor c = mAdapter.getCursor();
+        c.moveToPosition(position);
 
-		if (encrypted != 0) {
-			if (!TextUtils.isEmpty(encryptedTitle)) {
-				// Try to decrypt first
-				// Log.i(TAG, "Decrypt first");
+        long encrypted = c.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
 
-				Intent intent = new Intent();
-				intent.setAction(CryptoIntents.ACTION_DECRYPT);
-				intent.putExtra(CryptoIntents.EXTRA_TEXT, encryptedTitle);
-				intent.putExtra(PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT,
-						encryptedTitle);
+        String encryptedTitle = c
+                .getString(NotesListCursor.COLUMN_INDEX_TITLE_ENCRYPTED);
+        // are we in decrypted mode?
+        // Log.i(TAG, "Encrypted title: " + encryptedTitle);
 
-				intent.putExtra(CryptoIntents.EXTRA_PROMPT, true);
+        String title = c.getString(NotesListCursor.COLUMN_INDEX_TITLE);
+        // Log.i(TAG, "title: " + title);
 
-				try {
-					startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
-				} catch (ActivityNotFoundException e) {
-					mDecryptionFailed = true;
+        if (encrypted != 0) {
+            if (!TextUtils.isEmpty(encryptedTitle)) {
+                // Try to decrypt first
+                // Log.i(TAG, "Decrypt first");
+
+                Intent intent = new Intent();
+                intent.setAction(CryptoIntents.ACTION_DECRYPT);
+                intent.putExtra(CryptoIntents.EXTRA_TEXT, encryptedTitle);
+                intent.putExtra(
+                        PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT,
+                        encryptedTitle
+                );
+
+                intent.putExtra(CryptoIntents.EXTRA_PROMPT, true);
+
+                try {
+                    startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
+                } catch (ActivityNotFoundException e) {
+                    mDecryptionFailed = true;
 
 					/*
 					 * Toast.makeText(this, R.string.decryption_failed,
 					 * Toast.LENGTH_SHORT).show();
 					 */
-					showDialog(DIALOG_GET_FROM_MARKET);
-					Log.e(TAG, "failed to invoke encrypt");
-				}
-				return;
-			}
-		}
+                    showDialog(DIALOG_GET_FROM_MARKET);
+                    Log.e(TAG, "failed to invoke encrypt");
+                }
+                return;
+            }
+        }
 
-		Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
+        Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
 
-		String action = getIntent().getAction();
-		if (Intent.ACTION_PICK.equals(action)
-				|| Intent.ACTION_GET_CONTENT.equals(action)) {
-			// The caller is waiting for us to return a note selected by
-			// the user. The have clicked on one, so return it now.
-			setResult(RESULT_OK, new Intent().setData(uri));
-			finish();
-		} else if (Intent.ACTION_CREATE_SHORTCUT.equals(action)) {
-			Intent data = new Intent(Intent.ACTION_VIEW);
-			data.setData(uri);
+        String action = getIntent().getAction();
+        if (Intent.ACTION_PICK.equals(action)
+                || Intent.ACTION_GET_CONTENT.equals(action)) {
+            // The caller is waiting for us to return a note selected by
+            // the user. The have clicked on one, so return it now.
+            setResult(RESULT_OK, new Intent().setData(uri));
+            finish();
+        } else if (Intent.ACTION_CREATE_SHORTCUT.equals(action)) {
+            Intent data = new Intent(Intent.ACTION_VIEW);
+            data.setData(uri);
 
-			String useTitle = title;
-			if (encrypted != 0) {
-				// Small security risk: The title is shown.
-				// But ok, if someone wants to set a shortcut, they can choose
-				// a good title.
-				useTitle = encryptedTitle;
-			}
+            String useTitle = title;
+            if (encrypted != 0) {
+                // Small security risk: The title is shown.
+                // But ok, if someone wants to set a shortcut, they can choose
+                // a good title.
+                useTitle = encryptedTitle;
+            }
 
-			Intent shortcut = new Intent(Intent.ACTION_CREATE_SHORTCUT);
-			shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, title);
-			shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, data);
-			Intent.ShortcutIconResource sir = Intent.ShortcutIconResource
-					.fromContext(this, R.drawable.ic_launcher_notepad);
-			shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, sir);
+            Intent shortcut = new Intent(Intent.ACTION_CREATE_SHORTCUT);
+            shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, title);
+            shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, data);
+            Intent.ShortcutIconResource sir = Intent.ShortcutIconResource
+                    .fromContext(this, R.drawable.ic_launcher_notepad);
+            shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, sir);
 
-			setResult(RESULT_OK, shortcut);
-			finish();
-		} else {
-			// Launch activity to view/edit the currently selected item
-			startActivity(new Intent(Intent.ACTION_EDIT, uri));
-		}
-	}
+            setResult(RESULT_OK, shortcut);
+            finish();
+        } else {
+            // Launch activity to view/edit the currently selected item
+            startActivity(new Intent(Intent.ACTION_EDIT, uri));
+        }
+    }
 
-	protected void onActivityResult(int requestCode, int resultCode,
-			Intent intent) {
-		if (debug)
-			Log.i(TAG, "Received requestCode " + requestCode + ", resultCode "
-					+ resultCode);
-		switch (requestCode) {
-		case REQUEST_CODE_DECRYPT_TITLE:
-			if (resultCode == RESULT_OK && intent != null) {
-				String decryptedText = intent
-						.getStringExtra(CryptoIntents.EXTRA_TEXT);
-				String encryptedText = intent
-						.getStringExtra(PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT);
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent intent) {
+        if (debug) {
+            Log.i(
+                    TAG, "Received requestCode " + requestCode + ", resultCode "
+                            + resultCode
+            );
+        }
+        switch (requestCode) {
+            case REQUEST_CODE_DECRYPT_TITLE:
+                if (resultCode == RESULT_OK && intent != null) {
+                    String decryptedText = intent
+                            .getStringExtra(CryptoIntents.EXTRA_TEXT);
+                    String encryptedText = intent
+                            .getStringExtra(PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT);
 
-				if (encryptedText != null) {
-					// Log.i(TAG, "Encrypted text is not passed properly.");
-					// return;
+                    if (encryptedText != null) {
+                        // Log.i(TAG, "Encrypted text is not passed properly.");
+                        // return;
 
-					// Add decrypted text to hash:
-					NotesListCursor.mEncryptedStringHashMap.put(encryptedText,
-							decryptedText);
+                        // Add decrypted text to hash:
+                        NotesListCursor.mEncryptedStringHashMap.put(
+                                encryptedText,
+                                decryptedText
+                        );
 
-					if (debug)
-						Log.i(TAG, "Decrypted: " + encryptedText + " -> "
-								+ decryptedText);
-				}
-				mDecryptionSucceeded = true;
-				NotesListCursor.mLoggedIn = true;
-				if (debug)
-					Log.d(TAG, "onActivity: logged in");
+                        if (debug) {
+                            Log.i(
+                                    TAG, "Decrypted: " + encryptedText + " -> "
+                                            + decryptedText
+                            );
+                        }
+                    }
+                    mDecryptionSucceeded = true;
+                    NotesListCursor.mLoggedIn = true;
+                    if (debug) {
+                        Log.d(TAG, "onActivity: logged in");
+                    }
 
-				// decrypt the next string.
+                    // decrypt the next string.
 
-				decryptDelayed();
+                    decryptDelayed();
 
-			} else {
-				mDecryptionFailed = true;
-				setProgressBarIndeterminateVisibility(false);
-			}
-			break;
-		case REQUEST_CODE_OPEN:
-			if (resultCode == RESULT_OK && intent != null) {
-				// File name should be in Uri:
-				File filename = FileUriUtils.getFile(intent.getData());
+                } else {
+                    mDecryptionFailed = true;
+                    setProgressBarIndeterminateVisibility(false);
+                }
+                break;
+            case REQUEST_CODE_OPEN:
+                if (resultCode == RESULT_OK && intent != null) {
+                    // File name should be in Uri:
+                    File filename = FileUriUtils.getFile(intent.getData());
 
-				if (filename.exists() && !filename.isDirectory()) {
-					// Open file in note editor
-					Intent i = new Intent(this, NoteEditor.class);
-					i.setAction(Intent.ACTION_VIEW);
-					i.setData(intent.getData());
-					startActivity(i);
-				} else {
-					Toast.makeText(this, R.string.file_not_found,
-							Toast.LENGTH_SHORT).show();
-				}
-			}
-			break;
+                    if (filename.exists() && !filename.isDirectory()) {
+                        // Open file in note editor
+                        Intent i = new Intent(this, NoteEditor.class);
+                        i.setAction(Intent.ACTION_VIEW);
+                        i.setData(intent.getData());
+                        startActivity(i);
+                    } else {
+                        Toast.makeText(
+                                this, R.string.file_not_found,
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+                break;
 
 		/*
 		 * case REQUEST_CODE_UNENCRYPT_NOTE: if (resultCode == RESULT_OK && data
@@ -1189,82 +1261,78 @@ public class NotesList extends DistributionLibraryListActivity implements
 		 * data.getStringArrayExtra(CryptoIntents.EXTRA_TEXT_ARRAY); String
 		 * decryptedText = decryptedTextArray[0]; String decryptedTitle =
 		 * decryptedTextArray[1];
-		 * 
+		 *
 		 * String uristring = data.getStringExtra(NotePadIntents.EXTRA_URI);
-		 * 
+		 *
 		 * Uri uri = null; if (uristring != null) { uri = Uri.parse(uristring);
 		 * } else { Log.i(TAG, "Wrong extra uri"); Toast.makeText(this,
 		 * "Encrypted information incomplete", Toast.LENGTH_SHORT).show();
 		 * return; }
-		 * 
+		 *
 		 * // Write this to content provider:
-		 * 
+		 *
 		 * ContentValues values = new ContentValues();
 		 * values.put(Notes.MODIFIED_DATE, System.currentTimeMillis());
 		 * values.put(Notes.TITLE, decryptedTitle); values.put(Notes.NOTE,
 		 * decryptedText); values.put(Notes.ENCRYPTED, 0);
-		 * 
+		 *
 		 * //Uri noteUri = ContentUris.withAppendedId(getIntent().getData(),
 		 * id); Uri noteUri = getIntent().getData();
-		 * 
+		 *
 		 * getContentResolver().update(uri, values, null, null);
-		 * 
+		 *
 		 * } else { setProgressBarIndeterminateVisibility(false); } break;
 		 */
-		}
-	}
+        }
+    }
 
-	private void saveFile(Uri uri, File file) {
-		if (debug)
-			Log.i(TAG, "Saving file: uri: " + uri + ", file: " + file);
-		Cursor c = getContentResolver().query(uri,
-				new String[] { Notes.ENCRYPTED, Notes.NOTE }, null, null, null);
+    private void saveFile(Uri uri, File file) {
+        if (debug) {
+            Log.i(TAG, "Saving file: uri: " + uri + ", file: " + file);
+        }
+        Cursor c = getContentResolver().query(
+                uri,
+                new String[]{Notes.ENCRYPTED, Notes.NOTE}, null, null, null
+        );
 
-		if (c != null && c.getCount() > 0) {
-			c.moveToFirst();
-			long encrypted = c.getLong(0);
-			String note = c.getString(1);
-			if (encrypted == 0) {
-				// Save to file
-				if (debug)
-					Log.d(TAG, "Save unencrypted file.");
-				writeToFile(file, note);
-			} else {
-				// decrypt first, then save to file
+        if (c != null && c.getCount() > 0) {
+            c.moveToFirst();
+            long encrypted = c.getLong(0);
+            String note = c.getString(1);
+            if (encrypted == 0) {
+                // Save to file
+                if (debug) {
+                    Log.d(TAG, "Save unencrypted file.");
+                }
+                writeToFile(file, note);
+            } else {
+                // decrypt first, then save to file
 
-				if (debug)
-					Log.d(TAG, "Save encrypted file.");
-			}
-		} else {
-			Log.e(TAG, "Error saving file: Uri not valid: " + uri);
-		}
-	}
+                if (debug) {
+                    Log.d(TAG, "Save encrypted file.");
+                }
+            }
+        } else {
+            Log.e(TAG, "Error saving file: Uri not valid: " + uri);
+        }
+    }
 
-	void writeToFile(File file, String text) {
-		try {
-			FileWriter fstream = new FileWriter(file);
-			BufferedWriter out = new BufferedWriter(fstream);
-			out.write(text);
-			out.close();
-			Toast.makeText(this, R.string.note_saved, Toast.LENGTH_SHORT)
-					.show();
-		} catch (IOException e) {
-			Toast.makeText(this, R.string.error_writing_file,
-					Toast.LENGTH_SHORT).show();
-			Log.e(TAG, "Error writing file");
-		}
-	}
-
-	BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
-
-		public void onReceive(Context context, Intent intent) {
-			if (debug)
-				Log.i(TAG, "flush decrypted data");
-			NotesListCursor.flushDecryptedStringHashMap();
-			mAdapter.getCursor().requery();
-		}
-
-	};
+    void writeToFile(File file, String text) {
+        try {
+            FileWriter fstream = new FileWriter(file);
+            BufferedWriter out = new BufferedWriter(fstream);
+            out.write(text);
+            out.close();
+            Toast.makeText(this, R.string.note_saved, Toast.LENGTH_SHORT)
+                    .show();
+        } catch (IOException e) {
+            Toast.makeText(
+                    this, R.string.error_writing_file,
+                    Toast.LENGTH_SHORT
+            ).show();
+            Log.e(TAG, "Error writing file");
+        }
+    }
 
 	/*
 	 * 

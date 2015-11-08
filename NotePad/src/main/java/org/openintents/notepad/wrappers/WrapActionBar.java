@@ -5,34 +5,34 @@ import android.app.Activity;
 import android.view.MenuItem;
 
 public class WrapActionBar {
-	private ActionBar mInstance;
+    static {
+        try {
+            Class.forName("android.app.ActionBar");
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
-	static {
-		try {
-			Class.forName("android.app.ActionBar");
-		} catch (Exception ex) {
-			throw new RuntimeException(ex);
-		}
-	}
+    private ActionBar mInstance;
 
-	/* calling here forces class initialization */
-	public static void checkAvailable() {
-	}
+    public WrapActionBar(Activity a) {
+        mInstance = a.getActionBar();
+    }
 
-	public WrapActionBar(Activity a) {
-		mInstance = a.getActionBar();
-	}
+    /* calling here forces class initialization */
+    public static void checkAvailable() {
+    }
 
-	public void setDisplayHomeAsUpEnabled(boolean b) {
-		mInstance.setDisplayHomeAsUpEnabled(b);
-	}
+    // show an icon in the actionbar if there is room for it.
+    public static void showIfRoom(MenuItem item) {
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+    }
 
-	public void setHomeButtonEnabled(boolean b) {
-		mInstance.setHomeButtonEnabled(b);
-	}
+    public void setDisplayHomeAsUpEnabled(boolean b) {
+        mInstance.setDisplayHomeAsUpEnabled(b);
+    }
 
-	// show an icon in the actionbar if there is room for it.
-	public static void showIfRoom(MenuItem item) {
-		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-	}
+    public void setHomeButtonEnabled(boolean b) {
+        mInstance.setHomeButtonEnabled(b);
+    }
 }

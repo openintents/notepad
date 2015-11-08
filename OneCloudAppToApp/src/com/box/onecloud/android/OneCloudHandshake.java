@@ -6,12 +6,8 @@ import android.os.RemoteException;
 
 /**
  * Used to verify identity between the apps participating in the OneCloud transaction.
- * 
  */
 public class OneCloudHandshake implements Parcelable {
-
-    /** Binder back to Box through AIDL. */
-    private OneCloudHandshakeInterface mBinder;
 
     /**
      * Parcel CREATOR.
@@ -28,12 +24,15 @@ public class OneCloudHandshake implements Parcelable {
             return new OneCloudHandshake[size];
         }
     };
+    /**
+     * Binder back to Box through AIDL.
+     */
+    private OneCloudHandshakeInterface mBinder;
 
     /**
      * Recreate from a parcel.
-     * 
-     * @param in
-     *            Parcel.
+     *
+     * @param in Parcel.
      */
     public OneCloudHandshake(final Parcel in) {
         readFromParcel(in);
@@ -41,9 +40,8 @@ public class OneCloudHandshake implements Parcelable {
 
     /**
      * Default constructor.
-     * 
-     * @param binder
-     *            Binder.
+     *
+     * @param binder Binder.
      */
     public OneCloudHandshake(final OneCloudHandshakeInterface binder) {
         mBinder = binder;
@@ -61,9 +59,8 @@ public class OneCloudHandshake implements Parcelable {
 
     /**
      * Read back one self from a parcel.
-     * 
-     * @param in
-     *            Parcel.
+     *
+     * @param in Parcel.
      */
     private void readFromParcel(final Parcel in) {
         mBinder = OneCloudHandshakeInterface.Stub.asInterface(in.readStrongBinder());
@@ -71,11 +68,9 @@ public class OneCloudHandshake implements Parcelable {
 
     /**
      * Send a handshake request. The receiver can call handshakeCallback.onShake().
-     * 
-     * @param handshakeCallback
-     *            Handshake callback through which the receiver can respond with onShake().
-     * @throws RemoteException
-     *             Thrown if there was a problem with the binder.
+     *
+     * @param handshakeCallback Handshake callback through which the receiver can respond with onShake().
+     * @throws RemoteException Thrown if there was a problem with the binder.
      */
     public void sendHandshake(final HandshakeCallback handshakeCallback) throws RemoteException {
         mBinder.sendHandshake(handshakeCallback);
@@ -83,11 +78,9 @@ public class OneCloudHandshake implements Parcelable {
 
     /**
      * Send a OneCloudData object.
-     * 
-     * @param oneCloudInterface
-     *            OneCloudData object.
-     * @throws RemoteException
-     *             Thrown if there was a problem with the binder.
+     *
+     * @param oneCloudInterface OneCloudData object.
+     * @throws RemoteException Thrown if there was a problem with the binder.
      */
     public void sendOneCloudData(final OneCloudInterface oneCloudInterface) throws RemoteException {
         mBinder.sendOneCloudData(oneCloudInterface);

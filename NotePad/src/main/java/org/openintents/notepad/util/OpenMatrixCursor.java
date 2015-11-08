@@ -20,10 +20,10 @@
 
 package org.openintents.notepad.util;
 
-import java.util.ArrayList;
-
 import android.database.AbstractCursor;
 import android.database.CursorIndexOutOfBoundsException;
+
+import java.util.ArrayList;
 
 /**
  * A mutable cursor implementation backed by an array of {@code Object}s. Use
@@ -32,262 +32,267 @@ import android.database.CursorIndexOutOfBoundsException;
  */
 public class OpenMatrixCursor extends AbstractCursor {
 
-	private final String[] columnNames;
-	private Object[] data;
-	private int rowCount = 0;
-	private final int columnCount;
+    private final String[] columnNames;
+    private final int columnCount;
+    private Object[] data;
+    private int rowCount = 0;
 
-	/**
-	 * Constructs a new cursor with the given initial capacity.
-	 * 
-	 * @param columnNames
-	 *            names of the columns, the ordering of which determines column
-	 *            ordering elsewhere in this cursor
-	 * @param initialCapacity
-	 *            in rows
-	 */
-	public OpenMatrixCursor(String[] columnNames, int initialCapacity) {
-		this.columnNames = columnNames;
-		this.columnCount = columnNames.length;
+    /**
+     * Constructs a new cursor with the given initial capacity.
+     *
+     * @param columnNames     names of the columns, the ordering of which determines column
+     *                        ordering elsewhere in this cursor
+     * @param initialCapacity in rows
+     */
+    public OpenMatrixCursor(String[] columnNames, int initialCapacity) {
+        this.columnNames = columnNames;
+        this.columnCount = columnNames.length;
 
-		if (initialCapacity < 1) {
-			initialCapacity = 1;
-		}
+        if (initialCapacity < 1) {
+            initialCapacity = 1;
+        }
 
-		this.data = new Object[columnCount * initialCapacity];
-	}
+        this.data = new Object[columnCount * initialCapacity];
+    }
 
-	/**
-	 * Constructs a new cursor.
-	 * 
-	 * @param columnNames
-	 *            names of the columns, the ordering of which determines column
-	 *            ordering elsewhere in this cursor
-	 */
-	public OpenMatrixCursor(String[] columnNames) {
-		this(columnNames, 16);
-	}
+    /**
+     * Constructs a new cursor.
+     *
+     * @param columnNames names of the columns, the ordering of which determines column
+     *                    ordering elsewhere in this cursor
+     */
+    public OpenMatrixCursor(String[] columnNames) {
+        this(columnNames, 16);
+    }
 
-	/**
-	 * Gets value at the given column for the current row.
-	 */
-	public Object get(int column) {
-		if (column < 0 || column >= columnCount) {
-			throw new CursorIndexOutOfBoundsException("Requested column: "
-					+ column + ", # of columns: " + columnCount);
-		}
-		if (mPos < 0) {
-			throw new CursorIndexOutOfBoundsException("Before first row.");
-		}
-		if (mPos >= rowCount) {
-			throw new CursorIndexOutOfBoundsException("After last row.");
-		}
-		return data[mPos * columnCount + column];
-	}
+    /**
+     * Gets value at the given column for the current row.
+     */
+    public Object get(int column) {
+        if (column < 0 || column >= columnCount) {
+            throw new CursorIndexOutOfBoundsException(
+                    "Requested column: "
+                            + column + ", # of columns: " + columnCount
+            );
+        }
+        if (mPos < 0) {
+            throw new CursorIndexOutOfBoundsException("Before first row.");
+        }
+        if (mPos >= rowCount) {
+            throw new CursorIndexOutOfBoundsException("After last row.");
+        }
+        return data[mPos * columnCount + column];
+    }
 
-	/**
-	 * Adds a new row to the end and returns a builder for that row. Not safe
-	 * for concurrent use.
-	 * 
-	 * @return builder which can be used to set the column values for the new
-	 *         row
-	 */
-	public RowBuilder newRow() {
-		rowCount++;
-		int endIndex = rowCount * columnCount;
-		ensureCapacity(endIndex);
-		int start = endIndex - columnCount;
-		return new RowBuilder(start, endIndex);
-	}
+    /**
+     * Adds a new row to the end and returns a builder for that row. Not safe
+     * for concurrent use.
+     *
+     * @return builder which can be used to set the column values for the new
+     * row
+     */
+    public RowBuilder newRow() {
+        rowCount++;
+        int endIndex = rowCount * columnCount;
+        ensureCapacity(endIndex);
+        int start = endIndex - columnCount;
+        return new RowBuilder(start, endIndex);
+    }
 
-	/**
-	 * Adds a new row to the end with the given column values. Not safe for
-	 * concurrent use.
-	 * 
-	 * @throws IllegalArgumentException
-	 *             if {@code columnValues.length !=
-	 *  columnNames.length}
-	 * @param columnValues
-	 *            in the same order as the the column names specified at cursor
-	 *            construction time
-	 */
-	public void addRow(Object[] columnValues) {
-		if (columnValues.length != columnCount) {
-			throw new IllegalArgumentException("columnNames.length = "
-					+ columnCount + ", columnValues.length = "
-					+ columnValues.length);
-		}
+    /**
+     * Adds a new row to the end with the given column values. Not safe for
+     * concurrent use.
+     *
+     * @param columnValues in the same order as the the column names specified at cursor
+     *                     construction time
+     * @throws IllegalArgumentException if {@code columnValues.length !=
+     *                                  columnNames.length}
+     */
+    public void addRow(Object[] columnValues) {
+        if (columnValues.length != columnCount) {
+            throw new IllegalArgumentException(
+                    "columnNames.length = "
+                            + columnCount + ", columnValues.length = "
+                            + columnValues.length
+            );
+        }
 
-		int start = rowCount++ * columnCount;
-		ensureCapacity(start + columnCount);
-		System.arraycopy(columnValues, 0, data, start, columnCount);
-	}
+        int start = rowCount++ * columnCount;
+        ensureCapacity(start + columnCount);
+        System.arraycopy(columnValues, 0, data, start, columnCount);
+    }
 
-	/**
-	 * Adds a new row to the end with the given column values. Not safe for
-	 * concurrent use.
-	 * 
-	 * @throws IllegalArgumentException
-	 *             if {@code columnValues.size() !=
-	 *  columnNames.length}
-	 * @param columnValues
-	 *            in the same order as the the column names specified at cursor
-	 *            construction time
-	 */
-	public void addRow(Iterable<?> columnValues) {
-		int start = rowCount * columnCount;
-		int end = start + columnCount;
-		ensureCapacity(end);
+    /**
+     * Adds a new row to the end with the given column values. Not safe for
+     * concurrent use.
+     *
+     * @param columnValues in the same order as the the column names specified at cursor
+     *                     construction time
+     * @throws IllegalArgumentException if {@code columnValues.size() !=
+     *                                  columnNames.length}
+     */
+    public void addRow(Iterable<?> columnValues) {
+        int start = rowCount * columnCount;
+        int end = start + columnCount;
+        ensureCapacity(end);
 
-		if (columnValues instanceof ArrayList<?>) {
-			addRow((ArrayList<?>) columnValues, start);
-			return;
-		}
+        if (columnValues instanceof ArrayList<?>) {
+            addRow((ArrayList<?>) columnValues, start);
+            return;
+        }
 
-		int current = start;
-		Object[] localData = data;
-		for (Object columnValue : columnValues) {
-			if (current == end) {
-				// TODO: null out row?
-				throw new IllegalArgumentException(
-						"columnValues.size() > columnNames.length");
-			}
-			localData[current++] = columnValue;
-		}
+        int current = start;
+        Object[] localData = data;
+        for (Object columnValue : columnValues) {
+            if (current == end) {
+                // TODO: null out row?
+                throw new IllegalArgumentException(
+                        "columnValues.size() > columnNames.length"
+                );
+            }
+            localData[current++] = columnValue;
+        }
 
-		if (current != end) {
-			// TODO: null out row?
-			throw new IllegalArgumentException(
-					"columnValues.size() < columnNames.length");
-		}
+        if (current != end) {
+            // TODO: null out row?
+            throw new IllegalArgumentException(
+                    "columnValues.size() < columnNames.length"
+            );
+        }
 
-		// Increase row count here in case we encounter an exception.
-		rowCount++;
-	}
+        // Increase row count here in case we encounter an exception.
+        rowCount++;
+    }
 
-	/** Optimization for {@link ArrayList}. */
-	private void addRow(ArrayList<?> columnValues, int start) {
-		int size = columnValues.size();
-		if (size != columnCount) {
-			throw new IllegalArgumentException("columnNames.length = "
-					+ columnCount + ", columnValues.size() = " + size);
-		}
+    /**
+     * Optimization for {@link ArrayList}.
+     */
+    private void addRow(ArrayList<?> columnValues, int start) {
+        int size = columnValues.size();
+        if (size != columnCount) {
+            throw new IllegalArgumentException(
+                    "columnNames.length = "
+                            + columnCount + ", columnValues.size() = " + size
+            );
+        }
 
-		rowCount++;
-		Object[] localData = data;
-		for (int i = 0; i < size; i++) {
-			localData[start + i] = columnValues.get(i);
-		}
-	}
+        rowCount++;
+        Object[] localData = data;
+        for (int i = 0; i < size; i++) {
+            localData[start + i] = columnValues.get(i);
+        }
+    }
 
-	/** Ensures that this cursor has enough capacity. */
-	private void ensureCapacity(int size) {
-		if (size > data.length) {
-			Object[] oldData = this.data;
-			int newSize = data.length * 2;
-			if (newSize < size) {
-				newSize = size;
-			}
-			this.data = new Object[newSize];
-			System.arraycopy(oldData, 0, this.data, 0, oldData.length);
-		}
-	}
+    /**
+     * Ensures that this cursor has enough capacity.
+     */
+    private void ensureCapacity(int size) {
+        if (size > data.length) {
+            Object[] oldData = this.data;
+            int newSize = data.length * 2;
+            if (newSize < size) {
+                newSize = size;
+            }
+            this.data = new Object[newSize];
+            System.arraycopy(oldData, 0, this.data, 0, oldData.length);
+        }
+    }
 
-	/**
-	 * Builds a row, starting from the left-most column and adding one column
-	 * value at a time. Follows the same ordering as the column names specified
-	 * at cursor construction time.
-	 */
-	public class RowBuilder {
+    public int getCount() {
+        return rowCount;
+    }
 
-		private int index;
-		private final int endIndex;
+    // AbstractCursor implementation.
 
-		RowBuilder(int index, int endIndex) {
-			this.index = index;
-			this.endIndex = endIndex;
-		}
+    public String[] getColumnNames() {
+        return columnNames;
+    }
 
-		/**
-		 * Sets the next column value in this row.
-		 * 
-		 * @throws CursorIndexOutOfBoundsException
-		 *             if you try to add too many values
-		 * @return this builder to support chaining
-		 */
-		public RowBuilder add(Object columnValue) {
-			if (index == endIndex) {
-				throw new CursorIndexOutOfBoundsException(
-						"No more columns left.");
-			}
+    public String getString(int column) {
+        return String.valueOf(get(column));
+    }
 
-			data[index++] = columnValue;
-			return this;
-		}
-	}
+    public short getShort(int column) {
+        Object value = get(column);
+        return (value instanceof String) ? Short.valueOf((String) value)
+                : ((Number) value).shortValue();
+    }
 
-	// AbstractCursor implementation.
+    public int getInt(int column) {
+        Object value = get(column);
+        return (value instanceof String) ? Integer.valueOf((String) value)
+                : ((Number) value).intValue();
+    }
 
-	public int getCount() {
-		return rowCount;
-	}
+    public long getLong(int column) {
+        Object value = get(column);
+        return (value instanceof String) ? Long.valueOf((String) value)
+                : ((Number) value).longValue();
+    }
 
-	public String[] getColumnNames() {
-		return columnNames;
-	}
+    public float getFloat(int column) {
+        Object value = get(column);
+        return (value instanceof String) ? Float.valueOf((String) value)
+                : ((Number) value).floatValue();
+    }
 
-	public String getString(int column) {
-		return String.valueOf(get(column));
-	}
+    public double getDouble(int column) {
+        Object value = get(column);
+        return (value instanceof String) ? Double.valueOf((String) value)
+                : ((Number) value).doubleValue();
+    }
 
-	public short getShort(int column) {
-		Object value = get(column);
-		return (value instanceof String) ? Short.valueOf((String) value)
-				: ((Number) value).shortValue();
-	}
+    public boolean isNull(int column) {
+        return get(column) == null;
+    }
 
-	public int getInt(int column) {
-		Object value = get(column);
-		return (value instanceof String) ? Integer.valueOf((String) value)
-				: ((Number) value).intValue();
-	}
+    public void reset(int initialCapacity) {
+        /* fill all Objects with null */
 
-	public long getLong(int column) {
-		Object value = get(column);
-		return (value instanceof String) ? Long.valueOf((String) value)
-				: ((Number) value).longValue();
-	}
+        if (initialCapacity < 1) {
+            initialCapacity = 1;
+        }
 
-	public float getFloat(int column) {
-		Object value = get(column);
-		return (value instanceof String) ? Float.valueOf((String) value)
-				: ((Number) value).floatValue();
-	}
+        this.data = new Object[columnCount * initialCapacity];
 
-	public double getDouble(int column) {
-		Object value = get(column);
-		return (value instanceof String) ? Double.valueOf((String) value)
-				: ((Number) value).doubleValue();
-	}
+        rowCount = 0;
+        mPos = -1;
+    }
 
-	public boolean isNull(int column) {
-		return get(column) == null;
-	}
+    public void reset() {
+        reset(16);
+    }
 
-	public void reset(int initialCapacity) {
-		/* fill all Objects with null */
+    /**
+     * Builds a row, starting from the left-most column and adding one column
+     * value at a time. Follows the same ordering as the column names specified
+     * at cursor construction time.
+     */
+    public class RowBuilder {
 
-		if (initialCapacity < 1) {
-			initialCapacity = 1;
-		}
+        private final int endIndex;
+        private int index;
 
-		this.data = new Object[columnCount * initialCapacity];
+        RowBuilder(int index, int endIndex) {
+            this.index = index;
+            this.endIndex = endIndex;
+        }
 
-		rowCount = 0;
-		mPos = -1;
-	}
+        /**
+         * Sets the next column value in this row.
+         *
+         * @return this builder to support chaining
+         * @throws CursorIndexOutOfBoundsException if you try to add too many values
+         */
+        public RowBuilder add(Object columnValue) {
+            if (index == endIndex) {
+                throw new CursorIndexOutOfBoundsException(
+                        "No more columns left."
+                );
+            }
 
-	public void reset() {
-		reset(16);
-	}
+            data[index++] = columnValue;
+            return this;
+        }
+    }
 }

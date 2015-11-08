@@ -7,46 +7,44 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 
 public class NotesListCursorAdapter extends CursorAdapter {
-	private static final String TAG = "NotesListCursorAdapter";
+    private static final String TAG = "NotesListCursorAdapter";
+    /**
+     * Flag for slow list adapter.
+     */
+    public boolean mBusy;
+    Context mContext;
+    NotesListCursor mCursorUtils;
 
-	Context mContext;
-	NotesListCursor mCursorUtils;
+    public NotesListCursorAdapter(Context context, Cursor c,
+                                  NotesListCursor cursorUtils) {
+        super(context, c);
+        mContext = context;
+        mCursorUtils = cursorUtils;
 
-	/**
-	 * Flag for slow list adapter.
-	 */
-	public boolean mBusy;
+        mBusy = false;
+    }
 
-	public NotesListCursorAdapter(Context context, Cursor c,
-			NotesListCursor cursorUtils) {
-		super(context, c);
-		mContext = context;
-		mCursorUtils = cursorUtils;
+    @Override
+    public void bindView(View view, Context context, Cursor cursor) {
+        NotesListItemView nliv = (NotesListItemView) view;
 
-		mBusy = false;
-	}
+        String title = cursor.getString(NotesListCursor.COLUMN_INDEX_TITLE);
+        String tags = cursor.getString(NotesListCursor.COLUMN_INDEX_TAGS);
+        long encrypted = cursor.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
+        String titleEncrypted = cursor
+                .getString(NotesListCursor.COLUMN_INDEX_TITLE_ENCRYPTED);
+        String tagsEncrypted = cursor
+                .getString(NotesListCursor.COLUMN_INDEX_TAGS_ENCRYPTED);
 
-	@Override
-	public void bindView(View view, Context context, Cursor cursor) {
-		NotesListItemView nliv = (NotesListItemView) view;
+        nliv.setEncrypted(encrypted);
 
-		String title = cursor.getString(NotesListCursor.COLUMN_INDEX_TITLE);
-		String tags = cursor.getString(NotesListCursor.COLUMN_INDEX_TAGS);
-		long encrypted = cursor.getLong(NotesListCursor.COLUMN_INDEX_ENCRYPTED);
-		String titleEncrypted = cursor
-				.getString(NotesListCursor.COLUMN_INDEX_TITLE_ENCRYPTED);
-		String tagsEncrypted = cursor
-				.getString(NotesListCursor.COLUMN_INDEX_TAGS_ENCRYPTED);
-
-		nliv.setEncrypted(encrypted);
-
-		nliv.setTitle(title);
-		nliv.setTags(tags);
-		nliv.mTitleEncrypted = titleEncrypted;
-		nliv.mTagsEncrypted = tagsEncrypted;
+        nliv.setTitle(title);
+        nliv.setTags(tags);
+        nliv.mTitleEncrypted = titleEncrypted;
+        nliv.mTagsEncrypted = tagsEncrypted;
 
 		/*
-		 * if (encrypted == 0) { // Not encrypted: nliv.setTitle(title);
+         * if (encrypted == 0) { // Not encrypted: nliv.setTitle(title);
 		 * nliv.setTags(tags); // Null tag means the view has the correct data
 		 * nliv.setTag(null); } else { // encrypted String decrypted =
 		 * mTitleHashMap.get(title); if (decrypted != null) {
@@ -62,12 +60,12 @@ public class NotesListCursorAdapter extends CursorAdapter {
 		 * nliv.setTags(tags); // Non-null tag means the view still needs to
 		 * load it's data nliv.setTag(this); } / }
 		 */
-	}
+    }
 
-	@Override
-	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-		return new NotesListItemView(context);
-	}
+    @Override
+    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+        return new NotesListItemView(context);
+    }
 
 	/*
 	 * @Override public Filter getFilter() { Log.i(TAG, "Request filter");
@@ -85,9 +83,9 @@ public class NotesListCursorAdapter extends CursorAdapter {
 	 * return cursor.getString(NotesList.COLUMN_INDEX_TITLE); }
 	 */
 
-	public Cursor runQueryOnBackgroundThread(CharSequence constraint, String tag) {
-		// Log.i(TAG, "runQueryOnBackgroundThread " + constraint + ", " +
-		// mIntent.getData());
+    public Cursor runQueryOnBackgroundThread(CharSequence constraint, String tag) {
+        // Log.i(TAG, "runQueryOnBackgroundThread " + constraint + ", " +
+        // mIntent.getData());
 
 		/*
 		 * Cursor cursor =
@@ -98,9 +96,9 @@ public class NotesListCursorAdapter extends CursorAdapter {
 		 * Notes.DEFAULT_SORT_ORDER);
 		 */
 
-		Cursor cursor = mCursorUtils.query(constraint, tag);
+        Cursor cursor = mCursorUtils.query(constraint, tag);
 
-		return cursor;
-	}
+        return cursor;
+    }
 
 }

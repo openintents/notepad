@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
  * Copyright (C) 2008 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,221 +12,220 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- -->
-<!-- 
+ --><!--
  * Original copyright:
  * Based on the Android SDK sample application NotePad.
  * Copyright (C) 2007 Google Inc.
  * Licensed under the Apache License, Version 2.0.
   -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
+  <!-- ***************************
+       About information
+       *************************** -->
 
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Danial Behzadi https://launchpad.net/~dani.behzi
   OpenIntents devs https://launchpad.net/~openintents-devs
   happynawani https://launchpad.net/~happynawani
   oren https://launchpad.net/~ahujaaditya92</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">ایجاد و به اشتراک گذاری یادداشت های خود را با دفترچه یادداشت OI</string>
-	
-	<!-- ***************************
-	     Application-specific strings
-	     *************************** -->
 
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-	<string name="app_name">OI دفترچه یادداشت</string>
-	
-    <string name="menu_delete">حذف</string>
-    <string name="menu_insert">اضافه توجه</string>
-    <string name="menu_revert">برگشت</string>
-    <string name="menu_discard">دور انداختن</string>
-    
-	<string name="no_notes">استفاده از منو به اضافه کردن یادداشت های جدید است</string>
-	<string name="no_notes_actionbar">از گزینه ی فوق برای افزودن یادداشت‌های جدید استفاده کنید.</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">ایجاد و به اشتراک گذاری یادداشت های خود را با دفترچه یادداشت OI</string>
 
-    <string name="resolve_edit">ویرایش یادداشت</string>
-    <string name="resolve_title">ویرایش عنوان</string>  
+  <!-- ***************************
+       Application-specific strings
+       *************************** -->
 
-    <string name="title_create">ایجاد توجه</string>
-    <string name="title_edit">ویرایش یادداشت</string>
-	<string name="title_notes_list">OI دفترچه یادداشت</string>   
-	<string name="title_note">یادداشت</string>  
-	<string name="title_edit_title">عنوان نکته :</string>  
-    <string name="title_create_file">%s (یادداشت جدید)</string>
-    <string name="title_edit_file">(ویرایش یادداشت)s%</string>
-    
-    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">انتخاب توجه داشته باشید برای میانبر</string>
-	
-	<string name="button_ok">خوب</string>  
-	
-	<string name="error_title">خطا</string>
-	<string name="error_message">خطا در توجه در حال بارگذاری</string>
-	<!-- <string name="no_notes">Note list is empty.</string>  -->
-	
-	<string name="menu_share">سهم</string>
-	<string name="empty_note">توجه خالی</string>
-	<string name="share_not_available">بدون نرم افزار موجود برای اشتراک گذاری</string>
-	
-	<string name="encrypting_note">رمزگذاری توجه</string>
-	<string name="encrypted">رمز</string>
-	<string name="menu_encrypt">رمزبندی</string>
-	<string name="menu_decrypt">سرگشایی</string>
-	<string name="menu_undo_encryption">واگرد رمزنگاری</string>
-	<string name="menu_do_not_encrypt">کدگذاری کند</string>
-	<string name="already_encrypted">در حال حاضر رمزنگاری شده است</string>
-	<string name="not_encrypted">رمزگذاری نشده است</string>
-	<string name="encryption_failed">رمزگذاری شکست خورده است</string>
-	<string name="decryption_failed">رمزگشایی شکست خورده است</string>
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI دفترچه یادداشت</string>
 
-	<string name="menu_edit_tags">ویرایش برچسب ها</string>
-    <string name="dropdown_hint">لمس به لیست مراجعه کنید</string>
-    <string name="tags_hint">را وارد کنید تگ از هم جدا شده توسط کاما</string>
-    
-    <string name="menu_save_to_sdcard">ذخیره به SD کارت</string>
-    <string name="menu_open_from_sdcard">باز از کارت SD</string>
-    <string name="filename">نام پرونده</string>
-    <string name="save">ذخیره</string>
-    <string name="open">باز</string>
-    <string name="error_writing_file">خطا در نوشتن فایل</string>
-    <string name="error_reading_file">خطا در حالی که خواندن فایل</string>
-    <string name="file_not_found">فایل یافت نشد</string>
-    <string name="note_saved">توجه داشته باشید را نجات داد</string>
-    <string name="warning_file_exists_title">فایل وجود دارد در حال حاضر</string>
-    <string name="warning_file_exists_message">آیا شما واقعا می خواهید به بازنویسی فایل های موجود؟</string>
-    
-    <string name="menu_word_count">شمارش واژه</string>
-    <plurals name="word_count">
-        <item quantity="one">یک واژه.</item>
-        <item quantity="other">% واژه.</item>
-    </plurals>
-        
-    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
-    <string name="menu_import">واردات</string>
-    <string name="menu_save">ذخیره</string>
-    <string name="menu_save_as">ذخیره به عنوان</string>
-    <string name="warning_unsaved_changes_title">متن اصلاح شده</string>
-    <string name="warning_unsaved_changes_message">آیا شما می خواهید برای ذخیره تغییرات؟</string>
-    <string name="button_save">ذخیره</string>
-    <string name="button_dont_save">آیا صرفه جویی</string>
-    
-	<string name="menu_theme">موضوع</string>
-	<string name="theme_pick">انتخاب یک موضوع</string>
-    <string name="theme_default">پیش فرض</string>
-    <string name="theme_monospaced">مونو فاصله فونت ها</string>
-	<string name="theme_serif">قلم سریف</string>
+  <string name="menu_delete">حذف</string>
+  <string name="menu_insert">اضافه توجه</string>
+  <string name="menu_revert">برگشت</string>
+  <string name="menu_discard">دور انداختن</string>
 
-	<!-- Search -->
-	<string name="menu_search">جستجو</string>
-    <string name="search_query_results">OI دفترچه یادداشت</string>
-    <!-- %s is the search string -->
-	<string name="search_found_no_results">نتیجه‌ای برای %S یافت نشد.</string>
-    <string name="search_label">جستجوی OI دفترچه یادداشت</string>
-    <string name="search_hint">جستجو</string>
-    
-    <!-- The description that will show up in the search settings for this source.  -->
-    <string name="search_settings_description">عناوین یادداشت شما</string>
-    
-	<!--     Dialog box    -->
-	<string name="ok">خوب</string>
-	<string name="cancel">لغو</string>
-    <string name="use_theme_for_all_lists">با استفاده از این موضوع برای تمام فهرست ها</string>
-	<string name="get_more_themes">دریافت تم بیشتر</string>
-    
-    <string name="all_notes">تمام یادداشت ها</string>
-    
-    <!-- Settings -->
-    <!-- Title for settings regarding the list of notes -->
-    <string name="noteslist_preferences">لیست یادداشت ها</string>
-    <string name="preference_sortorder_title">لیست دسته بندی سفارش</string>
-    <string name="preference_sortorder_dialog_title">لیست دسته بندی سفارش</string>
-    <string name="preference_sortorder_summary">نظم که در آن یادداشت ها در لیست یادداشت ها نشان داده شده است</string>
-    <string name="preference_marquee_title">عناوین دار متحرک توجه</string>
-    <string name="preference_marquee_summary">به طور مداوم اسکرول عناوین توجه که بیش از حد طولانی</string>
-    
-    <string name="note_editor_preferences">ویرایشگر توجه داشته باشید</string>
-    <string name="preference_fontsize">اندازه فونت ها</string>
-	<string name="preference_fontsize_summary">ویرایش اندازه فونت ها</string>
-	<string name="preference_fontsize_dialog_title">انتخاب اندازه فونت ها</string>
-	<string name="preference_autolink_title">خودکار ایجاد لینک</string>
-    <string name="preference_autolink_summary_on">ایجاد لینک برای شماره تلفن ها و آدرس های ایمیل / خیابان ها / وب</string>
-    <string name="preference_autolink_summary_off">لینک یادداشت را ایجاد کنید</string>
-	<string name="preference_charcount_title">شمارش نویسار</string>
-    <string name="preference_charcount_summary_on">نمایش شمارش نویسار در ویرایشگر</string>
-    <string name="preference_charcount_summary_off">عدم نمایش شمارش نویسار در ویرایشگر</string>
+  <string name="no_notes">استفاده از منو به اضافه کردن یادداشت های جدید است</string>
+  <string name="no_notes_actionbar">از گزینه ی فوق برای افزودن یادداشت‌های جدید استفاده کنید.</string>
 
-	<string name="settings">تنظیمات</string>
-	<string name="settings_sortorder">ترتیب مرتب سازی بر اساس</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <string name="resolve_edit">ویرایش یادداشت</string>
+  <string name="resolve_title">ویرایش عنوان</string>
 
-	<!-- OI Notepad -->
-	<!-- Permission to read notes. -->
-    <string name="oi_notepad_permission_read">خوانده شده یادداشت</string>
-    <string name="oi_notepad_permission_read_descr">اجازه می دهد تا یک برنامه برای خواندن یادداشت. توجه داشته باشید که یادداشت های رمزگذاری شده در فرمت های رمزگذاری شده ارائه شده است.</string>
-	<!-- Permission to write notes. -->
-    <string name="oi_notepad_permission_write">نوشتن یادداشت ها</string>
-    <string name="oi_notepad_permission_write_descr">اجازه می دهد تا یک برنامه کاربردی برای ایجاد یادداشت های جدید و یا تغییر یادداشت موجود است.</string>
-    
-	<!-- OI Shopping list -->
-	<!-- Permission to read shopping lists. -->
-    <string name="oi_shopping_permission_read">خوانده شده لیست خرید</string>
-    <string name="oi_shopping_permission_read_descr">اجازه می دهد تا نرم افزار برای خواندن لیست خرید. توجه داشته باشید که لیست های رمزگذاری شده و اقلام در قالب رمزگذاری شده ارائه شده است.</string>
-	<!-- Permission to write shopping lists. -->
-    <string name="oi_shopping_permission_write">نوشتن لیست خرید</string>
-    <string name="oi_shopping_permission_write_descr">اجازه می دهد تا یک نرم افزار برای ایجاد لیست ها و آیتم های جدید و یا تغییر موجود است.</string>
-    
-	<!-- OI Safe -->
-	<!-- Permission to encrypt and decrypt data. -->
-	<string name="oi_safe_permission_intents">رمزگذاری و رمزگشایی داده ها</string>
-    <string name="oi_safe_permission_intents_descr">اجازه می دهد تا برنامه برای رمزگذاری و رمزگشایی متن و دسترسی به رمزهای عبور آنها را در OI امن ذخیره می شود اجازه می دهد تا برنامه برای رمزگذاری و رمزگشایی متن و دسترسی به رمزهای عبور آنها در OI ذخیره شده ایمن است.</string>	
+  <string name="title_create">ایجاد توجه</string>
+  <string name="title_edit">ویرایش یادداشت</string>
+  <string name="title_notes_list">OI دفترچه یادداشت</string>
+  <string name="title_note">یادداشت</string>
+  <string name="title_edit_title">عنوان نکته :</string>
+  <string name="title_create_file">%s (یادداشت جدید)</string>
+  <string name="title_edit_file">(ویرایش یادداشت)s%</string>
+
+  <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+  <string name="title_pick_note_for_shortcut">انتخاب توجه داشته باشید برای میانبر</string>
+
+  <string name="button_ok">خوب</string>
+
+  <string name="error_title">خطا</string>
+  <string name="error_message">خطا در توجه در حال بارگذاری</string>
+  <!-- <string name="no_notes">Note list is empty.</string>  -->
+
+  <string name="menu_share">سهم</string>
+  <string name="empty_note">توجه خالی</string>
+  <string name="share_not_available">بدون نرم افزار موجود برای اشتراک گذاری</string>
+
+  <string name="encrypting_note">رمزگذاری توجه</string>
+  <string name="encrypted">رمز</string>
+  <string name="menu_encrypt">رمزبندی</string>
+  <string name="menu_decrypt">سرگشایی</string>
+  <string name="menu_undo_encryption">واگرد رمزنگاری</string>
+  <string name="menu_do_not_encrypt">کدگذاری کند</string>
+  <string name="already_encrypted">در حال حاضر رمزنگاری شده است</string>
+  <string name="not_encrypted">رمزگذاری نشده است</string>
+  <string name="encryption_failed">رمزگذاری شکست خورده است</string>
+  <string name="decryption_failed">رمزگشایی شکست خورده است</string>
+
+  <string name="menu_edit_tags">ویرایش برچسب ها</string>
+  <string name="dropdown_hint">لمس به لیست مراجعه کنید</string>
+  <string name="tags_hint">را وارد کنید تگ از هم جدا شده توسط کاما</string>
+
+  <string name="menu_save_to_sdcard">ذخیره به SD کارت</string>
+  <string name="menu_open_from_sdcard">باز از کارت SD</string>
+  <string name="filename">نام پرونده</string>
+  <string name="save">ذخیره</string>
+  <string name="open">باز</string>
+  <string name="error_writing_file">خطا در نوشتن فایل</string>
+  <string name="error_reading_file">خطا در حالی که خواندن فایل</string>
+  <string name="file_not_found">فایل یافت نشد</string>
+  <string name="note_saved">توجه داشته باشید را نجات داد</string>
+  <string name="warning_file_exists_title">فایل وجود دارد در حال حاضر</string>
+  <string name="warning_file_exists_message">آیا شما واقعا می خواهید به بازنویسی فایل های موجود؟</string>
+
+  <string name="menu_word_count">شمارش واژه</string>
+  <plurals name="word_count">
+    <item quantity="one">یک واژه.</item>
+    <item quantity="other">% واژه.</item>
+  </plurals>
+
+  <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+  <string name="menu_import">واردات</string>
+  <string name="menu_save">ذخیره</string>
+  <string name="menu_save_as">ذخیره به عنوان</string>
+  <string name="warning_unsaved_changes_title">متن اصلاح شده</string>
+  <string name="warning_unsaved_changes_message">آیا شما می خواهید برای ذخیره تغییرات؟</string>
+  <string name="button_save">ذخیره</string>
+  <string name="button_dont_save">آیا صرفه جویی</string>
+
+  <string name="menu_theme">موضوع</string>
+  <string name="theme_pick">انتخاب یک موضوع</string>
+  <string name="theme_default">پیش فرض</string>
+  <string name="theme_monospaced">مونو فاصله فونت ها</string>
+  <string name="theme_serif">قلم سریف</string>
+
+  <!-- Search -->
+  <string name="menu_search">جستجو</string>
+  <string name="search_query_results">OI دفترچه یادداشت</string>
+  <!-- %s is the search string -->
+  <string name="search_found_no_results">نتیجه‌ای برای %S یافت نشد.</string>
+  <string name="search_label">جستجوی OI دفترچه یادداشت</string>
+  <string name="search_hint">جستجو</string>
+
+  <!-- The description that will show up in the search settings for this source.  -->
+  <string name="search_settings_description">عناوین یادداشت شما</string>
+
+  <!--     Dialog box    -->
+  <string name="ok">خوب</string>
+  <string name="cancel">لغو</string>
+  <string name="use_theme_for_all_lists">با استفاده از این موضوع برای تمام فهرست ها</string>
+  <string name="get_more_themes">دریافت تم بیشتر</string>
+
+  <string name="all_notes">تمام یادداشت ها</string>
+
+  <!-- Settings -->
+  <!-- Title for settings regarding the list of notes -->
+  <string name="noteslist_preferences">لیست یادداشت ها</string>
+  <string name="preference_sortorder_title">لیست دسته بندی سفارش</string>
+  <string name="preference_sortorder_dialog_title">لیست دسته بندی سفارش</string>
+  <string name="preference_sortorder_summary">نظم که در آن یادداشت ها در لیست یادداشت ها نشان داده شده است</string>
+  <string name="preference_marquee_title">عناوین دار متحرک توجه</string>
+  <string name="preference_marquee_summary">به طور مداوم اسکرول عناوین توجه که بیش از حد طولانی</string>
+
+  <string name="note_editor_preferences">ویرایشگر توجه داشته باشید</string>
+  <string name="preference_fontsize">اندازه فونت ها</string>
+  <string name="preference_fontsize_summary">ویرایش اندازه فونت ها</string>
+  <string name="preference_fontsize_dialog_title">انتخاب اندازه فونت ها</string>
+  <string name="preference_autolink_title">خودکار ایجاد لینک</string>
+  <string name="preference_autolink_summary_on">ایجاد لینک برای شماره تلفن ها و آدرس های ایمیل / خیابان ها / وب</string>
+  <string name="preference_autolink_summary_off">لینک یادداشت را ایجاد کنید</string>
+  <string name="preference_charcount_title">شمارش نویسار</string>
+  <string name="preference_charcount_summary_on">نمایش شمارش نویسار در ویرایشگر</string>
+  <string name="preference_charcount_summary_off">عدم نمایش شمارش نویسار در ویرایشگر</string>
+
+  <string name="settings">تنظیمات</string>
+  <string name="settings_sortorder">ترتیب مرتب سازی بر اساس</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Notepad -->
+  <!-- Permission to read notes. -->
+  <string name="oi_notepad_permission_read">خوانده شده یادداشت</string>
+  <string name="oi_notepad_permission_read_descr">اجازه می دهد تا یک برنامه برای خواندن یادداشت. توجه داشته باشید که یادداشت های رمزگذاری شده در فرمت های رمزگذاری شده ارائه شده است.</string>
+  <!-- Permission to write notes. -->
+  <string name="oi_notepad_permission_write">نوشتن یادداشت ها</string>
+  <string name="oi_notepad_permission_write_descr">اجازه می دهد تا یک برنامه کاربردی برای ایجاد یادداشت های جدید و یا تغییر یادداشت موجود است.</string>
+
+  <!-- OI Shopping list -->
+  <!-- Permission to read shopping lists. -->
+  <string name="oi_shopping_permission_read">خوانده شده لیست خرید</string>
+  <string name="oi_shopping_permission_read_descr">اجازه می دهد تا نرم افزار برای خواندن لیست خرید. توجه داشته باشید که لیست های رمزگذاری شده و اقلام در قالب رمزگذاری شده ارائه شده است.</string>
+  <!-- Permission to write shopping lists. -->
+  <string name="oi_shopping_permission_write">نوشتن لیست خرید</string>
+  <string name="oi_shopping_permission_write_descr">اجازه می دهد تا یک نرم افزار برای ایجاد لیست ها و آیتم های جدید و یا تغییر موجود است.</string>
+
+  <!-- OI Safe -->
+  <!-- Permission to encrypt and decrypt data. -->
+  <string name="oi_safe_permission_intents">رمزگذاری و رمزگشایی داده ها</string>
+  <string name="oi_safe_permission_intents_descr">اجازه می دهد تا برنامه برای رمزگذاری و رمزگشایی متن و دسترسی به رمزهای عبور آنها را در OI امن ذخیره می شود اجازه می دهد تا برنامه برای رمزگذاری و رمزگشایی متن و دسترسی به رمزهای عبور آنها در OI ذخیره شده ایمن است.</string>
 
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- ***************************
+       Preferences
+       *************************** -->
 
-	<!-- sort order -->
-    <string-array name="preference_sortorder_entries">
-        <item>الفبایی</item>
-        <item>معکوس به ترتیب حروف الفبا</item>
-        <item>تاریخ آخرین ویرایش</item>
-        <item>اول اصلاح شده</item>
-        <item>جدیدترین در ابتدا</item>  
-        <item>قدیمی تر به جدید ترین</item>
-    </string-array>
+  <!-- sort order -->
+  <string-array name="preference_sortorder_entries">
+    <item>الفبایی</item>
+    <item>معکوس به ترتیب حروف الفبا</item>
+    <item>تاریخ آخرین ویرایش</item>
+    <item>اول اصلاح شده</item>
+    <item>جدیدترین در ابتدا</item>
+    <item>قدیمی تر به جدید ترین</item>
+  </string-array>
 
-    <string-array name="preference_fontsize_entries">
-    	<!-- Preference fontsize: tiny font size -->
-        <item>کوچک</item>
-    	<!-- Preference fontsize: small font size -->
-        <item>کوچک</item>
-    	<!-- Preference fontsize: default font size-->
-    	<item>پیش فرض</item>
-    	<!-- Preference fontsize: large font size -->
-        <item>بزرگ</item>
-    </string-array>
+  <string-array name="preference_fontsize_entries">
+    <!-- Preference fontsize: tiny font size -->
+    <item>کوچک</item>
+    <!-- Preference fontsize: small font size -->
+    <item>کوچک</item>
+    <!-- Preference fontsize: default font size-->
+    <item>پیش فرض</item>
+    <!-- Preference fontsize: large font size -->
+    <item>بزرگ</item>
+  </string-array>
 
-    <string name="preference_addons">افزودنی سانبرد</string>
-    <string name="preference_get_addons">افزودنی سانبرد</string>
-    <string name="preference_get_addons_summary">جستجو برای پسوند ها و تم های آنلاین</string>
-    <string name="preference_get_market_addons">افزودنی سانبرد از بازار</string>
-    <string name="preference_get_developer_addons">افزودنی سانبرد تاندربرد سیمانکی سانبرد از OpenIntents</string>
-    <string name="preference_extensions">گسترش دهنده ها</string>
-    <string name="preference_themes">تمها</string>
-    <string name="preference_market_extensions_summary">جستجو برای پسوندهای در بازار آندروید.</string>
-    <string name="preference_market_themes_summary">جستجو برای تم در بازار آندروید</string>
-    <string name="preference_developer_extensions_summary">الحاقات از یک پیام خصوصی به OpenIntents</string>
-	<string name="preference_developer_themes_summary">دریافت تم از یک پیام خصوصی به OpenIntents</string>
-	<string name="confirm_delete_title">تایید حذف</string>
-	<string name="confirm_delete">آیا شما مطمئن هستید که می خواهید پاک کنید این توجه؟</string>
-	
-	<string name="new_note">یادداشت جدید</string>
+  <string name="preference_addons">افزودنی سانبرد</string>
+  <string name="preference_get_addons">افزودنی سانبرد</string>
+  <string name="preference_get_addons_summary">جستجو برای پسوند ها و تم های آنلاین</string>
+  <string name="preference_get_market_addons">افزودنی سانبرد از بازار</string>
+  <string name="preference_get_developer_addons">افزودنی سانبرد تاندربرد سیمانکی سانبرد از OpenIntents</string>
+  <string name="preference_extensions">گسترش دهنده ها</string>
+  <string name="preference_themes">تمها</string>
+  <string name="preference_market_extensions_summary">جستجو برای پسوندهای در بازار آندروید.</string>
+  <string name="preference_market_themes_summary">جستجو برای تم در بازار آندروید</string>
+  <string name="preference_developer_extensions_summary">الحاقات از یک پیام خصوصی به OpenIntents</string>
+  <string name="preference_developer_themes_summary">دریافت تم از یک پیام خصوصی به OpenIntents</string>
+  <string name="confirm_delete_title">تایید حذف</string>
+  <string name="confirm_delete">آیا شما مطمئن هستید که می خواهید پاک کنید این توجه؟</string>
+
+  <string name="new_note">یادداشت جدید</string>
 </resources>

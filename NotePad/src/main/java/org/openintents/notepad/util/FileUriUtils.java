@@ -16,88 +16,87 @@
 
 package org.openintents.notepad.util;
 
-import java.io.File;
-
 import android.net.Uri;
 
+import java.io.File;
+
 /**
- * @version 2009-07-03
- * 
  * @author Peli
+ * @version 2009-07-03
  */
 public class FileUriUtils {
 
-	/**
-	 * Convert File into Uri.
-	 * 
-	 * @param file
-	 * @return uri
-	 */
-	public static Uri getUri(File file) {
-		if (file != null) {
-			return Uri.fromFile(file);
-		}
-		return null;
-	}
+    /**
+     * Convert File into Uri.
+     *
+     * @param file
+     * @return uri
+     */
+    public static Uri getUri(File file) {
+        if (file != null) {
+            return Uri.fromFile(file);
+        }
+        return null;
+    }
 
-	/**
-	 * Convert Uri into File.
-	 * 
-	 * @param uri
-	 * @return file
-	 */
-	public static File getFile(Uri uri) {
-		if (uri != null) {
-			String filepath = uri.getPath();
-			if (filepath != null) {
-				return new File(filepath);
-			}
-		}
-		return null;
-	}
+    /**
+     * Convert Uri into File.
+     *
+     * @param uri
+     * @return file
+     */
+    public static File getFile(Uri uri) {
+        if (uri != null) {
+            String filepath = uri.getPath();
+            if (filepath != null) {
+                return new File(filepath);
+            }
+        }
+        return null;
+    }
 
-	/**
-	 * Convert String into Uri.
-	 * 
-	 * @param file
-	 * @return uri
-	 */
-	public static Uri getUri(String filename) {
-		return getUri(new File(filename));
-	}
+    /**
+     * Convert String into Uri.
+     *
+     * @param file
+     * @return uri
+     */
+    public static Uri getUri(String filename) {
+        return getUri(new File(filename));
+    }
 
-	/**
-	 * Convert Uri into String.
-	 * 
-	 * @param uri
-	 * @return file
-	 */
-	public static String getFilename(Uri uri) {
-		File file = getFile(uri);
-		if (file != null) {
-			return file.getAbsolutePath();
-		}
-		return null;
-	}
+    /**
+     * Convert Uri into String.
+     *
+     * @param uri
+     * @return file
+     */
+    public static String getFilename(Uri uri) {
+        File file = getFile(uri);
+        if (file != null) {
+            return file.getAbsolutePath();
+        }
+        return null;
+    }
 
-	/**
-	 * Constructs a file from a path and file name.
-	 * 
-	 * @param curdir
-	 * @param file
-	 * @return
-	 */
-	public static File getFile(String curdir, String file) {
-		String separator = "/";
-		if (curdir.endsWith("/")) {
-			separator = "";
-		}
-		File clickedFile = new File(curdir + separator + file);
-		return clickedFile;
-	}
+    /**
+     * Constructs a file from a path and file name.
+     *
+     * @param curdir
+     * @param file
+     * @return
+     */
+    public static File getFile(String curdir, String file) {
+        String separator = "/";
+        if (curdir.endsWith("/")) {
+            separator = "";
+        }
+        File clickedFile = new File(curdir + separator + file);
+        return clickedFile;
+    }
 
-	public static File getFile(File curdir, String file) {
-		return getFile(curdir.getAbsolutePath(), file);
-	}
+    public static File getFile(File curdir, String file) {
+        return getFile(curdir.getAbsolutePath(), file);
+    }
 
 }

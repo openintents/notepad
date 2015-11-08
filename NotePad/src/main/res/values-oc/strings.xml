@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
  * Copyright (C) 2008 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,218 +12,217 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- -->
-<!-- 
+ --><!--
  * Original copyright:
  * Based on the Android SDK sample application NotePad.
  * Copyright (C) 2007 Google Inc.
  * Licensed under the Apache License, Version 2.0.
   -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
+  <!-- ***************************
+       About information
+       *************************** -->
 
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Cédric VALMARY (Tot en òc) https://launchpad.net/~cvalmary</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Create and share your notes with OI Notepad.</string>
-	
-	<!-- ***************************
-	     Application-specific strings
-	     *************************** -->
 
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-	<string name="app_name">OI Notepad</string>
-	
-    <string name="menu_delete">Suprimir</string>
-    <string name="menu_insert">Apondre una nòta</string>
-    <string name="menu_revert">Restablir</string>
-    <string name="menu_discard">Abandonar</string>
-    
-	<string name="no_notes">Utilizatz lo menut per apondre de nòtas novèlas.</string>
-	<string name="no_notes_actionbar">Use the option above to add new notes.</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Create and share your notes with OI Notepad.</string>
 
-    <string name="resolve_edit">Modificar la nòta</string>
-    <string name="resolve_title">Editar lo títol</string>  
+  <!-- ***************************
+       Application-specific strings
+       *************************** -->
 
-    <string name="title_create">Crear una nòta</string>
-    <string name="title_edit">Modificar la nòta</string>
-	<string name="title_notes_list">OI Notepad</string>   
-	<string name="title_note">Nòta</string>  
-	<string name="title_edit_title">Nòta lo títol :</string>  
-    <string name="title_create_file">%s (nòta novèla)</string>
-    <string name="title_edit_file">%s (modificar la nòta)</string>
-    
-    <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
-    <string name="title_pick_note_for_shortcut">Metre la nòte en acorchi</string>
-	
-	<string name="button_ok">D\'acòrdi</string>  
-	
-	<string name="error_title">Error</string>
-	<string name="error_message">Error al moment del cargament de la nòta</string>
-	<!-- <string name="no_notes">Note list is empty.</string>  -->
-	
-	<string name="menu_share">Share</string>
-	<string name="empty_note">Voidar la nòta</string>
-	<string name="share_not_available">No application available for sharing.</string>
-	
-	<string name="encrypting_note">Chiframent de nòta</string>
-	<string name="encrypted">Chifrada</string>
-	<string name="menu_encrypt">Chifrar</string>
-	<string name="menu_decrypt">Deschifrar</string>
-	<string name="menu_undo_encryption">Anullar lo chiframent</string>
-	<string name="menu_do_not_encrypt">Chifrar pas</string>
-	<string name="already_encrypted">Ja chifrat.</string>
-	<string name="not_encrypted">Pas chifrat.</string>
-	<string name="encryption_failed">Facàs del chiframent.</string>
-	<string name="decryption_failed">Fracàs del deschiframent.</string>
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Notepad</string>
 
-	<string name="menu_edit_tags">Modificar las balisas</string>
-    <string name="dropdown_hint">Tocatz per veire la lista</string>
-    <string name="tags_hint">Entratz las balisas, separadas per de virgulas</string>
-    
-    <string name="menu_save_to_sdcard">Enregistrar sus carta SD</string>
-    <string name="menu_open_from_sdcard">Dobrir a partir de la carta SD</string>
-    <string name="filename">Nom del fichièr</string>
-    <string name="save">Salvar</string>
-    <string name="open">Dobrir</string>
-    <string name="error_writing_file">Error al moment de l\'escritura del fichièr</string>
-    <string name="error_reading_file">Error al moment de la lectura del fichièr</string>
-    <string name="file_not_found">Fichièr pas trobat</string>
-    <string name="note_saved">Nòta salvada</string>
-    <string name="warning_file_exists_title">Lo fichièr existís ja</string>
-    <string name="warning_file_exists_message">Sètz segur que volètz espotir lo fichièr existent ?</string>
-    
-    <string name="menu_word_count">Word count</string>
-    <plurals name="word_count">
-        <item quantity="one">One word.</item>
-        <item quantity="other">%d words.</item>
-    </plurals>
-        
-    <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
-    <string name="menu_import">Importar</string>
-    <string name="menu_save">Salvar</string>
-    <string name="menu_save_as">Enregistrar jos</string>
-    <string name="warning_unsaved_changes_title">Tèxte modificat</string>
-    <string name="warning_unsaved_changes_message">Volètz enregistrar las modificacions ?</string>
-    <string name="button_save">Salvar</string>
-    <string name="button_dont_save">Enregistrar pas</string>
-    
-	<string name="menu_theme">Tèma</string>
-	<string name="theme_pick">Causissètz un tèma</string>
-    <string name="theme_default">Per defaut</string>
-    <string name="theme_monospaced">Poliça monospace</string>
-	<string name="theme_serif">Poliça serif</string>
+  <string name="menu_delete">Suprimir</string>
+  <string name="menu_insert">Apondre una nòta</string>
+  <string name="menu_revert">Restablir</string>
+  <string name="menu_discard">Abandonar</string>
 
-	<!-- Search -->
-	<string name="menu_search">Recercar</string>
-    <string name="search_query_results">OI Notepad</string>
-    <!-- %s is the search string -->
-	<string name="search_found_no_results">Cap de resultat pas trobat per %s.</string>
-    <string name="search_label">Recèrca OI Notepad</string>
-    <string name="search_hint">Recercar</string>
-    
-    <!-- The description that will show up in the search settings for this source.  -->
-    <string name="search_settings_description">Títol de vòstras nòtas</string>
-    
-	<!--     Dialog box    -->
-	<string name="ok">D\'acòrdi</string>
-	<string name="cancel">Anullar</string>
-    <string name="use_theme_for_all_lists">Utilizar aqueste tèma per totas las listas</string>
-	<string name="get_more_themes">Aver mai de tèmas</string>
-    
-    <string name="all_notes">Totas las nòtas</string>
-    
-    <!-- Settings -->
-    <!-- Title for settings regarding the list of notes -->
-    <string name="noteslist_preferences">Lista de las Nòtas</string>
-    <string name="preference_sortorder_title">Lista de l\'òrdre de triada</string>
-    <string name="preference_sortorder_dialog_title">Lista de l\'òrdre de triada</string>
-    <string name="preference_sortorder_summary">L\'òrdre dins lo qual las nòtas son afichadas dins la lista de nòtas</string>
-    <string name="preference_marquee_title">Marquee note titles.</string>
-    <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
-    
-    <string name="note_editor_preferences">Editor de nòta</string>
-    <string name="preference_fontsize">Talha de la poliça</string>
-	<string name="preference_fontsize_summary">Cambiar la talha de la poliça</string>
-	<string name="preference_fontsize_dialog_title">Causir la talha de  la poliça</string>
-	<string name="preference_autolink_title">Autocrear de ligams</string>
-    <string name="preference_autolink_summary_on">Crear de ligams pels numèros de telefòn/email/carrièra/adreças internet</string>
-    <string name="preference_autolink_summary_off">Cear pas de ligams sus las nòtas</string>
-	<string name="preference_charcount_title">Character count</string>
-    <string name="preference_charcount_summary_on">Show character count in editor</string>
-    <string name="preference_charcount_summary_off">Do not show character count in editor</string>
+  <string name="no_notes">Utilizatz lo menut per apondre de nòtas novèlas.</string>
+  <string name="no_notes_actionbar">Use the option above to add new notes.</string>
 
-	<string name="settings">Paramètres</string>
-	<string name="settings_sortorder">Òrdre de triada</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <string name="resolve_edit">Modificar la nòta</string>
+  <string name="resolve_title">Editar lo títol</string>
 
-	<!-- OI Notepad -->
-	<!-- Permission to read notes. -->
-    <string name="oi_notepad_permission_read">legir las nòtas</string>
-    <string name="oi_notepad_permission_read_descr">Allows an application to read notes. Note that encrypted notes are provided in the encrypted format.</string>
-	<!-- Permission to write notes. -->
-    <string name="oi_notepad_permission_write">escriure de nòtas</string>
-    <string name="oi_notepad_permission_write_descr">Permet a una aplicacion de crear de nòtas novèlas o de modificar las nòtas.</string>
-    
-	<!-- OI Shopping list -->
-	<!-- Permission to read shopping lists. -->
-    <string name="oi_shopping_permission_read">Legir las listas de crompas</string>
-    <string name="oi_shopping_permission_read_descr">Allows an application to read shopping lists. Note that encrypted lists and items are provided in the encrypted format.</string>
-	<!-- Permission to write shopping lists. -->
-    <string name="oi_shopping_permission_write">Escriure las listas de crompas</string>
-    <string name="oi_shopping_permission_write_descr">Permet a una aplicacion de crear de listas novèlas e d\'articles o modificar los qu\'existisson.</string>
-    
-	<!-- OI Safe -->
-	<!-- Permission to encrypt and decrypt data. -->
-	<string name="oi_safe_permission_intents">chifrar e deschifrar de donadas</string>
-    <string name="oi_safe_permission_intents_descr">Permet a l\'aplicacion de chifrar e deschifrar lo tèxte, los senhals e los accèsses que son emmagazinats dins OI Safe.</string>	
+  <string name="title_create">Crear una nòta</string>
+  <string name="title_edit">Modificar la nòta</string>
+  <string name="title_notes_list">OI Notepad</string>
+  <string name="title_note">Nòta</string>
+  <string name="title_edit_title">Nòta lo títol :</string>
+  <string name="title_create_file">%s (nòta novèla)</string>
+  <string name="title_edit_file">%s (modificar la nòta)</string>
+
+  <!-- Title: Pick note for shortcut (to be placed on the home screen) -->
+  <string name="title_pick_note_for_shortcut">Metre la nòte en acorchi</string>
+
+  <string name="button_ok">D\'acòrdi</string>
+
+  <string name="error_title">Error</string>
+  <string name="error_message">Error al moment del cargament de la nòta</string>
+  <!-- <string name="no_notes">Note list is empty.</string>  -->
+
+  <string name="menu_share">Share</string>
+  <string name="empty_note">Voidar la nòta</string>
+  <string name="share_not_available">No application available for sharing.</string>
+
+  <string name="encrypting_note">Chiframent de nòta</string>
+  <string name="encrypted">Chifrada</string>
+  <string name="menu_encrypt">Chifrar</string>
+  <string name="menu_decrypt">Deschifrar</string>
+  <string name="menu_undo_encryption">Anullar lo chiframent</string>
+  <string name="menu_do_not_encrypt">Chifrar pas</string>
+  <string name="already_encrypted">Ja chifrat.</string>
+  <string name="not_encrypted">Pas chifrat.</string>
+  <string name="encryption_failed">Facàs del chiframent.</string>
+  <string name="decryption_failed">Fracàs del deschiframent.</string>
+
+  <string name="menu_edit_tags">Modificar las balisas</string>
+  <string name="dropdown_hint">Tocatz per veire la lista</string>
+  <string name="tags_hint">Entratz las balisas, separadas per de virgulas</string>
+
+  <string name="menu_save_to_sdcard">Enregistrar sus carta SD</string>
+  <string name="menu_open_from_sdcard">Dobrir a partir de la carta SD</string>
+  <string name="filename">Nom del fichièr</string>
+  <string name="save">Salvar</string>
+  <string name="open">Dobrir</string>
+  <string name="error_writing_file">Error al moment de l\'escritura del fichièr</string>
+  <string name="error_reading_file">Error al moment de la lectura del fichièr</string>
+  <string name="file_not_found">Fichièr pas trobat</string>
+  <string name="note_saved">Nòta salvada</string>
+  <string name="warning_file_exists_title">Lo fichièr existís ja</string>
+  <string name="warning_file_exists_message">Sètz segur que volètz espotir lo fichièr existent ?</string>
+
+  <string name="menu_word_count">Word count</string>
+  <plurals name="word_count">
+    <item quantity="one">One word.</item>
+    <item quantity="other">%d words.</item>
+  </plurals>
+
+  <!-- Menu command to import the currently open note (that has been opened from SD card) into the internal list of notes. -->
+  <string name="menu_import">Importar</string>
+  <string name="menu_save">Salvar</string>
+  <string name="menu_save_as">Enregistrar jos</string>
+  <string name="warning_unsaved_changes_title">Tèxte modificat</string>
+  <string name="warning_unsaved_changes_message">Volètz enregistrar las modificacions ?</string>
+  <string name="button_save">Salvar</string>
+  <string name="button_dont_save">Enregistrar pas</string>
+
+  <string name="menu_theme">Tèma</string>
+  <string name="theme_pick">Causissètz un tèma</string>
+  <string name="theme_default">Per defaut</string>
+  <string name="theme_monospaced">Poliça monospace</string>
+  <string name="theme_serif">Poliça serif</string>
+
+  <!-- Search -->
+  <string name="menu_search">Recercar</string>
+  <string name="search_query_results">OI Notepad</string>
+  <!-- %s is the search string -->
+  <string name="search_found_no_results">Cap de resultat pas trobat per %s.</string>
+  <string name="search_label">Recèrca OI Notepad</string>
+  <string name="search_hint">Recercar</string>
+
+  <!-- The description that will show up in the search settings for this source.  -->
+  <string name="search_settings_description">Títol de vòstras nòtas</string>
+
+  <!--     Dialog box    -->
+  <string name="ok">D\'acòrdi</string>
+  <string name="cancel">Anullar</string>
+  <string name="use_theme_for_all_lists">Utilizar aqueste tèma per totas las listas</string>
+  <string name="get_more_themes">Aver mai de tèmas</string>
+
+  <string name="all_notes">Totas las nòtas</string>
+
+  <!-- Settings -->
+  <!-- Title for settings regarding the list of notes -->
+  <string name="noteslist_preferences">Lista de las Nòtas</string>
+  <string name="preference_sortorder_title">Lista de l\'òrdre de triada</string>
+  <string name="preference_sortorder_dialog_title">Lista de l\'òrdre de triada</string>
+  <string name="preference_sortorder_summary">L\'òrdre dins lo qual las nòtas son afichadas dins la lista de nòtas</string>
+  <string name="preference_marquee_title">Marquee note titles.</string>
+  <string name="preference_marquee_summary">Continuously scroll note titles that are too long.</string>
+
+  <string name="note_editor_preferences">Editor de nòta</string>
+  <string name="preference_fontsize">Talha de la poliça</string>
+  <string name="preference_fontsize_summary">Cambiar la talha de la poliça</string>
+  <string name="preference_fontsize_dialog_title">Causir la talha de  la poliça</string>
+  <string name="preference_autolink_title">Autocrear de ligams</string>
+  <string name="preference_autolink_summary_on">Crear de ligams pels numèros de telefòn/email/carrièra/adreças internet</string>
+  <string name="preference_autolink_summary_off">Cear pas de ligams sus las nòtas</string>
+  <string name="preference_charcount_title">Character count</string>
+  <string name="preference_charcount_summary_on">Show character count in editor</string>
+  <string name="preference_charcount_summary_off">Do not show character count in editor</string>
+
+  <string name="settings">Paramètres</string>
+  <string name="settings_sortorder">Òrdre de triada</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Notepad -->
+  <!-- Permission to read notes. -->
+  <string name="oi_notepad_permission_read">legir las nòtas</string>
+  <string name="oi_notepad_permission_read_descr">Allows an application to read notes. Note that encrypted notes are provided in the encrypted format.</string>
+  <!-- Permission to write notes. -->
+  <string name="oi_notepad_permission_write">escriure de nòtas</string>
+  <string name="oi_notepad_permission_write_descr">Permet a una aplicacion de crear de nòtas novèlas o de modificar las nòtas.</string>
+
+  <!-- OI Shopping list -->
+  <!-- Permission to read shopping lists. -->
+  <string name="oi_shopping_permission_read">Legir las listas de crompas</string>
+  <string name="oi_shopping_permission_read_descr">Allows an application to read shopping lists. Note that encrypted lists and items are provided in the encrypted format.</string>
+  <!-- Permission to write shopping lists. -->
+  <string name="oi_shopping_permission_write">Escriure las listas de crompas</string>
+  <string name="oi_shopping_permission_write_descr">Permet a una aplicacion de crear de listas novèlas e d\'articles o modificar los qu\'existisson.</string>
+
+  <!-- OI Safe -->
+  <!-- Permission to encrypt and decrypt data. -->
+  <string name="oi_safe_permission_intents">chifrar e deschifrar de donadas</string>
+  <string name="oi_safe_permission_intents_descr">Permet a l\'aplicacion de chifrar e deschifrar lo tèxte, los senhals e los accèsses que son emmagazinats dins OI Safe.</string>
 
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- ***************************
+       Preferences
+       *************************** -->
 
-	<!-- sort order -->
-    <string-array name="preference_sortorder_entries">
-        <item>Alfabetic</item>
-        <item>Inversar l\'òrdre alfabetic</item>
-        <item>Last Modified</item>
-        <item>First Modified</item>
-        <item>Del mai recent al mai ancian</item>  
-        <item>Del mai ancian al mai recent</item>
-    </string-array>
+  <!-- sort order -->
+  <string-array name="preference_sortorder_entries">
+    <item>Alfabetic</item>
+    <item>Inversar l\'òrdre alfabetic</item>
+    <item>Last Modified</item>
+    <item>First Modified</item>
+    <item>Del mai recent al mai ancian</item>
+    <item>Del mai ancian al mai recent</item>
+  </string-array>
 
-    <string-array name="preference_fontsize_entries">
-    	<!-- Preference fontsize: tiny font size -->
-        <item>Minuscul</item>
-    	<!-- Preference fontsize: small font size -->
-        <item>Pichon</item>
-    	<!-- Preference fontsize: default font size-->
-    	<item>Per defaut</item>
-    	<!-- Preference fontsize: large font size -->
-        <item>Grand</item>
-    </string-array>
+  <string-array name="preference_fontsize_entries">
+    <!-- Preference fontsize: tiny font size -->
+    <item>Minuscul</item>
+    <!-- Preference fontsize: small font size -->
+    <item>Pichon</item>
+    <!-- Preference fontsize: default font size-->
+    <item>Per defaut</item>
+    <!-- Preference fontsize: large font size -->
+    <item>Grand</item>
+  </string-array>
 
-    <string name="preference_addons">Empeutons</string>
-    <string name="preference_get_addons">Obténer d\'empeutons novèls</string>
-    <string name="preference_get_addons_summary">Recercar d\'extensions e de tèmas en linha.</string>
-    <string name="preference_get_market_addons">Obténer d\'ensèrts dempuèi lo Market.</string>
-    <string name="preference_get_developer_addons">Obténer d\'ensèrts dempuèi OpenIntents</string>
-    <string name="preference_extensions">Extensions</string>
-    <string name="preference_themes">Tèmas</string>
-    <string name="preference_market_extensions_summary">Recercar d\'extensions sus l\'Android Market</string>
-    <string name="preference_market_themes_summary">Recercar de tèmas sus l\'Android Market.</string>
-    <string name="preference_developer_extensions_summary">Obténer d\'extensions dempuèi lo site d\'OpenIntents</string>
-	<string name="preference_developer_themes_summary">Obténer de tèmas dempuèi la pagina internet d\'OpenIntents</string>
-	<string name="confirm_delete_title">Deletion Confirmation</string>
-	<string name="confirm_delete">Are you sure you want to delete this note?</string>
-	
-	<string name="new_note">New note</string>
+  <string name="preference_addons">Empeutons</string>
+  <string name="preference_get_addons">Obténer d\'empeutons novèls</string>
+  <string name="preference_get_addons_summary">Recercar d\'extensions e de tèmas en linha.</string>
+  <string name="preference_get_market_addons">Obténer d\'ensèrts dempuèi lo Market.</string>
+  <string name="preference_get_developer_addons">Obténer d\'ensèrts dempuèi OpenIntents</string>
+  <string name="preference_extensions">Extensions</string>
+  <string name="preference_themes">Tèmas</string>
+  <string name="preference_market_extensions_summary">Recercar d\'extensions sus l\'Android Market</string>
+  <string name="preference_market_themes_summary">Recercar de tèmas sus l\'Android Market.</string>
+  <string name="preference_developer_extensions_summary">Obténer d\'extensions dempuèi lo site d\'OpenIntents</string>
+  <string name="preference_developer_themes_summary">Obténer de tèmas dempuèi la pagina internet d\'OpenIntents</string>
+  <string name="confirm_delete_title">Deletion Confirmation</string>
+  <string name="confirm_delete">Are you sure you want to delete this note?</string>
+
+  <string name="new_note">New note</string>
 </resources>

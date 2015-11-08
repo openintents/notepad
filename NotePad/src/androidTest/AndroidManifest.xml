@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.openintents.notepad.test"
-    android:versionCode="1"
-    android:versionName="1.0" >
+  package="org.openintents.notepad.test"
+  android:versionCode="1"
+  android:versionName="1.0">
 
-    <uses-sdk android:targetSdkVersion="15" android:minSdkVersion="3" />
+  <uses-sdk
+    android:minSdkVersion="3"
+    android:targetSdkVersion="15" />
 
-    <instrumentation
-        android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="org.openintents.notepad" />
+  <instrumentation
+    android:name="android.test.InstrumentationTestRunner"
+    android:targetPackage="org.openintents.notepad" />
 
-    <application
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
-        <uses-library android:name="android.test.runner" />
-    </application>
+  <application
+    android:icon="@drawable/ic_launcher"
+    android:label="@string/app_name">
+    <uses-library android:name="android.test.runner" />
+  </application>
 
-    <!-- Instrumentation for Jenkins server -->
-    <instrumentation
-       android:targetPackage="org.openintents.notepad"
-       android:name="pl.polidea.instrumentation.PolideaInstrumentationTestRunner" />
+  <!-- Instrumentation for Jenkins server -->
+  <instrumentation
+    android:name="pl.polidea.instrumentation.PolideaInstrumentationTestRunner"
+    android:targetPackage="org.openintents.notepad" />
 </manifest>
