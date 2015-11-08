@@ -1004,7 +1004,14 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     i.putExtra(PrivateNotePadIntents.EXTRA_ID, id);
 
                     try {
-                        startActivityForResult(i, REQUEST_CODE_DECRYPT);
+                        if (checkCallingOrSelfPermission(CryptoIntents.PERMISSION_SAFE_ACCESS_INTENTS) == PackageManager.PERMISSION_GRANTED) {
+                            startActivityForResult(i, REQUEST_CODE_DECRYPT);
+                        } else {
+                            Toast.makeText(
+                                    this, R.string.decryption_failed_due_to_permissions,
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
                     } catch (ActivityNotFoundException e) {
                         Toast.makeText(
                                 this, R.string.decryption_failed,

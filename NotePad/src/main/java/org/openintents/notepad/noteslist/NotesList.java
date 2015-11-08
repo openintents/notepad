@@ -1136,7 +1136,13 @@ public class NotesList extends DistributionLibraryListActivity implements
                 intent.putExtra(CryptoIntents.EXTRA_PROMPT, true);
 
                 try {
-                    startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
+                    if (checkCallingOrSelfPermission(CryptoIntents.PERMISSION_SAFE_ACCESS_INTENTS) == PackageManager.PERMISSION_GRANTED) {
+                        startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
+                    } else {
+                        mDecryptionFailed = true;
+                        showDialog(DIALOG_PERMISSION_FAILURE);
+                        Log.e(TAG, "failed to invoke decrypt due to permissions");
+                    }
                 } catch (ActivityNotFoundException e) {
                     mDecryptionFailed = true;
 
@@ -1145,7 +1151,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 					 * Toast.LENGTH_SHORT).show();
 					 */
                     showDialog(DIALOG_GET_FROM_MARKET);
-                    Log.e(TAG, "failed to invoke encrypt");
+                    Log.e(TAG, "failed to invoke decrypt");
                 }
                 return;
             }
