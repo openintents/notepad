@@ -8,8 +8,8 @@ android {
         applicationId "org.openintents.notepad"
         minSdkVersion 9
         targetSdkVersion 22
-        versionCode 10083
-        versionName "1.5.3"
+        versionCode 10084
+        versionName "1.5.4"
     }
 
     lintOptions {
