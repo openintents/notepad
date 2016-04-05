@@ -101,7 +101,7 @@ public class SaveFileActivity extends Activity {
             // start new activity
             final Intent intent = getIntent();
             final Uri uri = intent.getData();
-            Uri fileUri = null;
+            Uri fileUri;
             if (uri != null) {
                 if (uri.getScheme().equals("file")) {
                     // Save file provided in extras

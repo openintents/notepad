@@ -686,7 +686,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             Reader in = new InputStreamReader(inputStream, "UTF-8");
 
             char[] buffer = new char[40960];
-            int len = 0;
+            int len;
             while ((len = in.read(buffer)) != -1) {
                 sb.append(buffer, 0, len);
             }
@@ -901,7 +901,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
             // This always has to be available
             long id = mCursor.getLong(mCursor.getColumnIndex(Notes._ID));
-            String note = "";
+            String note;
 
             if (mState == STATE_EDIT_EXTERNAL_NOTE) {
                 // Check if the other columns are available
@@ -1067,7 +1067,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         if (mOriginalContent != null && !mOriginalContent.equals(mFileContent)) {
             modified = "* ";
         }
-        String filename = null;
+        String filename;
         if (mUri == null && mOneCloudData != null) {
             filename = mOneCloudData.getFileName();
         } else {
@@ -1747,9 +1747,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             endPos = mSelectionStop;
         }
         int newStartPos = startPos;
-        int newEndPos = endPos;
+        int newEndPos;
         ContentValues values = new ContentValues();
-        String newNote = "";
+        String newNote;
         StringBuffer sb = new StringBuffer();
         if (textBefore != null) {
             sb.append(textBefore);
@@ -1813,7 +1813,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
         mFileContent = mText.getText().toString();
 
-        Uri newUri = null;
+        Uri newUri;
 
         // Let's check whether the exactly same note already exists or not:
         Cursor c = getContentResolver().query(

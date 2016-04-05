@@ -195,7 +195,7 @@ public class EncryptActivity extends Activity {
 
                     String uristring = data
                             .getStringExtra(PrivateNotePadIntents.EXTRA_URI);
-                    Uri uri = null;
+                    Uri uri;
                     if (uristring != null) {
                         uri = Uri.parse(uristring);
                     } else {

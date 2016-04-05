@@ -258,7 +258,7 @@ public class NotesListCursor extends OpenMatrixCursor {
                 }
             }
 
-            boolean addrow = false;
+            boolean addrow;
 
             if (TextUtils.isEmpty(mCurrentFilter)
                     && TextUtils.isEmpty(mSelectedTag)) {

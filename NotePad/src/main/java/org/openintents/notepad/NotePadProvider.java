@@ -218,7 +218,7 @@ public class NotePadProvider extends ContentProvider {
     public int delete(Uri uri, String where, String[] whereArgs) {
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         int count;
-        long[] affectedRows = null;
+        long[] affectedRows;
         switch (sUriMatcher.match(uri)) {
             case NOTES:
                 affectedRows = ProviderUtils.getAffectedRows(
