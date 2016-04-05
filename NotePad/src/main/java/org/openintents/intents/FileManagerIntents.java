@@ -26,6 +26,8 @@ package org.openintents.intents;
  */
 public final class FileManagerIntents {
 
+    private FileManagerIntents() {}
+
     /**
      * Activity Action: Pick a file through the file manager, or let user
      * specify a custom file name. Data is the current file name or file name

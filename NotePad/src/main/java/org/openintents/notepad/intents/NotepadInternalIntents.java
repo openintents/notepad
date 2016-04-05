@@ -2,6 +2,8 @@ package org.openintents.notepad.intents;
 
 public class NotepadInternalIntents {
 
+    private NotepadInternalIntents() {}
+
     /**
      * Activity action: Save note to SD card.
      * <p/>

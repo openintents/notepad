@@ -22,6 +22,8 @@ package org.openintents.intents;
  */
 public class CryptoIntents {
 
+    private CryptoIntents() {}
+
     /**
      * Activity Action: Encrypt all strings given in the extra(s) EXTRA_TEXT or
      * EXTRA_TEXT_ARRAY. Returns all encrypted string in the same extra(s).

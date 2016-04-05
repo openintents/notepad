@@ -40,6 +40,9 @@ import org.xmlpull.v1.XmlPullParserException;
  * @author Peli
  */
 public class ThemeUtils {
+
+    private ThemeUtils() {}
+
     public static final String METADATA_THEMES = "org.openintents.themes";
     public static final String ELEM_THEMES = "themes";
     public static final String ELEM_ATTRIBUTESET = "attributeset";

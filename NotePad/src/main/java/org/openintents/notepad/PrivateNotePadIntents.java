@@ -2,6 +2,8 @@ package org.openintents.notepad;
 
 public class PrivateNotePadIntents {
 
+    private PrivateNotePadIntents() {}
+
     /*
      * Content Provider ID. Private extra that is passed along with an ENCRYPT
      * or DECRYPT intent.

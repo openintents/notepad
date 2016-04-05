@@ -2,6 +2,8 @@ package org.openintents.notepad.util;
 
 public class ExtractTitle {
 
+    private ExtractTitle() {}
+
     public static final String extractTitle(String text) {
         int length = text.length();
         String title = text.substring(0, Math.min(30, length));

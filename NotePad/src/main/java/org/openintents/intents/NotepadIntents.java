@@ -8,6 +8,8 @@ package org.openintents.intents;
  */
 public class NotepadIntents {
 
+    private NotepadIntents() {}
+
     /**
      * The text currently selected, if used with
      * CATEGORY_TEXT_SELECTION_ALTERNATIVE.

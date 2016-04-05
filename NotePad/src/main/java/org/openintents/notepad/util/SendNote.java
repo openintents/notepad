@@ -8,6 +8,9 @@ import android.widget.Toast;
 import org.openintents.notepad.R;
 
 public class SendNote {
+
+    private SendNote() {}
+
     public static void sendNote(Activity from, String title, String content) {
         Intent i = new Intent();
         i.setAction(Intent.ACTION_SEND);

@@ -26,6 +26,8 @@ import java.io.File;
  */
 public class FileUriUtils {
 
+    private FileUriUtils() {}
+
     /**
      * Convert File into Uri.
      *
