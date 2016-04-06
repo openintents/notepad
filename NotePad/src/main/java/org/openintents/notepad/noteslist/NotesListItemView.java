@@ -39,7 +39,7 @@ public class NotesListItemView extends LinearLayout {
     @Override
     public boolean hasFocus() {
         // TODO Auto-generated method stub
-        if (PreferenceActivity.getMarqueeFromPrefs(mContext) == true) {
+        if (PreferenceActivity.getMarqueeFromPrefs(mContext)) {
             mTitle.setEllipsize(TextUtils.TruncateAt.MARQUEE);
             mTitle.setMarquee(true);
         } else {

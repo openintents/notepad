@@ -163,15 +163,15 @@ public class NotePadProvider extends ContentProvider {
         Long now = Long.valueOf(System.currentTimeMillis());
 
         // Make sure that the fields are all set
-        if (values.containsKey(NotePad.Notes.CREATED_DATE) == false) {
+        if (!values.containsKey(NotePad.Notes.CREATED_DATE)) {
             values.put(NotePad.Notes.CREATED_DATE, now);
         }
 
-        if (values.containsKey(NotePad.Notes.MODIFIED_DATE) == false) {
+        if (!values.containsKey(NotePad.Notes.MODIFIED_DATE)) {
             values.put(NotePad.Notes.MODIFIED_DATE, now);
         }
 
-        if (values.containsKey(NotePad.Notes.TITLE) == false) {
+        if (!values.containsKey(NotePad.Notes.TITLE)) {
             Resources r = Resources.getSystem();
             values.put(
                     NotePad.Notes.TITLE,
@@ -179,19 +179,19 @@ public class NotePadProvider extends ContentProvider {
             );
         }
 
-        if (values.containsKey(NotePad.Notes.NOTE) == false) {
+        if (!values.containsKey(NotePad.Notes.NOTE)) {
             values.put(NotePad.Notes.NOTE, "");
         }
 
-        if (values.containsKey(Notes.SELECTION_START) == false) {
+        if (!values.containsKey(Notes.SELECTION_START)) {
             values.put(Notes.SELECTION_START, 0);
         }
 
-        if (values.containsKey(Notes.SELECTION_END) == false) {
+        if (!values.containsKey(Notes.SELECTION_END)) {
             values.put(Notes.SELECTION_END, 0);
         }
 
-        if (values.containsKey(Notes.SCROLL_POSITION) == false) {
+        if (!values.containsKey(Notes.SCROLL_POSITION)) {
             values.put(Notes.SCROLL_POSITION, 0.0);
         }
 

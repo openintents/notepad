@@ -96,9 +96,8 @@ public class NotesListCursorAdapter extends CursorAdapter {
 		 * Notes.DEFAULT_SORT_ORDER);
 		 */
 
-        Cursor cursor = mCursorUtils.query(constraint, tag);
+        return mCursorUtils.query(constraint, tag);
 
-        return cursor;
     }
 
 }
