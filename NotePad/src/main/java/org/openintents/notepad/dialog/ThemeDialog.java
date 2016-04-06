@@ -225,12 +225,10 @@ public class ThemeDialog extends AlertDialog implements OnClickListener,
 
         String theme = getSelectedTheme();
 
-        if (savedInstanceState != null) {
-            if (savedInstanceState.containsKey(BUNDLE_THEME)) {
-                theme = savedInstanceState.getString(BUNDLE_THEME);
+        if (savedInstanceState != null && savedInstanceState.containsKey(BUNDLE_THEME)) {
+            theme = savedInstanceState.getString(BUNDLE_THEME);
 
-                Log.d(TAG, "onRestore theme " + theme);
-            }
+            Log.d(TAG, "onRestore theme " + theme);
         }
 
         mListener.onSetTheme(theme);

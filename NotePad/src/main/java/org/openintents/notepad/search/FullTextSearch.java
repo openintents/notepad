@@ -93,11 +93,11 @@ public class FullTextSearch {
 
     private static Object[] columnValues(long id, String text, String tag,
                                          Uri uri) {
-        return new String[]{"" + id, // _id
+        return new String[]{Long.toString(id), // _id
                 text, // text1
                 tag, // text2
                 uri.toString(), // intent_data (included when clicking on item)
-                "" + id // shortcut ID for validating shortcuts.
+                Long.toString(id) // shortcut ID for validating shortcuts.
         };
     }
 }

@@ -1120,41 +1120,39 @@ public class NotesList extends DistributionLibraryListActivity implements
         String title = c.getString(NotesListCursor.COLUMN_INDEX_TITLE);
         // Log.i(TAG, "title: " + title);
 
-        if (encrypted != 0) {
-            if (!TextUtils.isEmpty(encryptedTitle)) {
-                // Try to decrypt first
-                // Log.i(TAG, "Decrypt first");
+        if (encrypted != 0 && !TextUtils.isEmpty(encryptedTitle)) {
+            // Try to decrypt first
+            // Log.i(TAG, "Decrypt first");
 
-                Intent intent = new Intent();
-                intent.setAction(CryptoIntents.ACTION_DECRYPT);
-                intent.putExtra(CryptoIntents.EXTRA_TEXT, encryptedTitle);
-                intent.putExtra(
-                        PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT,
-                        encryptedTitle
-                );
+            Intent intent = new Intent();
+            intent.setAction(CryptoIntents.ACTION_DECRYPT);
+            intent.putExtra(CryptoIntents.EXTRA_TEXT, encryptedTitle);
+            intent.putExtra(
+                    PrivateNotePadIntents.EXTRA_ENCRYPTED_TEXT,
+                    encryptedTitle
+            );
 
-                intent.putExtra(CryptoIntents.EXTRA_PROMPT, true);
+            intent.putExtra(CryptoIntents.EXTRA_PROMPT, true);
 
-                try {
-                    if (checkCallingOrSelfPermission(CryptoIntents.PERMISSION_SAFE_ACCESS_INTENTS) == PackageManager.PERMISSION_GRANTED) {
-                        startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
-                    } else {
-                        mDecryptionFailed = true;
-                        showDialog(DIALOG_PERMISSION_FAILURE);
-                        Log.e(TAG, "failed to invoke decrypt due to permissions");
-                    }
-                } catch (ActivityNotFoundException e) {
+            try {
+                if (checkCallingOrSelfPermission(CryptoIntents.PERMISSION_SAFE_ACCESS_INTENTS) == PackageManager.PERMISSION_GRANTED) {
+                    startActivityForResult(intent, REQUEST_CODE_DECRYPT_TITLE);
+                } else {
                     mDecryptionFailed = true;
+                    showDialog(DIALOG_PERMISSION_FAILURE);
+                    Log.e(TAG, "failed to invoke decrypt due to permissions");
+                }
+            } catch (ActivityNotFoundException e) {
+                mDecryptionFailed = true;
 
 					/*
 					 * Toast.makeText(this, R.string.decryption_failed,
 					 * Toast.LENGTH_SHORT).show();
 					 */
-                    showDialog(DIALOG_GET_FROM_MARKET);
-                    Log.e(TAG, "failed to invoke decrypt");
-                }
-                return;
+                showDialog(DIALOG_GET_FROM_MARKET);
+                Log.e(TAG, "failed to invoke decrypt");
             }
+            return;
         }
 
         Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
