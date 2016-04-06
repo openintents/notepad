@@ -51,7 +51,7 @@ public class ThemeUtils {
     public static final String ATTR_STYLE = "style";
     private static final String TAG = "ThemeUtils";
     private static final boolean debug = false;
-    public static String SCHEMA = "http://schemas.openintents.org/android/themes";
+    public static final String SCHEMA = "http://schemas.openintents.org/android/themes";
 
     public static int[] getAttributeIds(Context context, String[] attrNames,
                                         String packageName) {

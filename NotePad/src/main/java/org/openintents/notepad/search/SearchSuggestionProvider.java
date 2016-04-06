@@ -51,7 +51,7 @@ public class SearchSuggestionProvider extends ContentProvider {
             SearchManager.SUGGEST_COLUMN_TEXT_2,
             SearchManager.SUGGEST_COLUMN_INTENT_DATA,
             SearchManager.SUGGEST_COLUMN_SHORTCUT_ID};
-    public static String AUTHORITY = "org.openintents.notepad.search.SuggestionProvider";
+    public static final String AUTHORITY = "org.openintents.notepad.search.SuggestionProvider";
     private static final UriMatcher sURIMatcher = buildUriMatcher();
 
     /**
