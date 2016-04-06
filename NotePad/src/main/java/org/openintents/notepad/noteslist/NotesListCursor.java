@@ -22,7 +22,7 @@ import org.openintents.notepad.util.OpenMatrixCursor;
 public class NotesListCursor extends OpenMatrixCursor {
 
     private static final String TAG = "NotesListCursor";
-    private static final boolean debug = false;
+    private static final boolean DEBUG = false;
 
     static final String TITLE_DECRYPTED = "title_decrypted";
     static final String TAGS_DECRYPTED = "tags_decrypted";
@@ -113,12 +113,12 @@ public class NotesListCursor extends OpenMatrixCursor {
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "NoteListCursor changed: " + selfChange);
             }
 
             if (!mSuspendQueries) {
-                if (debug) {
+                if (DEBUG) {
                     Log.d(TAG, "NoteListCursor requery()");
                 }
                 requery();
@@ -180,7 +180,7 @@ public class NotesListCursor extends OpenMatrixCursor {
         // Register content observer
         mDbCursor.registerContentObserver(mContentObserver);
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "Cursor count: " + mDbCursor.getCount());
         }
 
@@ -208,12 +208,12 @@ public class NotesListCursor extends OpenMatrixCursor {
                 String titleDecrypted = mEncryptedStringHashMap.get(title);
 
                 if (titleDecrypted != null) {
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(TAG, "got title: " + titleDecrypted);
                     }
                     title = titleDecrypted;
                 } else {
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(TAG, "decrypt title later.");
                     }
                     // decrypt later
@@ -229,12 +229,12 @@ public class NotesListCursor extends OpenMatrixCursor {
                 if (tags != null) {
                     String tagsDecrypted = mEncryptedStringHashMap.get(tags);
                     if (tagsDecrypted != null) {
-                        if (debug) {
+                        if (DEBUG) {
                             Log.d(TAG, "got tags: " + tagsDecrypted);
                         }
                         tags = tagsDecrypted;
                     } else {
-                        if (debug) {
+                        if (DEBUG) {
                             Log.d(TAG, "decrypt tags later.");
                         }
                         // decrypt later
@@ -249,7 +249,7 @@ public class NotesListCursor extends OpenMatrixCursor {
                 }
 
                 if (!mLoggedIn) {
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(TAG, "not logged in.");
                     }
                     // suppress all decrypted output
@@ -265,7 +265,7 @@ public class NotesListCursor extends OpenMatrixCursor {
                 // Add all rows if there is no filter.
                 addrow = true;
             } else if (skipEncrypted) {
-                if (debug) {
+                if (DEBUG) {
                     Log.d(TAG, "skipEncrypted)");
                 }
                 addrow = false;
@@ -354,7 +354,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 
     @Override
     public void close() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "Close NotesListCursor");
         }
         super.close();
@@ -362,7 +362,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 
     @Override
     public void deactivate() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "Deactivate NotesListCursor");
         }
         if (mDbCursor != null) {
@@ -373,7 +373,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 
     @Override
     protected void finalize() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "Finalize NotesListCursor");
         }
 

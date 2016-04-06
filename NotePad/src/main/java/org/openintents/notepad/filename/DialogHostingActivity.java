@@ -29,13 +29,13 @@ public class DialogHostingActivity extends Activity {
     public static final String EXTRA_DIALOG_ID = "org.openintents.notepad.extra.dialog_id";
     public static final String EXTRA_FILENAME = "org.openintents.notepad.extra.filename";
     private static final String TAG = "FilenameActivity";
-    private static final boolean debug = false;
+    private static final boolean DEBUG = false;
     EditText mEditText;
     String mFilename;
     OnFilenamePickedListener mFilenamePickedListener = new OnFilenamePickedListener() {
 
         public void onFilenamePicked(String filename) {
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "Filename picked: " + filename);
             }
 
@@ -50,7 +50,7 @@ public class DialogHostingActivity extends Activity {
     OnFilenamePickedListener mFilenamePickedForUploadListener = new OnFilenamePickedListener() {
 
         public void onFilenamePicked(String filename) {
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "Filename picked: " + filename);
             }
 
@@ -70,11 +70,11 @@ public class DialogHostingActivity extends Activity {
     OnDismissListener mDismissListener = new OnDismissListener() {
 
         public void onDismiss(DialogInterface dialoginterface) {
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "Dialog dismissed. Pausing: " + mIsPausing);
             }
             if (!mIsPausing) {
-                if (debug) {
+                if (DEBUG) {
                     Log.d(TAG, "finish");
                 }
                 // Dialog has been dismissed by user.
@@ -93,31 +93,31 @@ public class DialogHostingActivity extends Activity {
 
         Intent i = getIntent();
         if (i != null && savedInstanceState == null) {
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "new dialog");
             }
             int dialogId = i.getIntExtra(EXTRA_DIALOG_ID, 0);
             switch (dialogId) {
                 case DIALOG_ID_SAVE:
-                    if (debug) {
+                    if (DEBUG) {
                         Log.i(TAG, "Show Save dialog");
                     }
                     saveFile();
                     break;
                 case DIALOG_ID_OPEN:
-                    if (debug) {
+                    if (DEBUG) {
                         Log.i(TAG, "Show Open dialog");
                     }
                     openFile();
                     break;
                 case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
-                    if (debug) {
+                    if (DEBUG) {
                         Log.i(TAG, "Show no file manager dialog");
                     }
                     showDialog(DIALOG_ID_NO_FILE_MANAGER_AVAILABLE);
                     break;
                 case DIALOG_ID_UPLOAD:
-                    if (debug) {
+                    if (DEBUG) {
                         Log.i(TAG, "Show Save dialog");
                     }
                     uploadFile();
@@ -254,20 +254,20 @@ public class DialogHostingActivity extends Activity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onSaveInstanceState");
         }
         // It is important to set mIsPausing here, so that
         // the dialog does not get closed on orientation changes.
         mIsPausing = true;
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onSaveInstanceState. Pausing: " + mIsPausing);
         }
     }
 
     @Override
     protected void onResume() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onResume");
         }
         super.onResume();

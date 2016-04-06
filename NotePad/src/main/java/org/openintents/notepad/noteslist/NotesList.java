@@ -98,7 +98,7 @@ public class NotesList extends DistributionLibraryListActivity implements
         ListView.OnScrollListener, OnDismissListener {
     public static final String PREFS_NAME = "NotesListPrefs";
     private static final String TAG = "NotesList";
-    private static final boolean debug = false;
+    private static final boolean DEBUG = false;
     // Menu item ids
     private static final int MENU_ITEM_DELETE = Menu.FIRST;
     private static final int MENU_ITEM_INSERT = Menu.FIRST + 1;
@@ -151,7 +151,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
 
         public void onReceive(Context context, Intent intent) {
-            if (debug) {
+            if (DEBUG) {
                 Log.i(TAG, "flush decrypted data");
             }
             NotesListCursor.flushDecryptedStringHashMap();
@@ -167,7 +167,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(
                     TAG, "onCreate() "
                             + (savedInstanceState == null ? "(no bundle)"
@@ -364,7 +364,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onResume()");
         }
         NotesListCursor.mSuspendQueries = false;
@@ -383,7 +383,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 
         if (mDecryptionSucceeded) {
             NotesListCursor.mLoggedIn = true;
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "onResume: logged in");
             }
         }
@@ -454,7 +454,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     }
 
     protected void updateQuery() {
-        if (debug) {
+        if (DEBUG) {
             Log.i(TAG, "updateQuery: Lastfilter: " + mLastFilter + ", mSelectedTag: " + mSelectedTag);
         }
 
@@ -488,7 +488,7 @@ public class NotesList extends DistributionLibraryListActivity implements
         // After unregistering broadcastreceiver, the logged in state is not
         // clear.
         NotesListCursor.mLoggedIn = false;
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onPause: logged out");
         }
 
@@ -503,7 +503,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     @Override
     protected void onStop() {
         super.onStop();
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onStop()");
         }
 
@@ -574,7 +574,7 @@ public class NotesList extends DistributionLibraryListActivity implements
         // actions found here, but this allows other applications to extend
         // our menu with their own actions.
         Intent intent = new Intent(null, getIntent().getData());
-        if (debug) {
+        if (DEBUG) {
             Log.i(TAG, "Building options menu for: " + intent.getDataString());
         }
         intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
@@ -810,10 +810,10 @@ public class NotesList extends DistributionLibraryListActivity implements
             content = c.getString(1);
         }
 
-        if (debug) {
+        if (DEBUG) {
             Log.i(TAG, "Title to send: " + title);
         }
-        if (debug) {
+        if (DEBUG) {
             Log.i(TAG, "Content to send: " + content);
         }
         SendNote.sendNote(this, title, content);
@@ -1030,7 +1030,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 
     @Override
     protected void onPrepareDialog(int id, Dialog dialog) {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onPrepareDialog()");
         }
 
@@ -1195,7 +1195,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent intent) {
-        if (debug) {
+        if (DEBUG) {
             Log.i(
                     TAG, "Received requestCode " + requestCode + ", resultCode "
                             + resultCode
@@ -1219,7 +1219,7 @@ public class NotesList extends DistributionLibraryListActivity implements
                                 decryptedText
                         );
 
-                        if (debug) {
+                        if (DEBUG) {
                             Log.i(
                                     TAG, "Decrypted: " + encryptedText + " -> "
                                             + decryptedText
@@ -1228,7 +1228,7 @@ public class NotesList extends DistributionLibraryListActivity implements
                     }
                     mDecryptionSucceeded = true;
                     NotesListCursor.mLoggedIn = true;
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(TAG, "onActivity: logged in");
                     }
 
@@ -1293,7 +1293,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     }
 
     private void saveFile(Uri uri, File file) {
-        if (debug) {
+        if (DEBUG) {
             Log.i(TAG, "Saving file: uri: " + uri + ", file: " + file);
         }
         Cursor c = getContentResolver().query(
@@ -1307,14 +1307,14 @@ public class NotesList extends DistributionLibraryListActivity implements
             String note = c.getString(1);
             if (encrypted == 0) {
                 // Save to file
-                if (debug) {
+                if (DEBUG) {
                     Log.d(TAG, "Save unencrypted file.");
                 }
                 writeToFile(file, note);
             } else {
                 // decrypt first, then save to file
 
-                if (debug) {
+                if (DEBUG) {
                     Log.d(TAG, "Save encrypted file.");
                 }
             }

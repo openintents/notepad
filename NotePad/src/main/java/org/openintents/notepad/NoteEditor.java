@@ -114,7 +114,7 @@ import org.openintents.util.UpperCaseTransformationMethod;
  */
 public class NoteEditor extends Activity implements ThemeDialogListener {
     private static final String TAG = "NoteEditor";
-    private static final boolean debug = false;
+    private static final boolean DEBUG = false;
 
     /**
      * Standard projection for the interesting columns of a normal note.
@@ -260,19 +260,19 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private boolean mReadOnly;
     private TextWatcher mTextWatcherSdCard = new TextWatcher() {
         public void afterTextChanged(Editable s) {
-            // if (debug) Log.d(TAG, "after");
+            // if (DEBUG) Log.d(TAG, "after");
             mFileContent = s.toString();
             updateTitleSdCard();
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count,
                                       int after) {
-            // if (debug) Log.d(TAG, "before");
+            // if (DEBUG) Log.d(TAG, "before");
         }
 
         public void onTextChanged(CharSequence s, int start, int before,
                                   int count) {
-            // if (debug) Log.d(TAG, "on");
+            // if (DEBUG) Log.d(TAG, "on");
         }
 
     };
@@ -331,7 +331,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     };
 
     public static void deleteStaticDecryptedText() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "deleting decrypted text: " + sDecryptedText);
         }
         sDecryptedText = null;
@@ -356,7 +356,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onCreate()");
         }
 
@@ -378,7 +378,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             EncryptActivity.cancelEncrypt();
 
             if (EncryptActivity.getPendingEncryptActivities() == 0) {
-                if (debug) {
+                if (DEBUG) {
                     Log.d(TAG, "sDecryptedText = null");
                 }
                 // no more encrypt activies will be called
@@ -706,11 +706,11 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     @Override
     protected void onResume() {
         super.onResume();
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onResume");
         }
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "mDecrypted: " + mDecryptedText);
         }
 
@@ -972,7 +972,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             } else {
                 if (mDecryptedText != null) {
                     // Text had already been decrypted, use that:
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(
                                 TAG, "set decrypted text as mText: "
                                         + mDecryptedText
@@ -990,7 +990,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     }
                 } else {
                     // Decrypt note
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(TAG, "Decrypt note: " + note);
                     }
 
@@ -1035,7 +1035,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     }
 
     private void getNoteFromFile() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "file: " + mFileContent);
         }
         if (mFileContent == null) {
@@ -1107,10 +1107,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onSaveInstanceState");
         }
-        // if (debug) Log.d(TAG, "file content: " + mFileContent);
+        // if (DEBUG) Log.d(TAG, "file content: " + mFileContent);
 
         // Save away the original text, so we still have it if the activity
         // needs to be killed while paused.
@@ -1118,7 +1118,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         mSelectionStop = mText.getSelectionEnd();
         mFileContent = mText.getText().toString();
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(
                     TAG, "Selection " + mSelectionStart + " - " + mSelectionStop
                             + " for text : " + mFileContent
@@ -1143,7 +1143,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     @Override
     protected void onPause() {
         super.onPause();
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "onPause");
         }
 
@@ -1275,7 +1275,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             tags = null;
         }
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "encrypt note: " + text);
         }
 
@@ -1300,7 +1300,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             // If encryption fails because one has been locked out, (another)
             // user
             // should not be able to see note again from cache.
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "using static decrypted text: " + text);
             }
             sDecryptedText = text;
@@ -1316,7 +1316,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             EncryptActivity.confirmEncryptActivityCalled();
         } else {
             // encrypt already called
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "encrypt already called");
             }
 
@@ -1642,7 +1642,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         int start = mText.getSelectionStart();
         int end = mText.getSelectionEnd();
 
-        // if (debug) Log.i(TAG, "len: " + text.length() + ", start: " + start +
+        // if (DEBUG) Log.i(TAG, "len: " + text.length() + ", start: " + start +
         // ", end: " + end);
         if (end < start) {
             int swap = end;
@@ -2026,7 +2026,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
     private boolean setRemoteStyle(String styleName, int size) {
         if (TextUtils.isEmpty(styleName)) {
-            if (debug) {
+            if (DEBUG) {
                 Log.e(TAG, "Empty style name: " + styleName);
             }
             return false;
@@ -2055,7 +2055,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         Resources res = c.getResources();
 
         int themeid = res.getIdentifier(styleName, null, null);
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "Retrieving theme: " + styleName + ", " + themeid);
         }
 
@@ -2067,8 +2067,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         try {
             ThemeAttributes ta = new ThemeAttributes(c, packageName, themeid);
 
-            mTextTypeface = ta.getString(ThemeNotepad.textTypeface);
-            if (debug) {
+            mTextTypeface = ta.getString(ThemeNotepad.TEXT_TYPEFACE);
+            if (DEBUG) {
                 Log.d(TAG, "textTypeface: " + mTextTypeface);
             }
 
@@ -2093,7 +2093,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             } else if (!TextUtils.isEmpty(mTextTypeface)) {
 
                 try {
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(
                                 TAG, "Reading typeface: package: " + packageName
                                         + ", typeface: " + mTextTypeface
@@ -2104,7 +2104,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     mCurrentTypeface = Typeface.createFromAsset(
                             remoteRes.getAssets(), mTextTypeface
                     );
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(TAG, "Result: " + mCurrentTypeface);
                     }
                 } catch (NameNotFoundException e) {
@@ -2113,16 +2113,16 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             }
 
             mTextUpperCaseFont = ta.getBoolean(
-                    ThemeNotepad.textUpperCaseFont,
+                    ThemeNotepad.TEXT_UPPER_CASE_FONT,
                     false
             );
 
             mTextColor = ta.getColor(
-                    ThemeNotepad.textColor,
+                    ThemeNotepad.TEXT_COLOR,
                     android.R.color.white
             );
 
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "textColor: " + mTextColor);
             }
 
@@ -2135,31 +2135,31 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             } else {
                 mTextSize = getTextSizeLarge(ta);
             }
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "textSize: " + mTextSize);
             }
 
             if (mText != null) {
                 mBackgroundPadding = ta.getDimensionPixelOffset(
-                        ThemeNotepad.backgroundPadding, -1
+                        ThemeNotepad.BACKGROUND_PADDING, -1
                 );
                 int backgroundPaddingLeft = ta.getDimensionPixelOffset(
-                        ThemeNotepad.backgroundPaddingLeft, mBackgroundPadding
+                        ThemeNotepad.BACKGROUND_PADDING_LEFT, mBackgroundPadding
                 );
                 int backgroundPaddingTop = ta.getDimensionPixelOffset(
-                        ThemeNotepad.backgroundPaddingTop, mBackgroundPadding
+                        ThemeNotepad.BACKGROUND_PADDING_TOP, mBackgroundPadding
                 );
                 int backgroundPaddingRight = ta
                         .getDimensionPixelOffset(
-                                ThemeNotepad.backgroundPaddingRight,
+                                ThemeNotepad.BACKGROUND_PADDING_RIGHT,
                                 mBackgroundPadding
                         );
                 int backgroundPaddingBottom = ta.getDimensionPixelOffset(
-                        ThemeNotepad.backgroundPaddingBottom,
+                        ThemeNotepad.BACKGROUND_PADDING_BOTTOM,
                         mBackgroundPadding
                 );
 
-                if (debug) {
+                if (DEBUG) {
                     Log.d(
                             TAG, "Padding: " + mBackgroundPadding + "; "
                                     + backgroundPaddingLeft + "; "
@@ -2172,7 +2172,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 try {
                     Resources remoteRes = pm
                             .getResourcesForApplication(packageName);
-                    int resid = ta.getResourceId(ThemeNotepad.background, 0);
+                    int resid = ta.getResourceId(ThemeNotepad.BACKGROUND, 0);
                     if (resid != 0) {
                         Drawable d = remoteRes.getDrawable(resid);
                         mText.setBackgroundDrawable(d);
@@ -2202,10 +2202,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 }
             }
 
-            mLinesMode = ta.getInteger(ThemeNotepad.lineMode, 2);
-            mLinesColor = ta.getColor(ThemeNotepad.lineColor, 0xFF000080);
+            mLinesMode = ta.getInteger(ThemeNotepad.LINE_MODE, 2);
+            mLinesColor = ta.getColor(ThemeNotepad.LINE_COLOR, 0xFF000080);
 
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "line color: " + mLinesColor);
             }
 
@@ -2225,7 +2225,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     }
 
     private float getTextSizeTiny(ThemeAttributes ta) {
-        float size = ta.getDimensionPixelOffset(ThemeNotepad.textSizeTiny, -1);
+        float size = ta.getDimensionPixelOffset(ThemeNotepad.TEXT_SIZE_TINY, -1);
         if (size == -1) {
             // Try to obtain from small:
             size = (12f / 18f) * getTextSizeSmall(ta);
@@ -2234,7 +2234,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     }
 
     private float getTextSizeSmall(ThemeAttributes ta) {
-        float size = ta.getDimensionPixelOffset(ThemeNotepad.textSizeSmall, -1);
+        float size = ta.getDimensionPixelOffset(ThemeNotepad.TEXT_SIZE_SMALL, -1);
         if (size == -1) {
             // Try to obtain from small:
             size = (18f / 23f) * getTextSizeMedium(ta);
@@ -2245,14 +2245,14 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private float getTextSizeMedium(ThemeAttributes ta) {
         final float scale = getResources().getDisplayMetrics().scaledDensity;
         float size = ta.getDimensionPixelOffset(
-                ThemeNotepad.textSizeMedium,
+                ThemeNotepad.TEXT_SIZE_MEDIUM,
                 (int) (23 * scale + 0.5f)
         );
         return size;
     }
 
     private float getTextSizeLarge(ThemeAttributes ta) {
-        float size = ta.getDimensionPixelOffset(ThemeNotepad.textSizeLarge, -1);
+        float size = ta.getDimensionPixelOffset(ThemeNotepad.TEXT_SIZE_LARGE, -1);
         if (size == -1) {
             // Try to obtain from small:
             size = (28f / 23f) * getTextSizeMedium(ta);
@@ -2372,7 +2372,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (debug) {
+        if (DEBUG) {
             Log.d(
                     TAG, "onActivityResult: Received requestCode " + requestCode
                             + ", resultCode " + resultCode
@@ -2398,7 +2398,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                         return;
                     }
 
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(TAG, "decrypted text received: " + decryptedText);
                     }
                     mDecryptedText = decryptedText;
@@ -2431,7 +2431,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 if (resultCode == RESULT_OK && data != null) {
                     // Set the new file name
                     mUri = data.getData();
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(
                                 TAG, "original: " + mOriginalContent + ", file: "
                                         + mFileContent
