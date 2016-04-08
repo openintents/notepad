@@ -91,14 +91,13 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
     }
 
     public static int getFontSizeFromPrefs(Context context) {
-        int size = Integer.parseInt(
+        return Integer.parseInt(
                 PreferenceManager
                         .getDefaultSharedPreferences(context).getString(
                         PREFS_FONTSIZE,
                         PREFS_FONTSIZE_DEFAULT
                 )
         );
-        return size;
     }
 
     public static boolean getCharCountEnabledFromPrefs(Context context) {

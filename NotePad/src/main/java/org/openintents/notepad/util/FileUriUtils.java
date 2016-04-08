@@ -93,8 +93,7 @@ public class FileUriUtils {
         if (curdir.endsWith("/")) {
             separator = "";
         }
-        File clickedFile = new File(curdir + separator + file);
-        return clickedFile;
+        return new File(curdir + separator + file);
     }
 
     public static File getFile(File curdir, String file) {

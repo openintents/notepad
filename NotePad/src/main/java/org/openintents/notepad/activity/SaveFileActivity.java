@@ -210,12 +210,11 @@ public class SaveFileActivity extends Activity {
         filename = filename.replace(":", "");
         filename = filename.replace("?", "");
         filename = filename.replace("*", "");
-        Uri fileUri = FileUriUtils.getUri(
+        return FileUriUtils.getUri(
                 FileUriUtils
                         .getFile(sdcard, filename)
         );
 
-        return fileUri;
 
     }
 

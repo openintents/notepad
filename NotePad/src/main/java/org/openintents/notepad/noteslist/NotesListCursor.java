@@ -344,9 +344,7 @@ public class NotesListCursor extends OpenMatrixCursor {
 
     public static String getNextEncryptedString() {
         if (!NotesListCursor.mEncryptedStringList.isEmpty()) {
-            String encryptedString = NotesListCursor.mEncryptedStringList
-                    .remove(0);
-            return encryptedString;
+            return NotesListCursor.mEncryptedStringList.remove(0);
         } else {
             return null;
         }

@@ -1192,7 +1192,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                         }
 
                         String title;
-                        if (PreferenceActivity.getMarqueeFromPrefs(this) == false) {
+                        if (!PreferenceActivity.getMarqueeFromPrefs(this)) {
                             title = ExtractTitle.extractTitle(text);
                         } else {
                             title = text;
@@ -1261,7 +1261,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private void encryptNote(boolean encryptTags) {
         String text = mText.getText().toString();
         String title;
-        if (PreferenceActivity.getMarqueeFromPrefs(this) == false) {
+        if (!PreferenceActivity.getMarqueeFromPrefs(this)) {
             title = ExtractTitle.extractTitle(text);
         } else {
             title = text;
@@ -1376,8 +1376,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 encrypted = 0;
             }
         }
-        boolean isNoteUnencrypted = (encrypted == 0);
-        return isNoteUnencrypted;
+        return encrypted == 0;
     }
 
     private String getTags() {
@@ -1785,7 +1784,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 // Bump the modification time to now.
                 values.put(Notes.MODIFIED_DATE, System.currentTimeMillis());
                 String title;
-                if (PreferenceActivity.getMarqueeFromPrefs(this) == false) {
+                if (!PreferenceActivity.getMarqueeFromPrefs(this)) {
                     title = ExtractTitle.extractTitle(newNote);
                 } else {
                     title = newNote;
@@ -2244,11 +2243,10 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
     private float getTextSizeMedium(ThemeAttributes ta) {
         final float scale = getResources().getDisplayMetrics().scaledDensity;
-        float size = ta.getDimensionPixelOffset(
+        return ta.getDimensionPixelOffset(
                 ThemeNotepad.TEXT_SIZE_MEDIUM,
                 (int) (23 * scale + 0.5f)
         );
-        return size;
     }
 
     private float getTextSizeLarge(ThemeAttributes ta) {

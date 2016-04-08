@@ -289,7 +289,7 @@ public class OneCloudData implements Parcelable {
             return null;
         }
 
-        InputStream inputStream = new InputStream() {
+        return new InputStream() {
 
             @Override
             public int available() {
@@ -385,7 +385,7 @@ public class OneCloudData implements Parcelable {
             return null;
         }
 
-        OutputStream outputStream = new OutputStream() {
+        return new OutputStream() {
 
             @Override
             public void close() throws IOException {
@@ -432,7 +432,6 @@ public class OneCloudData implements Parcelable {
                 }
             }
         };
-        return outputStream;
     }
 
     /**
