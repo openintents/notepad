@@ -85,14 +85,12 @@ public class ThemeUtils {
         List<ApplicationInfo> allapps = pm
                 .getInstalledApplications(PackageManager.GET_META_DATA);
         for (ApplicationInfo ai : allapps) {
-            if (ai.metaData != null) {
-                if (ai.metaData.containsKey(METADATA_THEMES)) {
-                    if (ai.packageName.equals(firstPackage)) {
-                        // Add this package at the beginning of the list
-                        appinfolist.add(0, ai);
-                    } else {
-                        appinfolist.add(ai);
-                    }
+            if (ai.metaData != null && ai.metaData.containsKey(METADATA_THEMES)) {
+                if (ai.packageName.equals(firstPackage)) {
+                    // Add this package at the beginning of the list
+                    appinfolist.add(0, ai);
+                } else {
+                    appinfolist.add(ai);
                 }
             }
         }
@@ -119,28 +117,26 @@ public class ThemeUtils {
                     } else if (xml.getName().equals(ELEM_ATTRIBUTESET)) {
                         String name = attr.getAttributeValue(SCHEMA, ATTR_NAME);
                         useThisAttributeSet = name.equals(attributeset);
-                    } else if (xml.getName().equals(ELEM_THEME)) {
-                        if (useThisAttributeSet) {
-                            ThemeInfo ti = new ThemeInfo();
+                    } else if (xml.getName().equals(ELEM_THEME) && useThisAttributeSet) {
+                        ThemeInfo ti = new ThemeInfo();
 
-                            ti.packageName = appinfo.packageName;
-                            int titleResId = attr.getAttributeResourceValue(
-                                    SCHEMA, ATTR_TITLE, 0
-                            );
-                            int styleResId = attr.getAttributeResourceValue(
-                                    SCHEMA, ATTR_STYLE, 0
-                            );
+                        ti.packageName = appinfo.packageName;
+                        int titleResId = attr.getAttributeResourceValue(
+                                SCHEMA, ATTR_TITLE, 0
+                        );
+                        int styleResId = attr.getAttributeResourceValue(
+                                SCHEMA, ATTR_STYLE, 0
+                        );
 
-                            try {
-                                Resources res = pm
-                                        .getResourcesForApplication(appinfo);
-                                ti.title = res.getString(titleResId);
-                                ti.styleName = res.getResourceName(styleResId);
-                            } catch (NameNotFoundException e) {
-                                ti.title = "";
-                            }
-                            themeinfolist.add(ti);
+                        try {
+                            Resources res = pm
+                                    .getResourcesForApplication(appinfo);
+                            ti.title = res.getString(titleResId);
+                            ti.styleName = res.getResourceName(styleResId);
+                        } catch (NameNotFoundException e) {
+                            ti.title = "";
                         }
+                        themeinfolist.add(ti);
                     }
                 } else if (XmlPullParser.END_TAG == tagType) {
 

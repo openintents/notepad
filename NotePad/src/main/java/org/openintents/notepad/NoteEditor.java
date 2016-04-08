@@ -1246,10 +1246,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     // mText.setText(R.string.encrypted);
                 }
             }
-        } else if (mOneCloudData != null) {
-            if (mState == STATE_INSERT) {
-                mOriginalContent = mText.getText().toString();
-            }
+        } else if (mOneCloudData != null && mState == STATE_INSERT) {
+            mOriginalContent = mText.getText().toString();
         }
     }
 
