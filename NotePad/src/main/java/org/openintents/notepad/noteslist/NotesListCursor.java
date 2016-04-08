@@ -39,7 +39,7 @@ public class NotesListCursor extends OpenMatrixCursor {
     /**
      * This cursors' columns
      */
-    public static final String[] PROJECTION = new String[]{Notes._ID, // 0
+    protected static final String[] PROJECTION = new String[]{Notes._ID, // 0
             Notes.TITLE, // 1
             Notes.TAGS, // 2
             Notes.ENCRYPTED, // 3
@@ -81,14 +81,14 @@ public class NotesListCursor extends OpenMatrixCursor {
     /**
      * Map encrypted titles to decrypted ones.
      */
-    public static HashMap<String, String> mEncryptedStringHashMap = new HashMap<String, String>();
+    protected static HashMap<String, String> mEncryptedStringHashMap = new HashMap<String, String>();
 
     /**
      * List containing all encrypted strings. These are decrypted one at a time
      * while idle. The list is synchronized because background threads may add
      * items to it.
      */
-    public static List<String> mEncryptedStringList = Collections
+    protected static List<String> mEncryptedStringList = Collections
             .synchronizedList(new LinkedList<String>());
 
     public boolean mContainsEncryptedStrings;
