@@ -9,6 +9,8 @@ import android.text.TextUtils;
 
 public class ProviderUtils {
 
+    private ProviderUtils(){}
+
     /**
      * Returns the row IDs of all affected rows.
      *

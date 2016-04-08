@@ -10,6 +10,8 @@ package org.openintents.intents;
  */
 public final class ProviderIntents {
 
+    private ProviderIntents() {}
+
     /**
      * Broadcast Action: Sent after a new entry has been inserted.
      * <p/>

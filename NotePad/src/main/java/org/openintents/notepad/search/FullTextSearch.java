@@ -12,6 +12,8 @@ import org.openintents.notepad.PreferenceActivity;
 
 public class FullTextSearch {
 
+    private FullTextSearch() {}
+
     /**
      * The columns we'll include in our search suggestions. There are others
      * that could be used to further customize the suggestions, see the docs in

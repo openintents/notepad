@@ -2,6 +2,8 @@ package org.openintents.notepad.theme;
 
 public class ThemeNotepad {
 
+    private ThemeNotepad() {}
+
     // For Notepad theme
     // (move to separate class eventually)
 
