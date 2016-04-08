@@ -29,7 +29,7 @@ import org.openintents.util.IntentUtils;
 public class EncryptActivity extends Activity {
 
     private static final String TAG = "EncryptActivity";
-    private static final boolean debug = false;
+    private static final boolean DEBUG = false;
 
     public static final int DIALOG_ID_GET_FROM_MARKET = 1;
 
@@ -47,7 +47,7 @@ public class EncryptActivity extends Activity {
 
     public static void confirmEncryptActivityCalled() {
         sPendingEncryptActivities++;
-        if (debug) {
+        if (DEBUG) {
             Log.d(
                     TAG, "sPendingEncryptActivities() -> "
                             + sPendingEncryptActivities
@@ -56,7 +56,7 @@ public class EncryptActivity extends Activity {
     }
 
     public static int getPendingEncryptActivities() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(
                     TAG, "getPendingEncryptActivities(): "
                             + sPendingEncryptActivities
@@ -66,7 +66,7 @@ public class EncryptActivity extends Activity {
     }
 
     public static void cancelEncrypt() {
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "cancelEncrypt");
         }
         sCancelEncrypt = true;
@@ -77,14 +77,14 @@ public class EncryptActivity extends Activity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "EncryptActivity: onCreate");
         }
 
         if (sPendingEncryptActivities > 0) {
             sPendingEncryptActivities--;
         }
-        if (debug) {
+        if (DEBUG) {
             Log.d(
                     TAG, "sPendingEncryptActivities -> "
                             + sPendingEncryptActivities
@@ -92,7 +92,7 @@ public class EncryptActivity extends Activity {
         }
 
         if (sCancelEncrypt) {
-            if (debug) {
+            if (DEBUG) {
                 Log.d(TAG, "encryption cancelled");
             }
             sCancelEncrypt = false;
@@ -101,7 +101,7 @@ public class EncryptActivity extends Activity {
             return;
         }
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "delete static decrypted text");
         }
         NoteEditor.deleteStaticDecryptedText();
@@ -139,7 +139,7 @@ public class EncryptActivity extends Activity {
 
         if (IntentUtils.isIntentAvailable(this, i)) {
             try {
-                if (debug) {
+                if (DEBUG) {
                     Log.d(TAG, "EncryptActivity: startActivity");
                 }
                 startActivityForResult(i, REQUEST_CODE_ENCRYPT_OR_UNENCRYPT);
@@ -155,7 +155,7 @@ public class EncryptActivity extends Activity {
             showDialog(DIALOG_ID_GET_FROM_MARKET);
         }
 
-        if (debug) {
+        if (DEBUG) {
             Log.d(TAG, "EncryptActivity: startActivity OK");
         }
     }
@@ -174,7 +174,7 @@ public class EncryptActivity extends Activity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (debug) {
+        if (DEBUG) {
             Log.d(
                     TAG, "EncryptActivity: Received requestCode " + requestCode
                             + ", resultCode " + resultCode
@@ -207,7 +207,7 @@ public class EncryptActivity extends Activity {
                         return;
                     }
 
-                    if (debug) {
+                    if (DEBUG) {
                         Log.d(
                                 TAG, "Updating" + uri + ", encrypted text " + text
                                         + ", tags " + tags
