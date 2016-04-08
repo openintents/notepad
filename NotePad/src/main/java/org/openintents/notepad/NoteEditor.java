@@ -680,7 +680,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     }
 
     private String readFile(InputStream inputStream) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         try {
             Reader in = new InputStreamReader(inputStream, "UTF-8");
@@ -1748,8 +1748,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         int newStartPos = startPos;
         int newEndPos;
         ContentValues values = new ContentValues();
+
         String newNote;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         if (textBefore != null) {
             sb.append(textBefore);
             newStartPos = textBefore.length();
