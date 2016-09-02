@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "org.openintents.notepad"
         minSdkVersion 9
-        targetSdkVersion 22
+        targetSdkVersion 24
         versionCode 10084
         versionName "1.5.4"
     }
@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    ext.supportLibsVersion = '22.2.1'
+    ext.supportLibsVersion = '24.2.0'
 
     compile files('libs/OINotepadMyBackupPro.jar')
     compile 'org.openintents:distribution-lib:1.0.2'
