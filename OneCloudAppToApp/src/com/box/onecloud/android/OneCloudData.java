@@ -372,7 +372,6 @@ public class OneCloudData implements Parcelable {
                 }
             }
         };
-        return inputStream;
     }
 
     /**
