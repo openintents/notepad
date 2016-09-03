@@ -36,7 +36,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
@@ -48,10 +47,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.Spannable;
@@ -75,19 +72,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.box.onecloud.android.OneCloudData;
-import com.box.onecloud.android.OneCloudData.UploadListener;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.Arrays;
-import java.util.List;
-
 import org.openintents.intents.CryptoIntents;
 import org.openintents.intents.NotepadIntents;
 import org.openintents.notepad.NotePad.Notes;
@@ -108,6 +92,16 @@ import org.openintents.notepad.util.SendNote;
 import org.openintents.notepad.wrappers.WrapActionBar;
 import org.openintents.util.MenuIntentOptionsWithIcons;
 import org.openintents.util.UpperCaseTransformationMethod;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A generic activity for editing a note in a database. This can be used either
@@ -155,7 +149,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private static final String BUNDLE_APPLY_TEXT = "apply_text";
     private static final String BUNDLE_APPLY_TEXT_BEFORE = "apply_text_before";
     private static final String BUNDLE_APPLY_TEXT_AFTER = "apply_text_after";
-    private static final String BUNDLE_ONE_CLOUD_DATA = "one_cloud_data";
 
     // Identifiers for our menu items.
     private static final int MENU_REVERT = Menu.FIRST;
@@ -176,19 +169,19 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private static final int REQUEST_CODE_DECRYPT = 2;
     private static final int REQUEST_CODE_TEXT_SELECTION_ALTERNATIVE = 3;
     private static final int REQUEST_CODE_SAVE_AS = 4;
+    private static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 5;
+    private static final int REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE = 6;
+
 
     // The different distinct states the activity can be run in.
     private static final int STATE_EDIT = 0;
     private static final int STATE_INSERT = 1;
     private static final int STATE_EDIT_NOTE_FROM_SDCARD = 2;
     private static final int STATE_EDIT_EXTERNAL_NOTE = 3;
-    private static final int STATE_EDIT_NOTE_FROM_ONE_CLOUD = 4;
 
     private static final int DIALOG_UNSAVED_CHANGES = 1;
     private static final int DIALOG_THEME = 2;
     private static final int DIALOG_DELETE = 3;
-
-    private static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
 
     private static final int GROUP_ID_TEXT_SELECTION_ALTERNATIVE = 1234; // some
     // number
@@ -260,7 +253,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private boolean hasThemeColumn = true;
     private boolean hasSelection_startColumn = true;
     private boolean hasSelection_endColumn = true;
-    private OneCloudData mOneCloudData;
     // TODO use this flag to make the note read-only
     private boolean mReadOnly;
     private TextWatcher mTextWatcherSdCard = new TextWatcher() {
@@ -300,38 +292,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         public void onReceive(Context context, Intent intent) {
             intent.getStringExtra(DialogHostingActivity.EXTRA_FILENAME);
             updateTitleSdCard();
-        }
-    };
-    private UploadListener mUploadListener = new UploadListener() {
-
-        @Override
-        public void onProgress(long bytesTransferred, long totalBytes) {
-            // TODO Auto-generated method stub
-
-        }
-
-        @Override
-        public void onError() {
-            // TODO Auto-generated method stub
-
-        }
-
-        @Override
-        public void onComplete() {
-            runOnUiThread(
-                    new Runnable() {
-
-                        @Override
-                        public void run() {
-                            updateTitleSdCard();
-                            Toast.makeText(
-                                    NoteEditor.this, R.string.note_saved,
-                                    Toast.LENGTH_SHORT
-                            ).show();
-                        }
-                    }
-            );
-
         }
     };
 
@@ -405,8 +365,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             if (uriString != null) {
                 mUri = Uri.parse(uriString);
             }
-            mOneCloudData = savedInstanceState
-                    .getParcelable(BUNDLE_ONE_CLOUD_DATA);
+
             mSelectionStart = savedInstanceState.getInt(BUNDLE_SELECTION_START);
             mSelectionStop = savedInstanceState.getInt(BUNDLE_SELECTION_STOP);
             mFileContent = savedInstanceState.getString(BUNDLE_FILE_CONTENT);
@@ -425,8 +384,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             final Intent intent = getIntent();
             final String action = intent.getAction();
 
-            mOneCloudData = intent
-                    .getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD);
 
             if (Intent.ACTION_EDIT.equals(action)
                     || Intent.ACTION_VIEW.equals(action)) {
@@ -434,13 +391,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 mState = STATE_EDIT;
                 mUri = intent.getData();
 
-                if (mUri == null && mOneCloudData != null) {
-                    // Box OneCloud does not provide a uri
-
-                    mState = STATE_EDIT_NOTE_FROM_ONE_CLOUD;
-                    mFileContent = readFile(mOneCloudData.getInputStream());
-
-                } else if (mUri != null && mUri.getScheme().equals("file")) {
+                if (mUri != null && mUri.getScheme().equals("file")) {
                     mState = STATE_EDIT_NOTE_FROM_SDCARD;
                     // Load the file into a new note.
 
@@ -483,8 +434,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 // Requested to insert: set that state, and create a new entry
                 // in the container.
                 mState = STATE_INSERT;
-				/*
-				 * intent.setAction(Intent.ACTION_EDIT); intent.setData(mUri);
+                /*
+                 * intent.setAction(Intent.ACTION_EDIT); intent.setData(mUri);
 				 * setIntent(intent);
 				 */
 
@@ -498,18 +449,16 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                             values
                     );
                 } else {
-                    if (mOneCloudData == null) {
-                        mUri = getContentResolver().insert(
-                                intent.getData(),
-                                values
-                        );
-                    }
+                    mUri = getContentResolver().insert(
+                            intent.getData(),
+                            values
+                    );
                 }
 
                 // If we were unable to create a new note, then just finish
                 // this activity. A RESULT_CANCELED will be sent back to the
                 // original activity if they requested a result.
-                if (mUri == null && mOneCloudData == null) {
+                if (mUri == null) {
                     Log.e(
                             TAG, "Failed to insert new note into "
                                     + getIntent().getData()
@@ -552,16 +501,13 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         // The text view for our note, identified by its ID in the XML file.
         mText = (EditText) findViewById(R.id.note);
 
-        if (mState == STATE_EDIT_NOTE_FROM_SDCARD
-                || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
+        if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
             // We add a text watcher, so that the title can be updated
             // to indicate a small "*" if modified.
             mText.addTextChangedListener(mTextWatcherSdCard);
         }
 
-        if (mState != STATE_EDIT_NOTE_FROM_SDCARD
-                && mState != STATE_EDIT_NOTE_FROM_ONE_CLOUD
-                && (mState != STATE_INSERT || mOneCloudData == null)) {
+        if (mState != STATE_EDIT_NOTE_FROM_SDCARD) {
 
             // Check if we load a note from notepad or from some external module
             if (mState == STATE_EDIT_EXTERNAL_NOTE) {
@@ -728,21 +674,11 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         mEncrypted = 0;
 
         if (mState == STATE_EDIT
-                || (mState == STATE_INSERT && mOneCloudData == null)
+                || (mState == STATE_INSERT)
                 || mState == STATE_EDIT_EXTERNAL_NOTE) {
             getNoteFromContentProvider();
-        } else if (mState == STATE_EDIT_NOTE_FROM_SDCARD
-                || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
+        } else if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
             getNoteFromFile();
-        } else if (mState == STATE_INSERT && mOneCloudData != null) {
-            setTitle(getText(R.string.title_create));
-            mOriginalContent = "";
-
-            if (mFileContent != null && !mFileContent.equals(mText.getText().toString())) {
-                mText.setTextKeepState(mFileContent);
-                // keep state does not work, so we have to do it manually:
-                mText.setSelection(mSelectionStart, mSelectionStop);
-            }
         }
 
         if (mEncrypted == 0 || mDecryptedText != null) {
@@ -1073,12 +1009,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         if (mOriginalContent != null && !mOriginalContent.equals(mFileContent)) {
             modified = "* ";
         }
-        String filename;
-        if (mUri == null && mOneCloudData != null) {
-            filename = mOneCloudData.getFileName();
-        } else {
-            filename = FileUriUtils.getFilename(mUri);
-        }
+        String filename = FileUriUtils.getFilename(mUri);
         setTitle(modified + filename);
         // setTitle(getString(R.string.title_edit_file, modified + filename));
         // setFeatureDrawableResource(Window.FEATURE_RIGHT_ICON,
@@ -1137,7 +1068,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         if (mUri != null) {
             outState.putString(BUNDLE_URI, mUri.toString());
         }
-        outState.putParcelable(BUNDLE_ONE_CLOUD_DATA, mOneCloudData);
         outState.putInt(BUNDLE_SELECTION_START, mSelectionStart);
         outState.putInt(BUNDLE_SELECTION_STOP, mSelectionStop);
         outState.putString(BUNDLE_FILE_CONTENT, mFileContent);
@@ -1252,8 +1182,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     // mText.setText(R.string.encrypted);
                 }
             }
-        } else if (mOneCloudData != null && mState == STATE_INSERT) {
-            mOriginalContent = mText.getText().toString();
         }
     }
 
@@ -1452,7 +1380,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         menu.add(5, MENU_WORD_COUNT, 0, R.string.menu_word_count);
 
 		/*
-		 * if (mState == STATE_EDIT) {
+         * if (mState == STATE_EDIT) {
 		 *
 		 * menu.add(0, REVERT_ID, 0, R.string.menu_revert) .setShortcut('0',
 		 * 'r') .setIcon(android.R.drawable.ic_menu_revert);
@@ -1522,19 +1450,14 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         // Show comands on the URI only if the note is not encrypted
         menu.setGroupVisible(Menu.CATEGORY_ALTERNATIVE, isNoteUnencrypted);
 
-        if (mState == STATE_EDIT_NOTE_FROM_SDCARD
-                || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD || (mState == STATE_INSERT && mOneCloudData != null)) {
+        if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
             // Menus for editing from SD card
             menu.setGroupVisible(0, false);
             menu.setGroupVisible(1, false);
             menu.setGroupVisible(2, true);
 
-            if (mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD || (mState == STATE_INSERT && mOneCloudData != null)) {
-                // FIXME should be sensitive to contentchanged. However, with ICS (4.0.4) and action bar enable/disable does not work dynamically.
-                menu.findItem(MENU_SAVE).setEnabled(true);
-            } else {
-                menu.findItem(MENU_SAVE).setEnabled(contentChanged);
-            }
+            menu.findItem(MENU_SAVE).setEnabled(contentChanged);
+
         } else if (mState == STATE_EDIT_EXTERNAL_NOTE) {
             // Menus for external notes, e.g. from OI Shopping List.
             // In this case, don't show encryption/decryption.
@@ -1588,11 +1511,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 importNote();
                 break;
             case MENU_SAVE:
-                if (mState == STATE_INSERT && mOneCloudData != null && mOneCloudData.getFileName() == null) {
-                    saveAsNote();
-                } else {
-                    saveNote();
-                }
+                saveNoteWithPermissionCheck();
                 break;
             case MENU_SAVE_AS:
                 saveAsNote();
@@ -1774,8 +1693,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         }
         newNote = sb.toString();
 
-        if (mState == STATE_EDIT_NOTE_FROM_SDCARD
-                || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD) {
+        if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
             mFileContent = newNote;
             mSelectionStart = newStartPos;
             mSelectionStop = newEndPos;
@@ -1866,27 +1784,24 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
     }
 
+    private void saveNoteWithPermissionCheck() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            saveNote();
+        } else {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE);
+            }
+        }
+    }
+
     private void saveNote() {
         mFileContent = mText.getText().toString();
-
-        if (mOneCloudData != null) {
-            // write content
-            SaveFileActivity.writeToStream(
-                    this,
-                    mOneCloudData.getOutputStream(), mFileContent
-            );
-
-            // start upload
-            try {
-                mOneCloudData.uploadNewVersion(mUploadListener);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-
-        } else {
-            File file = FileUriUtils.getFile(mUri);
-            SaveFileActivity.writeToFile(this, file, mFileContent);
-        }
+        File file = FileUriUtils.getFile(mUri);
+        SaveFileActivity.writeToFile(this, file, mFileContent);
 
         mOriginalContent = mFileContent;
     }
@@ -1901,17 +1816,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         intent.setAction(NotepadInternalIntents.ACTION_SAVE_TO_SD_CARD);
         if (mUri != null) {
             intent.setData(mUri);
-        } else if (mOneCloudData != null) {
-            intent.setDataAndType(null, "text/plain");
-            intent.putExtra(NotepadIntents.EXTRA_ONE_CLOUD, mOneCloudData);
-            LocalBroadcastManager
-                    .getInstance(this)
-                    .registerReceiver(
-                            mUpdateReceiver,
-                            new IntentFilter(
-                                    SaveFileActivity.LOCAL_ACTION_UPDATE_TITLE
-                            )
-                    );
         }
         intent.putExtra(NotepadInternalIntents.EXTRA_TEXT, mFileContent);
 
@@ -2321,12 +2225,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int whichButton) {
-                                if (mState == STATE_INSERT
-                                        && mOneCloudData != null) {
-                                    saveAsNote();
-                                } else {
-                                    saveNote();
-                                }
+                                saveNoteWithPermissionCheck();
                                 finish();
                             }
                         }
@@ -2356,9 +2255,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mState == STATE_EDIT_NOTE_FROM_SDCARD
-                    || mState == STATE_EDIT_NOTE_FROM_ONE_CLOUD
-                    || (mState == STATE_INSERT && mOneCloudData != null)) {
+            if (mState == STATE_EDIT_NOTE_FROM_SDCARD) {
                 mFileContent = mText.getText().toString();
                 if (!mFileContent.equals(mOriginalContent)) {
                     // Show a dialog
@@ -2452,10 +2349,19 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mFileContent = readFile(FileUriUtils.getFile(mUri));
+                    mOriginalContent = mFileContent;
                 } else {
                     mFileContent = null;
                 }
                 getNoteFromFile();
+                return;
+            }
+
+            case REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    saveNote();
+                }
                 return;
             }
 

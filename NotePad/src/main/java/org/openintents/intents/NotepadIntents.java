@@ -53,13 +53,4 @@ public class NotepadIntents {
      * </p>
      */
     public static final String CATEGORY_TEXT_SELECTION_ALTERNATIVE = "org.openintents.category.TEXT_SELECTION_ALTERNATIVE";
-
-    /**
-     * The transaction object for communication with the box.net application
-     * <p/>
-     * <p>
-     * Constant Value: "one_cloud"
-     * </p>
-     */
-    public static final String EXTRA_ONE_CLOUD = "one_cloud";
 }
