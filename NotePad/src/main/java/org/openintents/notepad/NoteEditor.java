@@ -659,8 +659,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
     public String readFile(File file) {
 
-        FileInputStream fis = null;
-        String result = null;
+        FileInputStream fis;
+        String result;
 
         try {
             fis = new FileInputStream(file);
@@ -2325,7 +2325,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                                         && mOneCloudData != null) {
                                     saveAsNote();
                                 } else {
-                                    // Save
                                     saveNote();
                                 }
                                 finish();
@@ -2443,9 +2442,23 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     updateTitleSdCard();
                 }
                 break;
-            case REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE:
-                mFileContent = readFile(FileUriUtils.getFile(mUri));
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mFileContent = readFile(FileUriUtils.getFile(mUri));
+                } else {
+                    mFileContent = null;
+                }
                 getNoteFromFile();
+                return;
+            }
+
         }
     }
 

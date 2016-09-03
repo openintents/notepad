@@ -17,6 +17,7 @@
 package org.openintents.notepad.util;
 
 import android.net.Uri;
+import android.support.v4.content.FileProvider;
 
 import java.io.File;
 
@@ -60,7 +61,7 @@ public class FileUriUtils {
     /**
      * Convert String into Uri.
      *
-     * @param file
+     * @param filename
      * @return uri
      */
     public static Uri getUri(String filename) {
