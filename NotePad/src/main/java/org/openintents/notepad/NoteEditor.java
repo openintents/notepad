@@ -23,6 +23,7 @@
 
 package org.openintents.notepad;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -48,6 +49,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.Editable;
 import android.text.Layout;
@@ -184,6 +187,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     private static final int DIALOG_UNSAVED_CHANGES = 1;
     private static final int DIALOG_THEME = 2;
     private static final int DIALOG_DELETE = 3;
+
+    private static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
 
     private static final int GROUP_ID_TEXT_SELECTION_ALTERNATIVE = 1234; // some
     // number
@@ -418,10 +423,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         } else {
             // Do some setup based on the action being performed.
             final Intent intent = getIntent();
-
             final String action = intent.getAction();
 
-            mOneCloudData = (OneCloudData) intent
+            mOneCloudData = intent
                     .getParcelableExtra(NotepadIntents.EXTRA_ONE_CLOUD);
 
             if (Intent.ACTION_EDIT.equals(action)
@@ -440,15 +444,17 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     mState = STATE_EDIT_NOTE_FROM_SDCARD;
                     // Load the file into a new note.
 
-                    mFileContent = readFile(FileUriUtils.getFile(mUri));
-                    try {
-                        mFileContent = readFile(
-                                getContentResolver()
-                                        .openInputStream(mUri)
-                        );
-                    } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                        mFileContent = readFile(FileUriUtils.getFile(mUri));
+                    } else {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+                        } else {
+                            ActivityCompat.requestPermissions(this,
+                                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                    REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE);
+                            mFileContent = getString(R.string.request_permissions);
+                        }
                     }
                 } else if (mUri != null
                         && !mUri.getAuthority().equals(NotePad.AUTHORITY)) {
@@ -1254,7 +1260,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     /**
      * Encrypt the current note.
      *
-     * @param text
+     * @param encryptTags
      */
     private void encryptNote(boolean encryptTags) {
         String text = mText.getText().toString();
@@ -1324,8 +1330,6 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
 
     /**
      * Unencrypt the current note.
-     *
-     * @param text
      */
     private void unencryptNote() {
         String text = mText.getText().toString();
@@ -1425,7 +1429,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         menu.add(2, MENU_IMPORT, 0, R.string.menu_import).setShortcut('1', 'i')
                 .setIcon(android.R.drawable.ic_menu_add);
 
-        item = menu.add(2, MENU_SAVE, 0, R.string.menu_save).setShortcut('2', 's')
+        menu.add(2, MENU_SAVE, 0, R.string.menu_save).setShortcut('2', 's')
                 .setIcon(android.R.drawable.ic_menu_save);
 
         menu.add(2, MENU_SAVE_AS, 0, R.string.menu_save_as)
@@ -1995,7 +1999,7 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     /**
      * Set theme according to Id.
      *
-     * @param themeId
+     * @param themeName
      */
     void setTheme(String themeName) {
         int size = PreferenceActivity.getFontSizeFromPrefs(this);
@@ -2439,6 +2443,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
                     updateTitleSdCard();
                 }
                 break;
+            case REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE:
+                mFileContent = readFile(FileUriUtils.getFile(mUri));
+                getNoteFromFile();
         }
     }
 

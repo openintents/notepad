@@ -229,4 +229,5 @@
   <string name="confirm_delete">Are you sure you want to delete this note?</string>
 
   <string name="new_note">New note</string>
+  <string name="request_permissions">... requesting permissions ...</string>
 </resources>
