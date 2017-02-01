@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.view.MenuItem;
 
+@SuppressLint("NewApi")
 public class WrapActionBar {
     static {
         try {
