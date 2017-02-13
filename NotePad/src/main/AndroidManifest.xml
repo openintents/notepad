@@ -97,14 +97,11 @@
       android:exported="true"
       android:readPermission="org.openintents.notepad.READ_PERMISSION"
       android:writePermission="org.openintents.notepad.WRITE_PERMISSION" />
+    <!-- non-FOSS -->
     <provider
       android:name="org.openintents.notepad.backup.MyBackupPro"
       android:authorities="org.openintents.notepad.backup.MyBackupPro" />
-    <!-- Permissions not yet active! Activate permissions in one of the following releases.
-      (Give time to extensions to implement permissions.)
-      android:readPermission="org.openintents.notepad.READ_PERMISSION"
-  android:writePermission="org.openintents.notepad.WRITE_PERMISSION"
-     -->
+    <!-- non-FOSS-end -->
 
     <!-- This metadata entry causes .app.SearchQueryResults to be the default context -->
     <!-- whenever the user invokes search while in this Activity. -->
