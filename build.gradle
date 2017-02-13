@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'com.novoda:gradle-android-command-plugin:1.4.0'
     }
 }
@@ -12,7 +12,7 @@ allprojects {
     repositories {
         jcenter()
         maven {
-            url "https://github.com/openintents/public-mvn-repo/raw/master/releases"
+            url "https://jitpack.io"
         }
     }
 }

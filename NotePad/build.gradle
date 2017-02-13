@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "org.openintents.notepad"
@@ -50,7 +50,7 @@ dependencies {
     ext.supportLibsVersion = '25.0.0'
 
     compile files('libs/OINotepadMyBackupPro.jar')
-    compile 'org.openintents:distribution-lib:1.0.2'
+    compile 'org.openintents:distribution-lib:1.2.1'
     compile "com.android.support:support-v4:$supportLibsVersion"
     androidTestCompile files('libs/polidea_test_runner_1.2.jar')
     androidTestCompile files('libs/robotium-solo-3.1.jar')
