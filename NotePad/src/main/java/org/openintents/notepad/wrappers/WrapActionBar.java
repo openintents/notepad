@@ -3,6 +3,7 @@ package org.openintents.notepad.wrappers;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.view.MenuItem;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WrapActionBar {
     static {
@@ -11,12 +12,22 @@ public class WrapActionBar {
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+
+        try {
+            Class.forName("androidx.appcompat.app.ActionBar");
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     private ActionBar mInstance;
+    private androidx.appcompat.app.ActionBar mCompatInstance;
 
     public WrapActionBar(Activity a) {
-        mInstance = a.getActionBar();
+        if (a instanceof AppCompatActivity)
+            mCompatInstance = ((AppCompatActivity) a).getSupportActionBar();
+        else
+            mInstance = a.getActionBar();
     }
 
     /* calling here forces class initialization */
@@ -29,10 +40,16 @@ public class WrapActionBar {
     }
 
     public void setDisplayHomeAsUpEnabled(boolean b) {
-        mInstance.setDisplayHomeAsUpEnabled(b);
+        if (mCompatInstance != null)
+            mCompatInstance.setDisplayHomeAsUpEnabled(b);
+        else if (mInstance != null)
+            mInstance.setDisplayHomeAsUpEnabled(b);
     }
 
     public void setHomeButtonEnabled(boolean b) {
-        mInstance.setHomeButtonEnabled(b);
+        if (mCompatInstance != null)
+            mCompatInstance.setHomeButtonEnabled(b);
+        else if (mInstance != null)
+            mInstance.setHomeButtonEnabled(b);
     }
 }

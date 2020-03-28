@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -28,7 +29,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SaveFileActivity extends Activity {
+public class SaveFileActivity extends AppCompatActivity {
     private static final String TAG = "SaveFileActivity";
 
     private static final int REQUEST_CODE_SAVE = 1;

@@ -69,6 +69,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -109,7 +111,7 @@ import java.util.List;
  * {@link Intent#ACTION_EDIT}, or create a new note {@link Intent#ACTION_INSERT}
  * .
  */
-public class NoteEditor extends Activity implements ThemeDialogListener {
+public class NoteEditor extends AppCompatActivity implements ThemeDialogListener {
     private static final String TAG = "NoteEditor";
     private static final boolean DEBUG = false;
 
@@ -481,15 +483,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             }
         }
 
-        // setup actionbar
+        // begin actionbar setup
         if (mActionBarAvailable) {
             requestWindowFeature(Window.FEATURE_ACTION_BAR);
-            WrapActionBar bar = new WrapActionBar(this);
-            bar.setDisplayHomeAsUpEnabled(true);
-            // force to show the actionbar on version 14+
-            if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 14) {
-                bar.setHomeButtonEnabled(true);
-            }
         } else {
             requestWindowFeature(Window.FEATURE_RIGHT_ICON);
         }
@@ -497,6 +493,17 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         // Set the layout for this activity. You can find it in
         // res/layout/note_editor.xml
         setContentView(R.layout.note_editor);
+
+        // now that we have the layout, finish actionbar setup
+        if (mActionBarAvailable) {
+            setSupportActionBar((Toolbar) findViewById(R.id.oi_toolbar));
+            WrapActionBar bar = new WrapActionBar(this);
+            bar.setDisplayHomeAsUpEnabled(true);
+            // force to show the actionbar on version 14+
+            if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 14) {
+                bar.setHomeButtonEnabled(true);
+            }
+        }
 
         // The text view for our note, identified by its ID in the XML file.
         mText = (EditText) findViewById(R.id.note);

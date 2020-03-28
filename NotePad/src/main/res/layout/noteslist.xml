@@ -32,6 +32,8 @@
 
   </LinearLayout>
    -->
+  <include layout="@layout/oi_toolbar" />
+
   <Spinner
     android:id="@+id/tagselection"
     android:layout_width="fill_parent"

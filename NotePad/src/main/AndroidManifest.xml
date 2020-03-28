@@ -69,6 +69,7 @@
     android:allowBackup="true"
     android:icon="@drawable/ic_launcher_notepad"
     android:label="@string/app_name"
+    android:theme="@style/OINotepadTheme"
     tools:replace="android:label">
     <!-- aTrackDog metadata -->
     <meta-data
@@ -138,7 +139,6 @@
     <activity
       android:name="NoteEditor"
       android:label="@string/title_note"
-      android:theme="@android:style/Theme.Light"
       android:windowSoftInputMode="stateHidden">
       <!-- This filter says that we can view or edit the data of
            a single note -->

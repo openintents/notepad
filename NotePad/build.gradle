@@ -50,7 +50,7 @@ dependencies {
     def appcompat_version = '1.1.0'
 
     implementation files('libs/OINotepadMyBackupPro.jar')
-    implementation 'com.github.openintents:distribution:1.2.1'
+    implementation 'com.github.openintents:distribution:3.0.2'
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
     androidTestImplementation files('libs/polidea_test_runner_1.2.jar')
