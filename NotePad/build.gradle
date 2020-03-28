@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 28
     buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "org.openintents.notepad"
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion 14
+        targetSdkVersion 28
         versionCode 10084
         versionName "1.5.4"
     }
@@ -47,13 +47,14 @@ android {
 }
 
 dependencies {
-    ext.supportLibsVersion = '25.1.1'
+    def appcompat_version = '1.1.0'
 
-    compile files('libs/OINotepadMyBackupPro.jar')
-    compile 'com.github.openintents:distribution:1.2.1'
-    compile "com.android.support:support-v4:$supportLibsVersion"
-    androidTestCompile files('libs/polidea_test_runner_1.2.jar')
-    androidTestCompile files('libs/robotium-solo-3.1.jar')
+    implementation files('libs/OINotepadMyBackupPro.jar')
+    implementation 'com.github.openintents:distribution:1.2.1'
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
+    androidTestImplementation files('libs/polidea_test_runner_1.2.jar')
+    androidTestImplementation files('libs/robotium-solo-3.1.jar')
 }
 
 
