@@ -41,9 +41,11 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -63,6 +65,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewParent;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -88,6 +91,7 @@ import org.openintents.notepad.noteslist.NotesList;
 import org.openintents.notepad.theme.ThemeAttributes;
 import org.openintents.notepad.theme.ThemeNotepad;
 import org.openintents.notepad.theme.ThemeUtils;
+import org.openintents.notepad.util.ColorConverter;
 import org.openintents.notepad.util.ExtractTitle;
 import org.openintents.notepad.util.FileUriUtils;
 import org.openintents.notepad.util.SendNote;
@@ -2137,6 +2141,52 @@ public class NoteEditor extends AppCompatActivity implements ThemeDialogListener
         }
     }
 
+    /**
+     * Try to ensure enough contrast within {@link #mText} in case using Dark Theme/Dark Mode.
+     * Checks current background color, updates {@link #mTextColor}
+     * and {@link #mLinesColor} if necessary.
+     *<P>
+     * If mText has a background image, does nothing; assumes appropriate text colors
+     * to go with the image were set as part of its notepad theme.
+     */
+    private void checkStyleTextColorContrast() {
+        Drawable bg = mText.getBackground();
+        if (bg == null)
+        {
+            ViewParent p = mText.getParent();
+            while ((p != null) && (bg == null))
+            {
+                if (p instanceof View)  // ViewGroup, etc
+                    bg = ((View) p).getBackground();
+                p = p.getParent();
+            }
+        }
+        if (! (bg instanceof ColorDrawable))
+            return;
+
+        final double[] bgHSL = ColorConverter.rgbToHsl
+            (ColorConverter.colorToRgb(((ColorDrawable) bg).getColor()));
+        final double bgL = bgHSL[2];
+        final boolean bgIsDark = (bgL < 0.499);
+
+        int[] textRGB = ColorConverter.colorToRgb(mTextColor),
+            linesRGB = ColorConverter.colorToRgb(mLinesColor);
+        double[] textHSL = ColorConverter.rgbToHsl(textRGB),
+            linesHSL = ColorConverter.rgbToHsl(linesRGB);
+
+        if (ColorConverter.areWithinDistance(bgL, textHSL[2], ColorConverter.LIGHTNESS_THRESHOLD)) {
+            int[] rgb = ColorConverter.hslToRgb
+                (ColorConverter.hslChangeLightness(textHSL, bgIsDark));
+            mTextColor = Color.rgb(rgb[0], rgb[1], rgb[2]);
+        }
+
+        if (ColorConverter.areWithinDistance(bgL, linesHSL[2], ColorConverter.LIGHTNESS_THRESHOLD)) {
+            int[] rgb = ColorConverter.hslToRgb
+                (ColorConverter.hslChangeLightness(linesHSL, bgIsDark));
+            mLinesColor = Color.rgb(rgb[0], rgb[1], rgb[2]);
+        }
+    }
+
     private float getTextSizeTiny(ThemeAttributes ta) {
         float size = ta.getDimensionPixelOffset(ThemeNotepad.TEXT_SIZE_TINY, -1);
         if (size == -1) {
@@ -2173,6 +2223,8 @@ public class NoteEditor extends AppCompatActivity implements ThemeDialogListener
     }
 
     private void applyTheme() {
+        checkStyleTextColorContrast();
+
         mText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         mText.setTypeface(mCurrentTypeface);
         mText.setTextColor(mTextColor);

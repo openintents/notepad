@@ -5,82 +5,88 @@ https://github.com/colormine/colormine/blob/master/colormine/src/main/org/colorm
   by Joe Zack <me@joezack.com>
   Retrieved 2020-03-28; retrieved copy was last modified 2012-04-09 (74be660).
 
+Modified 2020-03-29 by Jeremy D Monin <jdmonin@nand.net> for use in OI Notepad:
+- For portability use double[] or int[], not Hsl class or AWT Color
+- Wrote hslChangeLightness, colorToRgb
+- Clarified javadocs
+- Cleaned up method names, compiler warnings, unused items, keeping only RGB and HSL colorspaces
+
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 */
 
 package org.openintents.notepad.util;
 
-import java.awt.Color;
 import java.util.Arrays;
 
 /**
- * Handles all of the math for converting between color spaces
+ * Conversions between color spaces.
+ * Also provides {@link #hslChangeLightness(double[], boolean)} and utility methods.
  */
-
 public class ColorConverter {
 
 	/**
-	 * Converts a java.awt.Color to Lab color space
-	 * 
-	 * @param color
-	 * @return color in Lab color space
+	 * In HSL space, the contrast/lightness threshold below which you may want to call
+	 * {@link #hslChangeLightness(double[], boolean)}.
+	 * @see #areWithinDistance(double, double, double)
 	 */
-	public static Lab colorToLab(Color color) {
-		Xyz xyz = colorToXyz(color);
-		return xyzToLab(xyz);
+	public static final double LIGHTNESS_THRESHOLD = 1.0 / 3;
+
+	/**
+	 * Change this HSL color's lightness by at least {@link #LIGHTNESS_THRESHOLD}
+	 * (a non-reversible mapping) to increase contrast.
+	 *
+	 * @param hsl  color in HSL color space, components in range 0..1
+	 * @param avoidDark  True if midrange lightness should be increased, false to decrease
+	 * @return  {@code hsl} with its lightness changed by at least {@link #LIGHTNESS_THRESHOLD}
+	 */
+	public static double[] hslChangeLightness(final double[] hsl, final boolean avoidDark) {
+		double L = hsl[2];
+		if ((L <= 1.0 / 3) || (L >= (2.0 / 3)))
+			L = 1.0 - L;
+		else if (avoidDark)
+			L += (1.0 / 3);  // (1/3 .. 2/3) -> (2/3 .. 1)
+		else
+			L -= (1.0 / 3);  // (1/3 .. 2/3) -> (0 .. 1/3)
+
+		hsl[2] = L;
+		return hsl;
 	}
 
 	/**
-	 * Converts a java.awt.Color to Xyz color space
-	 * 
-	 * @param color
-	 * @return color in Xyz color space
+	 * Converts an RGB color to HSL color space
+	 *
+	 * @param rgb color in RGB, components in range 0..255
+	 * @return color in HSL color space, components in range 0..1
 	 */
-	public static Xyz colorToXyz(Color color) {
-		double r = pivotRgb(color.getRed() / 255.0);
-		double g = pivotRgb(color.getGreen() / 255.0);
-		double b = pivotRgb(color.getBlue() / 255.0);
+	public static double[] rgbToHsl(final int[] rgb) {
 
-		// Observer. = 2°, Illuminant = D65
-		return new Xyz(r * 0.4124 + g * 0.3576 + b * 0.1805, r * 0.2126 + g * 0.7152 + b * 0.0722, r * 0.0193 + g * 0.1192 + b * 0.9505);
-	}
-
-	/**
-	 * Converts Xyz to Lab color space
-	 * 
-	 * @param xyz
-	 * @return color in Lab color space
-	 */
-	public static Lab xyzToLab(Xyz xyz) {
-		final double REF_X = 95.047; // Observer= 2°, Illuminant= D65
-		final double REF_Y = 100.000;
-		final double REF_Z = 108.883;
-
-		double x = pivotXyz(xyz.X / REF_X);
-		double y = pivotXyz(xyz.Y / REF_Y);
-		double z = pivotXyz(xyz.Z / REF_Z);
-
-		return new Lab(116 * y - 16, 500 * (x - y), 200 * (y - z));
-	}
-
-	/**
-	 * Converts a java.awt.Color to Hsl color space
-	 * 
-	 * @param color
-	 * @return color in Hsl color space
-	 */
-	public static Hsl colorToHsl(Color color) {
-
-		double R = (color.getRed() / 255.0);
-		double G = (color.getGreen() / 255.0);
-		double B = (color.getBlue() / 255.0);
+		final double R = rgb[0] / 255.0,
+			G = rgb[1] / 255.0,
+			B = rgb[2] / 255.0;
 
 		double var_Min = min(R, G, B); // Min. value of RGB
 		double var_Max = max(R, G, B); // Max. value of RGB
 		double delta_Max = var_Max - var_Min; // Delta RGB value
 
-		double l = 0.0;
+		double l;
 		double h = 0.0;
-		double s = 0.0;
+		double s;
 
 		l = (var_Max + var_Min) / 2;
 
@@ -94,11 +100,11 @@ public class ColorConverter {
 			double del_G = (((var_Max - G) / 6.0) + (delta_Max / 2.0)) / delta_Max;
 			double del_B = (((var_Max - B) / 6.0) + (delta_Max / 2.0)) / delta_Max;
 
-			if (areCloseEnough(R, var_Max)) {
+			if (areNearlySame(R, var_Max)) {
 				h = del_B - del_G;
-			} else if (areCloseEnough(G, var_Max)) {
+			} else if (areNearlySame(G, var_Max)) {
 				h = (1.0 / 3.0) + del_R - del_B;
-			} else if (areCloseEnough(B, var_Max)) {
+			} else if (areNearlySame(B, var_Max)) {
 				h = (2.0 / 3.0) + del_G - del_R;
 			}
 
@@ -111,76 +117,76 @@ public class ColorConverter {
 			}
 
 		}
-		return new Hsl(h, s, l);
+
+		return new double[]{h, s, l};
 	}
 
 	/**
-	 * Converts a Hsl color space to java.awt.Color
-	 * 
-	 * @param hsl
-	 * @return color as java.awt.Color
+	 * Converts a HSL color space to RGB
+	 *
+	 * @param hsl  color as HSL (components in range 0..1)
+	 * @return color as RGB (in range 0..255)
 	 */
+	public static int[] hslToRgb(double[] hsl) {
+		final double H = hsl[0], S = hsl[1], L = hsl[2];
+		double r, g, b;
 
-	public static Color hslToColor(Hsl hsl) {
-		double r = 0;
-		double g = 0;
-		double b = 0;
-		double var_1 = 0.0;
-		double var_2 = 0.0;
-
-		if (hsl.S == 0.0) {
-			r = hsl.L * 255;
-			g = hsl.L * 255;
-			b = hsl.L * 255;
+		if (S == 0.0) {
+			r = L * 255;
+			g = L * 255;
+			b = L * 255;
 		} else {
-			if (hsl.L < .5) {
-				var_2 = hsl.L * (1.0 + hsl.S);
+			double var_1, var_2;
+
+			if (L < .5) {
+				var_2 = L * (1.0 + S);
 			} else {
-				var_2 = (hsl.L + hsl.S) - (hsl.S * hsl.L);
+				var_2 = (L + S) - (S * L);
 			}
 
-			var_1 = 2.0 * hsl.L - var_2;
+			var_1 = 2.0 * L - var_2;
 
-			r = (255 * hueToRgb(var_1, var_2, hsl.H + (1.0 / 3.0)));
-			g = (255 * hueToRgb(var_1, var_2, hsl.H));
-			b = (255 * hueToRgb(var_1, var_2, hsl.H - (1.0 / 3.0)));
+			r = 255 * hueToRgb(var_1, var_2, H + (1.0 / 3.0));
+			g = 255 * hueToRgb(var_1, var_2, H);
+			b = 255 * hueToRgb(var_1, var_2, H - (1.0 / 3.0));
 
 		}
 
-		return new Color((int) r, (int) g, (int) b);
+		return new int[]{(int) r, (int) g, (int) b};
 	}
 
 	/**
-	 * Determines if colors are "close enough" given a tolerance
-	 * 
-	 * @param firstColor
-	 * @param secondColor
-	 * @param nearMatchTolerance
-	 * @return true if colors are "close enough"
+	 * Are these values near each other numerically?
+	 *
+	 * @param value1  Value to compare
+	 * @param value2  Value to compare
+	 * @param distance  Max allowable distance to be near each other
+	 * @return  True if {@code value1} and {@code value2} are near each other.
+	 * 	   That is, abs(value1 - value2) &lt;= {@code distance}.
 	 */
-
-	public static boolean isNearMatch(Color firstColor, Color secondColor, double nearMatchTolerance) {
-
-		int[] values = { firstColor.getRed(), firstColor.getGreen(), firstColor.getBlue() };
-		int[] values2 = { secondColor.getRed(), secondColor.getGreen(), secondColor.getBlue() };
-
-		return compareNearValue(values[0], values2[0], nearMatchTolerance) && compareNearValue(values[1], values2[1], nearMatchTolerance) && compareNearValue(values[2], values2[2], nearMatchTolerance);
+	public static boolean areWithinDistance(double value1, double value2, double distance) {
+		return value1 == value2 || Math.abs(value1 - value2) <= distance;
 	}
 
-	public static boolean isNearMatch(ColorTuple firstColor, ColorTuple secondColor, double nearMatchTolerance) {
-		Double[] values = firstColor.getTuple();
-		Double[] values2 = secondColor.getTuple();
-		return compareNearValue(values[0], values2[0], nearMatchTolerance) && compareNearValue(values[1], values2[1], nearMatchTolerance) && compareNearValue(values[2], values2[2], nearMatchTolerance);
+	private final static double DOUBLE_PRECISION = .000001;
+
+	private static boolean areNearlySame(double a, double b) {
+		return Math.abs(a - b) < DOUBLE_PRECISION;
 	}
 
-	private static boolean compareNearValue(double value, double otherValue, double nearMatchTorrerance) {
-		return value == otherValue || Math.abs(value - otherValue) <= nearMatchTorrerance;
-	}
+	/**
+	 * Decode an Android color int to an {r, g, b} array.
+	 * To encode again, call {@link android.graphics.Color#rgb(int, int, int)}.
+	 *
+	 * @param argbColor  Android color int, as described in {@link android.graphics.Color}
+	 * @return Array with r, g, b components in range 0..255
+	 */
+	public static int[] colorToRgb(int argbColor) {
+		final int r = (argbColor >> 16) & 0xff,
+		    g = (argbColor >> 8) & 0xff,
+		    b = argbColor & 0xff;
 
-	private final static double DoublePrecision = .000001;
-
-	private static boolean areCloseEnough(double a, double b) {
-		return Math.abs(a - b) < DoublePrecision;
+		return new int[]{r, g, b};
 	}
 
 	private static double hueToRgb(double v1, double v2, double vh) {
@@ -205,15 +211,6 @@ public class ColorConverter {
 		}
 
 		return (v1);
-	};
-
-	private static double pivotRgb(double n) {
-		return (n > 0.04045 ? Math.pow((n + 0.055) / 1.055, 2.4) : n / 12.92) * 100;
-	}
-
-	private static double pivotXyz(double n) {
-		double i = Math.cbrt(n);
-		return n > 0.008856 ? i : 7.787 * n + 16 / 116;
 	}
 
 	private static double max(double... numbers) {
@@ -227,3 +224,4 @@ public class ColorConverter {
 	}
 
 }
+
