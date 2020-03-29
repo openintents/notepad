@@ -1,4 +1,13 @@
-package org.colormine.colorspace;
+/*
+
+Originally from MIT-licensed
+https://github.com/colormine/colormine/blob/master/colormine/src/main/org/colormine/colorspace/ColorSpaceConverter.java
+  by Joe Zack <me@joezack.com>
+  Retrieved 2020-03-28; retrieved copy was last modified 2012-04-09 (74be660).
+
+*/
+
+package org.openintents.notepad.util;
 
 import java.awt.Color;
 import java.util.Arrays;
@@ -7,7 +16,7 @@ import java.util.Arrays;
  * Handles all of the math for converting between color spaces
  */
 
-public class ColorSpaceConverter {
+public class ColorConverter {
 
 	/**
 	 * Converts a java.awt.Color to Lab color space
