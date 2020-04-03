@@ -558,13 +558,8 @@ public class NotesList extends DistributionLibraryActivity implements
                 R.string.menu_insert
         );
         insertItem.setShortcut('1', 'i');
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Icon for holo theme
-            insertItem.setIcon(R.drawable.ic_menu_add_note);
-        } else {
-            insertItem.setIcon(android.R.drawable.ic_menu_add);
-        }
-        // Show the delete icon when there is an actionbar
+        insertItem.setIcon(R.drawable.ic_menu_add_note);
+        // Show the Add New icon when there is an actionbar
         if (mActionBarAvailable) {
             WrapActionBar.showIfRoom(insertItem);
         }
