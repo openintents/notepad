@@ -607,9 +607,47 @@ public class NotesList extends DistributionLibraryActivity implements
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
+        final boolean haveItems = mAdapter != null && mAdapter.getCount() > 0;
 
-        // Skip any item-specific actions: those go in context menu, not options menu
-        menu.removeGroup(Menu.CATEGORY_ALTERNATIVE);
+        // If there are any notes in the list (which implies that one of
+        // them is selected), then we need to generate the actions that
+        // can be performed on the current selection. This will be a combination
+        // of our own specific actions along with any extensions that can be
+        // found.
+        if (haveItems) {
+            // This is the selected item.
+            Uri uri = ContentUris.withAppendedId(
+                    getIntent().getData(),
+                    mListview.getSelectedItemId()
+            );
+
+            // Build menu... always starts with the EDIT action...
+            Intent[] specifics = new Intent[1];
+            specifics[0] = new Intent(Intent.ACTION_EDIT, uri);
+            MenuItem[] items = new MenuItem[1];
+
+            // ... is followed by whatever other actions are available...
+            Intent intent = new Intent(null, uri);
+            intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
+            // menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0, null,
+            // specifics, intent, 0, items);
+
+            // Workaround to add icons:
+            MenuIntentOptionsWithIcons menu2 = new MenuIntentOptionsWithIcons(
+                    this, menu
+            );
+            menu2.addIntentOptions(
+                    Menu.CATEGORY_ALTERNATIVE, 0, 0, null,
+                    specifics, intent, 0, items
+            );
+
+            // Give a shortcut to the edit action.
+            if (items[0] != null) {
+                items[0].setShortcut('1', 'e');
+            }
+        } else {
+            menu.removeGroup(Menu.CATEGORY_ALTERNATIVE);
+        }
 
         return true;
     }

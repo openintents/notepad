@@ -503,10 +503,7 @@ public class NoteEditor extends AppCompatActivity implements ThemeDialogListener
             setSupportActionBar((Toolbar) findViewById(R.id.oi_toolbar));
             WrapActionBar bar = new WrapActionBar(this);
             bar.setDisplayHomeAsUpEnabled(true);
-            // force to show the actionbar on version 14+
-            if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 14) {
-                bar.setHomeButtonEnabled(true);
-            }
+            bar.setHomeButtonEnabled(true);
         }
 
         // The text view for our note, identified by its ID in the XML file.
