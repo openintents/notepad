@@ -58,6 +58,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -70,7 +71,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
-import org.openintents.distribution.DistributionLibraryListActivity;
+import org.openintents.distribution.DistributionLibraryActivity;
 import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.CryptoIntents;
 import org.openintents.notepad.NoteEditor;
@@ -94,8 +95,11 @@ import org.openintents.util.MenuIntentOptionsWithIcons;
  * the intent if there is one, otherwise defaults to displaying the contents of
  * the {@link NotePadProvider}
  */
-public class NotesList extends DistributionLibraryListActivity implements
+public class NotesList extends DistributionLibraryActivity implements
         ListView.OnScrollListener, OnDismissListener {
+
+    // parent DistributionLibraryActivity is an AppCompatActivity in OI Distribution 3.0.1 and above
+
     public static final String PREFS_NAME = "NotesListPrefs";
     private static final String TAG = "NotesList";
     private static final boolean DEBUG = false;
@@ -143,6 +147,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     }
 
     private final int DECRYPT_DELAY = 100;
+    ListView mListview;
     NotesListCursor mCursorUtils;
     NotesListCursorAdapter mAdapter;
     String mLastFilter;
@@ -201,9 +206,17 @@ public class NotesList extends DistributionLibraryListActivity implements
 
         // Inform the list we provide context menus for items
         setContentView(R.layout.noteslist);
-        getListView().setOnCreateContextMenuListener(this);
-        getListView().setEmptyView(findViewById(R.id.empty));
-        getListView().setTextFilterEnabled(true);
+        setSupportActionBar((Toolbar) findViewById(R.id.oi_toolbar));
+        mListview = findViewById(android.R.id.list);
+        mListview.setOnCreateContextMenuListener(this);
+        mListview.setEmptyView(findViewById(R.id.empty));
+        mListview.setTextFilterEnabled(true);
+        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapterView, View myView, int pos, long id) {
+                onListItemClick((ListView) adapterView, myView, pos, id);
+            }
+
+        });
 
         if (mActionBarAvailable) {
             TextView notext = (TextView) findViewById(R.id.empty);
@@ -224,7 +237,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 		 * setListAdapter(mAdapter);
 		 */
 
-        getListView().setOnScrollListener(this);
+        mListview.setOnScrollListener(this);
 
         mLastFilter = null;
 
@@ -436,7 +449,7 @@ public class NotesList extends DistributionLibraryListActivity implements
 			 * new int[] { android.R.id.text1 });
 			 */
             mAdapter = new NotesListCursorAdapter(this, cursor, mCursorUtils);
-            setListAdapter(mAdapter);
+            mListview.setAdapter(mAdapter);
 
             if (mSelectedTag == null) {
                 Spinner s = (Spinner) findViewById(R.id.tagselection);
@@ -545,13 +558,8 @@ public class NotesList extends DistributionLibraryListActivity implements
                 R.string.menu_insert
         );
         insertItem.setShortcut('1', 'i');
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Icon for holo theme
-            insertItem.setIcon(R.drawable.ic_menu_add_note);
-        } else {
-            insertItem.setIcon(android.R.drawable.ic_menu_add);
-        }
-        // Show the delete icon when there is an actionbar
+        insertItem.setIcon(R.drawable.ic_menu_add_note);
+        // Show the Add New icon when there is an actionbar
         if (mActionBarAvailable) {
             WrapActionBar.showIfRoom(insertItem);
         }
@@ -599,7 +607,7 @@ public class NotesList extends DistributionLibraryListActivity implements
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        final boolean haveItems = getListAdapter() != null && getListAdapter().getCount() > 0;
+        final boolean haveItems = mAdapter != null && mAdapter.getCount() > 0;
 
         // If there are any notes in the list (which implies that one of
         // them is selected), then we need to generate the actions that
@@ -610,7 +618,7 @@ public class NotesList extends DistributionLibraryListActivity implements
             // This is the selected item.
             Uri uri = ContentUris.withAppendedId(
                     getIntent().getData(),
-                    getSelectedItemId()
+                    mListview.getSelectedItemId()
             );
 
             // Build menu... always starts with the EDIT action...
@@ -706,7 +714,7 @@ public class NotesList extends DistributionLibraryListActivity implements
             return;
         }
 
-        Cursor cursor = (Cursor) getListAdapter().getItem(info.position);
+        Cursor cursor = (Cursor) mAdapter.getItem(info.position);
         if (cursor == null) {
             // For some reason the requested item isn't available, do nothing
             return;
@@ -1103,7 +1111,6 @@ public class NotesList extends DistributionLibraryListActivity implements
         return list.toArray(new String[0]);
     }
 
-    @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
         // First see if note is encrypted

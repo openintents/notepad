@@ -23,7 +23,7 @@
 
   <declare-styleable name="Notepad">
     <!-- Resource ID of background image. -->
-    <attr name="background"
+    <attr name="backgroundDrawableID"
       format="integer" />
 
     <!-- Padding for background image.

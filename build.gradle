@@ -1,9 +1,10 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath 'com.novoda:gradle-android-command-plugin:1.4.0'
     }
 }
@@ -14,5 +15,6 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
+        google()
     }
 }

@@ -5,7 +5,7 @@
 
   <style name="Theme.Notepad"
     parent="Theme">
-    <item name="background">?android:background</item>
+    <item name="backgroundDrawableID">?android:background</item>
     <item name="backgroundPadding">5dip</item>
     <item name="lineMode">2</item>
     <item name="lineColor">#FF000080</item>

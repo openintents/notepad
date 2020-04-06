@@ -41,14 +41,14 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.Spannable;
@@ -65,12 +65,17 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewParent;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import org.openintents.intents.CryptoIntents;
 import org.openintents.intents.NotepadIntents;
@@ -86,6 +91,7 @@ import org.openintents.notepad.noteslist.NotesList;
 import org.openintents.notepad.theme.ThemeAttributes;
 import org.openintents.notepad.theme.ThemeNotepad;
 import org.openintents.notepad.theme.ThemeUtils;
+import org.openintents.notepad.util.ColorConverter;
 import org.openintents.notepad.util.ExtractTitle;
 import org.openintents.notepad.util.FileUriUtils;
 import org.openintents.notepad.util.SendNote;
@@ -109,7 +115,7 @@ import java.util.List;
  * {@link Intent#ACTION_EDIT}, or create a new note {@link Intent#ACTION_INSERT}
  * .
  */
-public class NoteEditor extends Activity implements ThemeDialogListener {
+public class NoteEditor extends AppCompatActivity implements ThemeDialogListener {
     private static final String TAG = "NoteEditor";
     private static final boolean DEBUG = false;
 
@@ -481,15 +487,9 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
             }
         }
 
-        // setup actionbar
+        // begin actionbar setup
         if (mActionBarAvailable) {
             requestWindowFeature(Window.FEATURE_ACTION_BAR);
-            WrapActionBar bar = new WrapActionBar(this);
-            bar.setDisplayHomeAsUpEnabled(true);
-            // force to show the actionbar on version 14+
-            if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 14) {
-                bar.setHomeButtonEnabled(true);
-            }
         } else {
             requestWindowFeature(Window.FEATURE_RIGHT_ICON);
         }
@@ -497,6 +497,14 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         // Set the layout for this activity. You can find it in
         // res/layout/note_editor.xml
         setContentView(R.layout.note_editor);
+
+        // now that we have the layout, finish actionbar setup
+        if (mActionBarAvailable) {
+            setSupportActionBar((Toolbar) findViewById(R.id.oi_toolbar));
+            WrapActionBar bar = new WrapActionBar(this);
+            bar.setDisplayHomeAsUpEnabled(true);
+            bar.setHomeButtonEnabled(true);
+        }
 
         // The text view for our note, identified by its ID in the XML file.
         mText = (EditText) findViewById(R.id.note);
@@ -2130,6 +2138,52 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
         }
     }
 
+    /**
+     * Try to ensure enough contrast within {@link #mText} in case using Dark Theme/Dark Mode.
+     * Checks current background color, updates {@link #mTextColor}
+     * and {@link #mLinesColor} if necessary.
+     *<P>
+     * If mText has a background image, does nothing; assumes appropriate text colors
+     * to go with the image were set as part of its notepad theme.
+     */
+    private void checkStyleTextColorContrast() {
+        Drawable bg = mText.getBackground();
+        if (bg == null)
+        {
+            ViewParent p = mText.getParent();
+            while ((p != null) && (bg == null))
+            {
+                if (p instanceof View)  // ViewGroup, etc
+                    bg = ((View) p).getBackground();
+                p = p.getParent();
+            }
+        }
+        if (! (bg instanceof ColorDrawable))
+            return;
+
+        final double[] bgHSL = ColorConverter.rgbToHsl
+            (ColorConverter.colorToRgb(((ColorDrawable) bg).getColor()));
+        final double bgL = bgHSL[2];
+        final boolean bgIsDark = (bgL < 0.499);
+
+        int[] textRGB = ColorConverter.colorToRgb(mTextColor),
+            linesRGB = ColorConverter.colorToRgb(mLinesColor);
+        double[] textHSL = ColorConverter.rgbToHsl(textRGB),
+            linesHSL = ColorConverter.rgbToHsl(linesRGB);
+
+        if (ColorConverter.areWithinDistance(bgL, textHSL[2], ColorConverter.LIGHTNESS_THRESHOLD)) {
+            int[] rgb = ColorConverter.hslToRgb
+                (ColorConverter.hslChangeLightness(textHSL, bgIsDark));
+            mTextColor = Color.rgb(rgb[0], rgb[1], rgb[2]);
+        }
+
+        if (ColorConverter.areWithinDistance(bgL, linesHSL[2], ColorConverter.LIGHTNESS_THRESHOLD)) {
+            int[] rgb = ColorConverter.hslToRgb
+                (ColorConverter.hslChangeLightness(linesHSL, bgIsDark));
+            mLinesColor = Color.rgb(rgb[0], rgb[1], rgb[2]);
+        }
+    }
+
     private float getTextSizeTiny(ThemeAttributes ta) {
         float size = ta.getDimensionPixelOffset(ThemeNotepad.TEXT_SIZE_TINY, -1);
         if (size == -1) {
@@ -2166,6 +2220,8 @@ public class NoteEditor extends Activity implements ThemeDialogListener {
     }
 
     private void applyTheme() {
+        checkStyleTextColorContrast();
+
         mText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         mText.setTypeface(mCurrentTypeface);
         mText.setTextColor(mTextColor);

@@ -9,6 +9,7 @@ public class ThemeNotepad {
 
     public static final String THEME_NOTEPAD = "org.openintents.notepad";
 
+    /** theme attribute backgroundDrawableID */
     public static final String BACKGROUND = "background";
     public static final String BACKGROUND_PADDING = "backgroundPadding";
     public static final String BACKGROUND_PADDING_LEFT = "backgroundPaddingLeft";
