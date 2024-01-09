@@ -40,6 +40,9 @@
   [10054] 1.1.1: 2009-05-16
   [10052] 1.1.0: 2009-02-02 -->
 
+  <queries>
+    <package android:name="org.openintents.shopping" />
+  </queries>
 
   <uses-feature
     android:name="android.hardware.touchscreen"
